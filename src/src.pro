@@ -3,10 +3,10 @@ QT       += core gui sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 win32 {
-  TARGET = ../$APP_NAME
+  TARGET = ../subtle-cosmic-moose
 }
 unix {
-  TARGET = $APP_NAME
+  TARGET = subtle-cosmic-moose
 }
 CONFIG -= testlib
 TEMPLATE = lib
