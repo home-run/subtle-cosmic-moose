@@ -177,7 +177,8 @@ private:
 ```
 
 ###Unit Tests
-TODO :(
+- All team members are responsible for writing unit tests for their own code.
+- **INSERT MINI-GUIDE HERE** ... todo
 
 ###General Style Guide
 - For this project we will be following, loosely, [Google's C++ Style Guide](https://google.github.io/styleguide/cppguide.html). Have a quick read through of some of the sections. This is where we will refer to if there are disagreements about style.
