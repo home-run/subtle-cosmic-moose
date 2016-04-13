@@ -1,35 +1,184 @@
-Qt Desktop Template with Testing
+[![Stories in Ready](https://badge.waffle.io/home-run/subtle-cosmic-moose.svg?label=ready&title=Ready)](http://waffle.io/home-run/subtle-cosmic-moose) 
+
+##~/run (HOME RUN)
+##An application for planning a baseball fan's dream vacation.
 --------
-[![Build Status](https://travis-ci.org/EDKarlsson/qt-app-with-testing-template.svg?branch=master)](https://travis-ci.org/EDKarlsson/qt-app-with-testing-template)
+###Git flow and branching scheme
+1. **Always** branch from ``develop``.
+2. Branch naming scheme is defined as such:
+    - ``<issue number>-brief-description``
+    - For example, [issue #1 is to create a README file](https://waffle.io/home-run/subtle-cosmic-moose/cards/56fa022814437c0e00ba6c1e), so my branch name is ``1-readme``.
+3. Include a '#' followed by the issue number in every commit.
+    - For example, commits to this branch will look like this: ``[#1] Added stuff to readme.``
+4. Never work on a branch without an associated issue. If you don't see the issue on waffle, create one.
+5. Always push a branch immediately after creating it. This is to correctly update issues on waffle, and also to let other teammates know what you're working on.
+6. Pull-requests must be reviewed by all members of the team before they are approved for merge.
+7. Delete the feature branch once a pull-request is merged.
+
+###A mini command-line git tutorial (for our purposes for this project)
+0. Clone the repo.
+    - ``git clone https://github.com/home-run/subtle-cosmic-moose.git``
+    - ``cd subtle-cosmic-moose``
+1. Switch to branch ``develop``.
+    - ``git checkout develop``
+2. Make sure to do a ``git pull`` before branching, so you always have up-to-date code.
+3. Create/switch to your branch. (This one command does both.) 
+    - ``git checkout -b 66-a-brief-description``
+4. Push the newly created branch.
+    - ``git push -u origin 66-a-brief-description``
+5. Start coding!
+6. Add your changes to the staging area to prepare for a commit.
+    - ``git add my_new_file.cpp`` for files that don't exist on the repo yet.
+    - ``git add -u`` for files that already exist on the repo that have been updated.
+    - You can use the command ``git status`` to view the staging area at any time.
+7. Make a commit. Make sure to include '#' followed by your issue number somewhere in the commit message.
+    - ``git commit -m "[66] Mashed keys until it compiled. Don't bother testing it. It's fine, I swear."``
+8. Push your changes.
+    - If you used the command in **step 4**, this is simply ``git push`` (The ``-u`` flag sets the upstream so you don't have to explicitly set it for every push).
+    - Otherwise, the command is ``git push origin 66-a-brief-description``
+9. Drink more coffee. :coffee:
+
+###A Brief Doxygen Style Guide
+**note:** *ALL code must be doxygen commented.* **If your code isn't commented, it will not be approved for merge.**
+
+**In QT, typing**
+``/** + return`` **above a declaration will produce a doxygen comment block.**
+
+Full commenting manual can be found [here](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html).
+
+#### Things to note about Doxygen comments
+* Comments can come before the code item.
+* For class members and parameters they may also come after them.
+* They may be either brief (one line) or detailed or both.
+* Put the reference documentation type comments (class and method descriptions) **in the .h file** and *not* in (or, at least, in addition to) the .cpp files. 
+
+#### Brief comment before
+Add an extra "/"
 
 
-A Qt Desktop Application template which allows for the developer to utilize the Qt testing features.
-
-# Instructions
-
-### Cloning the Repo
-
-When you `git clone` the repository, make sure to rename the repo it is going into that what ever name you want
-
-    git clone https://github.com/EDKarlsson/qt-app-with-testing-template/ ${name-of-my-app}
-
-In the `defaults.pri` change the Qt environment variable APP_NAME to the name of the application you are making.
-
-If it is failing on compile:
-> Make sure to go through all the `.pro` files to replace the name `qt-application-testing-template` (or anything similar) with the name that you used for `${name-of-my-app}`
-
-### TravisCI
-Within the TravisCI file, you can remove all the different versions of Qt you don't want TravisCI to compile for.
-
-For example to remove 51, remove:
-```yml
-- QT_BASE=51
-...
-- if [ "$QT_BASE" = "51" ]; then sudo add-apt-repository ppa:beineri/opt-qt511-trusty -y; fi
-...
-- if [ "$QT_BASE" = "51" ]; then sudo apt-get install -qq qt51base; source /opt/qt51/bin/qt51-env.sh; fi
+```
+/// This method does something
+void DoSomething();
 ```
 
-Free to use by anyone who would like to and please feel free to make pull requests to correct or add features to this.
 
-> Create by Dan Karlsson
+#### Detailed comment before
+Add an extra "*"
+
+
+```
+/** This is a method that does so
+  * much that I must write an epic 
+  * novel just to describe how much
+  * it truly does. */
+void DoNothing();
+```
+
+
+- the intermediate leading "*"s are optional.
+
+#### Brief comment after
+Add an extra "/<"
+
+
+```
+void DoSomething(); ///< This method does something
+```
+
+
+### Detailed comment after
+Add an extra "*<"
+
+
+```
+void DoNothing(); /**< This is a method that does so
+  * much that I must write an epic 
+  * novel just to describe how much
+  * it truly does. */
+```
+
+
+- the intermediate leading "*"s are optional.
+
+#### Example .h file
+Below is a full example.
+
+
+```
+/**
+ * \class ExampleClass
+ *
+ * \brief Provide an example
+ *
+ * This class is meant as an example.  It is not useful by itself
+ * rather its usefulness is only a function of how much it helps
+ * the reader.  It is in a sense defined by the person who reads it
+ * and otherwise does not exist in any real form. 
+ *
+ * \note Attempts at zen rarely work.
+ *
+ * \author (last to touch it) $Author: bv $
+ *
+ * \version $Revision: 1.5 $
+ *
+ * \date $Date: 2005/04/14 14:16:20 $
+ *
+ * Contact: bv@bnl.gov
+ *
+ * Created on: Wed Apr 13 18:39:37 2005
+ *
+ * $Id: doxygen-howto.html,v 1.5 2005/04/14 14:16:20 bv Exp $
+ *
+ */
+
+#ifndef EXAMPLECLASS_H
+#define EXAMPLECLASS_H
+
+class ExampleClass
+{
+
+public:
+
+    /// Create an ExampleClass
+    ExampleClass();
+
+    /// Create an ExampleClass with lot's of intial values
+    ExampleClass(int a, float b);
+
+    ~ExampleClass();
+
+    /// This method does something
+    void DoSomething();
+
+    /** This is a method that does so
+      * much that I must write an epic 
+      * novel just to describe how much
+      * it truly does. */
+    void DoNothing();
+
+    /** \brief A useful method.
+      * \param level an integer setting how useful to be
+      * \return Output that is extra useful
+      * 
+      * This method does unbelievably useful things.  
+      * And returns exceptionally useful results.
+      * Use it everyday with good health.
+      */
+    void* VeryUsefulMethod(bool level);
+
+private:
+
+    const char* fQuestion; ///< the question
+    int fAnswer;           ///< the answer 
+
+};                              // end of class ExampleClass
+
+#endif  // EXAMPLECLASS_H
+```
+
+###Unit Tests
+- All team members are responsible for writing unit tests for their own code.
+- Simply add the unit test to its appropriate section in test_main.cpp. Note: This currently isn't working properly. Still you should try to add unit tests as you code. 
+
+###General Style Guide
+- For this project we will be following, loosely, [Google's C++ Style Guide](https://google.github.io/styleguide/cppguide.html). Have a quick read through of some of the sections. This is where we will refer to if there are disagreements about style.
