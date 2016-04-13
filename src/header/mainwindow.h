@@ -5,6 +5,7 @@
 #include <QMap>
 #include <QString>
 #include "../header/stadiumdetails.h"
+#include "../header/homepage.h"
 #include <QDebug>
 
 namespace Ui {
@@ -26,6 +27,7 @@ private:
     Ui::MainWindow *ui;
     QMap<QString, int>	widgetMap;		// Will store the index of all the widgets-windows we use
     StadiumDetails* stadiumDetails_widget;
+    HomePage*	homePage_widget;
 
     // Private methods to MainWindow
 private:

@@ -7,18 +7,21 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     stadiumDetails_widget = new StadiumDetails();
 
+    homePage_widget = new HomePage();
+
     ui->setupUi(this);
     // Here we set a string as the key to the index value at which stadium Details is added
     //	to the widget map. This will allow us search for the index of the widget to be
     //	used when changing which widget the stackedWidget is displaying.
     widgetMap.insert("Stadium Details",  ui->mainwindow_stackedWidget->addWidget(stadiumDetails_widget) );
-
+    widgetMap.insert("Home Page", ui->mainwindow_stackedWidget->addWidget(homePage_widget));
 
 }
 
 MainWindow::~MainWindow()
 {
     delete stadiumDetails_widget;
+    delete homePage_widget;
     delete ui;
 }
 
@@ -29,12 +32,21 @@ MainWindow::~MainWindow()
  */
 void MainWindow::on_mainwindow_pushButton_next_clicked()
 {
-    int widgetIndex;
-    widgetIndex = getWidgetIndexFromMap("Stadium Details");
-    if(widgetIndex != -1)
+//    int widgetIndex;
+    int currentIndex;
+
+//    widgetIndex = getWidgetIndexFromMap("Stadium Details");
+    currentIndex = ui->mainwindow_stackedWidget->currentIndex();
+    qDebug() << "Current index is : " << currentIndex;
+
+    currentIndex++;
+
+    qDebug() << "New index is : " << currentIndex;
+    if(currentIndex >= ui->mainwindow_stackedWidget->count())
     {
-        ui->mainwindow_stackedWidget->setCurrentIndex(widgetIndex);
+        currentIndex = 0;
     }
+    ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
 }
 
 /**

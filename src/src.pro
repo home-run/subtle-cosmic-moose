@@ -12,10 +12,13 @@ CONFIG -= testlib
 TEMPLATE = lib
 
 SOURCES += source/mainwindow.cpp \
-    source/stadiumdetails.cpp
+    source/stadiumdetails.cpp \
+    source/homepage.cpp
 HEADERS  += header/mainwindow.h \
-    header/stadiumdetails.h
+    header/stadiumdetails.h \
+    header/homepage.h
 FORMS    += form/mainwindow.ui \
-    form/stadiumdetails.ui
+    form/stadiumdetails.ui \
+    form/homepage.ui
 
 QTPLUGIN += qsqlmysql
