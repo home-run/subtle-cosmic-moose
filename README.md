@@ -32,7 +32,7 @@
     - ``git add -u`` for files that already exist on the repo that have been updated.
     - You can use the command ``git status`` to view the staging area at any time.
 7. Make a commit. Make sure to include '#' followed by your issue number somewhere in the commit message.
-    - ``git commit -m "[66] Mashed keys until it compiled. Don't bother testing it. It's fine, I swear."``
+    - ``git commit -m "[#66] Mashed keys until it compiled. Don't bother testing it. It's fine, I swear."``
 8. Push your changes.
     - If you used the command in **step 4**, this is simply ``git push`` (The ``-u`` flag sets the upstream so you don't have to explicitly set it for every push).
     - Otherwise, the command is ``git push origin 66-a-brief-description``
