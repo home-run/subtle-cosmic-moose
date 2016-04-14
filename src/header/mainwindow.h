@@ -12,6 +12,16 @@ namespace Ui {
 class MainWindow;
 }
 
+enum pages
+{
+    PAGE_SPLASH,
+    PAGE_HOME,
+    PAGE_STADIUM_DETAILS,
+    PAGE_PLAN_TRIP,
+    PAGE_PURCHASE_WINDOW,
+    PAGE_EDIT_STADIUM_INFO
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -25,13 +35,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QMap<QString, int>	widgetMap;		// Will store the index of all the widgets-windows we use
     StadiumDetails* stadiumDetails_widget;
     HomePage*	homePage_widget;
-
-    // Private methods to MainWindow
-private:
-    int getWidgetIndexFromMap(QString widgetName);
 
 };
 

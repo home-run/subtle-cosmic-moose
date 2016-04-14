@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditStadiumInfo</class>
+ <widget class="QWidget" name="EditStadiumInfo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>817</width>
+    <height>516</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="editStadiumInfo_pushButton_addNewStadium">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>261</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add New Stadium</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="editStadiumInfo_pushButton_addNewSouvenir">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>20</y>
+     <width>221</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add New Souvenir</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="editStadiumInfo_tableView_stadiumInformation">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>491</width>
+     <height>391</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="editStadiumInfo_tableView_souvenirInfo">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>100</y>
+     <width>251</width>
+     <height>391</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

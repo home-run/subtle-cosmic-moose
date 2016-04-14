@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>872</width>
-    <height>572</height>
+    <width>556</width>
+    <height>463</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>40</y>
-     <width>751</width>
-     <height>491</height>
+     <x>60</x>
+     <y>160</y>
+     <width>441</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="font">
@@ -28,7 +28,7 @@
     </font>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>Home Page Screen</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
