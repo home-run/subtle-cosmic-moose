@@ -6,6 +6,9 @@
 #include <QString>
 #include "../header/stadiumdetails.h"
 #include "../header/homepage.h"
+#include "../header/editstadiuminfo.h"
+#include "../header/plantrip.h"
+#include "../header/purchasewindow.h"
 #include <QDebug>
 
 namespace Ui {
@@ -36,7 +39,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     StadiumDetails* stadiumDetails_widget;
-    HomePage*	homePage_widget;
+    HomePage*		homePage_widget;
+    PlanTrip*		planTrip_widget;
+    PurchaseWindow* purchaseWindow_widget;
+    EditStadiumInfo* editStadiumInfo_widget;
 
 };
 

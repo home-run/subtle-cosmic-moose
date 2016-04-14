@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>680</width>
-      <height>360</height>
+      <height>401</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -33,9 +33,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>380</y>
+      <y>410</y>
       <width>681</width>
-      <height>61</height>
+      <height>51</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
