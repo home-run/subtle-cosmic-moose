@@ -12,6 +12,7 @@ CONFIG -= testlib
 TEMPLATE = lib
 
 SOURCES += source/mainwindow.cpp \
+    source/database.cpp \
     source/stadiumdetails.cpp \
     source/homepage.cpp \
     source/plantrip.cpp \
@@ -25,7 +26,8 @@ HEADERS  += header/mainwindow.h \
     header/plantrip.h \
     header/purchasewindow.h \
     header/editstadiuminfo.h \
-    header/tripsummary.h
+    header/tripsummary.h \
+    header/database.h
 
 FORMS    += form/mainwindow.ui \
     form/stadiumdetails.ui \
@@ -35,4 +37,3 @@ FORMS    += form/mainwindow.ui \
     form/editstadiuminfo.ui \
     form/tripsummary.ui
 
-QTPLUGIN += qsqlmysql

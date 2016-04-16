@@ -9,3 +9,4 @@ Makefile
 src/Makefile
 test/Makefile
 app/Makefile
+*.db
