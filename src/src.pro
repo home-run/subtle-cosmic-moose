@@ -16,20 +16,23 @@ SOURCES += source/mainwindow.cpp \
     source/homepage.cpp \
     source/plantrip.cpp \
     source/purchasewindow.cpp \
-    source/editstadiuminfo.cpp
+    source/editstadiuminfo.cpp \
+    source/tripsummary.cpp
 
 HEADERS  += header/mainwindow.h \
     header/stadiumdetails.h \
     header/homepage.h \
     header/plantrip.h \
     header/purchasewindow.h \
-    header/editstadiuminfo.h
+    header/editstadiuminfo.h \
+    header/tripsummary.h
 
 FORMS    += form/mainwindow.ui \
     form/stadiumdetails.ui \
     form/homepage.ui \
     form/plantrip.ui \
     form/purchasewindow.ui \
-    form/editstadiuminfo.ui
+    form/editstadiuminfo.ui \
+    form/tripsummary.ui
 
 QTPLUGIN += qsqlmysql
