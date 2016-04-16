@@ -21,7 +21,7 @@ Database::Database(QString path, QString driver) : QSqlDatabase(addDatabase(driv
         qDebug() << this->lastError().text();
     }
 
-    //  We may or may not need this later on.
     //  This is for activating foreign key support.
-    //  query.exec("PRAGMA foreign_keys = ON;");
+    QSqlQuery query;
+    query.exec("PRAGMA foreign_keys = ON;");
 }
