@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TripSummary</class>
+ <widget class="QWidget" name="TripSummary">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>481</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="tripSummary_verticalLayout">
+    <item>
+     <widget class="QListWidget" name="tripSummary_listWidget_tripPath">
+      <item>
+       <property name="text">
+        <string>From Dallas -&gt; Destination Boston : Distance [1290]</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <spacer name="tripSummary_verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tripSummary_tableWidget_Purchases"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="tripSummary_pushButton_finishTripSummary">
+      <property name="text">
+       <string>Finish</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

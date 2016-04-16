@@ -10,7 +10,7 @@ CONFIG +=console
 CONFIG += app_bundle
 INCLUDEPATH += .
 
-LIBS += -L../src -l$APP_NAME
+LIBS += -L../src -lsubtle-cosmic-moose
 
 SOURCES += \
     test_main.cpp
