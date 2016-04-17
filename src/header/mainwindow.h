@@ -11,6 +11,7 @@
 #include "../header/plantrip.h"
 #include "../header/purchasewindow.h"
 #include "../header/tripsummary.h"
+#include "../header/database.h"
 #include <QDebug>
 
 namespace Ui {
@@ -58,6 +59,7 @@ private:
     EditStadiumInfo*  editStadiumInfo_widget;
     TripSummary*      tripSummary_widget;
     QStack<int>       pageStackCache;
+    Database*         db;
 
     void checkPage_hideShowBackNextButton();
     void leavingTripSummary();
