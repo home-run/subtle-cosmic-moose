@@ -90,6 +90,7 @@ void MainWindow::on_mainwindow_pushButton_planTrip_clicked()
     int currentIndex;
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
     pageStackCache.push(currentIndex);
+    this->planTrip_widget->propagateStadiumTable(db);
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_PLAN_TRIP);
     checkPage_hideShowBackNextButton();
 }
