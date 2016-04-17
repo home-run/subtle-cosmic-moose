@@ -54,6 +54,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
 {
     int currentIndex;
 
+    ui->mainwindow_pushButton_next->setText("Next");
     // set currentIndex to current stackedWidget index
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
 
@@ -139,6 +140,15 @@ void MainWindow::checkPage_hideShowBackNextButton()
     {
         ui->mainwindow_pushButton_back->setVisible(true);
         ui->mainwindow_pushButton_next->setVisible(true);
+    }
+
+    if(ui->mainwindow_stackedWidget->currentIndex() == PAGE_PLAN_TRIP)
+    {
+        ui->mainwindow_pushButton_next->setText("Plan Dream Vacation");
+    }
+    else
+    {
+        ui->mainwindow_pushButton_next->setText("Next");
     }
 }
 

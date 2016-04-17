@@ -43,7 +43,7 @@ void PlanTrip::propagateStadiumTable(Database *db)
     ui->planTrip_tableView_stadiums->hideColumn(7);
     ui->planTrip_tableView_stadiums->hideColumn(8);
     ui->planTrip_tableView_stadiums->hideColumn(9);
-
+    ui->planTrip_tableView_stadiums->resizeColumnsToContents();
     ui->planTrip_tableView_stadiums->show();
 
 }
