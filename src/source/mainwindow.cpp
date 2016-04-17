@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Instantiate database
-    db = new Database("../data/data.db", "QSQLITE");
+    db = new Database("data.db", "QSQLITE");
 
     // Allocate memory for all the different widget pages
     stadiumDetails_widget 	= new StadiumDetails();

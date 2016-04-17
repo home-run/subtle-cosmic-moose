@@ -5,6 +5,7 @@
 #include "../header/database.h"
 #include <QTableView>
 #include <QSqlTableModel>
+#include <QCheckBox>
 
 namespace Ui {
 class PlanTrip;
