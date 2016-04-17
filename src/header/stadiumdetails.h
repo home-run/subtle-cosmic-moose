@@ -14,6 +14,7 @@ class StadiumDetails : public QWidget
 
 public:
     explicit StadiumDetails(QWidget *parent = 0);
+    void initializeStadiumView();
     ~StadiumDetails();
 
 public slots:
