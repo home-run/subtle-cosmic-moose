@@ -19,7 +19,8 @@ public:
     explicit PlanTrip(QWidget *parent = 0);
     ~PlanTrip();
 
-
+    /// PropagateStadiumTable
+    /// This method will propagate the stadium table view in the plan a trip view
     void propagateStadiumTable(Database* db);
 
 private:
