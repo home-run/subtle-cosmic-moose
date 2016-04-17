@@ -35,8 +35,11 @@ void StadiumDetails::initializeStadiumView()
     // enable sorting
     ui->stadiumDetails_tableView_stadiumInfo->setSortingEnabled(true);
 
-    // resize columns to contents
-    ui->stadiumDetails_tableView_stadiumInfo->resizeColumnsToContents();
+    // set headers as not resizable.
+    ui->stadiumDetails_tableView_stadiumInfo->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+    // hide id column
+    ui->stadiumDetails_tableView_stadiumInfo->setColumnHidden(StadiumTableModel::ID, true);
 }
 
 StadiumDetails::~StadiumDetails()
