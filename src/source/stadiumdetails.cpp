@@ -29,6 +29,9 @@ void StadiumDetails::initializeStadiumView()
     // make it so selection selects each row
     ui->stadiumDetails_tableView_stadiumInfo->setSelectionBehavior(QAbstractItemView::SelectRows);
 
+    // make it so only one stadium row can be selected at a time
+    ui->stadiumDetails_tableView_stadiumInfo->setSelectionMode(QAbstractItemView::SingleSelection);
+
     // enable sorting
     ui->stadiumDetails_tableView_stadiumInfo->setSortingEnabled(true);
 
