@@ -12,3 +12,8 @@ StadiumDetails::~StadiumDetails()
 {
     delete ui;
 }
+
+void StadiumDetails::initializeStadiumTable(StadiumTableModel *stadiumModel)
+{
+    ui->stadiumDetails_tableView_stadiumInfo->setModel(stadiumModel);
+}

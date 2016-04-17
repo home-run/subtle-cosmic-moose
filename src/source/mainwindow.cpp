@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     // Instantiate database
-    db = new Database("../data/data.db", "QSQLITE");
+    db = new Database("data.db", "QSQLITE");
 
     // Allocate memory for all the different widget pages
     stadiumDetails_widget 	= new StadiumDetails();
@@ -28,7 +28,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Connections to Widgets
     connect(tripSummary_widget, SIGNAL(finishTrip(bool)), this, SLOT(gotoHomePage()));
+    connect(this, SIGNAL(initializeStadiumTable(StadiumTableModel*)),
+            stadiumDetails_widget, SLOT(initializeStadiumTable(StadiumTableModel*)));
 
+    // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
 }
 
@@ -161,6 +164,9 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     ui->mainwindow_pushButton_next->setVisible(false);
 
     // initialize tables with data from database
+    stadiumModel = new StadiumTableModel(this, db);
+    emit initializeStadiumTable(stadiumModel);
+
 }
 
 void MainWindow::leavingTripSummary()

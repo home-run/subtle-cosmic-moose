@@ -18,4 +18,5 @@ void StadiumTableModel::Initialize()
     this->setHeaderData(TURF, Qt::Horizontal, tr("Turf Type"), 0);
     this->setHeaderData(REVENUE, Qt::Horizontal, tr("Revenue"), 0);
     this->setHeaderData(LEAGUE, Qt::Horizontal, tr("League"), 0);
+    this->select();
 }
