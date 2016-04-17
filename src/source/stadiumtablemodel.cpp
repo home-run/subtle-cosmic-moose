@@ -19,8 +19,13 @@ StadiumTableModel::StadiumTableModel(QObject *parent, Database *db) : QSqlTableM
  */
 void StadiumTableModel::Initialize()
 {
+    // set which SQL table to display
     this->setTable("stadiums");
+
+    // make table only push changes to DB on manual submit
     this->setEditStrategy(QSqlTableModel::OnManualSubmit);
+
+    // set horizontal header titles
     this->setHeaderData(NAME, Qt::Horizontal, tr("Stadium Name"), 0);
     this->setHeaderData(TEAM, Qt::Horizontal, tr("Home Team"), 0);
     this->setHeaderData(ADDRESS, Qt::Horizontal, tr("Address"), 0);
@@ -30,5 +35,7 @@ void StadiumTableModel::Initialize()
     this->setHeaderData(TURF, Qt::Horizontal, tr("Turf Type"), 0);
     this->setHeaderData(REVENUE, Qt::Horizontal, tr("Revenue"), 0);
     this->setHeaderData(LEAGUE, Qt::Horizontal, tr("League"), 0);
+
+    // propagate model
     this->select();
 }
