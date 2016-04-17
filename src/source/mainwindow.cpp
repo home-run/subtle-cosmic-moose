@@ -169,3 +169,12 @@ void MainWindow::gotoHomePage()
     pageStackCache.clear();
 }
 
+
+/*
+ QFile file(":/qss/darkorange.qss");
+ if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+ {
+     setStyleSheet(file.readAll());
+     file.close();
+ }
+ */

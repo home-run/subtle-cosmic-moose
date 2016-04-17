@@ -5,6 +5,7 @@
 #include <QMap>
 #include <QString>
 #include <QStack>
+#include <QFile>
 #include "../header/stadiumdetails.h"
 #include "../header/homepage.h"
 #include "../header/editstadiuminfo.h"
