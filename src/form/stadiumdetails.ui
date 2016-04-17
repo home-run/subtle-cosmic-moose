@@ -50,13 +50,65 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="stadiumDetails_stadiums_label">
+        <property name="text">
+         <string>Stadiums</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="stadiumDetails_league_comboBox">
+        <item>
+         <property name="text">
+          <string>All Leagues</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>American League</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>National League</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Major League</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
      <widget class="QTableView" name="stadiumDetails_tableView_stadiumInfo"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="stadiumDetails_souvenirs_label">
+      <property name="text">
+       <string>Souvenirs</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QTableView" name="stadiumDetails_tableView_souvenirs"/>
     </item>
    </layout>
   </widget>
+  <zorder>stadiumDetails_label_stadiumName</zorder>
+  <zorder>stadiumDetails_label_teamName</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>stadiumDetails_tableView_stadiumInfo</zorder>
  </widget>
  <resources/>
  <connections/>

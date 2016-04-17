@@ -20,6 +20,9 @@ public:
 public slots:
     void initializeStadiumTable(StadiumTableModel *stadiumModel);
 
+private slots:
+    void on_stadiumDetails_league_comboBox_currentIndexChanged(int index);
+
 private:
     Ui::StadiumDetails *ui;
     StadiumTableModel *stadiumModel;
