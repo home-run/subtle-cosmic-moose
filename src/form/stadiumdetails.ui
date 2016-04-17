@@ -85,6 +85,25 @@
         </item>
        </widget>
       </item>
+      <item>
+       <widget class="QComboBox" name="stadiumDetails_surface_comboBox">
+        <item>
+         <property name="text">
+          <string>All Surfaces</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Grass Surface</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Astro Turf</string>
+         </property>
+        </item>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>

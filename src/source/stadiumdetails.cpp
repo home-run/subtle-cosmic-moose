@@ -68,28 +68,169 @@ void StadiumDetails::on_stadiumDetails_league_comboBox_currentIndexChanged(int i
 {
     enum Leagues
     {
-        ALL,
+        ALL_LEAGUES,
         AMERICAN,
         NATIONAL,
         MAJOR
     };
 
-    switch(index)
+    enum Surfaces
     {
-    case ALL:
-        stadiumModel->setFilter("");
+        ALL_SURFACES,
+        GRASS,
+        ASTRO
+    };
+
+    int currentSurface = ui->stadiumDetails_surface_comboBox->currentIndex();
+
+    switch(currentSurface){
+    case ALL_SURFACES:
+        switch(index)
+        {
+        case ALL_LEAGUES:
+            stadiumModel->setFilter("");
+            break;
+        case AMERICAN:
+            stadiumModel->setFilter("league = 'American'");
+            break;
+        case NATIONAL:
+            stadiumModel->setFilter("league = 'National'");
+            break;
+        case MAJOR:
+            stadiumModel->setFilter("league = 'Major'");
+            break;
+        default:
+            stadiumModel->setFilter("");
+            break;
+        }
         break;
-    case AMERICAN:
-        stadiumModel->setFilter("league = 'American'");
+    case GRASS:
+        switch(index)
+        {
+        case ALL_LEAGUES:
+            stadiumModel->setFilter("turf = 'Grass'");
+            break;
+        case AMERICAN:
+            stadiumModel->setFilter("league = 'American' and turf = 'Grass'");
+            break;
+        case NATIONAL:
+            stadiumModel->setFilter("league = 'National' and turf = 'Grass'");
+            break;
+        case MAJOR:
+            stadiumModel->setFilter("league = 'Major' and turf = 'Grass'");
+            break;
+        default:
+            stadiumModel->setFilter("turf = 'Grass'");
+            break;
+        }
         break;
-    case NATIONAL:
-        stadiumModel->setFilter("league = 'National'");
-        break;
-    case MAJOR:
-        stadiumModel->setFilter("league = 'Major'");
-        break;
-    default:
-        stadiumModel->setFilter("");
+    case ASTRO:
+        switch(index)
+        {
+        case ALL_LEAGUES:
+            stadiumModel->setFilter("turf = 'Astro Turf'");
+            break;
+        case AMERICAN:
+            stadiumModel->setFilter("league = 'American' and turf = 'Astro Turf'");
+            break;
+        case NATIONAL:
+            stadiumModel->setFilter("league = 'National' and turf = 'Astro Turf'");
+            break;
+        case MAJOR:
+            stadiumModel->setFilter("league = 'Major' and turf = 'Astro Turf'");
+            break;
+        default:
+            stadiumModel->setFilter("turf = 'Astro Turf'");
+            break;
+        }
         break;
     }
 }
+
+    void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int index)
+    {
+        enum Surfaces
+        {
+            ALL_SURFACES,
+            GRASS,
+            ASTRO
+        };
+
+        enum Leagues
+        {
+            ALL_LEAGUES,
+            AMERICAN,
+            NATIONAL,
+            MAJOR
+        };
+
+        int currentLeague = ui->stadiumDetails_league_comboBox->currentIndex();
+
+//        switch(currentLeague)
+//        {
+//        case ALL_LEAGUES:
+//            switch(index)
+//            {
+//            case ALL_SURFACES:
+//                stadiumModel->setFilter("");
+//                break;
+//            case GRASS:
+//                stadiumModel->setFilter("turf = 'Grass'");
+//                break;
+//            case ASTRO:
+//                stadiumModel->setFilter("turf = 'Astro Turf'");
+//                break;
+//            default:
+//                stadiumModel->setFilter("");
+//                break;
+//            }
+//        case AMERICAN:
+//            switch(index)
+//            {
+//            case ALL_SURFACES:
+//                stadiumModel->setFilter("league = 'American'");
+//                break;
+//            case GRASS:
+//                stadiumModel->setFilter("league = 'American' and turf = 'Grass'");
+//                break;
+//            case ASTRO:
+//                stadiumModel->setFilter("league = 'American' and turf = 'Astro Turf'");
+//                break;
+//            default:
+//                stadiumModel->setFilter("league = 'American'");
+//                break;
+//            }
+//        case NATIONAL:
+//            switch(index)
+//            {
+//            case ALL_SURFACES:
+//                stadiumModel->setFilter("league = 'National'");
+//                break;
+//            case GRASS:
+//                stadiumModel->setFilter("league = 'National' and turf = 'Grass'");
+//                break;
+//            case ASTRO:
+//                stadiumModel->setFilter("league = 'National' and turf = 'Astro Turf'");
+//                break;
+//            default:
+//                stadiumModel->setFilter("league = 'National'");
+//                break;
+//            }
+//        case MAJOR:
+//            switch(index)
+//            {
+//            case ALL_SURFACES:
+//                stadiumModel->setFilter("league = 'Major'");
+//                break;
+//            case GRASS:
+//                stadiumModel->setFilter("league = 'Major' and turf = 'Grass'");
+//                break;
+//            case ASTRO:
+//                stadiumModel->setFilter("league = 'Major' and turf = 'Astro Turf'");
+//                break;
+//            default:
+//                stadiumModel->setFilter("league = 'Major'");
+//                break;
+//            }
+//        }
+    }
