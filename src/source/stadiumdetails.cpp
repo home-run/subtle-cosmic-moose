@@ -73,7 +73,7 @@ void StadiumDetails::initializeSouvenirView()
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     // hide id column
-//    ui->stadiumDetails_tableView_souvenirs->setColumnHidden(SouvenirTableModel::STADIUM_ID, true);
+    ui->stadiumDetails_tableView_souvenirs->setColumnHidden(SouvenirTableModel::STADIUM_ID, true);
 
     // stretch the last section of header
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setStretchLastSection(true);
