@@ -302,4 +302,5 @@ void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_clicked(const QMode
 {
     int stadium = stadiumModel->record(index.row()).value("id").toInt();
     souvenirModel->Initialize(stadium);
+    initializeSouvenirView();
 }
