@@ -34,6 +34,8 @@ private slots:
 
     void on_stadiumDetails_tableView_stadiumInfo_clicked(const QModelIndex &index);
 
+    void on_stadiumDetails_tableView_stadiumInfo_activated(const QModelIndex &index);
+
 private:
     Ui::StadiumDetails *ui;
     StadiumTableModel *stadiumModel;

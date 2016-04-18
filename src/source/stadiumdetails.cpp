@@ -42,6 +42,10 @@ void StadiumDetails::initializeStadiumView()
     ui->stadiumDetails_tableView_stadiumInfo->setColumnHidden(StadiumTableModel::ID, true);
 }
 
+/**
+ * @brief StadiumDetails::initializeSouvenirView
+ * Initialize settings for souvenir table view.
+ */
 void StadiumDetails::initializeSouvenirView()
 {
     // hide vertical header
@@ -69,7 +73,7 @@ void StadiumDetails::initializeSouvenirView()
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     // hide id column
-    ui->stadiumDetails_tableView_souvenirs->setColumnHidden(SouvenirTableModel::STADIUM_ID, true);
+//    ui->stadiumDetails_tableView_souvenirs->setColumnHidden(SouvenirTableModel::STADIUM_ID, true);
 
     // stretch the last section of header
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setStretchLastSection(true);
@@ -97,6 +101,11 @@ void StadiumDetails::initializeStadiumTable(StadiumTableModel *stadiumModel)
     initializeStadiumView();
 }
 
+/**
+ * @brief StadiumDetails::initializeSouvenirTable
+ * Initializes the souvenirTable using the model emitted from mainWindow
+ * @param souvenirModel The model emitted from mainWindow
+ */
 void StadiumDetails::initializeSouvenirTable(SouvenirTableModel *souvenirModel)
 {
     // Set this class's souvenirModel attribute to the one that's
@@ -298,9 +307,32 @@ void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int 
     } // end switch
 }
 
+/**
+ * @brief StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_clicked
+ * Updates the souvenir table with the appropriate souvenir list
+ * when the user clicks a row in the stadium table.
+ * @param index the index of the selected row
+ */
 void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_clicked(const QModelIndex &index)
 {
     int stadium = stadiumModel->record(index.row()).value("id").toInt();
+    // Initialize the model to the selected stadium.
     souvenirModel->Initialize(stadium);
+    // Reinitialize the souvenir view.
+    initializeSouvenirView();
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_activated
+ * Updates the souvenir table with the appropriate souvenir list
+ * when the user presses enter after selecting a row in the stadium table.
+ * @param index the index of the selected row
+ */
+void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_activated(const QModelIndex &index)
+{
+    int stadium = stadiumModel->record(index.row()).value("id").toInt();
+    // Initialize the model to the selected stadium.
+    souvenirModel->Initialize(stadium);
+    // Reinitialize the souvenir view.
     initializeSouvenirView();
 }
