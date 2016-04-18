@@ -7,13 +7,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Instantiate database
+    db = new Database("data.db", "QSQLITE");
+
     // Allocate memory for all the different widget pages
     stadiumDetails_widget 	= new StadiumDetails();
-    homePage_widget 		    = new HomePage();
-    planTrip_widget 		    = new PlanTrip();
+    homePage_widget 		= new HomePage();
+    planTrip_widget 		= new PlanTrip();
     editStadiumInfo_widget 	= new EditStadiumInfo();
     purchaseWindow_widget 	= new PurchaseWindow();
-    tripSummary_widget       = new TripSummary();
+    tripSummary_widget      = new TripSummary();
 
     // Add widgets to the stacked widget
     ui->mainwindow_stackedWidget->addWidget(homePage_widget);
@@ -25,7 +28,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Connections to Widgets
     connect(tripSummary_widget, SIGNAL(finishTrip(bool)), this, SLOT(gotoHomePage()));
+    connect(this, SIGNAL(initializeStadiumTable(StadiumTableModel*)),
+            stadiumDetails_widget, SLOT(initializeStadiumTable(StadiumTableModel*)));
 
+    // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
 }
 
@@ -49,34 +55,29 @@ MainWindow::~MainWindow()
  */
 void MainWindow::on_mainwindow_pushButton_next_clicked()
 {
-//    int widgetIndex;
     int currentIndex;
 
+    // set currentIndex to current stackedWidget index
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
-    qDebug() << "Current index is : " << currentIndex;
+
+    // push this index to the stack (for back button)
     pageStackCache.push(currentIndex);
-    currentIndex++;
 
-    qDebug() << "New index is : " << currentIndex;
-    if(currentIndex >= ui->mainwindow_stackedWidget->count())
+    // do different things based on which page gets called
+    switch(currentIndex)
     {
-        currentIndex = 1;
-    }
-
-    if(PAGE_PLAN_TRIP == ui->mainwindow_stackedWidget->currentIndex())
-    {
+    case PAGE_PLAN_TRIP:
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_PURCHASE_WINDOW);
-    }
-    else if (PAGE_PURCHASE_WINDOW == ui->mainwindow_stackedWidget->currentIndex())
-    {
+        break;
+    case PAGE_PURCHASE_WINDOW:
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
         tripSummary_widget->populateTripPath();
         ui->mainwindow_pushButton_next->setVisible(false);
-    }
-    else
-    {
+        break;
+    default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
         checkPage_hideShowBackNextButton();
+        break;
     }
 }
 
@@ -110,8 +111,8 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
     {
         switch(ui->mainwindow_stackedWidget->currentIndex())
         {
-            case PAGE_TRIP_SUMMARY : tripSummary_widget->clearData();
-                break;
+        case PAGE_TRIP_SUMMARY : tripSummary_widget->clearData();
+            break;
         }
 
         // Remove the current index
@@ -124,6 +125,11 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
 
 }
 
+/**
+ * @brief MainWindow::checkPage_hideShowBackNextButton
+ * Toggle the visibility of the back and next button based on which page
+ * is being viewed.
+ */
 void MainWindow::checkPage_hideShowBackNextButton()
 {
     if(pageStackCache.isEmpty() || ui->mainwindow_stackedWidget->currentIndex() < 2)
@@ -143,12 +149,24 @@ void MainWindow::checkPage_hideShowBackNextButton()
  */
 void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
 {
+    // set current index to the current stackedWidget index
     int currentIndex;
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
+
+    // push index to the stack for back button
     pageStackCache.push(currentIndex);
+
+    // set current page to stadium details page
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_STADIUM_DETAILS);
+
+    // toggle visibility of back/next button
     checkPage_hideShowBackNextButton();
     ui->mainwindow_pushButton_next->setVisible(false);
+
+    // initialize tables with data from database
+    stadiumModel = new StadiumTableModel(this, db);
+    emit initializeStadiumTable(stadiumModel);
+
 }
 
 void MainWindow::leavingTripSummary()
