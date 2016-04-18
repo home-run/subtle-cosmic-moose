@@ -42,6 +42,39 @@ void StadiumDetails::initializeStadiumView()
     ui->stadiumDetails_tableView_stadiumInfo->setColumnHidden(StadiumTableModel::ID, true);
 }
 
+void StadiumDetails::initializeSouvenirView()
+{
+    // hide vertical header
+    ui->stadiumDetails_tableView_souvenirs->verticalHeader()->setVisible(false);
+
+    // turn alternating row colors on
+    ui->stadiumDetails_tableView_souvenirs->setAlternatingRowColors(true);
+
+    // make table uneditable
+    ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
+
+    // turn word-wrap on... this might do what we want it to do.. I DON'T KNOW
+    ui->stadiumDetails_tableView_souvenirs->setWordWrap(true);
+
+    // make it so selection selects each row
+    ui->stadiumDetails_tableView_souvenirs->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    // make it so only one stadium row can be selected at a time
+    ui->stadiumDetails_tableView_souvenirs->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    // enable sorting
+    ui->stadiumDetails_tableView_souvenirs->setSortingEnabled(true);
+
+    // set headers as not resizable.
+    ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+    // hide id column
+    ui->stadiumDetails_tableView_souvenirs->setColumnHidden(SouvenirTableModel::STADIUM_ID, true);
+
+    // stretch the last section of header
+    ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setStretchLastSection(true);
+}
+
 StadiumDetails::~StadiumDetails()
 {
     delete ui;
@@ -62,6 +95,19 @@ void StadiumDetails::initializeStadiumTable(StadiumTableModel *stadiumModel)
 
     // Initialize table settings.
     initializeStadiumView();
+}
+
+void StadiumDetails::initializeSouvenirTable(SouvenirTableModel *souvenirModel)
+{
+    // Set this class's souvenirModel attribute to the one that's
+    // passed in so we can use it later.
+    this->souvenirModel = souvenirModel;
+
+    // Set the model of the stadiumInfo table
+    ui->stadiumDetails_tableView_souvenirs->setModel(this->souvenirModel);
+
+    // Initialize table settings.
+    initializeSouvenirView();
 }
 
 /**
@@ -250,4 +296,10 @@ void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int 
         } // end switch
         break;
     } // end switch
+}
+
+void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_clicked(const QModelIndex &index)
+{
+    int stadium = stadiumModel->record(index.row()).value("id").toInt();
+    souvenirModel->Initialize(stadium);
 }

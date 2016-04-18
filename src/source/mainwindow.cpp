@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(tripSummary_widget, SIGNAL(finishTrip(bool)), this, SLOT(gotoHomePage()));
     connect(this, SIGNAL(initializeStadiumTable(StadiumTableModel*)),
             stadiumDetails_widget, SLOT(initializeStadiumTable(StadiumTableModel*)));
+    connect(this, SIGNAL(initializeSouvenirTable(SouvenirTableModel*)),
+            stadiumDetails_widget, SLOT(initializeSouvenirTable(SouvenirTableModel*)));
 
     // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
@@ -165,7 +167,9 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
 
     // initialize tables with data from database
     stadiumModel = new StadiumTableModel(this, db);
+    souvenirModel = new SouvenirTableModel(this, db);
     emit initializeStadiumTable(stadiumModel);
+    emit initializeSouvenirTable(souvenirModel);
 
 }
 
@@ -181,7 +185,7 @@ void MainWindow::leavingTripSummary()
  */
 void MainWindow::gotoHomePage()
 {
-    /// TODO: CLEAR DATA IN ALL CURRENT WIDGETS
+    // TODO: CLEAR DATA IN ALL CURRENT WIDGETS
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_MAIN);
     checkPage_hideShowBackNextButton();
     pageStackCache.clear();
