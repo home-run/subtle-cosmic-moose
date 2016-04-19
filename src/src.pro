@@ -19,7 +19,8 @@ SOURCES += source/mainwindow.cpp \
     source/purchasewindow.cpp \
     source/editstadiuminfo.cpp \
     source/tripsummary.cpp \
-    source/stadiumtablemodel.cpp
+    source/stadiumtablemodel.cpp \
+    source/souvenirtablemodel.cpp
 
 HEADERS  += header/mainwindow.h \
     header/stadiumdetails.h \
@@ -29,7 +30,8 @@ HEADERS  += header/mainwindow.h \
     header/editstadiuminfo.h \
     header/tripsummary.h \
     header/database.h \
-    header/stadiumtablemodel.h
+    header/stadiumtablemodel.h \
+    header/souvenirtablemodel.h
 
 FORMS    += form/mainwindow.ui \
     form/stadiumdetails.ui \
