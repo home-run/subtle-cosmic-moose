@@ -12,6 +12,8 @@
 #include "../header/plantrip.h"
 #include "../header/purchasewindow.h"
 #include "../header/tripsummary.h"
+#include "../header/database.h"
+#include "../header/stadiumtablemodel.h"
 #include <QDebug>
 
 namespace Ui {
@@ -38,6 +40,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+signals:
+    void initializeStadiumTable(StadiumTableModel *stadiumModel);
 
 private slots:
     void on_mainwindow_pushButton_next_clicked();
@@ -59,6 +63,8 @@ private:
     EditStadiumInfo*  editStadiumInfo_widget;
     TripSummary*      tripSummary_widget;
     QStack<int>       pageStackCache;
+    Database*         db;
+    StadiumTableModel* stadiumModel;
 
     void checkPage_hideShowBackNextButton();
     void leavingTripSummary();
