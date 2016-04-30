@@ -10,4 +10,4 @@ CONFIG -= app_bundle
 
 SOURCES += source/main.cpp
 
-LIBS += -L../src -l$APP_NAME
+LIBS += -L../src -lsubtle-cosmic-moose
