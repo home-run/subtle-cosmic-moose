@@ -162,7 +162,7 @@ QList<Edge> Graph::shortestPath(int startingId)
         {
             if(!weightFound[j])
             {
-                if(smallestWeight[j] < minWeight && smallestWeight[j] > -1)
+                if(smallestWeight[j] < minWeight )
                 {
                     v = j;
                     minWeight = smallestWeight[v];
@@ -176,7 +176,7 @@ QList<Edge> Graph::shortestPath(int startingId)
         {
             if(!weightFound[j])
             {
-                 if(minWeight + adjacencyMatrix[v][j] < smallestWeight[j] && smallestWeight[j] > -1)
+                 if(minWeight + adjacencyMatrix[v][j] < smallestWeight[j] )
                 {
                     smallestWeight[j] = minWeight + adjacencyMatrix[v][j];
                     edge.idFrom = v;
