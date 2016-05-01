@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>resources_icons/batter_animated_full_130speed.gif</file>
+        <file>resources_icons/button01_pressed.png</file>
+        <file>resources_icons/button01_unpressed.png</file>
+        <file>resources_icons/pitcher_animated_full.gif</file>
+    </qresource>
+</RCC>

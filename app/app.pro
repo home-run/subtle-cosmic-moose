@@ -13,4 +13,5 @@ SOURCES += source/main.cpp
 LIBS += -L../src -lsubtle-cosmic-moose
 
 RESOURCES += \
-    stylesheets.qrc
+    stylesheets.qrc \
+    icon_resources.qrc

@@ -94,12 +94,13 @@ QLineEdit
 
 QPushButton
 {
+    border-image: url(:/icons/resources_icons/button01_unpressed.png);
     color: #000000;
-    background-color: #FFAB40;
-    border-width: 0px 2px 3px 0px;
+    /*background-color: #FFAB40;*/
+    border-width: 8px;
     border-color: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #757575, stop: 1 #212121);
-    border-style: inset;
-    border-radius: 0;
+    border-style: outset;
+    border-radius: 3px;
     padding: 3px;
     font-size: 16px;
     padding-left: 5px;
@@ -108,9 +109,10 @@ QPushButton
 
 QPushButton:pressed
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #FF6D00, stop: 1 #FFAB40);
+    border-image: url(:/icons/resources_icons/button01_pressed.png);
+    /*background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #FF6D00, stop: 1 #FFAB40);*/
     border-style: outset;
-    border-width: 0px;
+    border-width: 4px;
 }
 
 QComboBox
@@ -124,9 +126,9 @@ QComboBox
 
 QComboBox:hover,QPushButton:hover
 {
-    background-color: #FF9100;
+    /*background-color: #FF9100;*/
     color: #000000;
-    border-width: 0px 2px 2px 0px;
+    border-width: 3px;
 }
 
 

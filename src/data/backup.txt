@@ -10,14 +10,19 @@ CREATE TABLE stadiums(
 	capacity text not null,
 	turf text not null, 
 	revenue text not null,
-	league text not null
+	league text not null,
+        typology text not null
 	);
 CREATE TABLE souvenirs(
 	stadium_id int references stadiums(id) ON DELETE CASCADE,
 	name text not null,
 	price text not null);
+CREATE TABLE distances(
+        id_from int references stadiums(id) ON DELETE CASCADE,
+        id_to int references stadiums(id) ON DELETE CASCADE,
+        distance int);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Angels Stadium of Anaheim",
 		"Los Angeles Angels of Anaheim",
@@ -27,10 +32,11 @@ VALUES (NULL,
 		"45,957",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Comerica Park",
 		"Detroit Tigers",
@@ -40,10 +46,11 @@ VALUES (NULL,
 		"41,547",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Fenway Park",
 		"Boston Red Sox",
@@ -53,10 +60,11 @@ VALUES (NULL,
 		"37,673",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Jewel Box"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Globe Life Park in Arlington",
 		"Texas Rangers",
@@ -66,10 +74,11 @@ VALUES (NULL,
 		"48,114",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Kauffman Stadium",
 		"Kansas City Royals",
@@ -79,10 +88,11 @@ VALUES (NULL,
 		"37,903",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Minute Maid Park",
 		"Houston Astros",
@@ -92,10 +102,11 @@ VALUES (NULL,
 		"421,574",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"O.co Coliseum",
 		"Oakland Athletics",
@@ -105,10 +116,11 @@ VALUES (NULL,
 		"35,067",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Multipurpose"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Oriole Park at Camden Yards",
 		"Baltimore Orioles",
@@ -118,10 +130,11 @@ VALUES (NULL,
 		"45,971",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Progressive Field",
 		"Cleveland Indians",
@@ -131,10 +144,11 @@ VALUES (NULL,
 		"37,675",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Rogers Centre",
 		"Totonto Blue Jays",
@@ -144,10 +158,11 @@ VALUES (NULL,
 		"49,282",
 		"Astro Turf",
 		"0",
-		"American"
+		"American",
+                "Multipurpose"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"SafeCo Field",
 		"Seattle Mariners",
@@ -157,10 +172,11 @@ VALUES (NULL,
 		"47,574",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Target Field",
 		"Minnesota Twins",
@@ -170,10 +186,11 @@ VALUES (NULL,
 		"39,021",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Tropicana Field",
 		"Tampa Bay Rays",
@@ -183,10 +200,11 @@ VALUES (NULL,
 		"31,042",
 		"Astro Turf",
 		"0",
-		"American"
+		"American",
+                "Multipurpose"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"US Cellular Field",
 		"Chicago White Sox",
@@ -196,10 +214,11 @@ VALUES (NULL,
 		"40,615",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Yankee Stadium",
 		"New York Yankees",
@@ -209,10 +228,11 @@ VALUES (NULL,
 		"49,642",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"AT&T Park",
 		"San Francisco Giants",
@@ -222,10 +242,11 @@ VALUES (NULL,
 		"41,915",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Busch Stadium",
 		"St. Louis Cardinals",
@@ -235,10 +256,11 @@ VALUES (NULL,
 		"43,975",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Chase Field",
 		"Arizona Diamondbacks",
@@ -248,10 +270,11 @@ VALUES (NULL,
 		"48,519",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Citi Field",
 		"New York Mets",
@@ -261,10 +284,11 @@ VALUES (NULL,
 		"41,922",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Citizens Bank Park",
 		"Philadelphia Phillies",
@@ -274,10 +298,11 @@ VALUES (NULL,
 		"43,651",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Coors Field",
 		"Colorado Rockies",
@@ -287,10 +312,11 @@ VALUES (NULL,
 		"50,398",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Dodger Stadium",
 		"Los Angeles Dodgers",
@@ -300,10 +326,11 @@ VALUES (NULL,
 		"56,000",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Great America Ball Park",
 		"Cincinnati Reds",
@@ -313,10 +340,11 @@ VALUES (NULL,
 		"42,319",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Marlins Park",
 		"Miami Marlins",
@@ -326,10 +354,11 @@ VALUES (NULL,
 		"36,742",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Contemporary"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Miller Park",
 		"Milwaukee Brewers",
@@ -339,10 +368,11 @@ VALUES (NULL,
 		"41,900",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Nationals Park",
 		"Washington Nationals",
@@ -352,10 +382,11 @@ VALUES (NULL,
 		"41,888",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Petco Park",
 		"San Diego Padres",
@@ -365,10 +396,11 @@ VALUES (NULL,
 		"41,164",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"PNC Park",
 		"Pittsburgh Pirates",
@@ -378,10 +410,11 @@ VALUES (NULL,
 		"38,362",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Turner Field",
 		"Atlanta Braves",
@@ -391,10 +424,11 @@ VALUES (NULL,
 		"49,586",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Wrigley Field",
 		"Chicago Cubs",
@@ -404,7 +438,8 @@ VALUES (NULL,
 		"42,495",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Jewel Box"
 		);
 INSERT INTO souvenirs (stadium_id, name, price)
 VALUES(1, "Baseball cap", "23.99");
@@ -735,5 +770,286 @@ INSERT INTO souvenirs (stadium_id, name, price)
 VALUES(30, "Autographed baseball", "19.99");
 INSERT INTO souvenirs (stadium_id, name, price)
 VALUES(30, "Team jersey", "85.99");
+
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(1 , 27  , 110);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(1 , 12  , 1500);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(1 , 16  , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(1 , 7   , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(1 , 22  , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(2, 10  , 210);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(2, 9   , 90);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(2, 14  , 240);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(2, 30  , 240);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(3, 10 , 430);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(3, 15 , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(3, 19 , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(3, 24 , 1255);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(4, 21 , 650);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(4, 18 , 870);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(4, 29 , 740);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(4, 6  , 230);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(4, 5  , 460);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(5, 21 , 560);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(5, 30 , 415);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(5, 14 , 415);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(5, 17 , 235);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(5, 4  , 460);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(6, 18 , 1115);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(6, 13 , 790);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(6, 24 , 965);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(6, 4  , 230);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(7, 16 , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(7, 11 , 680);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(7, 18 , 650);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(7, 22 , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(7, 1  , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(8, 26 , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(8, 20 , 90);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(8, 28 , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(8, 29 , 560);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(8, 24 , 930);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(9, 2  , 90);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(9, 23 , 225);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(9, 28 , 115);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(10, 3 , 430);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(10, 11, 2070);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(10, 25, 430);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(10, 2 , 210);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(10, 28, 225);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(11, 16, 680);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(11, 10, 2070);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(11, 12, 1390);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(12, 11, 1390);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(12, 22, 1500);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(12, 1 , 1500);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(12, 17, 465);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(12, 25 , 300);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(13, 23 , 790);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(13, 6  , 790);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(13, 24 , 210);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(14, 30 , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(14, 25 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(14, 2  , 240);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(14, 23 , 250);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(14, 5  , 415);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(15, 3  , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(15, 19 , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(15, 20 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(15, 28 , 315);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(16, 11 , 680);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(16, 7  , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(16, 22 , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(16, 1  , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(16, 18 , 650);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(17, 6  , 680);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(17, 5  , 235);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(17, 23 , 310);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(17, 12 , 465);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(18, 16 , 650);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(18, 7  , 650);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(18, 27 , 300);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(18, 21 , 580);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(18, 4  , 870);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(18, 6  , 1115);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(19, 15 , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(19, 20 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(19, 3  , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(19, 28 , 315);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(20, 15 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(20, 19 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(20, 8  , 90);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(20, 26 , 90);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(21, 5  , 560);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(21, 4  , 650);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(21, 18 , 580);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(21, 27 , 830);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(22, 1  , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(22, 27 , 110);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(22, 16 , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(22, 7  , 340);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(22, 12 , 1500);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(23, 17 , 310);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(23, 29 , 375);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(23, 13 , 790);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(23, 28 , 260);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(23, 9  , 225);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(23, 14 , 250);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(23, 30 , 250);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(24, 13 , 210);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(24, 6  , 965);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(24, 3  , 1255);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(24, 26 , 930);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(24, 8  , 930);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(24, 29 , 600);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(25, 12 , 300);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(25, 30 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(25, 14 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(25, 10 , 430);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(26, 8  , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(26, 28 , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(26, 29 , 560);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(26, 24 , 930);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(26, 20 , 90);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(27, 22 , 110);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(27, 1  , 110);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(27, 18 , 300);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(27, 21 , 830);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(28, 9  , 115);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(28, 23 , 260);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(28, 8  , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(28, 26 , 195);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(28, 19 , 315);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(28, 15 , 315);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(28, 10 , 225);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(29, 4  , 740);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(29, 24 , 600);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(29, 8  , 560);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(29, 26 , 560);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(29, 23 , 375);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(30, 14 , 0);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(30, 25 , 80);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(30, 5  , 415);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(30, 2  , 240);
+INSERT INTO distances (id_from, id_to, distance)
+VALUES(30, 23 , 250);
 
 COMMIT;

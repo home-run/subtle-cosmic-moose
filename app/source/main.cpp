@@ -12,9 +12,11 @@ int main(int argc, char *argv[])
         file.close();
     }
 
-
     MainWindow w;
     w.show();
+
+    HomePage splash;
+    splash.show();
 
     return a.exec();
 }

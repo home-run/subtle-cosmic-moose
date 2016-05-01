@@ -6,6 +6,8 @@
 #include <QString>
 #include <QStack>
 #include <QFile>
+#include <QMessageBox>
+#include "../header/adminlogin.h"
 #include "../header/stadiumdetails.h"
 #include "../header/homepage.h"
 #include "../header/editstadiuminfo.h"
@@ -14,6 +16,7 @@
 #include "../header/tripsummary.h"
 #include "../header/database.h"
 #include "../header/stadiumtablemodel.h"
+#include "../header/souvenirtablemodel.h"
 #include <QDebug>
 
 namespace Ui {
@@ -42,8 +45,12 @@ public:
 
 signals:
     void initializeStadiumTable(StadiumTableModel *stadiumModel);
+    void initializeSouvenirTable(SouvenirTableModel *souvenirModel);
+    void adminFeaturesToggled(bool);
 
 private slots:
+    void toggleAdminFeatures(bool isAdmin);
+
     void on_mainwindow_pushButton_next_clicked();
 
     void on_mainwindow_pushButton_planTrip_clicked();
@@ -53,6 +60,10 @@ private slots:
     void on_mainwindow_pushButton_viewStadiums_clicked();
 
     void gotoHomePage();
+
+    void on_actionLogin_triggered();
+
+    void on_actionLogout_triggered();
 
 private:
     Ui::MainWindow *  ui;
@@ -65,6 +76,7 @@ private:
     QStack<int>       pageStackCache;
     Database*         db;
     StadiumTableModel* stadiumModel;
+    SouvenirTableModel* souvenirModel;
 
     void checkPage_hideShowBackNextButton();
     void leavingTripSummary();
