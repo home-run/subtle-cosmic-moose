@@ -1,5 +1,6 @@
 #include <QtTest/QtTest>
 #include "../../src/header/database.h"
+#include "../../src/header/graph.h"
 
 class Test_Main : public QObject
 {
@@ -11,8 +12,11 @@ private slots:
     // Database tests
     void testOpenDB();
 
+    void createGraph();
+
 private:
     // Put testing variables here
+    Database *db;
 };
 
 void Test_Main::initTest()
@@ -26,8 +30,18 @@ void Test_Main::initTest()
  */
 void Test_Main::testOpenDB()
 {
-    Database *db = new Database("test.db", "QSQLITE");
+    db = new Database("test.db", "QSQLITE");
     QVERIFY(db->open());
+}
+
+void Test_Main::createGraph()
+{
+
+    QVERIFY(db->open());
+    if(db->isOpen())
+    {
+        db->getDistances();
+    }
 }
 
 //#endif //TEST_DATABASE_H

@@ -12,6 +12,9 @@ public:
   Database(QString path, QString driver);
   ///Destructor
   ~Database();
+
+  /// Retrieve IDs and Distances
+  QSqlQuery getDistances();
 };
 
 #endif // DATABASE_H

@@ -25,3 +25,12 @@ Database::Database(QString path, QString driver) : QSqlDatabase(addDatabase(driv
     QSqlQuery query;
     query.exec("PRAGMA foreign_keys = ON;");
 }
+
+QSqlQuery Database::getDistances()
+{
+    QSqlQuery query;
+    query.exec("SELECT * FROM distances");
+
+    qDebug() << "ID From [ " << query.value(1).toInt() << " ] ID to [ " << query.value(2).toInt() << " ] Distance [ " << query.value(3).toInt() << " ]";
+    return query;
+}

@@ -17,7 +17,8 @@ public:
     void createGraph(Database *db);
 
 private:
-    int* adjacencyMatrix[];
+    int* adjacencyMatrix;
+    int numVertices;
 
 };
 
