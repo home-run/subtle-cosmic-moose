@@ -6,6 +6,7 @@ StadiumDetails::StadiumDetails(QWidget *parent) :
     ui(new Ui::StadiumDetails)
 {
     ui->setupUi(this);
+    toggleAdminFunctions(false);
 }
 
 /**
@@ -16,30 +17,33 @@ void StadiumDetails::initializeStadiumView()
 {
     // hide vertical header
     ui->stadiumDetails_tableView_stadiumInfo->verticalHeader()->setVisible(false);
-
+    
     // turn alternating row colors on
     ui->stadiumDetails_tableView_stadiumInfo->setAlternatingRowColors(true);
-
+    
     // make table uneditable
     ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::NoEditTriggers);
-
+    
     // turn word-wrap on... this might do what we want it to do.. I DON'T KNOW
     ui->stadiumDetails_tableView_stadiumInfo->setWordWrap(true);
-
+    
     // make it so selection selects each row
     ui->stadiumDetails_tableView_stadiumInfo->setSelectionBehavior(QAbstractItemView::SelectRows);
-
+    
     // make it so only one stadium row can be selected at a time
     ui->stadiumDetails_tableView_stadiumInfo->setSelectionMode(QAbstractItemView::SingleSelection);
-
+    
     // enable sorting
     ui->stadiumDetails_tableView_stadiumInfo->setSortingEnabled(true);
-
+    
     // set headers as not resizable.
     ui->stadiumDetails_tableView_stadiumInfo->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-
+    
     // hide id column
     ui->stadiumDetails_tableView_stadiumInfo->setColumnHidden(StadiumTableModel::ID, true);
+
+    // stretch last field to the end
+    ui->stadiumDetails_tableView_stadiumInfo->horizontalHeader()->setStretchLastSection(true);
 }
 
 /**
@@ -50,31 +54,31 @@ void StadiumDetails::initializeSouvenirView()
 {
     // hide vertical header
     ui->stadiumDetails_tableView_souvenirs->verticalHeader()->setVisible(false);
-
+    
     // turn alternating row colors on
     ui->stadiumDetails_tableView_souvenirs->setAlternatingRowColors(true);
-
+    
     // make table uneditable
     ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
-
+    
     // turn word-wrap on... this might do what we want it to do.. I DON'T KNOW
     ui->stadiumDetails_tableView_souvenirs->setWordWrap(true);
-
+    
     // make it so selection selects each row
     ui->stadiumDetails_tableView_souvenirs->setSelectionBehavior(QAbstractItemView::SelectRows);
-
+    
     // make it so only one stadium row can be selected at a time
     ui->stadiumDetails_tableView_souvenirs->setSelectionMode(QAbstractItemView::SingleSelection);
-
+    
     // enable sorting
     ui->stadiumDetails_tableView_souvenirs->setSortingEnabled(true);
-
+    
     // set headers as not resizable.
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-
+    
     // hide id column
     ui->stadiumDetails_tableView_souvenirs->setColumnHidden(SouvenirTableModel::STADIUM_ID, true);
-
+    
     // stretch the last section of header
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setStretchLastSection(true);
 }
@@ -82,6 +86,30 @@ void StadiumDetails::initializeSouvenirView()
 StadiumDetails::~StadiumDetails()
 {
     delete ui;
+}
+
+void StadiumDetails::toggleAdminFunctions(bool isAdmin)
+{
+    // Hide/unhide and enable/disable submit changes button
+    ui->stadiumDetails_admin_submitChanges->setEnabled(isAdmin);
+    ui->stadiumDetails_admin_submitChanges->setVisible(isAdmin);
+
+    if(isAdmin)
+    {
+        // make tables editable
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::DoubleClicked);
+        ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::DoubleClicked);
+
+        // set it to submit changes on manual submit
+        this->stadiumModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
+        this->souvenirModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    }
+    else
+    {
+        // make tables uneditable
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::NoEditTriggers);
+        ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
+    }
 }
 
 /**
@@ -93,10 +121,10 @@ void StadiumDetails::initializeStadiumTable(StadiumTableModel *stadiumModel)
     // Set this class's stadiumModel attribute to the one that's
     // passed in so we can use it later.
     this->stadiumModel = stadiumModel;
-
+    
     // Set the model of the stadiumInfo table
     ui->stadiumDetails_tableView_stadiumInfo->setModel(this->stadiumModel);
-
+    
     // Initialize table settings.
     initializeStadiumView();
 }
@@ -111,10 +139,10 @@ void StadiumDetails::initializeSouvenirTable(SouvenirTableModel *souvenirModel)
     // Set this class's souvenirModel attribute to the one that's
     // passed in so we can use it later.
     this->souvenirModel = souvenirModel;
-
+    
     // Set the model of the stadiumInfo table
     ui->stadiumDetails_tableView_souvenirs->setModel(this->souvenirModel);
-
+    
     // Initialize table settings.
     initializeSouvenirView();
 }
@@ -134,16 +162,16 @@ void StadiumDetails::on_stadiumDetails_league_comboBox_currentIndexChanged(int i
         NATIONAL,
         MAJOR
     };
-
+    
     enum Surfaces
     {
         ALL_SURFACES,
         GRASS,
         ASTRO
     };
-
+    
     int currentSurface = ui->stadiumDetails_surface_comboBox->currentIndex();
-
+    
     switch(currentSurface){
     case ALL_SURFACES:
         switch(index)
@@ -222,7 +250,7 @@ void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int 
         GRASS,
         ASTRO
     };
-
+    
     enum Leagues
     {
         ALL_LEAGUES,
@@ -230,10 +258,10 @@ void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int 
         NATIONAL,
         MAJOR
     };
-
+    
     // Get current league filter selection
     int currentLeague = ui->stadiumDetails_league_comboBox->currentIndex();
-
+    
     switch(currentLeague)
     {
     case ALL_LEAGUES:

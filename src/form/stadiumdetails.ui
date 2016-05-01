@@ -13,32 +13,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="stadiumDetails_label_stadiumName">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>40</y>
-     <width>171</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Placeholder: Stadium Name</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="stadiumDetails_label_teamName">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>70</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Placeholder: Team Name</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -124,10 +98,43 @@
     </item>
    </layout>
   </widget>
-  <zorder>stadiumDetails_label_stadiumName</zorder>
-  <zorder>stadiumDetails_label_teamName</zorder>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>stadiumDetails_tableView_stadiumInfo</zorder>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>10</y>
+     <width>311</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="stadiumDetails_label_stadiumName">
+        <property name="text">
+         <string>Placeholder: Stadium Name</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="stadiumDetails_label_teamName">
+        <property name="text">
+         <string>Placeholder: Team Name</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="stadiumDetails_admin_submitChanges">
+      <property name="text">
+       <string>Submit Changes</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>

@@ -32,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent) :
             stadiumDetails_widget, SLOT(initializeStadiumTable(StadiumTableModel*)));
     connect(this, SIGNAL(initializeSouvenirTable(SouvenirTableModel*)),
             stadiumDetails_widget, SLOT(initializeSouvenirTable(SouvenirTableModel*)));
+    connect(this, SIGNAL(adminFeaturesToggled(bool)),
+            stadiumDetails_widget, SLOT(toggleAdminFunctions(bool)));
 
     // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
@@ -48,6 +50,16 @@ MainWindow::~MainWindow()
     delete planTrip_widget;
     delete tripSummary_widget;
     delete ui;
+}
+
+/**
+ * @brief MainWindow::toggleAdminFeatures
+ * Emit a signal that activates or deactivates all admin features.
+ * @param isAdmin true if user is an admin
+ */
+void MainWindow::toggleAdminFeatures(bool isAdmin)
+{
+    emit adminFeaturesToggled(isAdmin);
 }
 
 
@@ -191,3 +203,26 @@ void MainWindow::gotoHomePage()
     pageStackCache.clear();
 }
 
+/**
+ * @brief MainWindow::on_actionLogin_triggered
+ * Prompt the user for an admin password. If it's legit, send a signal that
+ * grants access to all admin functions in the application.
+ */
+void MainWindow::on_actionLogin_triggered()
+{
+    AdminLogin *adminPrompt = new AdminLogin(this);
+    QObject::connect(adminPrompt, SIGNAL(adminStatusChanged(bool)),
+                     this, SLOT(toggleAdminFeatures(bool)));
+    adminPrompt->setWindowModality(Qt::ApplicationModal);
+    adminPrompt->show();
+
+}
+
+/**
+ * @brief MainWindow::on_actionLogout_triggered
+ * Log the admin out and disable all of the admin features.
+ */
+void MainWindow::on_actionLogout_triggered()
+{
+    emit adminFeaturesToggled(false);
+}

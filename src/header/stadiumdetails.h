@@ -24,6 +24,7 @@ public:
     ~StadiumDetails();
 
 public slots:
+    void toggleAdminFunctions(bool isAdmin);
     void initializeStadiumTable(StadiumTableModel *stadiumModel);
     void initializeSouvenirTable(SouvenirTableModel *souvenirModel);
 
