@@ -103,7 +103,7 @@
     <rect>
      <x>40</x>
      <y>10</y>
-     <width>311</width>
+     <width>499</width>
      <height>80</height>
     </rect>
    </property>
@@ -130,6 +130,20 @@
      <widget class="QPushButton" name="stadiumDetails_admin_submitChanges">
       <property name="text">
        <string>Submit Changes</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="stadiumDetails_admin_addSouvenir">
+      <property name="text">
+       <string>Add Souvenir</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="stadiumDetails_admin_removeSouvenir">
+      <property name="text">
+       <string>Remove Souvenir</string>
       </property>
      </widget>
     </item>

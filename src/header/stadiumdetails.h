@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDebug>
+#include <QMessageBox>
 #include "stadiumtablemodel.h"
 #include "souvenirtablemodel.h"
 
@@ -36,6 +37,8 @@ private slots:
     void on_stadiumDetails_tableView_stadiumInfo_clicked(const QModelIndex &index);
 
     void on_stadiumDetails_tableView_stadiumInfo_activated(const QModelIndex &index);
+
+    void on_stadiumDetails_admin_submitChanges_clicked();
 
 private:
     Ui::StadiumDetails *ui;

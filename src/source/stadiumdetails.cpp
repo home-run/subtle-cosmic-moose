@@ -88,11 +88,25 @@ StadiumDetails::~StadiumDetails()
     delete ui;
 }
 
+/**
+ * @brief StadiumDetails::toggleAdminFunctions
+ * Hide/unhide and enable/disable all buttons and features for
+ * admin use only.
+ * @param isAdmin true if user is admin
+ */
 void StadiumDetails::toggleAdminFunctions(bool isAdmin)
 {
     // Hide/unhide and enable/disable submit changes button
     ui->stadiumDetails_admin_submitChanges->setEnabled(isAdmin);
     ui->stadiumDetails_admin_submitChanges->setVisible(isAdmin);
+
+    // Hide/unhide and enable/disable add souvenir button
+    ui->stadiumDetails_admin_addSouvenir->setEnabled(isAdmin);
+    ui->stadiumDetails_admin_addSouvenir->setVisible(isAdmin);
+
+    // Hide/unhide and enable/disable remove souvenir button
+    ui->stadiumDetails_admin_removeSouvenir->setEnabled(isAdmin);
+    ui->stadiumDetails_admin_removeSouvenir->setVisible(isAdmin);
 
     if(isAdmin)
     {
@@ -363,4 +377,32 @@ void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_activated(const QMo
     souvenirModel->Initialize(stadium);
     // Reinitialize the souvenir view.
     initializeSouvenirView();
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked
+ * Submit all changes to the database permanently.
+ */
+void StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked()
+{
+    // Pop up a dialog to verify that admin wants to actually submit changes
+    QMessageBox *p = new QMessageBox(this);
+    p->setWindowTitle("Submit Changes");
+    p->setText("Submit all changes to the database");
+    p->setInformativeText("Are you sure?");
+    p->setStandardButtons(QMessageBox::Cancel | QMessageBox::Ok);
+    p->setDefaultButton(QMessageBox::Cancel);
+    int decision = p->exec();
+
+    // If the user hits OK
+    if(decision == QMessageBox::Ok)
+    {
+        // submit changes to the DB
+        stadiumModel->submitAll();
+        souvenirModel->submitAll();
+
+        // re-propagate tables
+        stadiumModel->select();
+        souvenirModel->select();
+    }
 }
