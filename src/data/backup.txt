@@ -10,14 +10,19 @@ CREATE TABLE stadiums(
 	capacity text not null,
 	turf text not null, 
 	revenue text not null,
-	league text not null
+	league text not null,
+        typology text not null
 	);
 CREATE TABLE souvenirs(
 	stadium_id int references stadiums(id) ON DELETE CASCADE,
 	name text not null,
 	price text not null);
+CREATE TABLE distances(
+        id_from int references stadiums(id) ON DELETE CASCADE,
+        id_to int references stadiums(id) ON DELETE CASCADE,
+        distance int);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Angels Stadium of Anaheim",
 		"Los Angeles Angels of Anaheim",
@@ -27,10 +32,11 @@ VALUES (NULL,
 		"45,957",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Comerica Park",
 		"Detroit Tigers",
@@ -40,10 +46,11 @@ VALUES (NULL,
 		"41,547",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Fenway Park",
 		"Boston Red Sox",
@@ -53,10 +60,11 @@ VALUES (NULL,
 		"37,673",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Jewel Box"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Globe Life Park in Arlington",
 		"Texas Rangers",
@@ -66,10 +74,11 @@ VALUES (NULL,
 		"48,114",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Kauffman Stadium",
 		"Kansas City Royals",
@@ -79,10 +88,11 @@ VALUES (NULL,
 		"37,903",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Minute Maid Park",
 		"Houston Astros",
@@ -92,10 +102,11 @@ VALUES (NULL,
 		"421,574",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"O.co Coliseum",
 		"Oakland Athletics",
@@ -105,10 +116,11 @@ VALUES (NULL,
 		"35,067",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Multipurpose"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Oriole Park at Camden Yards",
 		"Baltimore Orioles",
@@ -118,10 +130,11 @@ VALUES (NULL,
 		"45,971",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
 INSERT INTO stadiums (id, name, team, address, phone,
-					  date, capacity, turf, revenue, league)
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Progressive Field",
 		"Cleveland Indians",
@@ -131,10 +144,11 @@ VALUES (NULL,
 		"37,675",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Rogers Centre",
 		"Totonto Blue Jays",
@@ -144,10 +158,11 @@ VALUES (NULL,
 		"49,282",
 		"Astro Turf",
 		"0",
-		"American"
+		"American",
+                "Multipurpose"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"SafeCo Field",
 		"Seattle Mariners",
@@ -157,10 +172,11 @@ VALUES (NULL,
 		"47,574",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Target Field",
 		"Minnesota Twins",
@@ -170,10 +186,11 @@ VALUES (NULL,
 		"39,021",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Tropicana Field",
 		"Tampa Bay Rays",
@@ -183,10 +200,11 @@ VALUES (NULL,
 		"31,042",
 		"Astro Turf",
 		"0",
-		"American"
+		"American",
+                "Multipurpose"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"US Cellular Field",
 		"Chicago White Sox",
@@ -196,10 +214,11 @@ VALUES (NULL,
 		"40,615",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Yankee Stadium",
 		"New York Yankees",
@@ -209,10 +228,11 @@ VALUES (NULL,
 		"49,642",
 		"Grass",
 		"0",
-		"American"
+		"American",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"AT&T Park",
 		"San Francisco Giants",
@@ -222,10 +242,11 @@ VALUES (NULL,
 		"41,915",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Busch Stadium",
 		"St. Louis Cardinals",
@@ -235,10 +256,11 @@ VALUES (NULL,
 		"43,975",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Chase Field",
 		"Arizona Diamondbacks",
@@ -248,10 +270,11 @@ VALUES (NULL,
 		"48,519",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Citi Field",
 		"New York Mets",
@@ -261,10 +284,11 @@ VALUES (NULL,
 		"41,922",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Citizens Bank Park",
 		"Philadelphia Phillies",
@@ -274,10 +298,11 @@ VALUES (NULL,
 		"43,651",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Coors Field",
 		"Colorado Rockies",
@@ -287,10 +312,11 @@ VALUES (NULL,
 		"50,398",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Dodger Stadium",
 		"Los Angeles Dodgers",
@@ -300,10 +326,11 @@ VALUES (NULL,
 		"56,000",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Great America Ball Park",
 		"Cincinnati Reds",
@@ -313,10 +340,11 @@ VALUES (NULL,
 		"42,319",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Marlins Park",
 		"Miami Marlins",
@@ -326,10 +354,11 @@ VALUES (NULL,
 		"36,742",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Contemporary"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Miller Park",
 		"Milwaukee Brewers",
@@ -339,10 +368,11 @@ VALUES (NULL,
 		"41,900",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Nationals Park",
 		"Washington Nationals",
@@ -352,10 +382,11 @@ VALUES (NULL,
 		"41,888",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Petco Park",
 		"San Diego Padres",
@@ -365,10 +396,11 @@ VALUES (NULL,
 		"41,164",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Modern"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"PNC Park",
 		"Pittsburgh Pirates",
@@ -378,10 +410,11 @@ VALUES (NULL,
 		"38,362",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Turner Field",
 		"Atlanta Braves",
@@ -391,10 +424,11 @@ VALUES (NULL,
 		"49,586",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Retro Classic"
 		);
-INSERT INTO stadiums (id, name, team, address,
-					  phone, date, capacity, turf, revenue, league)
+INSERT INTO stadiums (id, name, team, address, phone,
+					  date, capacity, turf, revenue, league, typology)
 VALUES (NULL, 
 		"Wrigley Field",
 		"Chicago Cubs",
@@ -404,7 +438,8 @@ VALUES (NULL,
 		"42,495",
 		"Grass",
 		"0",
-		"National"
+		"National",
+                "Jewel Box"
 		);
 INSERT INTO souvenirs (stadium_id, name, price)
 VALUES(1, "Baseball cap", "23.99");
