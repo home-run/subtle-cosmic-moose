@@ -21,7 +21,7 @@ SOURCES += source/mainwindow.cpp \
     source/tripsummary.cpp \
     source/stadiumtablemodel.cpp \
     source/souvenirtablemodel.cpp \
-    source/graph.cpp
+    source/graph.cpp \
     source/adminlogin.cpp
 
 HEADERS  += header/mainwindow.h \
@@ -34,7 +34,7 @@ HEADERS  += header/mainwindow.h \
     header/database.h \
     header/stadiumtablemodel.h \
     header/souvenirtablemodel.h \
-    header/graph.h
+    header/graph.h \
     header/adminlogin.h
 
 FORMS    += form/mainwindow.ui \

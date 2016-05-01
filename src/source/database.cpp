@@ -26,11 +26,51 @@ Database::Database(QString path, QString driver) : QSqlDatabase(addDatabase(driv
     query.exec("PRAGMA foreign_keys = ON;");
 }
 
-QSqlQuery Database::getDistances()
+QSqlQuery Database::getEdges()
 {
     QSqlQuery query;
-    query.exec("SELECT * FROM distances");
+    query.exec("select * from distances");
 
-    qDebug() << "ID From [ " << query.value(1).toInt() << " ] ID to [ " << query.value(2).toInt() << " ] Distance [ " << query.value(3).toInt() << " ]";
+    if(DEBUG)
+    {
+        while(query.next())
+        {
+            qDebug() << "ID From [ " <<  query.record().field("id_from").value().toInt()
+                     << " ] ID to [ " << query.record().field("id_to").value().toInt()
+                     << " ] Distance [ "
+                     << query.record().field("distance").value().toInt() << " ]";
+        }
+    }
+    return query;
+}
+
+int Database::getNumberOfStadiums() const
+{
+    QSqlQuery query;
+    query.exec("select count(*) from stadiums");
+    if(query.next())
+    {
+        if(DEBUG)
+        { qDebug() << "Number of stadiums [ " << query.record().field(0).value().toInt() << " ]"; }
+        return query.record().field(0).value().toInt();
+    }
+    return -1;
+}
+
+QSqlQuery Database::getStadiumsNameId()
+{
+    QSqlQuery query;
+
+    query.exec("select id, name from stadiums order by id");
+        if(DEBUG)
+        {
+            QSqlQuery debug_query;
+            debug_query = query;
+            while(debug_query.next())
+            {
+                qDebug() << "ID [ " << debug_query.record().field("id").value().toInt() << " ] - Name [ " << debug_query.record().field("name").value().toString() << " ]";
+            }
+        }
+
     return query;
 }

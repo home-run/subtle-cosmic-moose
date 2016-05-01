@@ -12,7 +12,11 @@ private slots:
     // Database tests
     void testOpenDB();
 
+    void testNumberStadiums();
+
     void createGraph();
+
+    void testShortestPath();
 
 private:
     // Put testing variables here
@@ -34,13 +38,44 @@ void Test_Main::testOpenDB()
     QVERIFY(db->open());
 }
 
-void Test_Main::createGraph()
+void Test_Main::testNumberStadiums()
 {
-
     QVERIFY(db->open());
     if(db->isOpen())
     {
-        db->getDistances();
+        QVERIFY(db->getNumberOfStadiums() == 30);
+    }
+
+}
+
+void Test_Main::createGraph()
+{
+    QSqlQuery query;
+    Graph testGraph;
+
+    QVERIFY(db->open());
+    if(db->isOpen()) {
+
+        qDebug() << "Creating the graph";
+        testGraph.createGraph(db);
+    }
+
+}
+
+void Test_Main::testShortestPath()
+{
+    Graph testGraph;
+    QList<Edge> edges;
+
+    testGraph.createGraph(db);
+
+    edges = testGraph.shortestPath(26);
+
+    for(int i = 0; i < edges.size(); i++)
+    {
+        qDebug() << "From [ " << edges.at(0).idFrom
+        << " ] to [ " << edges.at(0).idTo
+        << " ] distance : " << edges.at(i).weight;
     }
 }
 
