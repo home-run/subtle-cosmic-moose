@@ -89,6 +89,16 @@ StadiumDetails::~StadiumDetails()
 }
 
 /**
+ * @brief StadiumDetails::getDB
+ * Receive a pointer to the database
+ * @param db the database
+ */
+void StadiumDetails::getDB(Database *db)
+{
+    this->db = db;
+}
+
+/**
  * @brief StadiumDetails::toggleAdminFunctions
  * Hide/unhide and enable/disable all buttons and features for
  * admin use only.
@@ -405,4 +415,16 @@ void StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked()
         stadiumModel->select();
         souvenirModel->select();
     }
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked
+ * Prompt the user with a dialog that allows them to enter in
+ * souvenir info and add a new souvenir. Spiffy!
+ */
+void StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked()
+{
+    addsouvenir *souvenirPrompt = new addsouvenir(this, db);
+    souvenirPrompt->setWindowModality(Qt::ApplicationModal);
+    souvenirPrompt->show();
 }

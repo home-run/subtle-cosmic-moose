@@ -25,3 +25,24 @@ Database::Database(QString path, QString driver) : QSqlDatabase(addDatabase(driv
     QSqlQuery query;
     query.exec("PRAGMA foreign_keys = ON;");
 }
+
+/**
+ * @brief Database::GetStadiumNames
+ * Retrieve a list of stadium names.
+ * @return names a list of stadium names
+ */
+QStringList Database::GetStadiumNames()
+{
+    QSqlQuery query;
+    QStringList names;
+    if(query.exec("select name from stadiums;")){
+        while(query.next()){
+            names.append(query.record().field("name").value().toString());
+        }
+    }
+    else
+    {
+        qDebug() << this->lastError().text();
+    }
+    return names;
+}

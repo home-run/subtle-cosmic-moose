@@ -36,6 +36,9 @@ MainWindow::MainWindow(QWidget *parent) :
             stadiumDetails_widget, SLOT(initializeSouvenirTable(SouvenirTableModel*)));
     connect(this, SIGNAL(adminFeaturesToggled(bool)),
             stadiumDetails_widget, SLOT(toggleAdminFunctions(bool)));
+    connect(this, SIGNAL(giveDB(Database*)),
+            stadiumDetails_widget, SLOT(getDB(Database*)));
+
 
     // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
@@ -184,6 +187,7 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     souvenirModel = new SouvenirTableModel(this, db);
     emit initializeStadiumTable(stadiumModel);
     emit initializeSouvenirTable(souvenirModel);
+    emit giveDB(db);
 
 }
 

@@ -10,6 +10,8 @@ class Database : public QSqlDatabase
 public:
   ///Create database from specified db file and driver
   Database(QString path, QString driver);
+
+  QStringList GetStadiumNames();
   ///Destructor
   ~Database();
 };
