@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("~/run Dream Vacation Planner");
+
     // Instantiate database
     db = new Database("data.db", "QSQLITE");
 

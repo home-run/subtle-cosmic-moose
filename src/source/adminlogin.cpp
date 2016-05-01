@@ -7,6 +7,7 @@ AdminLogin::AdminLogin(QWidget *parent) :
     ui(new Ui::AdminLogin)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Admin Login");
 }
 
 AdminLogin::~AdminLogin()
