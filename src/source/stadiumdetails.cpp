@@ -1,11 +1,12 @@
 #include "header/stadiumdetails.h"
 #include "ui_stadiumdetails.h"
 
-StadiumDetails::StadiumDetails(QWidget *parent) :
+StadiumDetails::StadiumDetails(QWidget *parent, Database *db) :
     QWidget(parent),
     ui(new Ui::StadiumDetails)
 {
     ui->setupUi(this);
+    this->db = db;
     toggleAdminFunctions(false);
 }
 
@@ -89,16 +90,6 @@ StadiumDetails::~StadiumDetails()
 }
 
 /**
- * @brief StadiumDetails::getDB
- * Receive a pointer to the database
- * @param db the database
- */
-void StadiumDetails::getDB(Database *db)
-{
-    this->db = db;
-}
-
-/**
  * @brief StadiumDetails::toggleAdminFunctions
  * Hide/unhide and enable/disable all buttons and features for
  * admin use only.
@@ -123,10 +114,6 @@ void StadiumDetails::toggleAdminFunctions(bool isAdmin)
         // make tables editable
         ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::DoubleClicked);
         ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::DoubleClicked);
-
-        // set it to submit changes on manual submit
-        this->stadiumModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
-        this->souvenirModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
     }
     else
     {
@@ -427,4 +414,40 @@ void StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked()
     addsouvenir *souvenirPrompt = new addsouvenir(this, db);
     souvenirPrompt->setWindowModality(Qt::ApplicationModal);
     souvenirPrompt->show();
+}
+
+
+void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
+{
+    if(souvenirModel->removeRow(ui->stadiumDetails_tableView_souvenirs->currentIndex().row()))
+    {
+        int currentRow                = ui->stadiumDetails_tableView_souvenirs->currentIndex().row();
+        QModelIndex stadium_ID_index  = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 0);
+        QModelIndex nameIndex         = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 1);
+        QString itemName              = ui->stadiumDetails_tableView_souvenirs->model()->data(nameIndex).toString();
+        int stadium_ID               = ui->stadiumDetails_tableView_souvenirs->model()->data(stadium_ID_index).toInt();
+
+        // Pop up a warning
+        QMessageBox *p = new QMessageBox(this);
+        p->setWindowTitle("Remove Souvenir");
+        p->setText(itemName + " will be removed.");
+        p->setInformativeText("Are you sure?");
+        p->setStandardButtons(QMessageBox::Cancel | QMessageBox::Ok);
+        p->setDefaultButton(QMessageBox::Cancel);
+        int decision = p->exec();
+
+        // If they click ok, save changes to DB
+        if(decision == QMessageBox::Ok)
+        {
+            souvenirModel->submitAll();
+            souvenirModel->select();
+        }
+    }
+    else
+    {
+        QMessageBox *p = new QMessageBox(this);
+        p->setText("Please select a row.");
+        p->setStandardButtons(QMessageBox::Ok);
+        p->exec();
+    }
 }

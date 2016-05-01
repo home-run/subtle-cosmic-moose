@@ -7,6 +7,7 @@ addsouvenir::addsouvenir(QWidget *parent, Database *db) :
 {
     ui->setupUi(this);
     this->db = db;
+    qDebug() << "got here";
     this->setWindowTitle("Add Souvenir");
     ui->addSouvenir_stadium_comboBox->addItems(db->GetStadiumNames());
 }
