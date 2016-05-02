@@ -128,65 +128,36 @@ int Graph::edgeWeight(int v1, int v2)
     return returnWeight;
 }
 
+void Graph::initialize_single_source()
+{
+    for(int vertex = 0; vertex < vertexList.size(); vertex++)
+    {
+        vertexList[vertex].distance = INFINITY;
+        vertexList[vertex].parentId = -1;
+    }
+}
+
+/**
+ * @brief Graph::relax
+ * The process of relaxing an edge (u,v) consists of testing whether we can improve the
+ * 	shortest path to v found so far by going through u and, if so, updating v.d and
+ *  v.parentId.
+ * @param u - Vertex
+ * @param v - Vertex
+ */
+void Graph::relax(Vertex &u, Vertex &v)
+{
+    if(v.distance > u.distance + adjacencyMatrix[u][v])
+    {
+        v.distance = u.distance + adjacencyMatrix[u][v];
+        v.parentId = v.id;
+    }
+}
 
 QList<Edge> Graph::shortestPath(int startingId)
 {
-    QList<Edge> shortestPathList;
-    Edge edge;
-    int *smallestWeight;
-    bool *weightFound;
-    int minWeight;
-    int v;
+    initialize_single_source();
+    QList<Vertex> shortestVerticesFound;
 
-    weightFound = new bool[this->numVertices];
-    smallestWeight = new int[this->numVertices];
-
-    // Initialize everything to the starting point of the id and that everything has
-    //	not been found.
-    for(int j = 0; j < this->numVertices; j++)
-    {
-        smallestWeight[j] 	= adjacencyMatrix[startingId][j];
-        weightFound[j] 		= false;
-    }
-
-
-    weightFound[startingId] = true;
-    smallestWeight[startingId] = 0;
-
-
-    for(int i = 0; i < this->numVertices; i++)
-    {
-        minWeight = INT32_MAX;
-
-        for(int j = 0; j <this->numVertices;j++)
-        {
-            if(!weightFound[j])
-            {
-                if(smallestWeight[j] < minWeight )
-                {
-                    v = j;
-                    minWeight = smallestWeight[v];
-                }
-            }
-        }
-
-        weightFound[v] = true;
-
-        for(int j = 0; j < this->numVertices;j++)
-        {
-            if(!weightFound[j])
-            {
-                 if(minWeight + adjacencyMatrix[v][j] < smallestWeight[j] )
-                {
-                    smallestWeight[j] = minWeight + adjacencyMatrix[v][j];
-                    edge.idFrom = v;
-                    edge.idTo = j;
-                    edge.weight = smallestWeight[j];
-                    qDebug() << "Smallest Weight current is " << smallestWeight[j];
-                    shortestPathList.append(edge);
-                }
-            }
-        }
-    }
-    return shortestPathList;
 }
+

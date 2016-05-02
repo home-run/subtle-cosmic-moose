@@ -11,7 +11,9 @@
 struct Vertex
 {
     QString stadiumName;
+    int 	distance;
     int		id;
+    int		parentId;
 };
 
 struct Edge
@@ -44,6 +46,9 @@ private:
     int** adjacencyMatrix;
     int numVertices;
 
+    void initialize_single_source();
+    void relax(Vertex &u, Vertex &v);
+    QList<Edge> Graph::sortedEdges();
 };
 
 #endif // GRAPH_H
