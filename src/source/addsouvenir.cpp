@@ -1,15 +1,14 @@
 #include "header/addsouvenir.h"
 #include "ui_addsouvenir.h"
 
-addsouvenir::addsouvenir(QWidget *parent, Database *db) :
+addsouvenir::addsouvenir(QWidget *parent, Database *db, QString stadiumName) :
     QDialog(parent),
     ui(new Ui::addsouvenir)
 {
     ui->setupUi(this);
+    this->stadiumName = stadiumName;
     this->db = db;
-    qDebug() << "got here";
-    this->setWindowTitle("Add Souvenir");
-    ui->addSouvenir_stadium_comboBox->addItems(db->GetStadiumNames());
+    this->setWindowTitle("Add Souvenir to " + stadiumName);
 }
 
 addsouvenir::~addsouvenir()
@@ -23,11 +22,11 @@ addsouvenir::~addsouvenir()
  */
 void addsouvenir::on_addSouvenir_confirmation_buttonBox_accepted()
 {
-    QString stadium = ui->addSouvenir_stadium_comboBox->currentText();
     QString itemName = ui->addSouvenir_souvenirName_lineEdit->text();
     double itemPrice = ui->addSouvenir_price_doubleSpinBox->value();
-    if(db->AddSouvenir(stadium, itemName, itemPrice)){
-        qDebug() << itemName + " was successfully added to " << stadium << "\'s souvenir list.";
+    if(db->AddSouvenir(stadiumName, itemName, itemPrice)){
+        qDebug() << itemName + " was successfully added to " << stadiumName << "\'s souvenir list.";
+        emit refreshModels();
     } else {
         qDebug() << "failed to add the souvenir";
     }
@@ -39,5 +38,5 @@ void addsouvenir::on_addSouvenir_confirmation_buttonBox_accepted()
  */
 void addsouvenir::on_addSouvenir_confirmation_buttonBox_rejected()
 {
-    close();
+    this->close();
 }

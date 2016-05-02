@@ -13,8 +13,11 @@ class addsouvenir : public QDialog
     Q_OBJECT
 
 public:
-    explicit addsouvenir(QWidget *parent = 0, Database *db = 0);
+    explicit addsouvenir(QWidget *parent = 0, Database *db = 0, QString stadiumName = "null");
     ~addsouvenir();
+
+signals:
+    void refreshModels();
 
 private slots:
     void on_addSouvenir_confirmation_buttonBox_accepted();
@@ -23,6 +26,7 @@ private slots:
 
 private:
     Ui::addsouvenir *ui;
+    QString stadiumName;
     Database *db;
 };
 

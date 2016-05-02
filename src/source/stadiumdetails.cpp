@@ -89,6 +89,12 @@ StadiumDetails::~StadiumDetails()
     delete ui;
 }
 
+void StadiumDetails::refreshModels()
+{
+    souvenirModel->select();
+    stadiumModel->select();
+}
+
 /**
  * @brief StadiumDetails::toggleAdminFunctions
  * Hide/unhide and enable/disable all buttons and features for
@@ -411,12 +417,29 @@ void StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked()
  */
 void StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked()
 {
-    addsouvenir *souvenirPrompt = new addsouvenir(this, db);
-    souvenirPrompt->setWindowModality(Qt::ApplicationModal);
-    souvenirPrompt->show();
+    int selectedRow = ui->stadiumDetails_tableView_stadiumInfo->currentIndex().row();
+    if(selectedRow > -1)
+    {
+        QModelIndex stadiumName_index  = ui->stadiumDetails_tableView_stadiumInfo->model()->index(selectedRow, 1);
+        QModelIndex stadiumID_index  = ui->stadiumDetails_tableView_stadiumInfo->model()->index(selectedRow, 0);
+        QString stadiumName = ui->stadiumDetails_tableView_stadiumInfo->model()->data(stadiumName_index).toString();
+        int stadiumID = ui->stadiumDetails_tableView_stadiumInfo->model()->data(stadiumID_index).toInt();
+
+        qDebug() << stadiumName;
+        addsouvenir *souvenirPrompt = new addsouvenir(this, db, stadiumName);
+
+        QObject::connect(souvenirPrompt, SIGNAL(refreshModels()),
+                         this, SLOT(refreshModels()));
+
+        souvenirPrompt->setWindowModality(Qt::ApplicationModal);
+        souvenirPrompt->show();
+    }
 }
 
-
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked
+ * When clicked, attempt to remove the selected souvenir. If no row is selected, throw an error.
+ */
 void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
 {
     if(souvenirModel->removeRow(ui->stadiumDetails_tableView_souvenirs->currentIndex().row()))
@@ -425,7 +448,7 @@ void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
         QModelIndex stadium_ID_index  = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 0);
         QModelIndex nameIndex         = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 1);
         QString itemName              = ui->stadiumDetails_tableView_souvenirs->model()->data(nameIndex).toString();
-        int stadium_ID               = ui->stadiumDetails_tableView_souvenirs->model()->data(stadium_ID_index).toInt();
+        int stadium_ID                = ui->stadiumDetails_tableView_souvenirs->model()->data(stadium_ID_index).toInt();
 
         // Pop up a warning
         QMessageBox *p = new QMessageBox(this);
