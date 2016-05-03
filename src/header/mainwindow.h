@@ -46,6 +46,7 @@ signals:
     void initializeStadiumTable(StadiumTableModel *stadiumModel);
     void initializeSouvenirTable(SouvenirTableModel *souvenirModel);
     void adminFeaturesToggled(bool);
+    void giveDB(Database *db);
 
 private slots:
     void toggleAdminFeatures(bool isAdmin);

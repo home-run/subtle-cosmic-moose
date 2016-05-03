@@ -1,11 +1,12 @@
 #include "header/stadiumdetails.h"
 #include "ui_stadiumdetails.h"
 
-StadiumDetails::StadiumDetails(QWidget *parent) :
+StadiumDetails::StadiumDetails(QWidget *parent, Database *db) :
     QWidget(parent),
     ui(new Ui::StadiumDetails)
 {
     ui->setupUi(this);
+    this->db = db;
     toggleAdminFunctions(false);
 }
 
@@ -88,6 +89,12 @@ StadiumDetails::~StadiumDetails()
     delete ui;
 }
 
+void StadiumDetails::refreshModels()
+{
+    souvenirModel->select();
+    stadiumModel->select();
+}
+
 /**
  * @brief StadiumDetails::toggleAdminFunctions
  * Hide/unhide and enable/disable all buttons and features for
@@ -113,10 +120,6 @@ void StadiumDetails::toggleAdminFunctions(bool isAdmin)
         // make tables editable
         ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::DoubleClicked);
         ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::DoubleClicked);
-
-        // set it to submit changes on manual submit
-        this->stadiumModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
-        this->souvenirModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
     }
     else
     {
@@ -404,5 +407,70 @@ void StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked()
         // re-propagate tables
         stadiumModel->select();
         souvenirModel->select();
+    }
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked
+ * Prompt the user with a dialog that allows them to enter in
+ * souvenir info and add a new souvenir. Spiffy!
+ */
+void StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked()
+{
+    int selectedRow = ui->stadiumDetails_tableView_stadiumInfo->currentIndex().row();
+    if(selectedRow > -1)
+    {
+        QModelIndex stadiumName_index  = ui->stadiumDetails_tableView_stadiumInfo->model()->index(selectedRow, 1);
+        QModelIndex stadiumID_index  = ui->stadiumDetails_tableView_stadiumInfo->model()->index(selectedRow, 0);
+        QString stadiumName = ui->stadiumDetails_tableView_stadiumInfo->model()->data(stadiumName_index).toString();
+        int stadiumID = ui->stadiumDetails_tableView_stadiumInfo->model()->data(stadiumID_index).toInt();
+
+        qDebug() << stadiumName;
+        addsouvenir *souvenirPrompt = new addsouvenir(this, db, stadiumName);
+
+        QObject::connect(souvenirPrompt, SIGNAL(refreshModels()),
+                         this, SLOT(refreshModels()));
+
+        souvenirPrompt->setWindowModality(Qt::ApplicationModal);
+        souvenirPrompt->show();
+    }
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked
+ * When clicked, attempt to remove the selected souvenir. If no row is selected, throw an error.
+ */
+void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
+{
+    if(souvenirModel->removeRow(ui->stadiumDetails_tableView_souvenirs->currentIndex().row()))
+    {
+        int currentRow                = ui->stadiumDetails_tableView_souvenirs->currentIndex().row();
+        QModelIndex stadium_ID_index  = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 0);
+        QModelIndex nameIndex         = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 1);
+        QString itemName              = ui->stadiumDetails_tableView_souvenirs->model()->data(nameIndex).toString();
+        int stadium_ID                = ui->stadiumDetails_tableView_souvenirs->model()->data(stadium_ID_index).toInt();
+
+        // Pop up a warning
+        QMessageBox *p = new QMessageBox(this);
+        p->setWindowTitle("Remove Souvenir");
+        p->setText(itemName + " will be removed.");
+        p->setInformativeText("Are you sure?");
+        p->setStandardButtons(QMessageBox::Cancel | QMessageBox::Ok);
+        p->setDefaultButton(QMessageBox::Cancel);
+        int decision = p->exec();
+
+        // If they click ok, save changes to DB
+        if(decision == QMessageBox::Ok)
+        {
+            souvenirModel->submitAll();
+            souvenirModel->select();
+        }
+    }
+    else
+    {
+        QMessageBox *p = new QMessageBox(this);
+        p->setText("Please select a row.");
+        p->setStandardButtons(QMessageBox::Ok);
+        p->exec();
     }
 }

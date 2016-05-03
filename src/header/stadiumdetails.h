@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QDebug>
 #include <QMessageBox>
+#include "addsouvenir.h"
 #include "stadiumtablemodel.h"
 #include "souvenirtablemodel.h"
 
@@ -16,7 +17,7 @@ class StadiumDetails : public QWidget
     Q_OBJECT
 
 public:
-    explicit StadiumDetails(QWidget *parent = 0);
+    explicit StadiumDetails(QWidget *parent = 0, Database *db = 0);
 
     void initializeStadiumView();
 
@@ -25,6 +26,7 @@ public:
     ~StadiumDetails();
 
 public slots:
+    void refreshModels();
     void toggleAdminFunctions(bool isAdmin);
     void initializeStadiumTable(StadiumTableModel *stadiumModel);
     void initializeSouvenirTable(SouvenirTableModel *souvenirModel);
@@ -40,10 +42,15 @@ private slots:
 
     void on_stadiumDetails_admin_submitChanges_clicked();
 
+    void on_stadiumDetails_admin_addSouvenir_clicked();
+
+    void on_stadiumDetails_admin_removeSouvenir_clicked();
+
 private:
     Ui::StadiumDetails *ui;
     StadiumTableModel *stadiumModel;
     SouvenirTableModel *souvenirModel;
+    Database *db;
 };
 
 #endif // STADIUMDETAILS_H
