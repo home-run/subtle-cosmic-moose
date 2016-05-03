@@ -8,12 +8,12 @@ Graph::Graph()
 Graph::~Graph()
 {
 
-    for(int i = 0; i < numVertices; i++)
-    {
-        delete adjacencyMatrix[i];
-    }
+//    for(int i = 0; i < numVertices; i++)
+//    {
+//        delete adjacencyMatrix[i];
+//    }
 
-    delete [] adjacencyMatrix;
+//    delete [] adjacencyMatrix;
 }
 
 
@@ -38,11 +38,11 @@ void Graph::createGraph(Database *db)
     // TODO: Clear graph in case that a new graph is needed when more stadiums have been added to the graph.
 
     // Create a pointer array to store arrays of edges for each vertex
-    adjacencyMatrix = new int*[numVertices];
+//    adjacencyMatrix = new int*[numVertices];
 
     for(int i = 0; i < numVertices; i++)
     {
-        adjacencyMatrix[i] = new int [numVertices];
+//        adjacencyMatrix[i] = new int [numVertices];
         for(int j = 0; j < numVertices; j++)
         {
             adjacencyMatrix[i][j] = INT32_MAX;
@@ -147,9 +147,11 @@ void Graph::initialize_single_source()
  */
 void Graph::relax(Vertex &u, Vertex &v)
 {
-    if(v.distance > u.distance + adjacencyMatrix[u][v])
+//    if(v.distance > u.distance + adjacencyMatrix[u][v])
+    if(v.distance > u.distance + edgeWeight(u.id,v.id))
     {
-        v.distance = u.distance + adjacencyMatrix[u][v];
+//        v.distance = u.distance + adjacencyMatrix[u][v];
+        v.distance = u.distance + edgeWeight(u.id,v.id);
         v.parentId = v.id;
     }
 }
@@ -158,6 +160,4 @@ QList<Edge> Graph::shortestPath(int startingId)
 {
     initialize_single_source();
     QList<Vertex> shortestVerticesFound;
-
 }
-

@@ -35,7 +35,9 @@ HEADERS  += header/mainwindow.h \
     header/stadiumtablemodel.h \
     header/souvenirtablemodel.h \
     header/graph.h \
-    header/adminlogin.h
+    header/adminlogin.h \
+    header/Heap.h \
+    header/Exceptions.h
 
 FORMS    += form/mainwindow.ui \
     form/stadiumdetails.ui \
