@@ -9,14 +9,6 @@
 #include "database.h"
 #include "Heap.h"
 
-struct Vertex
-{
-    QString stadiumName;
-    int 	distance;
-    int		id;
-    int		parentId;
-};
-
 struct Edge
 {
     int idFrom;
@@ -32,6 +24,86 @@ struct comp
     }
 };
 
+class Vertex
+{
+public:
+    /**
+     * @brief Vertex
+     * Default Vertex constructor
+     */
+    Vertex(){
+        this->id = INT16_MAX;
+        this->name = "";
+        this->parent = NULL;
+        this->distance = 0;
+    }
+
+    /**
+     * @brief Vertex
+     * Non-default Vertex Constructor. Takes in the ID and name of the vertex as it is
+     * being instatiated.
+     * @param id
+     * @param name
+     */
+    Vertex(int id, QString name, int distance)
+    {
+        this->id = id;
+        this->name = name;
+        this->parent = NULL;
+        this->distance = distance;
+    }
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Accessors
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+     * @brief getId
+     * @return The id of the vertex
+     */
+    int getId() const
+    {
+        return this->id;
+    }
+
+    /**
+     * @brief getName
+     * @return The name of the vertex
+     */
+    QString getName() const
+    {
+        return this->name;
+    }
+
+    int getDistance() const
+    {
+        return this->distance;
+    }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Mutators
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    void setId(int id)
+    {
+        this->id = id;
+    }
+
+    void setName(QString name)
+    {
+        this->name = name;
+    }
+
+    void setParent(Vertex*p)
+    {
+        this->parent = p;
+    }
+
+private:
+    int id;
+    QString name;
+    Vertex *parent;
+    int distance;
+    Heap<Edge, comp> edges;
+};
+
 class Graph
 {
 public:
@@ -41,31 +113,60 @@ public:
     /// Deconstructor, deallocates the memory set by the Adjacency Matrix
     ~Graph();
 
-    /// @brief createGraph
-    /// This method will call in the database and generate the graph that includes edges,
-    /// 	and vertices. These represent the stadiums and the paths a baseball fan is
-    /// 	able to
-    void createGraph(Database *db);
 
-    /// @brief edgeWeight
-    /// Method provides a safe way to access the adjacency matrix.
+    /**
+     * @brief edgeWeight
+     * Method provides a safe way to access the adjacency matrix.
+     */
     int edgeWeight(int v1, int v2);
 
-    /// @brief getVertexList
-    /// This will return a QList of vertices in the graph.
+    /**
+     * @brief getVertexList
+     *  This will return a QList of vertices in the graph.
+     */
     QList<Vertex> getVertices() const;
 
-    /// @brief shortestPath
-    /// Returns the shortest path given the starting ID of a vertex.
-    QList<Edge> shortestPath(int startingId);
+    /**
+     * @brief createGraph
+     *  This method will call in the database and generate the graph that includes edges,
+     *  	and vertices. These represent the stadiums and the paths a baseball fan is
+     *  	able to
+     */
+    void createGraph(Database *db);
+    /**
+     * @brief shortestPath
+     * Returns the shortest path given the starting ID of a vertex.
+     */
+    QList<Edge> shortestPath(Vertex source);
+
+    /**
+     * @brief clearGraph
+     */
+    void clearGraph();
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Debug Methods
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+     * @brief debug_printAdjMatrix
+     * Method for debugging the adjacency matrix, will only output to the console,
+     * nothing else.
+     */
+    void debug_printAdjMatrix() const;
 private:
 
     QList<Vertex> vertexList;
     int adjacencyMatrix[50][50];
     int numVertices;
-    void initialize_single_source();
+
+    int distance[1000];
+    int previous[1000];
+
+    void initialize_single_source(Vertex s);
     void relax(Vertex &u, Vertex &v);
-    QList< Heap<Edge, comp> > sortedEdges;
 };
+
+
+
 
 #endif // GRAPH_H

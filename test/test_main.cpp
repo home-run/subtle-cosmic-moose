@@ -65,11 +65,15 @@ void Test_Main::createGraph()
 void Test_Main::testShortestPath()
 {
     Graph testGraph;
+    Vertex v;
     QList<Edge> edges;
 
     testGraph.createGraph(db);
 
-    edges = testGraph.shortestPath(26);
+    v.setId(26);
+    edges = testGraph.shortestPath(v);
+
+    testGraph.debug_printAdjMatrix();
 
     for(int i = 0; i < edges.size(); i++)
     {

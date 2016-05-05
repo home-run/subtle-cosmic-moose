@@ -3,17 +3,20 @@
 Graph::Graph()
 {
     this->numVertices = 0;
+
+    for(int i = 0; i < this->numVertices; i++)
+    {
+        for(int j = 0; j < this->numVertices; j++)
+        {
+            this->adjacencyMatrix[i][j] = -1;
+        }
+    }
+
 }
 
 Graph::~Graph()
 {
 
-//    for(int i = 0; i < numVertices; i++)
-//    {
-//        delete adjacencyMatrix[i];
-//    }
-
-//    delete [] adjacencyMatrix;
 }
 
 
@@ -29,23 +32,20 @@ void Graph::createGraph(Database *db)
 {
     QSqlQuery queryResult;
     Vertex vertex;
-    int toId;
-    int fromId;
-    int weight;
+    Edge edge;
+    int toId, fromId, weight, id;
+    QString stadiumName;
 
     numVertices = db->getNumberOfStadiums();
 
+    vertexList.reserve(numVertices);
     // TODO: Clear graph in case that a new graph is needed when more stadiums have been added to the graph.
-
-    // Create a pointer array to store arrays of edges for each vertex
-//    adjacencyMatrix = new int*[numVertices];
 
     for(int i = 0; i < numVertices; i++)
     {
-//        adjacencyMatrix[i] = new int [numVertices];
         for(int j = 0; j < numVertices; j++)
         {
-            adjacencyMatrix[i][j] = INT32_MAX;
+            adjacencyMatrix[i][j] = -1;
         }
     }
 
@@ -53,8 +53,10 @@ void Graph::createGraph(Database *db)
     queryResult = db->getStadiumsNameId();
     while(queryResult.next())
     {
-        vertex.id = queryResult.record().field("id").value().toInt();
-        vertex.stadiumName = queryResult.record().field("name").value().toString();
+        id = queryResult.record().field("id").value().toInt();
+        stadiumName = queryResult.record().field("name").value().toString();
+        vertex.setId(id);
+        vertex.setName(stadiumName);
         vertexList.append(vertex);
     }
 
@@ -68,13 +70,24 @@ void Graph::createGraph(Database *db)
         toId = queryResult.record().field("id_to").value().toInt() - 1;
         fromId = queryResult.record().field("id_from").value().toInt() - 1;
         weight = queryResult.record().field("distance").value().toInt();
+
 #if DEBUG
         {
             qDebug() << "To ID : " << toId << " From ID : " << fromId << " weight " << weight;
         }
 #endif
+        for(int i = 0; i < numVertices; i++)
+        {
+            if(vertexList.at(i).getId()== fromId)
+            {
+                edge.idFrom = fromId;
+                edge.idTo = toId;
+                edge.weight = weight;
+            }
+        }
+
         adjacencyMatrix[fromId][toId] = weight;
-   }
+    }
 
 #if DEBUG
     {
@@ -128,13 +141,17 @@ int Graph::edgeWeight(int v1, int v2)
     return returnWeight;
 }
 
-void Graph::initialize_single_source()
+void Graph::initialize_single_source(Vertex s)
 {
     for(int vertex = 0; vertex < vertexList.size(); vertex++)
     {
-        vertexList[vertex].distance = INFINITY;
-        vertexList[vertex].parentId = -1;
+        //        vertexList[vertex].distance = INFINITY;
+        //        vertexList[vertex].parentId = -1;
+        distance[vertex] = INFINITY;
+        previous[vertex] = -1;
     }
+    //    vertexList[s.id].distance = 0;
+    distance[s.getId()] = 0;
 }
 
 /**
@@ -147,17 +164,55 @@ void Graph::initialize_single_source()
  */
 void Graph::relax(Vertex &u, Vertex &v)
 {
-//    if(v.distance > u.distance + adjacencyMatrix[u][v])
-    if(v.distance > u.distance + edgeWeight(u.id,v.id))
+    //    if(v.distance > u.distance + adjacencyMatrix[u][v])
+    if(v.getDistance() > u.getDistance() + edgeWeight(u.getId(),v.getId()))
     {
-//        v.distance = u.distance + adjacencyMatrix[u][v];
-        v.distance = u.distance + edgeWeight(u.id,v.id);
-        v.parentId = v.id;
+        distance[v.getId()] = u.getDistance() + edgeWeight(u.getId(),v.getId());
+        previous[v.getId()] = u.getId();
     }
 }
 
-QList<Edge> Graph::shortestPath(int startingId)
+/**
+ * @brief Graph::clearGraph
+ * This method will go through and clear the adjacency matrix and the vertex list.
+ */
+void Graph::clearGraph()
 {
-    initialize_single_source();
+    for(int i = 0; i < numVertices; i++)
+    {
+        for(int j = 0; j < numVertices; j++)
+        {
+            this->adjacencyMatrix[i][j] = -1;
+        }
+    }
+    vertexList.clear();
+}
+
+/**
+ * @brief Graph::debug_printAdjMatrix
+ * This method is used for debugging purposes and printing the adjacency matrix when needed.
+ */
+void Graph::debug_printAdjMatrix() const
+{
+    for(int i = 0; i < numVertices; i++)
+    {
+        for(int j = 0; j < numVertices; j++)
+        {
+            qDebug() << "i : " << i << " - j : " << j << " - weight : " << adjacencyMatrix[i][j];
+        }
+    }
+}
+
+QList<Edge> Graph::shortestPath(Vertex source)
+{
     QList<Vertex> shortestVerticesFound;
+    Heap<Edge, comp> vertexPQ;
+    Vertex u;
+
+#if DEBUG
+    qDebug() << "Initializing Single Source";
+#endif
+    initialize_single_source(source);
+
+
 }
