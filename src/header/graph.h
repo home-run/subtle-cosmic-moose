@@ -158,9 +158,10 @@ private:
     QList<Vertex> vertexList;
     int adjacencyMatrix[50][50];
     int numVertices;
+    Heap<Edge, comp> edges;
 
-    int distance[1000];
-    int previous[1000];
+    int *distance;
+    int *previous;
 
     void initialize_single_source(Vertex s);
     void relax(Vertex &u, Vertex &v);

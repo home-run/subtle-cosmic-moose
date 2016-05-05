@@ -2,8 +2,10 @@
 
 Graph::Graph()
 {
+    // Initialze the number of vertices in the graph to be 0
     this->numVertices = 0;
 
+    // Initializes every weight in the adjacency matrix to be -1
     for(int i = 0; i < this->numVertices; i++)
     {
         for(int j = 0; j < this->numVertices; j++)
@@ -17,6 +19,7 @@ Graph::Graph()
 Graph::~Graph()
 {
 
+    clearGraph();
 }
 
 
@@ -30,15 +33,20 @@ Graph::~Graph()
  */
 void Graph::createGraph(Database *db)
 {
-    QSqlQuery queryResult;
-    Vertex vertex;
-    Edge edge;
+    QSqlQuery queryResult;		// Executes & stores the query for retrieving vertices
+                                //		and edges from the database.
+    Vertex vertex;				// Temporary vertex used as a factory for inserting
+                                // 		Vertices into the graph.
+    Edge edge;					// Temporary edge used as a factory for inserting
+                                //		edges into the graph.
+                                //	Integer values to store temporary To, From, Weight and Current IDs
     int toId, fromId, weight, id;
-    QString stadiumName;
+    QString stadiumName;		// Stores the name of the stadium for inserting into the
+                                // 	graph
 
     numVertices = db->getNumberOfStadiums();
 
-    vertexList.reserve(numVertices);
+//    vertexList.reserve(numVertices);
     // TODO: Clear graph in case that a new graph is needed when more stadiums have been added to the graph.
 
     for(int i = 0; i < numVertices; i++)
@@ -49,12 +57,19 @@ void Graph::createGraph(Database *db)
         }
     }
 
-
+    // Calls on the database method that retrieves the SQL Query for access the stadium
+    //	names and ids within the SQLite datbase
     queryResult = db->getStadiumsNameId();
+    // While there still is a query record left within the query...
     while(queryResult.next())
     {
+        // Get the ID field and convert it to int then store it in id
         id = queryResult.record().field("id").value().toInt();
+        // Get the stadium name field and convert it to string then store it in the
+        //	StadiumName variable
         stadiumName = queryResult.record().field("name").value().toString();
+        // Take the vertex factory and set its values to the ID and Stadium Name from
+        //	the database.
         vertex.setId(id);
         vertex.setName(stadiumName);
         vertexList.append(vertex);
@@ -143,10 +158,16 @@ int Graph::edgeWeight(int v1, int v2)
 
 void Graph::initialize_single_source(Vertex s)
 {
+    if(distance == NULL)
+    {
+        distance = new int[numVertices];
+    }
+    if(previous == NULL)
+    {
+        previous = new int[numVertices];
+    }
     for(int vertex = 0; vertex < vertexList.size(); vertex++)
     {
-        //        vertexList[vertex].distance = INFINITY;
-        //        vertexList[vertex].parentId = -1;
         distance[vertex] = INFINITY;
         previous[vertex] = -1;
     }
@@ -186,6 +207,16 @@ void Graph::clearGraph()
         }
     }
     vertexList.clear();
+
+    if(this->distance != NULL)
+    {
+        delete [] distance;
+    }
+
+    if(this->previous != NULL)
+    {
+        delete [] previous;
+    }
 }
 
 /**
@@ -207,12 +238,46 @@ QList<Edge> Graph::shortestPath(Vertex source)
 {
     QList<Vertex> shortestVerticesFound;
     Heap<Edge, comp> vertexPQ;
+    Vertex z;
+    Edge edge;
     Vertex u;
 
 #if DEBUG
     qDebug() << "Initializing Single Source";
 #endif
     initialize_single_source(source);
+    // Let a priority queue contain all the vertices (edges in this case) of G Using the Distances (weights) as keys
+    for(int i = 0; i < this->numVertices;i++)
+    {
+        for(int j = 0; j < this->numVertices;j++)
+        {
+            edge.weight = this->adjacencyMatrix[i][j];
+            // If the weight is not -1 then insert it into the priority queue.
+            if(edge.weight != -1)
+            {
+                edge.idFrom = i;
+                edge.idTo = j;
+                vertexPQ.insert(edge);
+            }
+        }
+    }
 
-
+    while(!vertexPQ.isEmpty())
+    {
+        u = vertexPQ.root();
+        vertexPQ.remove(0);
+        for(int i = 0; i < numVertices; i++)
+        {
+            if(this->adjacencyMatrix[u.getId()][i] != -1)
+            {
+                try
+                {
+                    z = vertexList.at(i);
+                }catch(...)
+                {
+                    qDebug() << "Z was not in the list...."
+                }
+            }
+        }
+    }
 }

@@ -71,16 +71,16 @@ void Test_Main::testShortestPath()
     testGraph.createGraph(db);
 
     v.setId(26);
-    edges = testGraph.shortestPath(v);
+//    edges = testGraph.shortestPath(v);
 
     testGraph.debug_printAdjMatrix();
 
-    for(int i = 0; i < edges.size(); i++)
-    {
-        qDebug() << "From [ " << edges.at(0).idFrom
-        << " ] to [ " << edges.at(0).idTo
-        << " ] distance : " << edges.at(i).weight;
-    }
+//    for(int i = 0; i < edges.size(); i++)
+//    {
+//        qDebug() << "From [ " << edges.at(0).idFrom
+//        << " ] to [ " << edges.at(0).idTo
+//        << " ] distance : " << edges.at(i).weight;
+//    }
 }
 
 //#endif //TEST_DATABASE_H
