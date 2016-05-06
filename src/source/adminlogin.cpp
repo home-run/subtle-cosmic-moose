@@ -6,8 +6,9 @@ AdminLogin::AdminLogin(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AdminLogin)
 {
-    ui->setupUi(this);
     this->setWindowTitle("Admin Login");
+    ui->setupUi(this);
+
 }
 
 AdminLogin::~AdminLogin()
@@ -19,8 +20,8 @@ void AdminLogin::on_pushButton_ok_clicked()
 {
     if(ui->lineEdit_passwordForm->text() == "password")
     {
+        qDebug() << "hey";
         emit adminStatusChanged(true);
-
         this->close();
     }
     else if(ui->lineEdit_passwordForm->text().isEmpty())

@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     db = new Database("data.db", "QSQLITE");
 
     // Allocate memory for all the different widget pages
-    stadiumDetails_widget 	= new StadiumDetails();
+    stadiumDetails_widget 	= new StadiumDetails(this, db);
     homePage_widget 		= new HomePage();
     planTrip_widget 		= new PlanTrip();
     editStadiumInfo_widget 	= new EditStadiumInfo();
@@ -137,8 +137,6 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
     }
     checkPage_hideShowBackNextButton();
-
-
 }
 
 /**
@@ -184,7 +182,6 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     souvenirModel = new SouvenirTableModel(this, db);
     emit initializeStadiumTable(stadiumModel);
     emit initializeSouvenirTable(souvenirModel);
-
 }
 
 void MainWindow::leavingTripSummary()
@@ -227,7 +224,6 @@ void MainWindow::on_actionLogin_triggered()
                      this, SLOT(toggleAdminFeatures(bool)));
     adminPrompt->setWindowModality(Qt::ApplicationModal);
     adminPrompt->show();
-
 }
 
 /**
