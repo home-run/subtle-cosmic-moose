@@ -74,6 +74,13 @@ public:
         return this->name;
     }
 
+    /**
+     * @brief getDistance
+     * This distance is not the distance representing a single vertex but the distance
+     * between this vertex and another a 'source' vertex during a single shortest path
+     * search
+     * @return the distance stored in the vertex
+     */
     int getDistance() const
     {
         return this->distance;
@@ -175,16 +182,30 @@ public:
     void debug_printAdjMatrix() const;
 private:
 
-    QList<Vertex> vertexList;
-    int adjacencyMatrix[50][50];
-    int numVertices;
-    Heap<Edge, comp> edges;
-
+    QList<Vertex> vertexList;	// Stores the complete list of vertices in the graph
+    int adjacencyMatrix[50][50];// Adjacency Matrix that stores the weidghts between
+                                // 	all the vertices in the graph
+    int numVertices;			// Stores the number of total vertices in the graph
+    Heap<Edge, comp> edges;		// A min-heap to store all edges by priority
+                                // 	TODO: May need to remove this.
     QVector<int> distance;		// Vector of costs of the shortest path from vertex v to the source s
     QVector<int> previous;		// Vector of ids of each previous vertex traveled
 
 
+    /**
+     * @brief initialize_single_source
+     * Initialization function before performing the shortest path algorithm
+     * Uses dijkstra's algorithm
+     * @param s
+     */
     void initialize_single_source(Vertex s);
+
+    /**
+     * @brief relax
+     * Relaxation method between 2 vertices
+     * @param u
+     * @param v
+     */
     void relax(Vertex &u, Vertex &v);
 };
 
@@ -198,40 +219,50 @@ public:
         this->bucketSize = 0;
     }
 
+//    ~VertexSet()
+//    {
+//        delete [] buckets;
+//    }
+
+    /**
+     * @brief insert
+     * Method takes a vertex v and will insert it into the set.
+     * @param v
+     */
     void insert(Vertex v)
     {
         int hashKey;
         int index;
         // If inserting into an empty set
         qDebug() << "Inserting vertex " << v.getId();
-        if(bucketSize == 0)
+        if(this->bucketSize == 0)
         {
             if(v.getId() != 0 )
             {
-                buckets = new Vertex[v.getId()*50];
-                bucketSize = v.getId()*50;
+                this->buckets = new Vertex[v.getId()*50];
+                this->bucketSize = v.getId()*50;
             }
             else
             {
-                buckets = new Vertex[50];
-                bucketSize = 50;
+                this->buckets = new Vertex[50];
+                this->bucketSize = 50;
             }
-            for(int i =0; i < bucketSize; i++)
+            for(int i =0; i < this->bucketSize; i++)
             {
-                buckets[i].setName("empty");
+                this->buckets[i].setName("empty");
             }
         }
         hashKey = this->hash(v);
         index = 0;
-        while(buckets[hashKey].getName() != "empty")
+        while(this->buckets[hashKey].getName() != "empty")
         {
-            hashKey = (this->hash(v) + index*this->doubleHash(v))%bucketSize;
+            hashKey = (this->hash(v) + index * this->doubleHash(v)) % this->bucketSize;
             index++;
         }
-        buckets[hashKey].setId(v.getId());
-        buckets[hashKey].setName(v.getName());
-        buckets[hashKey].setDistance(v.getDistance());
-        size++;
+
+        // Insert vertex v into the set.
+        this->buckets[hashKey] = v;
+        this->size++;
     }
 
     /**
@@ -263,11 +294,11 @@ public:
         bool found = false;
         int index = 0;
         int hashKey;
-        while(!found && index < size)
+        while(!found && index < this->size)
         {
-            hashKey = (this->hash(v) + index*this->doubleHash(v))%bucketSize;
+            hashKey = (this->hash(v) + index * this->doubleHash(v)) % this->bucketSize;
             index++;
-            found = buckets[hashKey] == v;
+            found = this->buckets[hashKey] == v;
         }
         return found;
     }
@@ -278,25 +309,37 @@ public:
      */
     bool isEmpty() const
     {
-        return size == 0;
+        return this->size == 0;
     }
 
+    /**
+     * @brief debugOutput
+     * This is a debugging method used for outputting the names and the index at which
+     * a vertex is located at. Serves no other purpose than to output to the console.
+     */
     void debugOutput() const
     {
-        for(int i = 0; i < bucketSize; i++)
+        for(int i = 0; i < this->bucketSize; i++)
         {
-            qDebug() << "Index : " << i << " [ " << buckets[i].getName() << " ]";
+            qDebug() << "Index : " << i << " [ " << this->buckets[i].getName() << " ]";
         }
     }
     void clear();
 private:
-    Vertex *buckets;
-    int bucketSize;
-    int size;
+    Vertex *buckets;		// Stores the individual buckets of the set
+    int bucketSize;			// The number of buckets in the set
+    int size;				// Number of vertices stored in the set
 
+    /**
+     * @brief hash
+     * Performs a hash involving a single prime number and modding the resulting value
+     * by the number of buckets in the set.
+     * @param v
+     * @return hashed key value
+     */
     int hash(Vertex v)
     {
-        return (v.getId()*13) % bucketSize;
+        return (v.getId()*13) % this->bucketSize;
     }
 
     /**
@@ -307,12 +350,12 @@ private:
      */
     int doubleHash(Vertex v)
     {
-        return (v.getId()*7 + 13*v.getId()%bucketSize);
+        return (v.getId() * 7 + 13 * v.getId() % this->bucketSize);
     }
 
     /**
      * @brief search
-     *
+     *	Searches through the set
      * @param v
      * @return hashed key value representing the index placement of the vertex in the
      * bucket
@@ -322,11 +365,11 @@ private:
         bool found = false;
         int index = 0;
         int hashKey;
-        while(!found && index < size)
+        while(!found && index < this->size)
         {
-            hashKey = (this->hash(v) + index*this->doubleHash(v))%bucketSize;
+            hashKey = (this->hash(v) + index * this->doubleHash(v)) % this->bucketSize;
             index++;
-            found = buckets[hashKey] == v;
+            found = this->buckets[hashKey] == v;
         }
         if(found == false)
         {
@@ -334,7 +377,6 @@ private:
         }
         return hashKey;
     }
-
 };
 
 #endif // GRAPH_H
