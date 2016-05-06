@@ -289,3 +289,8 @@ void Graph::shortestPath(Vertex source)
         }
     }
 }
+
+int Graph::getNumberVertices() const
+{
+    return this->numVertices;
+}

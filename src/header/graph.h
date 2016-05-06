@@ -16,6 +16,10 @@ struct Edge
     int weight;
 };
 
+/**
+ * @brief The comp struct
+ * Comparator struct used for comparing the weights of two edges
+ */
 struct comp
 {
     bool operator()(const Edge& e1, const Edge& e2)const
@@ -88,26 +92,53 @@ public:
     // - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Mutators
     // - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+     * @brief setId
+     * Set the ID of the vertex
+     * @param id
+     */
     void setId(int id)
     {
         this->id = id;
     }
 
+    /**
+     * @brief setName
+     * Set the name of the vertex
+     * @param name
+     */
     void setName(QString name)
     {
         this->name = name;
     }
 
+    /**
+     * @brief setParent
+     * Set the parent of the current vertex to p
+     * @param p
+     */
     void setParent(Vertex*p)
     {
         this->parent = p;
     }
 
+    /**
+     * @brief setDistance
+     * Set the distance of the vertex traveled between 2 vertices
+     * @param d
+     */
     void setDistance(int d)
     {
         this->distance = d;
     }
 
+    /**
+     * @brief operator ==
+     * Overloaded comparison operator. Compares the distance, ID and the name over the 2
+     * 	vertices. Returns true if they are equal, false otherwise.
+     * @param v
+     * @return true if they are equal, false otherwise.
+     */
     bool operator==(const Vertex& v)
     {
         return (v.getDistance() == this->getDistance()
@@ -115,6 +146,38 @@ public:
                 && v.getName() == this->getName());
     }
 
+    /**
+     * @brief operator <
+     * Overloaded less than operator to compare this vertex distance
+     * 	and the given vertex v
+     * @param v
+     * @return
+     */
+    bool operator<(const Vertex &v)
+    {
+        return this->distance < v.getDistance();
+    }
+
+    /**
+     * @brief operator >
+     * Overloaded greater than operator to compare this vertex distance
+     * 	and the given vertex v
+     * @param v
+     * @return
+     */
+    bool operator>(const Vertex &v)
+    {
+        return this->distance > v.getDistance();
+    }
+
+    /**
+     * @brief operator =
+     * Overloaded assignment operator to assign the values of the given vertex v to this
+     *  vertex. Assigns the distance, id and name this vertex then returns 'this' to the
+     * 	calling object.
+     * @param v
+     * @return
+     */
     Vertex* operator=(const Vertex& v)
     {
         this->distance = v.getDistance();
@@ -170,6 +233,8 @@ public:
      * @brief clearGraph
      */
     void clearGraph();
+
+    int getNumberVertices() const;
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
