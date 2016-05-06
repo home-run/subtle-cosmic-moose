@@ -247,20 +247,24 @@ void Graph::debug_printAdjMatrix() const
 void Graph::shortestPath(Vertex source)
 {
     VertexSet T;
-    VertexSet S;
+    VertexSet V;
     Heap<Edge, comp> vertexPQ;
     Edge edge;
 
 #if DEBUG
     qDebug() << "Initializing Single Source";
 #endif
+    // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
+
+    // Create a set T of all vertices in the graph
     for(int numV = 0; numV < numVertices; numV++)
     {
         T.insert(vertexList.at(numV));
     }
     T.debugOutput();
-    // Let a priority queue contain all the vertices (edges in this case) of G Using the Distances (weights) as keys
+    // Let a priority queue contain all the vertices (edges in this case) of G Using
+    //	the Distances (weights) as keys
     for(int i = 0; i < this->numVertices;i++)
     {
         for(int j = 0; j < this->numVertices;j++)

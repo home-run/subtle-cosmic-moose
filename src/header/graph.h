@@ -237,6 +237,7 @@ public:
         qDebug() << "Inserting vertex " << v.getId();
         if(this->bucketSize == 0)
         {
+
             if(v.getId() != 0 )
             {
                 this->buckets = new Vertex[v.getId()*50];
