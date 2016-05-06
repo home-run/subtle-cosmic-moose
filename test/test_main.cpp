@@ -60,6 +60,8 @@ void Test_Main::createGraph()
         testGraph.createGraph(db);
     }
 
+    QVERIFY(testGraph.getNumberVertices() == 30);
+
 }
 
 void Test_Main::testShortestPath()
