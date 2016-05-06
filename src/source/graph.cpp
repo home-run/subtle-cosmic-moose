@@ -64,15 +64,15 @@ void Graph::createGraph(Database *db)
                                 // 		Vertices into the graph.
     Edge edge;					// Temporary edge used as a factory for inserting
                                 //		edges into the graph.
-                                //	Integer values to store temporary To, From, Weight and Current IDs
-    int toId, fromId, weight, id;
+    int toId, fromId, weight, id;//	Integer values to store temporary To, From, Weight
+                                //		and Current IDs
     QString stadiumName;		// Stores the name of the stadium for inserting into the
                                 // 	graph
 
     numVertices = db->getNumberOfStadiums();
 
-//    vertexList.reserve(numVertices);
-    // TODO: Clear graph in case that a new graph is needed when more stadiums have been added to the graph.
+    // TODO: Clear graph in case that a new graph is needed when more stadiums have
+    //	been added to the graph.
 
     for(int i = 0; i < numVertices; i++)
     {
@@ -116,14 +116,20 @@ void Graph::createGraph(Database *db)
             qDebug() << "To ID : " << toId << " From ID : " << fromId << " weight " << weight;
         }
 #endif
-        for(int i = 0; i < numVertices; i++)
+        int index = 0;
+        bool found = false;
+        while(index < numVertices && !found)
         {
-            if(vertexList.at(i).getId()== fromId)
+            if(vertexList.at(index).getId()== fromId)
             {
                 edge.idFrom = fromId;
                 edge.idTo = toId;
                 edge.weight = weight;
+                found = true;
+//                vertexList.at(index).addEdge(edge);
+                vertexList[index].addEdge(edge);
             }
+            index++;
         }
 
         adjacencyMatrix[fromId][toId] = weight;
@@ -177,6 +183,13 @@ int Graph::edgeWeight(int v1, int v2)
     return returnWeight;
 }
 
+/**
+ * @brief Graph::initialize_single_source
+ * For v = s, which is the source vertex that the single shortest path will begin at.
+ * Initializes the label D[v] to zero and all other D[u] to infinity for each vertex
+ * which u != v. Clears previously found distance and the list of previous parent ids.
+ * @param s - source vertex which the single shortest path will begin at.
+ */
 void Graph::initialize_single_source(Vertex s)
 {
     distance.clear();
@@ -218,38 +231,52 @@ void Graph::relax(Vertex &u, Vertex &v)
  */
 void Graph::clearGraph()
 {
+    // ID From
     for(int i = 0; i < numVertices; i++)
     {
+        // ID To
         for(int j = 0; j < numVertices; j++)
         {
+            // Set the weight of edge to -1
             this->adjacencyMatrix[i][j] = -1;
         }
     }
+    // Clear the list of vertices
     vertexList.clear();
-
 }
 
 /**
  * @brief Graph::debug_printAdjMatrix
  * This method is used for debugging purposes and printing the adjacency matrix when needed.
+ * Will output the index pair and the represented edge weight between the vertices.
  */
 void Graph::debug_printAdjMatrix() const
 {
+    // ID From
     for(int i = 0; i < numVertices; i++)
     {
+        // ID To
         for(int j = 0; j < numVertices; j++)
         {
+            // Output to the console the weight between the vertices
             qDebug() << "i : " << i << " - j : " << j << " - weight : " << adjacencyMatrix[i][j];
         }
     }
 }
 
+/**
+ * @brief Graph::shortestPath
+ * Given a source vertex
+ * @param source
+ */
 void Graph::shortestPath(Vertex source)
 {
-    VertexSet T;
-    VertexSet V;
-    Heap<Edge, comp> vertexPQ;
-    Edge edge;
+    VertexSet T;			// Contains a set of vertices that have not been visited
+    VertexSet V;			// Contains the set of vertices to which the shortest path
+                            //	has been found.
+    Heap<Edge, comp> vertexPQ;// Min-Heap (priority queue) containing all the edges in
+                            // the graph, ordered by the weight. Smallest weight is root
+    Edge edge;				// Utility edge object
 
 #if DEBUG
     qDebug() << "Initializing Single Source";
@@ -262,7 +289,7 @@ void Graph::shortestPath(Vertex source)
     {
         T.insert(vertexList.at(numV));
     }
-    T.debugOutput();
+
     // Let a priority queue contain all the vertices (edges in this case) of G Using
     //	the Distances (weights) as keys
     for(int i = 0; i < this->numVertices;i++)
@@ -290,6 +317,11 @@ void Graph::shortestPath(Vertex source)
     }
 }
 
+/**
+ * @brief Graph::getNumberVertices
+ * Methd returns the number of vertices that are stored in the graph
+ * @return Integer # of vertices in the graph
+ */
 int Graph::getNumberVertices() const
 {
     return this->numVertices;

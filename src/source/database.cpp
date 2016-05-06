@@ -26,6 +26,12 @@ Database::Database(QString path, QString driver) : QSqlDatabase(addDatabase(driv
     query.exec("PRAGMA foreign_keys = ON;");
 }
 
+/**
+ * @brief Database::getEdges
+ * Method that executes a SQL query to grab all ids to, ids from and distances from
+ * the distances table.
+ * @return SQLquery containing the results of the
+ */
 QSqlQuery Database::getEdges()
 {
     QSqlQuery query;
@@ -44,6 +50,11 @@ QSqlQuery Database::getEdges()
     return query;
 }
 
+/**
+ * @brief Database::getNumberOfStadiums
+ * Method executes a sql query to get the total number of stadiums in the database.
+ * @return int value # of stadiums
+ */
 int Database::getNumberOfStadiums() const
 {
     QSqlQuery query;
@@ -56,7 +67,12 @@ int Database::getNumberOfStadiums() const
     }
     return -1;
 }
-
+/**
+ * @brief Database::getStadiumsNameId
+ * Get the name, and ID of each of the stadiums from the database and order the results
+ * by id, descending order.
+ * @return SQLQuery containing the results from the exeuction
+ */
 QSqlQuery Database::getStadiumsNameId()
 {
     QSqlQuery query;
