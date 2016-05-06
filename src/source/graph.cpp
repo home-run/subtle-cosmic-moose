@@ -19,7 +19,32 @@ Graph::Graph()
 Graph::~Graph()
 {
 
-    clearGraph();
+    // TODO: Figure out how to deallocate the memory for the distance and previous
+    //	list. Currently throws a 'malloc' error.
+    // test(65779,0x7fff7eb36000) malloc: *** error for object 0x7: pointer being freed was not allocated
+    // *** set a breakpoint in malloc_error_break to debug
+    // The program has unexpectedly finished.
+
+//    if(distance != NULL)
+//    {
+//        try
+//        {
+//            delete distance;
+//        } catch(...)
+//        {
+//            qDebug() << "No memory allocated to delete";
+//        }
+//    }
+//    if(previous != NULL)
+//    {
+//        try
+//        {
+//            delete previous;
+//        } catch(...)
+//        {
+//            qDebug() << "No memory allocated to delete";
+//        }
+//    }
 }
 
 
@@ -103,20 +128,16 @@ void Graph::createGraph(Database *db)
 
         adjacencyMatrix[fromId][toId] = weight;
     }
-
 #if DEBUG
-    {
-        for(int i = 0; i < numVertices; i++)
-        {
-            for(int j = 0; j < numVertices; j++)
-            {
+{
+        for(int i = 0; i < numVertices; i++){
+            for(int j = 0; j < numVertices; j++){
                 qDebug() << "The distance from " << i + 1 << " to " << j + 1 << " is " << adjacencyMatrix[i][j];
             }
         }
         qDebug() << "Printing Vertex List";
-        for(int i = 0; i < vertexList.size(); i++)
-        {
-            qDebug() << "ID [ " << vertexList.at(i).id << " ] - Name [ " << vertexList.at(i).stadiumName << " ]";
+        for(int i = 0; i < vertexList.size(); i++){
+            qDebug() << "ID [ " << vertexList.at(i).getId() << " ] - Name [ " << vertexList.at(i).getName() << " ]";
         }
     }
 #endif
@@ -158,20 +179,18 @@ int Graph::edgeWeight(int v1, int v2)
 
 void Graph::initialize_single_source(Vertex s)
 {
-    if(distance == NULL)
+    distance.clear();
+    previous.clear();
+    distance.reserve(numVertices);
+    previous.reserve(numVertices);
+
+    for(int vertex = 0; vertex < numVertices;vertex++)
     {
-        distance = new int[numVertices];
-    }
-    if(previous == NULL)
-    {
-        previous = new int[numVertices];
-    }
-    for(int vertex = 0; vertex < vertexList.size(); vertex++)
-    {
-        distance[vertex] = INFINITY;
-        previous[vertex] = -1;
+        distance.push_back(INFINITY);
+        previous.push_back(-1);
     }
     //    vertexList[s.id].distance = 0;
+//    distance[s.getId()] = 0;
     distance[s.getId()] = 0;
 }
 
@@ -208,15 +227,6 @@ void Graph::clearGraph()
     }
     vertexList.clear();
 
-    if(this->distance != NULL)
-    {
-        delete [] distance;
-    }
-
-    if(this->previous != NULL)
-    {
-        delete [] previous;
-    }
 }
 
 /**
@@ -234,18 +244,22 @@ void Graph::debug_printAdjMatrix() const
     }
 }
 
-QList<Edge> Graph::shortestPath(Vertex source)
+void Graph::shortestPath(Vertex source)
 {
-    QList<Vertex> shortestVerticesFound;
+    VertexSet T;
+    VertexSet S;
     Heap<Edge, comp> vertexPQ;
-    Vertex z;
     Edge edge;
-    Vertex u;
 
 #if DEBUG
     qDebug() << "Initializing Single Source";
 #endif
     initialize_single_source(source);
+    for(int numV = 0; numV < numVertices; numV++)
+    {
+        T.insert(vertexList.at(numV));
+    }
+    T.debugOutput();
     // Let a priority queue contain all the vertices (edges in this case) of G Using the Distances (weights) as keys
     for(int i = 0; i < this->numVertices;i++)
     {
@@ -253,31 +267,21 @@ QList<Edge> Graph::shortestPath(Vertex source)
         {
             edge.weight = this->adjacencyMatrix[i][j];
             // If the weight is not -1 then insert it into the priority queue.
-            if(edge.weight != -1)
+            if(edge.weight != -1 && edge.weight != INFINITY)
             {
                 edge.idFrom = i;
                 edge.idTo = j;
+//                qDebug() << "ID From [ " << edge.idFrom << " ] id to [ " << edge.idTo << " ] weight [ " << edge.weight <<" ]";
                 vertexPQ.insert(edge);
             }
         }
     }
-
     while(!vertexPQ.isEmpty())
     {
-        u = vertexPQ.root();
-        vertexPQ.remove(0);
+        edge = vertexPQ.root();
+        vertexPQ.remove(1);
         for(int i = 0; i < numVertices; i++)
         {
-            if(this->adjacencyMatrix[u.getId()][i] != -1)
-            {
-                try
-                {
-                    z = vertexList.at(i);
-                }catch(...)
-                {
-                    qDebug() << "Z was not in the list...."
-                }
-            }
         }
     }
 }

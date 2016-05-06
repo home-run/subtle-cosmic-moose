@@ -66,14 +66,13 @@ void Test_Main::testShortestPath()
 {
     Graph testGraph;
     Vertex v;
-    QList<Edge> edges;
 
     testGraph.createGraph(db);
 
     v.setId(26);
-//    edges = testGraph.shortestPath(v);
+    testGraph.shortestPath(v);
 
-    testGraph.debug_printAdjMatrix();
+//    testGraph.debug_printAdjMatrix();
 
 //    for(int i = 0; i < edges.size(); i++)
 //    {
