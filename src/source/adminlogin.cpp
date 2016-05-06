@@ -1,6 +1,5 @@
-#include "adminlogin.h"
+#include "header/adminlogin.h"
 #include "ui_adminlogin.h"
-#include "database.h"
 
 AdminLogin::AdminLogin(QWidget *parent) :
     QDialog(parent),
