@@ -1,4 +1,5 @@
 #include "graph.h"
+#include <fstream>
 
 Graph::Graph()
 {
@@ -215,6 +216,7 @@ void Graph::relax(Vertex &u, Vertex &v)
     if(v.getDistance() > u.getDistance() + adjacencyMatrix[u.getId()][v.getId()])
     {
         v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
+        qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
         v.setParent(&u);
     }
 }
@@ -246,15 +248,21 @@ void Graph::clearGraph()
  */
 void Graph::debug_printAdjMatrix() const
 {
+    std::ofstream myFile;
+    myFile.open("matrix-output.txt");
     // ID From
     for(int i = 0; i < numVertices; i++)
     {
         // ID To
+        myFile << "{ ";
         for(int j = 0; j < numVertices; j++)
         {
             // Output to the console the weight between the vertices
-            qDebug() << "i : " << i << " - j : " << j << " - weight : " << adjacencyMatrix[i][j];
+            qDebug() << "i : " << i << " " << vertexList.at(i).getName() << " - j : " << j << " "  << vertexList.at(j).getName() << " - weight : " << adjacencyMatrix[i][j];
+//            myFile << "{ " << i << ", " << j << ", " << adjacencyMatrix[i][j] << "}, ";
+            myFile << adjacencyMatrix[i][j] << ", ";
         }
+        myFile << "}\n";
     }
 }
 
@@ -322,7 +330,6 @@ void Graph::shortestPath(Vertex source)
                 relax(u,vertexList[i]);
             }
         }
-
     }
 }
 

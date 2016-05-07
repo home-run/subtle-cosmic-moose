@@ -151,12 +151,10 @@ void Test_Main::testShortestPath()
 
     testGraph.createGraph(db);
 
-    testGraph.debug_printAdjMatrix();
     v.setId(26);
     testGraph.shortestPath(v);
     vList = testGraph.getVertices();
 
-    testGraph.debug_printAdjMatrix();
     for(int i =0;i< vList.size();i++)
     {
         qDebug() << "Vertex " << vList.at(i).getName() << " with distance cost " << vList.at(i).getDistance();
@@ -169,6 +167,10 @@ void Test_Main::testShortestPath()
 //        << " ] to [ " << edges.at(0).idTo
 //        << " ] distance : " << edges.at(i).weight;
 //    }
+    qDebug() <<"";
+    qDebug() <<"";
+    qDebug() <<"";
+    testGraph.debug_printAdjMatrix();
 }
 
 //#endif //TEST_DATABASE_H
