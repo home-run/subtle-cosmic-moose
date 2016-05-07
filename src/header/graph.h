@@ -28,6 +28,7 @@ struct comp
     }
 };
 
+
 class Vertex
 {
 public:
@@ -220,6 +221,17 @@ public:
         return root;
     }
 
+    /**
+     * @brief getNumEdges
+     * This method will return the number of adjacent edges that exsists between this
+     * vertex and other vertices.
+     * @return int val of number of adjacent edges
+     */
+    int getNumEdges() const
+    {
+        return this->edgeStorage.size();
+    }
+
 private:
     int id;
     QString name;
@@ -229,6 +241,17 @@ private:
     QList<Edge> edgeStorage;
 };
 
+/**
+ * @brief The vertexComp struct
+ * Comparator to be used when inserting vertices into a heap
+ */
+struct vertexComp
+{
+    bool operator()(const Vertex& v1, const Vertex& v2)
+    {
+        return v1.getDistance() < v2.getDistance();
+    }
+};
 class Graph
 {
 public:
@@ -450,6 +473,7 @@ public:
         }
         return this;
     }
+
 
     /**
      * @brief clear

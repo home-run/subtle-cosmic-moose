@@ -109,6 +109,7 @@ void Test_Main::createGraph()
 void Test_Main::testVertexSet()
 {
     VertexSet set;				// Stores a set of vertices
+    VertexSet secondSet;		// Secondary set of vertices
     QList<Vertex> vertexList;	// Stores a list of vertices
     Graph graph;				// A graph of vertices
     Vertex vertex;				// Utility vertex object to be used to compare the set,
@@ -127,6 +128,7 @@ void Test_Main::testVertexSet()
     // Tests to see that the set is not empty and that the number of vertices in the
     //	vertex list is greater than 0.
     QVERIFY(!set.isEmpty() && vertexList.size() > 0);
+    QVERIFY(secondSet.isEmpty()); // Test to see that the secondary set is empty
 
     // This will make sure that the number of vertices in the set matches the number
     //	of vertices represented in the graph.
@@ -136,18 +138,29 @@ void Test_Main::testVertexSet()
     {
         vertex = vertexList.at(i);
         QVERIFY(set.contains(vertex));
+        // Test a secondary set to make sure it does not contain any vertices
+        QVERIFY(!secondSet.contains(vertex));
     }
 }
 
 void Test_Main::testShortestPath()
 {
     Graph testGraph;
+    QList<Vertex> vList;
     Vertex v;
 
     testGraph.createGraph(db);
 
+    testGraph.debug_printAdjMatrix();
     v.setId(26);
     testGraph.shortestPath(v);
+    vList = testGraph.getVertices();
+
+    testGraph.debug_printAdjMatrix();
+    for(int i =0;i< vList.size();i++)
+    {
+        qDebug() << "Vertex " << vList.at(i).getName() << " with distance cost " << vList.at(i).getDistance();
+    }
 
 //    testGraph.debug_printAdjMatrix();
 //    for(int i = 0; i < edges.size(); i++)

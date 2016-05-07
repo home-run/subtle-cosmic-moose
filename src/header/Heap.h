@@ -128,15 +128,6 @@ public:
         }
     }
 
-    /**
-     * @brief decreaseTopPriority
-     * Decreases the priority of the top element in the heap
-     */
-    void decreaseTopPriority()
-    {
-
-    }
-
 protected:
 
     /**

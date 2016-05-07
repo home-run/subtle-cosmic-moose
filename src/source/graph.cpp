@@ -192,19 +192,12 @@ int Graph::edgeWeight(int v1, int v2)
  */
 void Graph::initialize_single_source(Vertex s)
 {
-    distance.clear();
-    previous.clear();
-    distance.reserve(numVertices);
-    previous.reserve(numVertices);
-
     for(int vertex = 0; vertex < numVertices;vertex++)
     {
-        distance.push_back(INFINITY);
-        previous.push_back(-1);
+        vertexList[vertex].setDistance(INFINITY);
+        vertexList[vertex].setParent(NULL);
     }
-    //    vertexList[s.id].distance = 0;
-//    distance[s.getId()] = 0;
-    distance[s.getId()] = 0;
+        vertexList[s.getId()].setDistance(0);
 }
 
 /**
@@ -218,10 +211,11 @@ void Graph::initialize_single_source(Vertex s)
 void Graph::relax(Vertex &u, Vertex &v)
 {
     //    if(v.distance > u.distance + adjacencyMatrix[u][v])
-    if(v.getDistance() > u.getDistance() + edgeWeight(u.getId(),v.getId()))
+//    if(v.getDistance() > u.getDistance() + edgeWeight(u.getId(),v.getId()))
+    if(v.getDistance() > u.getDistance() + adjacencyMatrix[u.getId()][v.getId()])
     {
-        distance[v.getId()] = u.getDistance() + edgeWeight(u.getId(),v.getId());
-        previous[v.getId()] = u.getId();
+        v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
+        v.setParent(&u);
     }
 }
 
@@ -274,9 +268,12 @@ void Graph::shortestPath(Vertex source)
     VertexSet T;			// Contains a set of vertices that have not been visited
     VertexSet V;			// Contains the set of vertices to which the shortest path
                             //	has been found.
-    Heap<Edge, comp> vertexPQ;// Min-Heap (priority queue) containing all the edges in
+    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the vertices in
+//    Heap<Edge, comp> heapPQ;// Min-Heap (priority queue) containing all the edges in
                             // the graph, ordered by the weight. Smallest weight is root
     Edge edge;				// Utility edge object
+    Vertex u;
+    Vertex z;
 
 #if DEBUG
     qDebug() << "Initializing Single Source";
@@ -284,17 +281,22 @@ void Graph::shortestPath(Vertex source)
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
 
-    // Create a set T of all vertices in the graph
+    // Create a set V of all vertices in the graph
     for(int numV = 0; numV < numVertices; numV++)
     {
-        T.insert(vertexList.at(numV));
+        V.insert(vertexList.at(numV));
     }
+
+    // Initially the source vertex s is in T of those whose cost has been found.
+    T.insert(source);
 
     // Let a priority queue contain all the vertices (edges in this case) of G Using
     //	the Distances (weights) as keys
     for(int i = 0; i < this->numVertices;i++)
     {
-        for(int j = 0; j < this->numVertices;j++)
+
+        vertexPQ.insert(vertexList.at(i));
+/*        for(int j = 0; j < this->numVertices;j++)
         {
             edge.weight = this->adjacencyMatrix[i][j];
             // If the weight is not -1 then insert it into the priority queue.
@@ -306,14 +308,21 @@ void Graph::shortestPath(Vertex source)
                 vertexPQ.insert(edge);
             }
         }
+        */
     }
+
     while(!vertexPQ.isEmpty())
     {
-        edge = vertexPQ.root();
-        vertexPQ.remove(1);
-        for(int i = 0; i < numVertices; i++)
+        u = vertexPQ.root();
+        vertexPQ.remove(0);
+        for(int i =0; i<numVertices;i++)
         {
+            if(adjacencyMatrix[u.getId()][i] != -1 && adjacencyMatrix[u.getId()][i] != INFINITY)
+            {
+                relax(u,vertexList[i]);
+            }
         }
+
     }
 }
 
