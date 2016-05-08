@@ -189,14 +189,20 @@ void Graph::initialize_single_source(Vertex s)
  * @param u - Vertex
  * @param v - Vertex
  */
-void Graph::relax(Vertex &u, Vertex &v)
+void Graph::relax(Vertex u, Vertex v)
 {
+//    qDebug() << v.getName() <<" V Distance " << v.getDistance();
+//    qDebug() << u.getName() << " U Distance " << u.getDistance() ;
+//    qDebug() << "Adj Matrix Weight " << adjacencyMatrix[u.getId()][v.getId()];
+
     if(v.getDistance() > u.getDistance() + adjacencyMatrix[u.getId()][v.getId()])
     {
         v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
-        qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
-        v.setParent(&u);
-        vertexList[v.getId()] = v;
+//        qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
+//        v.setParent(&u);
+        vertexList[v.getId()].setDistance(v.getDistance());
+        vertexList[v.getId()].setId(v.getId());
+        vertexList[v.getId()].setName(v.getName());
     }
 }
 
@@ -213,7 +219,7 @@ void Graph::clearGraph()
         for(int j = 0; j < numVertices; j++)
         {
             // Set the weight of edge to -1
-            this->adjacencyMatrix[i][j] = -1;
+            this->adjacencyMatrix[i][j] = 9999;
         }
     }
     // Clear the list of vertices
@@ -252,12 +258,11 @@ void Graph::debug_printAdjMatrix() const
  */
 void Graph::shortestPath(Vertex source)
 {
+    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the vertices in
+                            // the graph, ordered by the weight. Smallest weight is root
     VertexSet T;			// Contains a set of vertices that have not been visited
     VertexSet V;			// Contains the set of vertices to which the shortest path
                             //	has been found.
-    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the vertices in
-//    Heap<Edge, comp> heapPQ;// Min-Heap (priority queue) containing all the edges in
-                            // the graph, ordered by the weight. Smallest weight is root
     Edge edge;				// Utility edge object
     Vertex u;
     Vertex z;
@@ -266,10 +271,10 @@ void Graph::shortestPath(Vertex source)
     initialize_single_source(source);
 
     // Create a set V of all vertices in the graph
-//    for(int numV = 0; numV < numVertices; numV++)
-//    {
-//        V.insert(vertexList.at(numV));
-//    }
+    for(int numV = 0; numV < numVertices; numV++)
+    {
+        V.insert(vertexList.at(numV));
+    }
 
     // Initially the source vertex s is in T of those whose cost has been found.
     T.insert(source);
@@ -278,23 +283,24 @@ void Graph::shortestPath(Vertex source)
     //	the Distances (weights) as keys
     for(int i = 0; i < this->numVertices;i++)
     {
-
         vertexPQ.insert(vertexList.at(i));
     }
 
     while(!vertexPQ.isEmpty())
     {
-        u = vertexPQ.root();
-        vertexPQ.remove(0);
+        u = vertexPQ.removeMin();
+        // Why does this crash the program?
+        qDebug() << "Root is "<< u.getName();
         for(int i =0; i< numVertices;i++)
         {
-            if(adjacencyMatrix[u.getId()][i] < 9000)
+//            if(adjacencyMatrix[u.getId()][i] < 9000 && !T.contains(u))
+            if(!T.contains(u))
             {
-                relax(u,vertexList[i]);
+                qDebug() << "Trying to relax " << u.getName();
+                relax(u,vertexList.at(i));
             }
         }
-        u.setDistance(u.getDistance()+2000);
-        vertexPQ.insert(u);
+        T.insert(u);
     }
 }
 

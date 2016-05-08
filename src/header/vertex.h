@@ -170,7 +170,7 @@ public:
      * @param v
      * @return
      */
-    Vertex* operator=(const Vertex& v)
+    Vertex* operator=(Vertex v)
     {
         this->distance = v.getDistance();
         this->id = v.getId();

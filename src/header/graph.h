@@ -89,7 +89,7 @@ private:
      * @param u
      * @param v
      */
-    void relax(Vertex &u, Vertex &v);
+    void relax(Vertex u, Vertex v);
 };
 
 

@@ -128,6 +128,19 @@ public:
         }
     }
 
+    /**
+     * @brief removeMin
+     * This method will get the root element and pop it off the front of the heap.
+     * @return root node
+     */
+    T removeMin()
+    {
+        T rootNode;
+        rootNode = this->root();
+        this->remove(1);
+        return rootNode;
+    }
+
 protected:
 
     /**
