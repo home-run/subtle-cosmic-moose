@@ -191,14 +191,12 @@ void Graph::initialize_single_source(Vertex s)
  */
 void Graph::relax(Vertex &u, Vertex &v)
 {
-    //    if(v.distance > u.distance + adjacencyMatrix[u][v])
-//    if(v.getDistance() > u.getDistance() + edgeWeight(u.getId(),v.getId()))
     if(v.getDistance() > u.getDistance() + adjacencyMatrix[u.getId()][v.getId()])
     {
         v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
         qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
         v.setParent(&u);
-//        vertexList[v.getId()] = v;
+        vertexList[v.getId()] = v;
     }
 }
 
@@ -268,10 +266,10 @@ void Graph::shortestPath(Vertex source)
     initialize_single_source(source);
 
     // Create a set V of all vertices in the graph
-    for(int numV = 0; numV < numVertices; numV++)
-    {
-        V.insert(vertexList.at(numV));
-    }
+//    for(int numV = 0; numV < numVertices; numV++)
+//    {
+//        V.insert(vertexList.at(numV));
+//    }
 
     // Initially the source vertex s is in T of those whose cost has been found.
     T.insert(source);
@@ -290,12 +288,13 @@ void Graph::shortestPath(Vertex source)
         vertexPQ.remove(0);
         for(int i =0; i< numVertices;i++)
         {
-//            T.insert(u);
             if(adjacencyMatrix[u.getId()][i] < 9000)
             {
                 relax(u,vertexList[i]);
             }
         }
+        u.setDistance(u.getDistance()+2000);
+        vertexPQ.insert(u);
     }
 }
 
