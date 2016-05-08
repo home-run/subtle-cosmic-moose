@@ -88,6 +88,8 @@ public:
      */
     void remove(int index)
     {
+        if(index == 0){ index = 1; }
+
         if (!isEmpty())
         {
             elements[index] = elements[size()];
