@@ -153,13 +153,15 @@ void Test_Main::testShortestPath()
     testGraph.createGraph(db);
 
     v.setId(26);
-    testGraph.shortestPath(v);
-    vList = testGraph.getVertices();
+//    testGraph.shortestPath(v);
+//    vList = testGraph.getVertices();
 
-    for(int i =0;i< vList.size();i++)
-    {
-        qDebug() << "Vertex " << vList.at(i).getName() << " with distance cost " << vList.at(i).getDistance();
-    }
+//    for(int i =0;i< vList.size();i++)
+//    {
+//        qDebug() << "Vertex " << vList.at(i).getName() << " with distance cost " << vList.at(i).getDistance();
+//    }
+
+    testGraph.maliks_shortestPath(v);
 
 }
 

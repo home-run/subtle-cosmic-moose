@@ -63,6 +63,13 @@ public:
      * nothing else.
      */
     void debug_printAdjMatrix() const;
+    /**
+     * @brief maliks_shortestPath
+     * This is Maliks C++ Implementation of Dijkstra's Algorithm for determining the
+     * shortest path.
+     * @param source vertex
+     */
+    void maliks_shortestPath(Vertex source);
 private:
 
     QList<Vertex> vertexList;	// Stores the complete list of vertices in the graph

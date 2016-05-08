@@ -26,26 +26,26 @@ Graph::~Graph()
     // *** set a breakpoint in malloc_error_break to debug
     // The program has unexpectedly finished.
 
-//    if(distance != NULL)
-//    {
-//        try
-//        {
-//            delete distance;
-//        } catch(...)
-//        {
-//            qDebug() << "No memory allocated to delete";
-//        }
-//    }
-//    if(previous != NULL)
-//    {
-//        try
-//        {
-//            delete previous;
-//        } catch(...)
-//        {
-//            qDebug() << "No memory allocated to delete";
-//        }
-//    }
+    //    if(distance != NULL)
+    //    {
+    //        try
+    //        {
+    //            delete distance;
+    //        } catch(...)
+    //        {
+    //            qDebug() << "No memory allocated to delete";
+    //        }
+    //    }
+    //    if(previous != NULL)
+    //    {
+    //        try
+    //        {
+    //            delete previous;
+    //        } catch(...)
+    //        {
+    //            qDebug() << "No memory allocated to delete";
+    //        }
+    //    }
 }
 
 
@@ -60,15 +60,15 @@ Graph::~Graph()
 void Graph::createGraph(Database *db)
 {
     QSqlQuery queryResult;		// Executes & stores the query for retrieving vertices
-                                //		and edges from the database.
+    //		and edges from the database.
     Vertex vertex;				// Temporary vertex used as a factory for inserting
-                                // 		Vertices into the graph.
+    // 		Vertices into the graph.
     Edge edge;					// Temporary edge used as a factory for inserting
-                                //		edges into the graph.
+    //		edges into the graph.
     int toId, fromId, weight, id;//	Integer values to store temporary To, From, Weight
-                                //		and Current IDs
+    //		and Current IDs
     QString stadiumName;		// Stores the name of the stadium for inserting into the
-                                // 	graph
+    // 	graph
 
     numVertices = db->getNumberOfStadiums();
 
@@ -167,7 +167,7 @@ int Graph::edgeWeight(int v1, int v2)
 /**
  * @brief Graph::initialize_single_source
  * For v = s, which is the source vertex that the single shortest path will begin at.
- * Initializes the label D[v] to zero and all other D[u] to infinity for each vertex
+ * Initializes the label D[v] to 0 and all other D[u] to 9999 for each vertex
  * which u != v. Clears previously found distance and the list of previous parent ids.
  * @param s - source vertex which the single shortest path will begin at.
  */
@@ -178,7 +178,7 @@ void Graph::initialize_single_source(Vertex s)
         vertexList[vertex].setDistance(9999);
         vertexList[vertex].setParent(NULL);
     }
-        vertexList[s.getId()].setDistance(0);
+    vertexList[s.getId()].setDistance(0);
 }
 
 /**
@@ -191,18 +191,19 @@ void Graph::initialize_single_source(Vertex s)
  */
 void Graph::relax(Vertex u, Vertex v)
 {
-//    qDebug() << v.getName() <<" V Distance " << v.getDistance();
-//    qDebug() << u.getName() << " U Distance " << u.getDistance() ;
-//    qDebug() << "Adj Matrix Weight " << adjacencyMatrix[u.getId()][v.getId()];
+    //    qDebug() << v.getName() <<" V Distance " << v.getDistance();
+    //    qDebug() << u.getName() << " U Distance " << u.getDistance() ;
+    //    qDebug() << "Adj Matrix Weight " << adjacencyMatrix[u.getId()][v.getId()];
 
     if(v.getDistance() > u.getDistance() + adjacencyMatrix[u.getId()][v.getId()])
     {
         v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
-//        qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
-//        v.setParent(&u);
-        vertexList[v.getId()].setDistance(v.getDistance());
-        vertexList[v.getId()].setId(v.getId());
-        vertexList[v.getId()].setName(v.getName());
+        qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
+        v.setParent(&u);
+        vertexList[v.getId()] = v;
+        //        vertexList[v.getId()].setDistance(v.getDistance());
+        //        vertexList[v.getId()].setId(v.getId());
+        //        vertexList[v.getId()].setName(v.getName());
     }
 }
 
@@ -244,7 +245,7 @@ void Graph::debug_printAdjMatrix() const
         {
             // Output to the console the weight between the vertices
             qDebug() << "i : " << i << " " << vertexList.at(i).getName() << " - j : " << j << " "  << vertexList.at(j).getName() << " - weight : " << adjacencyMatrix[i][j];
-//            myFile << "{ " << i << ", " << j << ", " << adjacencyMatrix[i][j] << "}, ";
+            //            myFile << "{ " << i << ", " << j << ", " << adjacencyMatrix[i][j] << "}, ";
             myFile << adjacencyMatrix[i][j] << ", ";
         }
         myFile << "}\n";
@@ -263,9 +264,7 @@ void Graph::shortestPath(Vertex source)
     VertexSet T;			// Contains a set of vertices that have not been visited
     VertexSet V;			// Contains the set of vertices to which the shortest path
                             //	has been found.
-    Edge edge;				// Utility edge object
     Vertex u;
-    Vertex z;
 
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
@@ -289,18 +288,65 @@ void Graph::shortestPath(Vertex source)
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
-        // Why does this crash the program?
-        qDebug() << "Root is "<< u.getName();
         for(int i =0; i< numVertices;i++)
         {
-//            if(adjacencyMatrix[u.getId()][i] < 9000 && !T.contains(u))
-            if(!T.contains(u))
+            if(adjacencyMatrix[u.getId()][i] != 9999 && !T.contains(u))
             {
-                qDebug() << "Trying to relax " << u.getName();
                 relax(u,vertexList.at(i));
             }
         }
         T.insert(u);
+    }
+}
+
+void Graph::maliks_shortestPath(Vertex source)
+{
+    int *smallestWeight;
+    smallestWeight = new int[numVertices];
+
+    for(int j =0; j< numVertices;j++)
+    {
+        smallestWeight[j] = adjacencyMatrix[source.getId()][j];
+    }
+    bool *weightFound;
+    weightFound = new bool[numVertices];
+
+    weightFound[source.getId()] = true;
+    smallestWeight[source.getId()] = 0;
+
+    for(int i =0; i < numVertices; i++)
+    {
+        int minWeight = INT_MAX;
+        int v;
+
+        for(int j = 0; j <numVertices; j++)
+        {
+            if(!weightFound[j])
+            {
+                if(smallestWeight[j] < minWeight)
+                {
+                    v = j;
+                    minWeight = smallestWeight[j];
+                    qDebug() << "Min weight : " << minWeight;
+                }
+            }
+        }
+        weightFound[v] = true;
+
+        for(int j = 0; j <numVertices; j++)
+        {
+            if(!weightFound[j])
+            {
+                if(minWeight + adjacencyMatrix[v][j] < smallestWeight[j])
+                {
+                    smallestWeight[j] = minWeight + adjacencyMatrix[v][j];
+                }
+            }
+        }
+    }
+    for(int i = 0; i < numVertices;i++)
+    {
+        qDebug() << "index [ " << i << " ] " << smallestWeight[i] ;
     }
 }
 
