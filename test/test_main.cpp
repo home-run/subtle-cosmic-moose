@@ -45,6 +45,7 @@ void Test_Main::testNumberStadiums()
     QVERIFY(db->open());
     if(db->isOpen())
     {
+        qDebug() << "Number of stadiums : " << db->getNumberOfStadiums();
         QVERIFY(db->getNumberOfStadiums() == 30);
     }
 
@@ -160,17 +161,6 @@ void Test_Main::testShortestPath()
         qDebug() << "Vertex " << vList.at(i).getName() << " with distance cost " << vList.at(i).getDistance();
     }
 
-//    testGraph.debug_printAdjMatrix();
-//    for(int i = 0; i < edges.size(); i++)
-//    {
-//        qDebug() << "From [ " << edges.at(0).idFrom
-//        << " ] to [ " << edges.at(0).idTo
-//        << " ] distance : " << edges.at(i).weight;
-//    }
-    qDebug() <<"";
-    qDebug() <<"";
-    qDebug() <<"";
-    testGraph.debug_printAdjMatrix();
 }
 
 //#endif //TEST_DATABASE_H

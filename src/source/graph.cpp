@@ -79,7 +79,7 @@ void Graph::createGraph(Database *db)
     {
         for(int j = 0; j < numVertices; j++)
         {
-            adjacencyMatrix[i][j] = -1;
+            adjacencyMatrix[i][j] = 999999;
         }
     }
 
@@ -283,9 +283,6 @@ void Graph::shortestPath(Vertex source)
     Vertex u;
     Vertex z;
 
-#if DEBUG
-    qDebug() << "Initializing Single Source";
-#endif
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
 
@@ -304,19 +301,6 @@ void Graph::shortestPath(Vertex source)
     {
 
         vertexPQ.insert(vertexList.at(i));
-/*        for(int j = 0; j < this->numVertices;j++)
-        {
-            edge.weight = this->adjacencyMatrix[i][j];
-            // If the weight is not -1 then insert it into the priority queue.
-            if(edge.weight != -1 && edge.weight != INFINITY)
-            {
-                edge.idFrom = i;
-                edge.idTo = j;
-//                qDebug() << "ID From [ " << edge.idFrom << " ] id to [ " << edge.idTo << " ] weight [ " << edge.weight <<" ]";
-                vertexPQ.insert(edge);
-            }
-        }
-        */
     }
 
     while(!vertexPQ.isEmpty())
