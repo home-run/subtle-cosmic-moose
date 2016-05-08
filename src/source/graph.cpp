@@ -90,7 +90,7 @@ void Graph::createGraph(Database *db)
     while(queryResult.next())
     {
         // Get the ID field and convert it to int then store it in id
-        id = queryResult.record().field("id").value().toInt();
+        id = queryResult.record().field("id").value().toInt() - 1;
         // Get the stadium name field and convert it to string then store it in the
         //	StadiumName variable
         stadiumName = queryResult.record().field("name").value().toString();
@@ -198,7 +198,7 @@ void Graph::relax(Vertex &u, Vertex &v)
         v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
         qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
         v.setParent(&u);
-        vertexList[v.getId()] = v;
+//        vertexList[v.getId()] = v;
     }
 }
 
@@ -288,9 +288,10 @@ void Graph::shortestPath(Vertex source)
     {
         u = vertexPQ.root();
         vertexPQ.remove(0);
-        for(int i =0; i<numVertices;i++)
+        for(int i =0; i< numVertices;i++)
         {
-            if(adjacencyMatrix[u.getId()][i] < 9999)
+//            T.insert(u);
+            if(adjacencyMatrix[u.getId()][i] < 9000)
             {
                 relax(u,vertexList[i]);
             }
