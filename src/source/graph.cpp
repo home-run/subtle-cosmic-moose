@@ -11,7 +11,7 @@ Graph::Graph()
     {
         for(int j = 0; j < this->numVertices; j++)
         {
-            this->adjacencyMatrix[i][j] = -1;
+            this->adjacencyMatrix[i][j] = 9999;
         }
     }
 
@@ -79,7 +79,7 @@ void Graph::createGraph(Database *db)
     {
         for(int j = 0; j < numVertices; j++)
         {
-            adjacencyMatrix[i][j] = 999999;
+            adjacencyMatrix[i][j] = 9999;
         }
     }
 
@@ -112,11 +112,6 @@ void Graph::createGraph(Database *db)
         fromId = queryResult.record().field("id_from").value().toInt() - 1;
         weight = queryResult.record().field("distance").value().toInt();
 
-#if DEBUG
-        {
-            qDebug() << "To ID : " << toId << " From ID : " << fromId << " weight " << weight;
-        }
-#endif
         int index = 0;
         bool found = false;
         while(index < numVertices && !found)
@@ -127,7 +122,6 @@ void Graph::createGraph(Database *db)
                 edge.idTo = toId;
                 edge.weight = weight;
                 found = true;
-//                vertexList.at(index).addEdge(edge);
                 vertexList[index].addEdge(edge);
             }
             index++;
@@ -135,20 +129,6 @@ void Graph::createGraph(Database *db)
 
         adjacencyMatrix[fromId][toId] = weight;
     }
-#if DEBUG
-{
-        for(int i = 0; i < numVertices; i++){
-            for(int j = 0; j < numVertices; j++){
-                qDebug() << "The distance from " << i + 1 << " to " << j + 1 << " is " << adjacencyMatrix[i][j];
-            }
-        }
-        qDebug() << "Printing Vertex List";
-        for(int i = 0; i < vertexList.size(); i++){
-            qDebug() << "ID [ " << vertexList.at(i).getId() << " ] - Name [ " << vertexList.at(i).getName() << " ]";
-        }
-    }
-#endif
-
 }
 
 /**
@@ -195,7 +175,7 @@ void Graph::initialize_single_source(Vertex s)
 {
     for(int vertex = 0; vertex < numVertices;vertex++)
     {
-        vertexList[vertex].setDistance(INFINITY);
+        vertexList[vertex].setDistance(9999);
         vertexList[vertex].setParent(NULL);
     }
         vertexList[s.getId()].setDistance(0);
@@ -218,6 +198,7 @@ void Graph::relax(Vertex &u, Vertex &v)
         v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
         qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
         v.setParent(&u);
+        vertexList[v.getId()] = v;
     }
 }
 
@@ -309,7 +290,7 @@ void Graph::shortestPath(Vertex source)
         vertexPQ.remove(0);
         for(int i =0; i<numVertices;i++)
         {
-            if(adjacencyMatrix[u.getId()][i] != -1 && adjacencyMatrix[u.getId()][i] != INFINITY)
+            if(adjacencyMatrix[u.getId()][i] < 9999)
             {
                 relax(u,vertexList[i]);
             }
