@@ -152,7 +152,7 @@ void Test_Main::testShortestPath()
 
     testGraph.createGraph(db);
 
-    v.setId(26);
+    v.setId(21);
 //    testGraph.shortestPath(v);
 //    vList = testGraph.getVertices();
 

@@ -346,7 +346,7 @@ void Graph::maliks_shortestPath(Vertex source)
     }
     for(int i = 0; i < numVertices;i++)
     {
-        qDebug() << "index [ " << i << " ] " << smallestWeight[i] ;
+        qDebug() << "From "<< source.getId() <<" to [ " << i << " ] is " << smallestWeight[i] ;
     }
 }
 
