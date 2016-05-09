@@ -81,6 +81,7 @@ private:
     QVector<int> distance;		// Vector of costs of the shortest path from vertex v to the source s
     QVector<int> previous;		// Vector of ids of each previous vertex traveled
     int smallestWeight[50];
+    VertexSet T;			// Contains a set of vertices that have not been visited
 
 
     /**
@@ -97,7 +98,7 @@ private:
      * @param u
      * @param v
      */
-    void relax(Vertex u, Vertex v);
+    void relax(Vertex &u, Vertex &v);
 };
 
 

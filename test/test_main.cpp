@@ -20,6 +20,8 @@ private slots:
 
     void testVertexSet();
 
+    void testHeap();
+
 private:
     // Put testing variables here
     Database *db;
@@ -153,7 +155,7 @@ void Test_Main::testShortestPath()
     testGraph.createGraph(db);
 
     v.setId(21);
-//    testGraph.shortestPath(v);
+    testGraph.shortestPath(v);
 //    vList = testGraph.getVertices();
 
 //    for(int i =0;i< vList.size();i++)
@@ -161,7 +163,34 @@ void Test_Main::testShortestPath()
 //        qDebug() << "Vertex " << vList.at(i).getName() << " with distance cost " << vList.at(i).getDistance();
 //    }
 
-    testGraph.maliks_shortestPath(v);
+//    testGraph.maliks_shortestPath(v);
+
+}
+
+void Test_Main::testHeap()
+{
+    Graph graph;
+    QList<Vertex> list;
+    Heap<Vertex, vertexComp> heap;
+    Vertex vertex;
+
+    graph.createGraph(db);
+    list = graph.getVertices();
+    for(int vIndex = 0; vIndex< list.size(); vIndex++)
+    {
+        vertex = list.at(vIndex);
+        vertex.setDistance(vIndex * 50);
+        vertex.setId(vIndex);
+        heap.insert(vertex);
+        list[vIndex] = vertex;
+    }
+
+    while(!heap.isEmpty())
+    {
+        vertex = heap.removeMin();
+//        qDebug() << "Removing " << vertex.getId() << " with weight "<<  vertex.getDistance();
+        QVERIFY(vertex.getDistance() == list.at(vertex.getId()).getDistance());
+    }
 
 }
 

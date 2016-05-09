@@ -1,6 +1,8 @@
 #ifndef VERTEX_H
 #define VERTEX_H
 
+#include <QList>
+#include "Heap.h"
 struct Edge
 {
     int idFrom;
@@ -170,7 +172,7 @@ public:
      * @param v
      * @return
      */
-    Vertex* operator=(Vertex v)
+    Vertex* operator=(const Vertex& v)
     {
         this->distance = v.getDistance();
         this->id = v.getId();
@@ -186,6 +188,7 @@ public:
     void addEdge(Edge edge)
     {
         this->edges.insert(edge);
+        this->numEdges++;
     }
 
     /**
@@ -198,17 +201,23 @@ public:
     Edge getNearestEdge()
     {
         Edge root;
-        root = this->edges.root();
-        this->edges.remove(0);
-        this->edgeStorage.append(root);
         if(this->edges.isEmpty())
         {
+            this->numEdges = 0;
             for(int i = 0; i < this->edgeStorage.size(); i++)
             {
                 this->edges.insert(this->edgeStorage.at(i));
+                numEdges++;
             }
             this->edgeStorage.clear();
         }
+        else
+        {
+            this->edges.remove(0);
+            this->edgeStorage.append(root);
+            this->backupEdges.insert(root);
+        }
+        root = this->edges.root();
         return root;
     }
 
@@ -220,7 +229,7 @@ public:
      */
     int getNumEdges() const
     {
-        return this->edgeStorage.size();
+        return this->numEdges;
     }
 
 private:
@@ -229,6 +238,8 @@ private:
     Vertex *parent;
     int distance;
     Heap<Edge, comp> edges;
+    Heap<Edge, comp> backupEdges;
+    int numEdges;
     QList<Edge> edgeStorage;
 };
 
@@ -264,7 +275,7 @@ public:
      * Method takes a vertex v and will insert it into the set.
      * @param v
      */
-    void insert(Vertex v)
+    void insert(Vertex &v)
     {
         int hashKey;
         int index;
@@ -378,10 +389,12 @@ public:
      */
     VertexSet* operator=(const QList<Vertex> &vertexList)
     {
+        Vertex vertex;
         // Create a set T of all vertices in the graph
         for(int numV = 0; numV < vertexList.size(); numV++)
         {
-            this->insert(vertexList.at(numV));
+            vertex = vertexList[numV];
+            this->insert(vertex);
         }
         return this;
     }
@@ -405,6 +418,18 @@ public:
             buckets[index] = vertex;
         }
         size = 0;
+    }
+
+    void outputSet() const
+    {
+        for(int vertexIndex = 0; vertexIndex < bucketSize; vertexIndex++)
+        {
+            if(buckets[vertexIndex].getName() != "empty")
+            {
+                qDebug() << "Name [ " << buckets[vertexIndex].getName() << " ] Distance [ " <<
+                            buckets[vertexIndex].getDistance() << " ]";
+            }
+        }
     }
 
 private:

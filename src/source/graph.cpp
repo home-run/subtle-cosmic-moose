@@ -11,7 +11,7 @@ Graph::Graph()
     {
         for(int j = 0; j < this->numVertices; j++)
         {
-            this->adjacencyMatrix[i][j] = 9999;
+            this->adjacencyMatrix[i][j] =    0;
         }
     }
 
@@ -79,7 +79,7 @@ void Graph::createGraph(Database *db)
     {
         for(int j = 0; j < numVertices; j++)
         {
-            adjacencyMatrix[i][j] = 9999;
+            adjacencyMatrix[i][j] = 0;
         }
     }
 
@@ -189,21 +189,17 @@ void Graph::initialize_single_source(Vertex s)
  * @param u - Vertex
  * @param v - Vertex
  */
-void Graph::relax(Vertex u, Vertex v)
+void Graph::relax(Vertex &u, Vertex &v)
 {
-    //    qDebug() << v.getName() <<" V Distance " << v.getDistance();
-    //    qDebug() << u.getName() << " U Distance " << u.getDistance() ;
-    //    qDebug() << "Adj Matrix Weight " << adjacencyMatrix[u.getId()][v.getId()];
-
-    if(v.getDistance() > u.getDistance() + adjacencyMatrix[u.getId()][v.getId()])
+    int distanceSum;
+    distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
+//    qDebug() <<"Distance sum is [ " << distanceSum << " ]";
+    if(v.getDistance() > distanceSum )
     {
-        v.setDistance(u.getDistance() + adjacencyMatrix[u.getId()][v.getId()]);
-        qDebug() << "Relaxing [ " << v.getName() << " ] with weight [ " << v.getDistance() <<"]";
+        v.setDistance(distanceSum);
         v.setParent(&u);
         vertexList[v.getId()] = v;
-        //        vertexList[v.getId()].setDistance(v.getDistance());
-        //        vertexList[v.getId()].setId(v.getId());
-        //        vertexList[v.getId()].setName(v.getName());
+        qDebug() << "V Distance is " << v.getDistance();
     }
 }
 
@@ -261,22 +257,25 @@ void Graph::shortestPath(Vertex source)
 {
     Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the vertices in
                             // the graph, ordered by the weight. Smallest weight is root
-    VertexSet T;			// Contains a set of vertices that have not been visited
     VertexSet V;			// Contains the set of vertices to which the shortest path
                             //	has been found.
     Vertex u;
+    Vertex v;
 
+    source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
 
     // Create a set V of all vertices in the graph
-    for(int numV = 0; numV < numVertices; numV++)
-    {
-        V.insert(vertexList.at(numV));
-    }
+//    for(int numV = 0; numV < numVertices; numV++)
+//    {
+//        V.insert(vertexList.at(numV));
+//        V.insert(vertexList[numV]);
+//    }
 
+    T.clear();
     // Initially the source vertex s is in T of those whose cost has been found.
-    T.insert(source);
+//    T.insert(source);
 
     // Let a priority queue contain all the vertices (edges in this case) of G Using
     //	the Distances (weights) as keys
@@ -288,15 +287,21 @@ void Graph::shortestPath(Vertex source)
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
+        T.insert(u);
         for(int i =0; i< numVertices;i++)
         {
-            if(adjacencyMatrix[u.getId()][i] != 9999 && !T.contains(u))
+            if(adjacencyMatrix[u.getId()][i] > 0 )
             {
-                relax(u,vertexList.at(i));
+                relax(u,vertexList[i]);
             }
         }
-        T.insert(u);
+//        if(T.contains(u))
+//        {
+//        u.setDistance(u.getDistance() + 2000);
+//        vertexPQ.insert(u);
+//        }
     }
+    T.outputSet();
 }
 
 void Graph::maliks_shortestPath(Vertex source)
