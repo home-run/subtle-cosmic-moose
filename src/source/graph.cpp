@@ -175,7 +175,7 @@ void Graph::initialize_single_source(Vertex s)
 {
     for(int vertex = 0; vertex < numVertices;vertex++)
     {
-        vertexList[vertex].setDistance(9999);
+        vertexList[vertex].setDistance(INFINITY);
         vertexList[vertex].setParent(NULL);
     }
     vertexList[s.getId()].setDistance(0);
@@ -193,7 +193,7 @@ void Graph::relax(Vertex &u, Vertex &v)
 {
     int distanceSum;
     distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
-//    qDebug() <<"Distance sum is [ " << distanceSum << " ]";
+    qDebug() <<"Distance sum is [ " << distanceSum << " ]";
     if(v.getDistance() > distanceSum )
     {
         v.setDistance(distanceSum);
@@ -260,46 +260,38 @@ void Graph::shortestPath(Vertex source)
     VertexSet V;			// Contains the set of vertices to which the shortest path
                             //	has been found.
     Vertex u;
-    Vertex v;
-
+    Edge adjEdge;
     source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
 
-    // Create a set V of all vertices in the graph
-//    for(int numV = 0; numV < numVertices; numV++)
-//    {
-//        V.insert(vertexList.at(numV));
-//        V.insert(vertexList[numV]);
-//    }
-
     T.clear();
     // Initially the source vertex s is in T of those whose cost has been found.
-//    T.insert(source);
 
     // Let a priority queue contain all the vertices (edges in this case) of G Using
     //	the Distances (weights) as keys
     for(int i = 0; i < this->numVertices;i++)
     {
-        vertexPQ.insert(vertexList.at(i));
+        vertexPQ.insert(vertexList[i]);
     }
 
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
         T.insert(u);
-        for(int i =0; i< numVertices;i++)
+
+        qDebug() << "U : " << u.getName();
+
+        while(vertexList.at(u.getId()).hasEdges())
         {
-            if(adjacencyMatrix[u.getId()][i] > 0 )
+            qDebug() << "Has edges";
+            adjEdge = vertexList[u.getId()].getNearestEdge();
+            qDebug() << "Weight : " << adjacencyMatrix[u.getId()][adjEdge.idTo];
+            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
             {
-                relax(u,vertexList[i]);
+                relax(u,vertexList[adjEdge.idTo]);
             }
         }
-//        if(T.contains(u))
-//        {
-//        u.setDistance(u.getDistance() + 2000);
-//        vertexPQ.insert(u);
-//        }
     }
     T.outputSet();
 }
@@ -308,6 +300,9 @@ void Graph::maliks_shortestPath(Vertex source)
 {
 //    int *smallestWeight;
 //    smallestWeight = new int[numVertices];
+
+    int v;
+    int minWeight = INT_MAX;
 
     for(int j =0; j< numVertices;j++)
     {
@@ -321,8 +316,8 @@ void Graph::maliks_shortestPath(Vertex source)
 
     for(int i =0; i < numVertices; i++)
     {
-        int minWeight = INT_MAX;
-        int v;
+        minWeight = INT_MAX;
+        v = 0;
 
         for(int j = 0; j <numVertices; j++)
         {

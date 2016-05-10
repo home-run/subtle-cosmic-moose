@@ -201,23 +201,15 @@ public:
     Edge getNearestEdge()
     {
         Edge root;
-        if(this->edges.isEmpty())
+        try
         {
-            this->numEdges = 0;
-            for(int i = 0; i < this->edgeStorage.size(); i++)
-            {
-                this->edges.insert(this->edgeStorage.at(i));
-                numEdges++;
-            }
-            this->edgeStorage.clear();
-        }
-        else
+            root = this->edges.removeMin();
+            numEdges--;
+        } catch(...)
         {
-            this->edges.remove(0);
-            this->edgeStorage.append(root);
-            this->backupEdges.insert(root);
+            qDebug() << "NO MORE EDGES!";
         }
-        root = this->edges.root();
+
         return root;
     }
 
@@ -229,7 +221,17 @@ public:
      */
     int getNumEdges() const
     {
-        return this->numEdges;
+        return this->edges.size();
+    }
+
+    bool hasEdges() const
+    {
+        return !edges.isEmpty();
+    }
+
+    Vertex* getParent()
+    {
+        return this->parent;
     }
 
 private:

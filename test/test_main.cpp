@@ -151,19 +151,19 @@ void Test_Main::testShortestPath()
     Graph testGraph;
     QList<Vertex> vList;
     Vertex v;
+    Edge e;
 
     testGraph.createGraph(db);
 
     v.setId(21);
     testGraph.shortestPath(v);
 //    vList = testGraph.getVertices();
-
-//    for(int i =0;i< vList.size();i++)
+//    while(vList[0].hasEdges())
 //    {
-//        qDebug() << "Vertex " << vList.at(i).getName() << " with distance cost " << vList.at(i).getDistance();
+//        e = vList[0].getNearestEdge();
+//        qDebug () << "Edge : " << e.idFrom << " to " << e.idTo << " weight " << e.weight;
 //    }
 
-//    testGraph.maliks_shortestPath(v);
 
 }
 

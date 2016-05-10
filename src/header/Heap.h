@@ -73,7 +73,7 @@ public:
      * element hierarchy.
      * @param newElement the element to add
      */
-    void insert(T newElement)
+    void insert(T& newElement)
     {
         elements.push_back(newElement);
         //call bubbleUp from the last element in the heap
