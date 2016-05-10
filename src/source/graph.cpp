@@ -1,5 +1,8 @@
 #include "graph.h"
 #include <fstream>
+#ifndef INF
+#define INF INT_MAX - 10000
+#endif
 
 Graph::Graph()
 {
@@ -60,15 +63,15 @@ Graph::~Graph()
 void Graph::createGraph(Database *db)
 {
     QSqlQuery queryResult;		// Executes & stores the query for retrieving vertices
-    //		and edges from the database.
+                                //		and edges from the database.
     Vertex vertex;				// Temporary vertex used as a factory for inserting
-    // 		Vertices into the graph.
+                                // 		Vertices into the graph.
     Edge edge;					// Temporary edge used as a factory for inserting
-    //		edges into the graph.
+                                //		edges into the graph.
     int toId, fromId, weight, id;//	Integer values to store temporary To, From, Weight
-    //		and Current IDs
+                                //		and Current IDs
     QString stadiumName;		// Stores the name of the stadium for inserting into the
-    // 	graph
+                                // 	graph
 
     numVertices = db->getNumberOfStadiums();
 
@@ -80,6 +83,7 @@ void Graph::createGraph(Database *db)
         for(int j = 0; j < numVertices; j++)
         {
             adjacencyMatrix[i][j] = 0;
+//            adjacencyMatrix[i][j] = INT_MAX - 100000;
         }
     }
 
@@ -175,7 +179,7 @@ void Graph::initialize_single_source(Vertex s)
 {
     for(int vertex = 0; vertex < numVertices;vertex++)
     {
-        vertexList[vertex].setDistance(INFINITY);
+        vertexList[vertex].setDistance(INF);
         vertexList[vertex].setParent(NULL);
     }
     vertexList[s.getId()].setDistance(0);
@@ -191,15 +195,22 @@ void Graph::initialize_single_source(Vertex s)
  */
 void Graph::relax(Vertex &u, Vertex &v)
 {
+    qDebug() << " ";
+    qDebug() <<" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+    qDebug() <<" Relax - Don't do it - When you want to come to it";
+    qDebug() <<" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     int distanceSum;
     distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
-    qDebug() <<"Distance sum is [ " << distanceSum << " ]";
+    qDebug() << "Comparing V Distance to U distance + Adj[u][v]";
+    qDebug() << v.getName() << " > " << u.getName() << " + Adj-Weight";
+    qDebug() << v.getDistance() << " > " << distanceSum;
     if(v.getDistance() > distanceSum )
     {
+    qDebug() << " ";
         v.setDistance(distanceSum);
         v.setParent(&u);
         vertexList[v.getId()] = v;
-        qDebug() << "V Distance is " << v.getDistance();
+        qDebug() << "- - - Changed V [ " << v.getName() << " ] Distance to " << v.getDistance() << " - - -";
     }
 }
 
@@ -275,23 +286,34 @@ void Graph::shortestPath(Vertex source)
         vertexPQ.insert(vertexList[i]);
     }
 
+    qDebug() << "------------------ Output Vertices w/ Distances before search ------------------";
+    for(int i = 0; i < vertexList.size(); i++)
+    {
+        qDebug () << "Name [ " << vertexList.at(i).getName() << " ] - Distance : " << vertexList.at(i).getDistance();
+    }
+
+//    qDebug() << "------------------ Adjacency Matrix before search ------------------";
+//    this->debug_printAdjMatrix();
+
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
-        T.insert(u);
 
+        qDebug() << "===================== NEW U =====================";
         qDebug() << "U : " << u.getName();
 
         while(vertexList.at(u.getId()).hasEdges())
         {
-            qDebug() << "Has edges";
             adjEdge = vertexList[u.getId()].getNearestEdge();
-            qDebug() << "Weight : " << adjacencyMatrix[u.getId()][adjEdge.idTo];
+            qDebug() << "Edge between [ " << vertexList.at(adjEdge.idFrom).getName() << " ] to [ " <<vertexList.at(adjEdge.idTo).getName() << " ]";
+            qDebug() << "Edge with Weight : " << adjacencyMatrix[u.getId()][adjEdge.idTo];
             if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
             {
                 relax(u,vertexList[adjEdge.idTo]);
+                qDebug() << "V distance is : " << vertexList[adjEdge.idTo].getDistance();
             }
         }
+        T.insert(vertexList[u.getId()]);
     }
     T.outputSet();
 }
