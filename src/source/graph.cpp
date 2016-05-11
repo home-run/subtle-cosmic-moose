@@ -195,22 +195,13 @@ void Graph::initialize_single_source(Vertex s)
  */
 void Graph::relax(Vertex &u, Vertex &v)
 {
-    qDebug() << " ";
-    qDebug() <<" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
-    qDebug() <<" Relax - Don't do it - When you want to come to it";
-    qDebug() <<" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     int distanceSum;
     distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
-    qDebug() << "Comparing V Distance to U distance + Adj[u][v]";
-    qDebug() << v.getName() << " > " << u.getName() << " + Adj-Weight";
-    qDebug() << v.getDistance() << " > " << distanceSum;
     if(v.getDistance() > distanceSum )
     {
-    qDebug() << " ";
         v.setDistance(distanceSum);
         v.setParent(&u);
         vertexList[v.getId()] = v;
-        qDebug() << "- - - Changed V [ " << v.getName() << " ] Distance to " << v.getDistance() << " - - -";
     }
 }
 
@@ -271,51 +262,61 @@ void Graph::shortestPath(Vertex source)
     VertexSet V;			// Contains the set of vertices to which the shortest path
                             //	has been found.
     Vertex u;
+    Vertex v;
     Edge adjEdge;
+    int distanceSum;
+//    long *dist;
+//    long *prev;
+//    dist = new long[numVertices];
+//    prev = new long[numVertices];
+
     source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
+//    for(int vertex = 0; vertex < numVertices; vertex++)
+//    {
+//        if(vertex != source.getId())
+//        {
+//            dist[vertex] = INF;
+//            prev[vertex] = -1;
+//        }
+//    }
 
     T.clear();
     // Initially the source vertex s is in T of those whose cost has been found.
 
-    // Let a priority queue contain all the vertices (edges in this case) of G Using
-    //	the Distances (weights) as keys
-    for(int i = 0; i < this->numVertices;i++)
-    {
-        vertexPQ.insert(vertexList[i]);
-    }
-
-    qDebug() << "------------------ Output Vertices w/ Distances before search ------------------";
-    for(int i = 0; i < vertexList.size(); i++)
-    {
-        qDebug () << "Name [ " << vertexList.at(i).getName() << " ] - Distance : " << vertexList.at(i).getDistance();
-    }
-
-//    qDebug() << "------------------ Adjacency Matrix before search ------------------";
-//    this->debug_printAdjMatrix();
+    vertexPQ.insert(vertexList[source.getId()]);
 
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
 
-        qDebug() << "===================== NEW U =====================";
-        qDebug() << "U : " << u.getName();
-
         while(vertexList.at(u.getId()).hasEdges())
         {
             adjEdge = vertexList[u.getId()].getNearestEdge();
-            qDebug() << "Edge between [ " << vertexList.at(adjEdge.idFrom).getName() << " ] to [ " <<vertexList.at(adjEdge.idTo).getName() << " ]";
-            qDebug() << "Edge with Weight : " << adjacencyMatrix[u.getId()][adjEdge.idTo];
+            v = vertexList.at(adjEdge.idTo);
             if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
             {
-                relax(u,vertexList[adjEdge.idTo]);
-                qDebug() << "V distance is : " << vertexList[adjEdge.idTo].getDistance();
+                distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
+                if(v.getDistance() > distanceSum )
+                {
+                    v.setDistance(distanceSum);
+                    v.setParent(&u);
+                    vertexList[v.getId()] = v;
+                }
+
+                if(!T.contains(v))
+                {
+                    vertexPQ.insert(v);
+                }
             }
         }
         T.insert(vertexList[u.getId()]);
     }
-    T.outputSet();
+    for(int i = 0; i < numVertices; i++)
+    {
+        qDebug() << "Distance to [ " << vertexList.at(i).getName() << " ] is [ " << vertexList.at(i).getDistance() << " ]";
+    }
 }
 
 void Graph::maliks_shortestPath(Vertex source)
