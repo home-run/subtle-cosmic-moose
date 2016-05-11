@@ -15,10 +15,13 @@ public:
     explicit HomePage(QWidget *parent = 0);
     ~HomePage();
 
+signals:
+
+    void isFinished(bool);
+
 private slots:
-    //FIXME Debug limitter for gif
-    //Checks the for the last frame of the Qmovie and close window if it is
-    void CheckLastFrame(int frame);
+
+    void EmitFinished();
 
 private:
     Ui::HomePage *ui;

@@ -36,6 +36,13 @@ MainWindow::MainWindow(QWidget *parent) :
             stadiumDetails_widget, SLOT(initializeSouvenirTable(SouvenirTableModel*)));
     connect(this, SIGNAL(adminFeaturesToggled(bool)),
             stadiumDetails_widget, SLOT(toggleAdminFunctions(bool)));
+    //Splash Screen Emits signal when done, call gotoHomePage Function
+    connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
+
+    //Start off with splash screen
+    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
+//    ui->mainwindow_stackedWidget->resize(900, 450);
+//    this->resize(900, this->width());
 
     // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
@@ -52,6 +59,23 @@ MainWindow::~MainWindow()
     delete planTrip_widget;
     delete tripSummary_widget;
     delete ui;
+}
+
+/**
+ * @brief HomePage::resizeEvent(QResizeEvent *event)
+ * Inherited from QMainWindow Class, virtual function that is called when you
+ * resize the window and resizes the widgets inside the screen
+ * @param *event is the event that is passed in from QMainWindow class and has
+ * data relative to the application window size
+ */
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    QString temp;
+    temp = QString::number(event->size().height()) + QString::number(event->size().width());
+    qDebug("Resized Event Called!");
+    qDebug() << temp;
+
+    ui->mainwindow_stackedWidget->resize(event->size().width(),event->size().height());
 }
 
 /**
@@ -89,6 +113,8 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
         tripSummary_widget->populateTripPath();
         ui->mainwindow_pushButton_next->setVisible(false);
+        //Disables the Spacer
+        ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
         break;
     default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
@@ -155,6 +181,8 @@ void MainWindow::checkPage_hideShowBackNextButton()
     {
         ui->mainwindow_pushButton_back->setVisible(true);
         ui->mainwindow_pushButton_next->setVisible(true);
+        //Enable Spacer
+        ui->mainwindow_horizontalSpacer_buttons->changeSize(40,60,QSizePolicy::Minimum);
     }
 }
 
@@ -176,6 +204,8 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     // toggle visibility of back/next button
     checkPage_hideShowBackNextButton();
     ui->mainwindow_pushButton_next->setVisible(false);
+    //Disables the Spacer
+    ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 
     // initialize tables with data from database
     stadiumModel = new StadiumTableModel(this, db);

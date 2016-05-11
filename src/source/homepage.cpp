@@ -11,16 +11,13 @@ HomePage::HomePage(QWidget *parent) :
     ui->setupUi(this);
 
     //Initialize the splash screen and allow user to exit if they click on it
-    QMovie *splashImg = new QMovie(":/icons/resources_icons/pitcher_animated_full.gif");
+    QMovie *splashImg = new QMovie(":/icons/resources_icons/ProjectLogo_LoopOnce.gif");
     ui->label->setMovie(splashImg);
-    ui->label->setFixedSize(450,450);
+    ui->label->setFixedSize(900,450);
 
     //Connect the signal on every frame change to check for last frame since it loops infinitely
-    connect(splashImg, SIGNAL(frameChanged(int)), this, SLOT(CheckLastFrame(int)));
+    connect(splashImg, SIGNAL(finished()), this, SLOT(EmitFinished()));
     splashImg->start();
-
-    //Debug statement
-    qDebug() << "Frame Count: " << splashImg->frameCount();
 
 }
 
@@ -29,10 +26,13 @@ HomePage::~HomePage()
     delete ui;
 }
 
-void HomePage::CheckLastFrame(int frame)
+/**
+ * @brief HomePage::EmitFinished()
+ * Checks the for the last frame of the Qmovie and emits a signal when done
+ */
+void HomePage::EmitFinished()
 {
-    if(frame >= 150)
-    {
-        this->close();
-    }
+    qDebug("Emitted Finished signal for SPLASHSCREEN");
+    emit isFinished(true);
 }
+

@@ -7,6 +7,7 @@
 #include <QStack>
 #include <QFile>
 #include <QMessageBox>
+#include <QtGui>
 #include "../header/adminlogin.h"
 #include "../header/stadiumdetails.h"
 #include "../header/homepage.h"
@@ -81,6 +82,8 @@ private:
 
     void checkPage_hideShowBackNextButton();
     void leavingTripSummary();
+
+    void resizeEvent(QResizeEvent *e);
 
 };
 

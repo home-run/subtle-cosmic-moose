@@ -15,8 +15,5 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    HomePage splash;
-    splash.show();
-
     return a.exec();
 }
