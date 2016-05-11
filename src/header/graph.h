@@ -54,6 +54,7 @@ public:
 
     int getNumberVertices() const;
 
+    long getTotalDistance() const;
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -63,13 +64,14 @@ public:
      * nothing else.
      */
     void debug_printAdjMatrix() const;
+
     /**
-     * @brief maliks_shortestPath
-     * This is Maliks C++ Implementation of Dijkstra's Algorithm for determining the
-     * shortest path.
-     * @param source vertex
+     * @brief debug_outputDistances
+     * Method for outputting all the distances found after performing dijkstra's algorithm
+     * for finding the shortest path to all vertices.
      */
-    void maliks_shortestPath(Vertex source);
+    void debug_outputDistances() const;
+
 private:
 
     QList<Vertex> vertexList;	// Stores the complete list of vertices in the graph

@@ -273,14 +273,6 @@ void Graph::shortestPath(Vertex source)
     source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
-//    for(int vertex = 0; vertex < numVertices; vertex++)
-//    {
-//        if(vertex != source.getId())
-//        {
-//            dist[vertex] = INF;
-//            prev[vertex] = -1;
-//        }
-//    }
 
     T.clear();
     // Initially the source vertex s is in T of those whose cost has been found.
@@ -313,66 +305,17 @@ void Graph::shortestPath(Vertex source)
         }
         T.insert(vertexList[u.getId()]);
     }
-    for(int i = 0; i < numVertices; i++)
-    {
-        qDebug() << "Distance to [ " << vertexList.at(i).getName() << " ] is [ " << vertexList.at(i).getDistance() << " ]";
-    }
 }
 
-void Graph::maliks_shortestPath(Vertex source)
+long Graph::getTotalDistance() const
 {
-//    int *smallestWeight;
-//    smallestWeight = new int[numVertices];
-
-    int v;
-    int minWeight = INT_MAX;
-
-    for(int j =0; j< numVertices;j++)
+    long totalDistance = 0;
+    for(int v = 0; v < numVertices; v++)
     {
-        smallestWeight[j] = adjacencyMatrix[source.getId()][j];
+        totalDistance += vertexList.at(v).getDistance();
     }
-    bool *weightFound;
-    weightFound = new bool[numVertices];
-
-    weightFound[source.getId()] = true;
-    smallestWeight[source.getId()] = 0;
-
-    for(int i =0; i < numVertices; i++)
-    {
-        minWeight = INT_MAX;
-        v = 0;
-
-        for(int j = 0; j <numVertices; j++)
-        {
-            if(!weightFound[j])
-            {
-                if(smallestWeight[j] < minWeight)
-                {
-                    v = j;
-                    minWeight = smallestWeight[j];
-                    qDebug() << "Min weight : " << minWeight;
-                }
-            }
-        }
-        weightFound[v] = true;
-
-        for(int j = 0; j <numVertices; j++)
-        {
-            if(!weightFound[j])
-            {
-                if(minWeight + adjacencyMatrix[v][j] < smallestWeight[j])
-                {
-                    smallestWeight[j] = minWeight + adjacencyMatrix[v][j];
-                }
-            }
-        }
-    }
-    for(int i = 0; i < numVertices;i++)
-    {
-        qDebug() << "From "<< vertexList.at(source.getId()).getName() <<" to [ " << vertexList.at(i).getName() << " ] is " << smallestWeight[i] ;
-    }
+    return totalDistance;
 }
-
 /**
  * @brief Graph::getNumberVertices
  * Methd returns the number of vertices that are stored in the graph
@@ -381,4 +324,12 @@ void Graph::maliks_shortestPath(Vertex source)
 int Graph::getNumberVertices() const
 {
     return this->numVertices;
+}
+
+void Graph::debug_outputDistances() const
+{
+    for(int v = 0; v < numVertices; v++)
+    {
+        qDebug() << "Distance to [ " << vertexList.at(v).getName() << " ] is [ " << vertexList.at(v).getDistance() << " ]";
+    }
 }

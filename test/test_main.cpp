@@ -149,21 +149,18 @@ void Test_Main::testVertexSet()
 void Test_Main::testShortestPath()
 {
     Graph testGraph;
-    QList<Vertex> vList;
+    long distance;
     Vertex v;
-    Edge e;
+
 
     testGraph.createGraph(db);
 
     v.setId(21);
     testGraph.shortestPath(v);
-//    vList = testGraph.getVertices();
-//    while(vList[0].hasEdges())
-//    {
-//        e = vList[0].getNearestEdge();
-//        qDebug () << "Edge : " << e.idFrom << " to " << e.idTo << " weight " << e.weight;
-//    }
+    testGraph.debug_outputDistances();
+    distance = testGraph.getTotalDistance();
 
+    qDebug() << "Total Distance is " << distance;
 
 }
 
