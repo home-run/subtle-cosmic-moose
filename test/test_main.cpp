@@ -156,12 +156,20 @@ void Test_Main::testShortestPath()
 
     testGraph.createGraph(db);
 
-    v.setId(3);
+    v.setId(8);
     testGraph.shortestPath(v);
     testGraph.debug_outputDistances();
-//    distance = testGraph.getTotalDistance();
+    distance = testGraph.getTotalDistance();
 
-//    qDebug() << "Total Distance is " << distance;
+    qDebug() << "Total Distance is " << distance;
+    testGraph.createGraph(db);
+
+    v.setId(8);
+    testGraph.shortestPath(v);
+    testGraph.debug_outputDistances();
+    distance = testGraph.getTotalDistance();
+
+    qDebug() << "Total Distance is " << distance;
 
 }
 

@@ -235,27 +235,24 @@ void Graph::shortestPath(Vertex source)
                             //	weight is root
     VertexSet T;			// Contains the set of vertices to which the shortest path
                             //	has been found.
-//    bool *visited;
     Vertex u;
     Vertex v;
     Edge adjEdge;
     int distanceSum;
 
+    for(int i = 0; i < numVertices; i++)
+    {
+        vertexList[i].setDistance(0);
+    }
+
     source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
-//    visited = new bool[numVertices];
-
-//    for(int v = 0; v < numVertices; v++)
-//    {
-//        visited[v] = false;
-//    }
 
     T.clear();
     // Initialize the priority queue to start with the given source vertex as the first
     //	vertex to explore.
     vertexPQ.insert(vertexList[source.getId()]);
-//    visited[source.getId()] = true;
 
     while(!vertexPQ.isEmpty())
     {
@@ -291,19 +288,12 @@ void Graph::shortestPath(Vertex source)
                 if(!T.contains(v))
                 {
                     vertexPQ.insert(v);
-//                    T.insert(v);
                 }
             }
         }
-        // Once all the adjacent vertices have been explored, add the the vertex U to the
-        //	set T of found shortest paths.
-//        T.insert(vertexList[u.getId()]);
     }
     // Once the algorithm is complete, clear the VertexSet T of all vertices.
     T.clear();
-
-//    delete [] visited;
-
 }
 
 /**
