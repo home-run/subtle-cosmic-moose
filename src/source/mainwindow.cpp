@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowTitle("~/run Dream Vacation Planner");
+    this->setWindowIcon(QIcon(":/icons/resources_icons/program_icon.png"));
 
     // Instantiate database
     db = new Database("data.db", "QSQLITE");
@@ -41,8 +42,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //Start off with splash screen
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
-//    ui->mainwindow_stackedWidget->resize(900, 450);
-//    this->resize(900, this->width());
 
     // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
@@ -59,23 +58,6 @@ MainWindow::~MainWindow()
     delete planTrip_widget;
     delete tripSummary_widget;
     delete ui;
-}
-
-/**
- * @brief HomePage::resizeEvent(QResizeEvent *event)
- * Inherited from QMainWindow Class, virtual function that is called when you
- * resize the window and resizes the widgets inside the screen
- * @param *event is the event that is passed in from QMainWindow class and has
- * data relative to the application window size
- */
-void MainWindow::resizeEvent(QResizeEvent *event)
-{
-    QString temp;
-    temp = QString::number(event->size().height()) + QString::number(event->size().width());
-    qDebug("Resized Event Called!");
-    qDebug() << temp;
-
-    ui->mainwindow_stackedWidget->resize(event->size().width(),event->size().height());
 }
 
 /**

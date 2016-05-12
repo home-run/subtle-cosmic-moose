@@ -83,8 +83,6 @@ private:
     void checkPage_hideShowBackNextButton();
     void leavingTripSummary();
 
-    void resizeEvent(QResizeEvent *e);
-
 };
 
 #endif // MAINWINDOW_H
