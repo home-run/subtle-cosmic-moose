@@ -64,7 +64,6 @@ void Test_Main::createGraph()
     QSqlQuery query;
     Graph testGraph;
     QList<Vertex> vertexList;
-    Vertex vertex;
     QString name;
     int id;
 
@@ -162,6 +161,8 @@ void Test_Main::testShortestPath()
 
     qDebug() << "Total Distance is " << distance;
 
+    v.setId(3);
+    testGraph.debug_printPath(v);
 }
 
 void Test_Main::testHeap()
@@ -185,10 +186,8 @@ void Test_Main::testHeap()
     while(!heap.isEmpty())
     {
         vertex = heap.removeMin();
-//        qDebug() << "Removing " << vertex.getId() << " with weight "<<  vertex.getDistance();
         QVERIFY(vertex.getDistance() == list.at(vertex.getId()).getDistance());
     }
-
 }
 
 //#endif //TEST_DATABASE_H

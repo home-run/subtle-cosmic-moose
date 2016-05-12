@@ -32,7 +32,7 @@ public:
     Vertex(){
         this->id = INT16_MAX;
         this->name = "";
-        this->parent = NULL;
+        this->parent = -1;
         this->distance = 0;
     }
 
@@ -47,7 +47,7 @@ public:
     {
         this->id = id;
         this->name = name;
-        this->parent = NULL;
+        this->parent = -1;
         this->distance = distance;
     }
 
@@ -111,8 +111,9 @@ public:
      * Set the parent of the current vertex to p
      * @param p
      */
-    void setParent(Vertex*p)
+    void setParent(int p)
     {
+        qDebug() << "Setting parent id to " << p;
         this->parent = p;
     }
 
@@ -177,6 +178,7 @@ public:
         this->distance = v.getDistance();
         this->id = v.getId();
         this->name = v.getName();
+        this->parent = v.getParent();
         return this;
     }
 
@@ -224,12 +226,25 @@ public:
         return this->edges.size();
     }
 
+    /**
+     * @brief hasEdges
+     * Returns a boolean value if the current vertex has adjacent edges left in it's
+     * priority queue adjacency list.
+     * @return
+     */
     bool hasEdges() const
     {
         return !edges.isEmpty();
     }
 
-    Vertex* getParent()
+    /**
+     * @brief getParent
+     * Method returns the ID integer value of the it's parent vertex. This is only
+     * established after a path has been taken using Dijkstra's algorithm or calculating
+     * the minimum spanning tree.
+     * @return int ID of the parent vertex
+     */
+    int getParent() const
     {
         return this->parent;
     }
@@ -237,7 +252,7 @@ public:
 private:
     int id;
     QString name;
-    Vertex *parent;
+    int parent;
     int distance;
     Heap<Edge, comp> edges;
     Heap<Edge, comp> backupEdges;
@@ -414,7 +429,7 @@ public:
         vertex.setDistance(INFINITY);
         vertex.setName("empty");
         vertex.setId(-1);
-        vertex.setParent(NULL);
+        vertex.setParent(-1);
         for(int index = 0; index < this->size;index++)
         {
             buckets[index] = vertex;
@@ -422,6 +437,11 @@ public:
         size = 0;
     }
 
+    /**
+     * @brief outputSet
+     * This is primarly a debugging method for testing the vertex set. It will iterate
+     * through the set and output the entire set.
+     */
     void outputSet() const
     {
         for(int vertexIndex = 0; vertexIndex < bucketSize; vertexIndex++)

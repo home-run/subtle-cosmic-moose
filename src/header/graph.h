@@ -49,12 +49,28 @@ public:
 
     /**
      * @brief clearGraph
+     * This method clears the current graph
+     * TODO: Needs to be updated for the current implementation of the graph search.
      */
     void clearGraph();
 
+    /**
+     * @brief getNumberVertices
+     * This method returns the number of vertices that are inserted in the graph
+     * @return int number of vertices
+     */
     int getNumberVertices() const;
 
+    /**
+     * @brief getTotalDistance
+     * Calculates the total distance going to all vertices starting at dodger stadium
+     * each time.
+     * @return
+     */
     long getTotalDistance() const;
+
+    QList<Vertex> getVertexPath(Vertex target);
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -72,6 +88,7 @@ public:
      */
     void debug_outputDistances() const;
 
+    void debug_printPath(Vertex vertex) const;
 private:
 
     QList<Vertex> vertexList;	// Stores the complete list of vertices in the graph
@@ -80,10 +97,6 @@ private:
     int numVertices;			// Stores the number of total vertices in the graph
     Heap<Edge, comp> edges;		// A min-heap to store all edges by priority
                                 // 	TODO: May need to remove this.
-    QVector<int> distance;		// Vector of costs of the shortest path from vertex v to the source s
-    QVector<int> previous;		// Vector of ids of each previous vertex traveled
-    int smallestWeight[50];
-    VertexSet T;			// Contains a set of vertices that have not been visited
 
 
     /**
@@ -94,13 +107,6 @@ private:
      */
     void initialize_single_source(Vertex s);
 
-    /**
-     * @brief relax
-     * Relaxation method between 2 vertices
-     * @param u
-     * @param v
-     */
-    void relax(Vertex &u, Vertex &v);
 };
 
 

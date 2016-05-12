@@ -20,37 +20,19 @@ Graph::Graph()
 
 }
 
+/**
+ * @brief Graph::~Graph
+ * Deconstructor of the graph, clears the currently allocated edges and vertexList.
+ */
 Graph::~Graph()
 {
+    while(!edges.isEmpty())
+    {
+        this->edges.removeMin();
+    }
 
-    // TODO: Figure out how to deallocate the memory for the distance and previous
-    //	list. Currently throws a 'malloc' error.
-    // test(65779,0x7fff7eb36000) malloc: *** error for object 0x7: pointer being freed was not allocated
-    // *** set a breakpoint in malloc_error_break to debug
-    // The program has unexpectedly finished.
-
-    //    if(distance != NULL)
-    //    {
-    //        try
-    //        {
-    //            delete distance;
-    //        } catch(...)
-    //        {
-    //            qDebug() << "No memory allocated to delete";
-    //        }
-    //    }
-    //    if(previous != NULL)
-    //    {
-    //        try
-    //        {
-    //            delete previous;
-    //        } catch(...)
-    //        {
-    //            qDebug() << "No memory allocated to delete";
-    //        }
-    //    }
+    vertexList.clear();
 }
-
 
 /**
  * @brief Graph::createGraph
@@ -75,6 +57,10 @@ void Graph::createGraph(Database *db)
 
     numVertices = db->getNumberOfStadiums();
 
+    if(!vertexList.isEmpty())
+    {
+        vertexList.clear();
+    }
     // TODO: Clear graph in case that a new graph is needed when more stadiums have
     //	been added to the graph.
 
@@ -83,7 +69,6 @@ void Graph::createGraph(Database *db)
         for(int j = 0; j < numVertices; j++)
         {
             adjacencyMatrix[i][j] = 0;
-//            adjacencyMatrix[i][j] = INT_MAX - 100000;
         }
     }
 
@@ -120,6 +105,9 @@ void Graph::createGraph(Database *db)
         bool found = false;
         while(index < numVertices && !found)
         {
+            // If the the starting id of the edge matches the id of the vertex that it is
+            //	current at create an edge object and add it to the adjacency list of the
+            //	current vertex.
             if(vertexList.at(index).getId()== fromId)
             {
                 edge.idFrom = fromId;
@@ -131,6 +119,8 @@ void Graph::createGraph(Database *db)
             index++;
         }
 
+        // Assign the weight of the edge to the adjacency matrix of the from id and the
+        //	to id of th each vertex respectively.
         adjacencyMatrix[fromId][toId] = weight;
     }
 }
@@ -180,29 +170,9 @@ void Graph::initialize_single_source(Vertex s)
     for(int vertex = 0; vertex < numVertices;vertex++)
     {
         vertexList[vertex].setDistance(INF);
-        vertexList[vertex].setParent(NULL);
+        vertexList[vertex].setParent(-1);
     }
     vertexList[s.getId()].setDistance(0);
-}
-
-/**
- * @brief Graph::relax
- * The process of relaxing an edge (u,v) consists of testing whether we can improve the
- * 	shortest path to v found so far by going through u and, if so, updating v.d and
- *  v.parentId.
- * @param u - Vertex
- * @param v - Vertex
- */
-void Graph::relax(Vertex &u, Vertex &v)
-{
-    int distanceSum;
-    distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
-    if(v.getDistance() > distanceSum )
-    {
-        v.setDistance(distanceSum);
-        v.setParent(&u);
-        vertexList[v.getId()] = v;
-    }
 }
 
 /**
@@ -252,66 +222,93 @@ void Graph::debug_printAdjMatrix() const
 
 /**
  * @brief Graph::shortestPath
- * Given a source vertex
+ * Given a source vertex find the shortest path to all other vertices available on the
+ * graph. The function performs Dijkstra's algorithm to compute each of the distances.
+ * Utilizes a Vertex Set, and a Priority Queue as data structures to improve the
+ * performance of the search.
  * @param source
  */
 void Graph::shortestPath(Vertex source)
 {
-    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the vertices in
-                            // the graph, ordered by the weight. Smallest weight is root
-    VertexSet V;			// Contains the set of vertices to which the shortest path
+    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the
+                            //	vertices in the graph, ordered by the weight. Smallest
+                            //	weight is root
+    VertexSet T;			// Contains the set of vertices to which the shortest path
                             //	has been found.
     Vertex u;
     Vertex v;
     Edge adjEdge;
     int distanceSum;
-//    long *dist;
-//    long *prev;
-//    dist = new long[numVertices];
-//    prev = new long[numVertices];
 
     source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
 
     T.clear();
-    // Initially the source vertex s is in T of those whose cost has been found.
-
+    // Initialize the priority queue to start with the given source vertex as the first
+    //	vertex to explore.
     vertexPQ.insert(vertexList[source.getId()]);
 
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
 
+        // While the current vertex u has an adjacent edge available.
         while(vertexList.at(u.getId()).hasEdges())
         {
+            // Get the adjacent edge to the vertex. It will be the edge with the shortest
+            //	path currently available
             adjEdge = vertexList[u.getId()].getNearestEdge();
             v = vertexList.at(adjEdge.idTo);
+            // checks to see if a path between vertex u and vertex v exists. A path
+            //	exists if the value in the adjacency matrix is not 0
             if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
             {
+                // Calculate the total distance between the vertex u and the weight
+                //	between the vertex u and vertex v
                 distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
+
+                // If the current distance to vertex v is greater than the sum of u's
+                //	current distance plus the weight in the adj matrix set the distance
+                //	to v to the new distance sum because it is a shorter path to that
+                //	vertex.
                 if(v.getDistance() > distanceSum )
                 {
                     v.setDistance(distanceSum);
-                    v.setParent(&u);
+                    v.setParent(u.getId());
                     vertexList[v.getId()] = v;
                 }
 
+                // If the set T of found vertices does not contain the vertex v add the
+                //	vertex v to the priority queue to see the shorter path.
                 if(!T.contains(v))
                 {
                     vertexPQ.insert(v);
                 }
             }
         }
+        // Once all the adjacent vertices have been explored, add the the vertex U to the
+        //	set T of found shortest paths.
         T.insert(vertexList[u.getId()]);
     }
+
+    // Once the algorithm is complete, clear the VertexSet T of all vertices.
+    T.clear();
+
 }
 
+/**
+ * @brief Graph::getTotalDistance
+ * This method will the take the distances stored in each of the vertices after a search
+ * for the shortest path has been performed.
+ * @return
+ */
 long Graph::getTotalDistance() const
 {
     long totalDistance = 0;
     for(int v = 0; v < numVertices; v++)
     {
+        // Sum the total distance given at the vertex v to the total sum distance
         totalDistance += vertexList.at(v).getDistance();
     }
     return totalDistance;
@@ -326,10 +323,64 @@ int Graph::getNumberVertices() const
     return this->numVertices;
 }
 
+/**
+ * @brief Graph::debug_outputDistances
+ * Debugging function for output the name and the distance calculated after performing a
+ * search.
+ */
 void Graph::debug_outputDistances() const
 {
     for(int v = 0; v < numVertices; v++)
     {
         qDebug() << "Distance to [ " << vertexList.at(v).getName() << " ] is [ " << vertexList.at(v).getDistance() << " ]";
     }
+}
+
+/**
+ * @brief Graph::debug_printPath
+ * Debugging method for printing the path found to the given vertex. This will only work
+ * after a search for the shortest path has been found.
+ * @param vertex
+ */
+void Graph::debug_printPath(Vertex vertex) const
+{
+    int parentId;
+
+    vertex = vertexList[vertex.getId()];
+    parentId = vertex.getParent();
+
+    qDebug() << "Ending stadium is " << vertex.getName();
+    while(parentId > -1)
+    {
+        qDebug() << "Previous stadium is " << vertexList[parentId].getName();
+        parentId = vertexList[parentId].getParent();
+    }
+
+}
+
+/**
+ * @brief Graph::getVertexPath
+ * Function will take a given vertex and traverse up the path of the given parent ids
+ * to construct the path that was taken to arrive at the target vertex. This method
+ * will return a QList of vertices, where index 0 is the starting vertice and the last
+ * vertex in the list is the given target vertex.
+ * @param target Vertex
+ * @return QList of Vertices
+ */
+QList<Vertex> Graph::getVertexPath(Vertex target)
+{
+    QList<Vertex> path;
+    Vertex vertex;
+    int parentId;
+
+    vertex = vertexList[target.getId()];
+    parentId = vertex.getParent();
+
+    path.push_front(vertex);
+    while(parentId > -1)
+    {
+        path.push_front(vertexList[parentId]);
+        parentId = vertexList[parentId].getParent();
+    }
+    return path;
 }
