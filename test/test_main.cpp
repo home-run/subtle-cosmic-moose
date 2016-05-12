@@ -154,15 +154,13 @@ void Test_Main::testShortestPath()
 
     testGraph.createGraph(db);
 
-    v.setId(21);
+    v.setId(4);
     testGraph.shortestPath(v);
     testGraph.debug_outputDistances();
     distance = testGraph.getTotalDistance();
 
     qDebug() << "Total Distance is " << distance;
 
-    v.setId(3);
-    testGraph.debug_printPath(v);
 }
 
 void Test_Main::testHeap()

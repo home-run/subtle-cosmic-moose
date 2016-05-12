@@ -188,7 +188,7 @@ void Graph::clearGraph()
         for(int j = 0; j < numVertices; j++)
         {
             // Set the weight of edge to -1
-            this->adjacencyMatrix[i][j] = 9999;
+            this->adjacencyMatrix[i][j] = 0;
         }
     }
     // Clear the list of vertices
@@ -235,6 +235,7 @@ void Graph::shortestPath(Vertex source)
                             //	weight is root
     VertexSet T;			// Contains the set of vertices to which the shortest path
                             //	has been found.
+    bool *visited;
     Vertex u;
     Vertex v;
     Edge adjEdge;
@@ -243,19 +244,35 @@ void Graph::shortestPath(Vertex source)
     source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
+    visited = new bool[numVertices];
+
+    for(int v = 0; v < numVertices; v++)
+    {
+        visited[v] = false;
+    }
 
     T.clear();
     // Initialize the priority queue to start with the given source vertex as the first
     //	vertex to explore.
     vertexPQ.insert(vertexList[source.getId()]);
+    visited[source.getId()] = true;
 
+    int merp = 0;
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
-
         // While the current vertex u has an adjacent edge available.
+        qDebug() << " U has edges " << vertexList.at(u.getId()).hasEdges();
+        qDebug() << "On vertex " << u.getName();
+        qDebug() << "Merp is at " << merp;
+        merp++;
+        if(merp > vertexList.at(u.getId()).getNumEdges() + 1)
+        {
+            break;
+        }
         while(vertexList.at(u.getId()).hasEdges())
         {
+            merp = 0;
             // Get the adjacent edge to the vertex. It will be the edge with the shortest
             //	path currently available
             adjEdge = vertexList[u.getId()].getNearestEdge();
@@ -291,7 +308,6 @@ void Graph::shortestPath(Vertex source)
         //	set T of found shortest paths.
         T.insert(vertexList[u.getId()]);
     }
-
     // Once the algorithm is complete, clear the VertexSet T of all vertices.
     T.clear();
 
@@ -355,6 +371,11 @@ void Graph::debug_printPath(Vertex vertex) const
         qDebug() << "Previous stadium is " << vertexList[parentId].getName();
         parentId = vertexList[parentId].getParent();
     }
+
+}
+
+void Graph::findShortestPathTo(Vertex source, Vertex target)
+{
 
 }
 

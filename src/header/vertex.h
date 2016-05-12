@@ -113,7 +113,6 @@ public:
      */
     void setParent(int p)
     {
-        qDebug() << "Setting parent id to " << p;
         this->parent = p;
     }
 
@@ -207,6 +206,7 @@ public:
         {
             root = this->edges.removeMin();
             numEdges--;
+            backupEdges.push_back(root);
         } catch(...)
         {
             qDebug() << "NO MORE EDGES!";
@@ -249,15 +249,25 @@ public:
         return this->parent;
     }
 
+    void reinitializeEdges()
+    {
+        Edge edge;
+        while(!backupEdges.isEmpty())
+        {
+            edge = backupEdges.front();
+            edges.insert(edge);
+            backupEdges.pop_front();
+        }
+    }
+
 private:
     int id;
     QString name;
     int parent;
     int distance;
     Heap<Edge, comp> edges;
-    Heap<Edge, comp> backupEdges;
     int numEdges;
-    QList<Edge> edgeStorage;
+    QList<Edge> backupEdges;
 };
 
 /**
@@ -301,13 +311,13 @@ public:
         {
             if(v.getId() != 0 )
             {
-                this->buckets = new Vertex[v.getId()*50];
-                this->bucketSize = v.getId()*50;
+                this->buckets = new Vertex[v.getId()*100];
+                this->bucketSize = v.getId()*100;
             }
             else
             {
-                this->buckets = new Vertex[50];
-                this->bucketSize = 50;
+                this->buckets = new Vertex[100];
+                this->bucketSize = 100;
             }
             for(int i =0; i < this->bucketSize; i++)
             {
@@ -444,11 +454,13 @@ public:
      */
     void outputSet() const
     {
+        int count = 0;
         for(int vertexIndex = 0; vertexIndex < bucketSize; vertexIndex++)
         {
             if(buckets[vertexIndex].getName() != "empty")
             {
-                qDebug() << "Name [ " << buckets[vertexIndex].getName() << " ] Distance [ " <<
+                ++count;
+                qDebug() << "Vertex count : " << count << " Name [ " << buckets[vertexIndex].getName() << " ] Distance [ " <<
                             buckets[vertexIndex].getDistance() << " ]";
             }
         }
