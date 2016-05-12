@@ -235,7 +235,7 @@ void Graph::shortestPath(Vertex source)
                             //	weight is root
     VertexSet T;			// Contains the set of vertices to which the shortest path
                             //	has been found.
-    bool *visited;
+//    bool *visited;
     Vertex u;
     Vertex v;
     Edge adjEdge;
@@ -244,27 +244,23 @@ void Graph::shortestPath(Vertex source)
     source = vertexList.at(source.getId());
     // Initialize all edges, and vertices to infinity
     initialize_single_source(source);
-    visited = new bool[numVertices];
+//    visited = new bool[numVertices];
 
-    for(int v = 0; v < numVertices; v++)
-    {
-        visited[v] = false;
-    }
+//    for(int v = 0; v < numVertices; v++)
+//    {
+//        visited[v] = false;
+//    }
 
     T.clear();
     // Initialize the priority queue to start with the given source vertex as the first
     //	vertex to explore.
     vertexPQ.insert(vertexList[source.getId()]);
-    visited[source.getId()] = true;
+//    visited[source.getId()] = true;
 
-    int merp = 0;
     while(!vertexPQ.isEmpty())
     {
         u = vertexPQ.removeMin();
         // While the current vertex u has an adjacent edge available.
-        qDebug() << " U has edges " << vertexList.at(u.getId()).hasEdges();
-        qDebug() << "On vertex " << u.getName();
-        qDebug() << "Merp is at " << merp;
         while(vertexList.at(u.getId()).hasEdges() )
         {
             // Get the adjacent edge to the vertex. It will be the edge with the shortest
@@ -273,9 +269,8 @@ void Graph::shortestPath(Vertex source)
             v = vertexList.at(adjEdge.idTo);
             // checks to see if a path between vertex u and vertex v exists. A path
             //	exists if the value in the adjacency matrix is not 0
-            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 && !visited[v.getId()])
+            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
             {
-                visited[v.getId()] = true;
                 // Calculate the total distance between the vertex u and the weight
                 //	between the vertex u and vertex v
                 distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
@@ -289,7 +284,6 @@ void Graph::shortestPath(Vertex source)
                     v.setDistance(distanceSum);
                     v.setParent(u.getId());
                     vertexList[v.getId()] = v;
-                    vertexList[u.getId()].reinitializeEdges();
                 }
 
                 // If the set T of found vertices does not contain the vertex v add the
@@ -297,15 +291,18 @@ void Graph::shortestPath(Vertex source)
                 if(!T.contains(v))
                 {
                     vertexPQ.insert(v);
+//                    T.insert(v);
                 }
             }
         }
         // Once all the adjacent vertices have been explored, add the the vertex U to the
         //	set T of found shortest paths.
-        T.insert(vertexList[u.getId()]);
+//        T.insert(vertexList[u.getId()]);
     }
     // Once the algorithm is complete, clear the VertexSet T of all vertices.
     T.clear();
+
+//    delete [] visited;
 
 }
 
@@ -372,6 +369,95 @@ void Graph::debug_printPath(Vertex vertex) const
 
 void Graph::findShortestPathTo(Vertex source, Vertex target)
 {
+    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the
+                            //	vertices in the graph, ordered by the weight. Smallest
+                            //	weight is root
+    VertexSet T;			// Contains the set of vertices to which the shortest path
+                            //	has been found.
+    QList<Vertex> S;
+//    bool *visited;
+    Vertex u;
+    Vertex v;
+    Edge adjEdge;
+    int distanceSum;
+
+    source = vertexList.at(source.getId());
+    target = vertexList.at(target.getId());
+    // Initialize all edges, and vertices to infinity
+    initialize_single_source(source);
+//    visited = new bool[numVertices];
+
+//    for(int v = 0; v < numVertices; v++)
+//    {
+//        visited[v] = false;
+//    }
+
+    T.clear();
+    // Initialize the priority queue to start with the given source vertex as the first
+    //	vertex to explore.
+    vertexPQ.insert(vertexList[source.getId()]);
+//    visited[source.getId()] = true;
+
+    while(!vertexPQ.isEmpty())
+    {
+        u = vertexPQ.removeMin();
+        if(target.getId() == u.getId())
+        {
+            break;
+        }
+        // While the current vertex u has an adjacent edge available.
+        while(vertexList.at(u.getId()).hasEdges() )
+        {
+            // Get the adjacent edge to the vertex. It will be the edge with the shortest
+            //	path currently available
+            adjEdge = vertexList[u.getId()].getNearestEdge();
+            v = vertexList.at(adjEdge.idTo);
+            // checks to see if a path between vertex u and vertex v exists. A path
+            //	exists if the value in the adjacency matrix is not 0
+            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
+            {
+                // Calculate the total distance between the vertex u and the weight
+                //	between the vertex u and vertex v
+                distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
+
+                // If the current distance to vertex v is greater than the sum of u's
+                //	current distance plus the weight in the adj matrix set the distance
+                //	to v to the new distance sum because it is a shorter path to that
+                //	vertex.
+                if(v.getDistance() > distanceSum )
+                {
+                    v.setDistance(distanceSum);
+                    v.setParent(u.getId());
+                    vertexList[v.getId()] = v;
+                }
+
+                // If the set T of found vertices does not contain the vertex v add the
+                //	vertex v to the priority queue to see the shorter path.
+                if(!T.contains(v))
+                {
+                    vertexPQ.insert(v);
+//                    T.insert(vertexList[u.getId()]);
+                    T.insert(v);
+                }
+            }
+        }
+        // Once all the adjacent vertices have been explored, add the the vertex U to the
+        //	set T of found shortest paths.
+    }
+    // Once the algorithm is complete, clear the VertexSet T of all vertices.
+//    T.clear();
+
+    while(u.getParent() != -1)
+    {
+        S.push_front(vertexList[u.getParent()]);
+        u = vertexList.at(u.getParent());
+    }
+    S.push_front(u);
+//    delete [] visited;
+    for(int i = 0; i < S.size(); i++)
+    {
+        qDebug() << "At i " << i << " is " << S.at(i).getName();
+    }
 
 }
 

@@ -18,6 +18,8 @@ private slots:
 
     void testShortestPath();
 
+    void testShortestPathBetween2Points();
+
     void testVertexSet();
 
     void testHeap();
@@ -154,12 +156,12 @@ void Test_Main::testShortestPath()
 
     testGraph.createGraph(db);
 
-    v.setId(21);
+    v.setId(3);
     testGraph.shortestPath(v);
     testGraph.debug_outputDistances();
-    distance = testGraph.getTotalDistance();
+//    distance = testGraph.getTotalDistance();
 
-    qDebug() << "Total Distance is " << distance;
+//    qDebug() << "Total Distance is " << distance;
 
 }
 
@@ -186,6 +188,21 @@ void Test_Main::testHeap()
         vertex = heap.removeMin();
         QVERIFY(vertex.getDistance() == list.at(vertex.getId()).getDistance());
     }
+}
+
+void Test_Main::testShortestPathBetween2Points()
+{
+    Graph testGraph;
+    Vertex v;
+    Vertex target;
+
+    testGraph.createGraph(db);
+
+    v.setId(1);
+    target.setId(5);
+
+    testGraph.findShortestPathTo(v, target);
+
 }
 
 //#endif //TEST_DATABASE_H
