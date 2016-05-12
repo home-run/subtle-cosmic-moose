@@ -154,7 +154,7 @@ void Test_Main::testShortestPath()
 
     testGraph.createGraph(db);
 
-    v.setId(4);
+    v.setId(21);
     testGraph.shortestPath(v);
     testGraph.debug_outputDistances();
     distance = testGraph.getTotalDistance();

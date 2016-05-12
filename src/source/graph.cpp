@@ -265,22 +265,17 @@ void Graph::shortestPath(Vertex source)
         qDebug() << " U has edges " << vertexList.at(u.getId()).hasEdges();
         qDebug() << "On vertex " << u.getName();
         qDebug() << "Merp is at " << merp;
-        merp++;
-        if(merp > vertexList.at(u.getId()).getNumEdges() + 1)
+        while(vertexList.at(u.getId()).hasEdges() )
         {
-            break;
-        }
-        while(vertexList.at(u.getId()).hasEdges())
-        {
-            merp = 0;
             // Get the adjacent edge to the vertex. It will be the edge with the shortest
             //	path currently available
             adjEdge = vertexList[u.getId()].getNearestEdge();
             v = vertexList.at(adjEdge.idTo);
             // checks to see if a path between vertex u and vertex v exists. A path
             //	exists if the value in the adjacency matrix is not 0
-            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
+            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 && !visited[v.getId()])
             {
+                visited[v.getId()] = true;
                 // Calculate the total distance between the vertex u and the weight
                 //	between the vertex u and vertex v
                 distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
@@ -294,6 +289,7 @@ void Graph::shortestPath(Vertex source)
                     v.setDistance(distanceSum);
                     v.setParent(u.getId());
                     vertexList[v.getId()] = v;
+                    vertexList[u.getId()].reinitializeEdges();
                 }
 
                 // If the set T of found vertices does not contain the vertex v add the
