@@ -60,6 +60,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/**
+ * @brief MainWindow::clickNext
+ * Click the next button.
+ */
 void MainWindow::clickNext()
 {
     ui->mainwindow_pushButton_next->click();
@@ -181,6 +185,11 @@ void MainWindow::checkPage_toggleBackNextButtonVisible()
     }
 }
 
+/**
+ * @brief MainWindow::hideNextButton
+ * If true, hide the next button. If false, show the next button.
+ * @param hidden
+ */
 void MainWindow::hideNextButton(bool hidden)
 {
     if(hidden){

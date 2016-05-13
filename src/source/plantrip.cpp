@@ -14,6 +14,11 @@ PlanTrip::~PlanTrip()
     delete ui;
 }
 
+/**
+ * @brief PlanTrip::propagateStadiumList
+ * Use a SQL query object to propagate the stadium list with stadium names.
+ * @param query
+ */
 void PlanTrip::propagateStadiumList(QSqlQuery query)
 {
     QStringList stadiumNames;
@@ -27,16 +32,32 @@ void PlanTrip::propagateStadiumList(QSqlQuery query)
 
 }
 
+/**
+ * @brief PlanTrip::on_planTrip_stadiums_tableWidget_doubleClicked
+ * Remove the clicked item from the stadium list and add it to the list of stadiums
+ * chosen for the trip.
+ * @param index
+ */
 void PlanTrip::on_planTrip_stadiums_tableWidget_doubleClicked(const QModelIndex &index)
 {
     ui->planTrip_stadiumsChosen_tableWidget->addItem(ui->planTrip_stadiums_tableWidget->takeItem(index.row()));
 }
 
+/**
+ * @brief PlanTrip::on_planTrip_stadiumsChosen_tableWidget_doubleClicked
+ * Remove the clicked item from the list of chosen stadiums and place it back
+ * in the list of stadiums.
+ * @param index
+ */
 void PlanTrip::on_planTrip_stadiumsChosen_tableWidget_doubleClicked(const QModelIndex &index)
 {
     ui->planTrip_stadiums_tableWidget->addItem(ui->planTrip_stadiumsChosen_tableWidget->takeItem(index.row()));
 }
 
+/**
+ * @brief PlanTrip::on_planTrip_toolButton_moveUp_clicked
+ * Move the selected item up one position in the list of selected stadiums.
+ */
 void PlanTrip::on_planTrip_toolButton_moveUp_clicked()
 {
     int currentIndex = ui->planTrip_stadiumsChosen_tableWidget->currentRow();
@@ -45,6 +66,10 @@ void PlanTrip::on_planTrip_toolButton_moveUp_clicked()
     ui->planTrip_stadiumsChosen_tableWidget->setCurrentRow(currentIndex-1);
 }
 
+/**
+ * @brief PlanTrip::on_planTrip_toolButton_moveDown_clicked
+ * Move the selected item down one position in the list of selected stadiums.
+ */
 void PlanTrip::on_planTrip_toolButton_moveDown_clicked()
 {
     int currentIndex = ui->planTrip_stadiumsChosen_tableWidget->currentRow();
@@ -53,6 +78,11 @@ void PlanTrip::on_planTrip_toolButton_moveDown_clicked()
     ui->planTrip_stadiumsChosen_tableWidget->setCurrentRow(currentIndex+1);
 }
 
+/**
+ * @brief PlanTrip::on_planTrip_pushButton_dreamVacation_clicked
+ * Navigate the user to the souvenir selector page and emit
+ * a list of chosen stadium names, in order.
+ */
 void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
 {
     int size = ui->planTrip_stadiumsChosen_tableWidget->count();
