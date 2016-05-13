@@ -27,6 +27,70 @@ Database::Database(QString path, QString driver) : QSqlDatabase(addDatabase(driv
 }
 
 /**
+ * @brief Database::getEdges
+ * Method that executes a SQL query to grab all ids to, ids from and distances from
+ * the distances table.
+ * @return SQLquery containing the results of the
+ */
+QSqlQuery Database::getEdges()
+{
+    QSqlQuery query;
+    query.exec("select * from distances");
+
+    if(DEBUG)
+    {
+        while(query.next())
+        {
+            qDebug() << "ID From [ " <<  query.record().field("id_from").value().toInt()
+                     << " ] ID to [ " << query.record().field("id_to").value().toInt()
+                     << " ] Distance [ "
+                     << query.record().field("distance").value().toInt() << " ]";
+        }
+    }
+    return query;
+}
+
+/**
+ * @brief Database::getNumberOfStadiums
+ * Method executes a sql query to get the total number of stadiums in the database.
+ * @return int value # of stadiums
+ */
+int Database::getNumberOfStadiums() const
+{
+    QSqlQuery query;
+    query.exec("select count(*) from stadiums;");
+    if(query.next())
+    {
+        if(DEBUG)
+        { qDebug() << "Number of stadiums [ " << query.record().field(0).value().toInt() << " ]"; }
+        return query.record().field(0).value().toInt();
+    }
+    return -1;
+}
+/**
+ * @brief Database::getStadiumsNameId
+ * Get the name, and ID of each of the stadiums from the database and order the results
+ * by id, descending order.
+ * @return SQLQuery containing the results from the exeuction
+ */
+QSqlQuery Database::getStadiumsNameId()
+{
+    QSqlQuery query;
+
+    query.exec("select id, name from stadiums order by id");
+        if(DEBUG)
+        {
+            QSqlQuery debug_query;
+            debug_query = query;
+            while(debug_query.next())
+            {
+                qDebug() << "ID [ " << debug_query.record().field("id").value().toInt() << " ] - Name [ " << debug_query.record().field("name").value().toString() << " ]";
+            }
+        }
+
+    return query;
+}
+/**
  * @brief Database::AddSouvenir
  * Add a souvenir to a certain stadium's souvenir list given the stadium's name.
  * @param stadiumName The stadium name
