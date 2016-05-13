@@ -73,7 +73,7 @@ public:
 
     void findShortestPathTo(Vertex source, Vertex target);
 
-    void minimumSpanningTree();
+    void minimumSpanningTree(int source);
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
