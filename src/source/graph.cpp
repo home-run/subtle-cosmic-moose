@@ -478,7 +478,7 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
     return path;
 }
 
-void Graph::minimumSpanningTree(int source)
+long Graph::minimumSpanningTree(int source)
 {
     Heap<Vertex, vertexComp> Q;
     long *key;
@@ -522,4 +522,17 @@ void Graph::minimumSpanningTree(int source)
             Q.insert(vertexList[edge.idTo]);
         }
     }
+
+    long sum = 0;
+    for(int i = 0; i < numVertices; i++)
+    {
+        qDebug() << "Weight of " << vertexList.at(i).getName() << " is "
+ <<vertexList.at(i).getDistance();
+        sum += vertexList.at(i).getDistance();
+    }
+    qDebug() << "Total sum is : " << sum;
+    delete [] parent;
+    delete [] key;
+    T.outputSet();
+    return sum;
 }

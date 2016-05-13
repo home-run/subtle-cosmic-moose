@@ -73,7 +73,7 @@ public:
 
     void findShortestPathTo(Vertex source, Vertex target);
 
-    void minimumSpanningTree(int source);
+    long minimumSpanningTree(int source);
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -86,8 +86,8 @@ public:
 
     /**
      * @brief debug_outputDistances
-     * Method for outputting all the distances found after performing dijkstra's algorithm
-     * for finding the shortest path to all vertices.
+     * Method for outputting all the distances found after performing dijkstra's
+     * 	algorithm for finding the shortest path to all vertices.
      */
     void debug_outputDistances() const;
 

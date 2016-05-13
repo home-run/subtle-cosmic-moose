@@ -326,8 +326,23 @@ void Test_Main::testMST()
 {
     Graph graph;
     graph.createGraph(db);
+    long smallest = 0;
+    long current;
 
-    graph.minimumSpanningTree();
+    smallest = graph.minimumSpanningTree(0);
+    for(int i = 1; i < graph.getNumberVertices(); i++)
+    {
+        graph.createGraph(db);
+        current = graph.minimumSpanningTree(i);
+        if(current < smallest)
+        {
+            smallest = current;
+        }
+    }
+
+    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+    qDebug() << "Smallest found " << smallest;
+    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
 
 }
 
