@@ -22,6 +22,9 @@ public:
 
   /// Add a Stadium to Stadium's data base
   bool AddStadium(QString stadiumName,QString teamName,QString address,QString phoneNumber,QString dateOpened,QString capacity,QString turfType,long revenue,QString leauge,QString typology);
+
+  /// Add edges between vertecies to distances database
+  bool AddDistance(int a,int b,long distance);
   // Accessors
   /// Retrieve a list of stadium names
   QStringList GetStadiumNames();

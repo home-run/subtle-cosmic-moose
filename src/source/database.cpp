@@ -159,6 +159,28 @@ bool Database::AddStadium(QString stadiumName,QString teamName,QString address,Q
             qDebug() << query.lastError().text();
             return false;
 }
+/*!
+ * \brief Database::AddDistance
+ * \param a starting vertex
+ * \param b ending vertex
+ * \param distance weight of the edge
+ * \return
+ */
+bool Database::AddDistance(int a,int b,long distance)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO distances(id_from,id_to,distance) Values(:id_from,:id_to,:distance)");
+
+        query.bindValue(":id_from", a);
+        query.bindValue(":id_to", b);
+        query.bindValue(":distance", QString::number(distance));
+        if(query.exec()){
+            return true;
+        }
+
+            qDebug() << query.lastError().text();
+            return false;
+}
 
 /**
  * @brief Database::GetStadiumNames
