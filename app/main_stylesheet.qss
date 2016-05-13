@@ -13,6 +13,15 @@ QWidget
     background-color: #1565C0;
 }
 
+QWidget#page
+{
+    background-image: url(:/icons/resources_icons/program_mainscreenBG.png);
+}
+QWidget#page>QFrame
+{
+    background: transparent;
+}
+
 QWidget:item:hover
 {
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4FC3F7, stop: 1 #B3E5FC);
@@ -96,6 +105,7 @@ QLineEdit
 QPushButton
 {
     font: bold large 12px;
+    background: transparent;
     border-image: url(:/icons/resources_icons/button01_unpressed.png) 30 repeat;
     border-width: 10px;
     color: #000000;
