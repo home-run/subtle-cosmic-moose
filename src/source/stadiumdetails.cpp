@@ -1,11 +1,13 @@
 #include "header/stadiumdetails.h"
 #include "ui_stadiumdetails.h"
 
-StadiumDetails::StadiumDetails(QWidget *parent) :
+StadiumDetails::StadiumDetails(QWidget *parent, Database *db) :
     QWidget(parent),
     ui(new Ui::StadiumDetails)
 {
     ui->setupUi(this);
+    this->db = db;
+    toggleAdminFunctions(false);
 }
 
 /**
@@ -16,30 +18,33 @@ void StadiumDetails::initializeStadiumView()
 {
     // hide vertical header
     ui->stadiumDetails_tableView_stadiumInfo->verticalHeader()->setVisible(false);
-
+    
     // turn alternating row colors on
     ui->stadiumDetails_tableView_stadiumInfo->setAlternatingRowColors(true);
-
+    
     // make table uneditable
     ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::NoEditTriggers);
-
+    
     // turn word-wrap on... this might do what we want it to do.. I DON'T KNOW
     ui->stadiumDetails_tableView_stadiumInfo->setWordWrap(true);
-
+    
     // make it so selection selects each row
     ui->stadiumDetails_tableView_stadiumInfo->setSelectionBehavior(QAbstractItemView::SelectRows);
-
+    
     // make it so only one stadium row can be selected at a time
     ui->stadiumDetails_tableView_stadiumInfo->setSelectionMode(QAbstractItemView::SingleSelection);
-
+    
     // enable sorting
     ui->stadiumDetails_tableView_stadiumInfo->setSortingEnabled(true);
-
+    
     // set headers as not resizable.
     ui->stadiumDetails_tableView_stadiumInfo->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-
+    
     // hide id column
     ui->stadiumDetails_tableView_stadiumInfo->setColumnHidden(StadiumTableModel::ID, true);
+
+    // stretch last field to the end
+    ui->stadiumDetails_tableView_stadiumInfo->horizontalHeader()->setStretchLastSection(true);
 }
 
 /**
@@ -50,31 +55,31 @@ void StadiumDetails::initializeSouvenirView()
 {
     // hide vertical header
     ui->stadiumDetails_tableView_souvenirs->verticalHeader()->setVisible(false);
-
+    
     // turn alternating row colors on
     ui->stadiumDetails_tableView_souvenirs->setAlternatingRowColors(true);
-
+    
     // make table uneditable
     ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
-
+    
     // turn word-wrap on... this might do what we want it to do.. I DON'T KNOW
     ui->stadiumDetails_tableView_souvenirs->setWordWrap(true);
-
+    
     // make it so selection selects each row
     ui->stadiumDetails_tableView_souvenirs->setSelectionBehavior(QAbstractItemView::SelectRows);
-
+    
     // make it so only one stadium row can be selected at a time
     ui->stadiumDetails_tableView_souvenirs->setSelectionMode(QAbstractItemView::SingleSelection);
-
+    
     // enable sorting
     ui->stadiumDetails_tableView_souvenirs->setSortingEnabled(true);
-
+    
     // set headers as not resizable.
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-
+    
     // hide id column
     ui->stadiumDetails_tableView_souvenirs->setColumnHidden(SouvenirTableModel::STADIUM_ID, true);
-
+    
     // stretch the last section of header
     ui->stadiumDetails_tableView_souvenirs->horizontalHeader()->setStretchLastSection(true);
 }
@@ -82,6 +87,46 @@ void StadiumDetails::initializeSouvenirView()
 StadiumDetails::~StadiumDetails()
 {
     delete ui;
+}
+
+void StadiumDetails::refreshModels()
+{
+    souvenirModel->select();
+    stadiumModel->select();
+}
+
+/**
+ * @brief StadiumDetails::toggleAdminFunctions
+ * Hide/unhide and enable/disable all buttons and features for
+ * admin use only.
+ * @param isAdmin true if user is admin
+ */
+void StadiumDetails::toggleAdminFunctions(bool isAdmin)
+{
+    // Hide/unhide and enable/disable submit changes button
+    ui->stadiumDetails_admin_submitChanges->setEnabled(isAdmin);
+    ui->stadiumDetails_admin_submitChanges->setVisible(isAdmin);
+
+    // Hide/unhide and enable/disable add souvenir button
+    ui->stadiumDetails_admin_addSouvenir->setEnabled(isAdmin);
+    ui->stadiumDetails_admin_addSouvenir->setVisible(isAdmin);
+
+    // Hide/unhide and enable/disable remove souvenir button
+    ui->stadiumDetails_admin_removeSouvenir->setEnabled(isAdmin);
+    ui->stadiumDetails_admin_removeSouvenir->setVisible(isAdmin);
+
+    if(isAdmin)
+    {
+        // make tables editable
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::DoubleClicked);
+        ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::DoubleClicked);
+    }
+    else
+    {
+        // make tables uneditable
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::NoEditTriggers);
+        ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
+    }
 }
 
 /**
@@ -93,10 +138,10 @@ void StadiumDetails::initializeStadiumTable(StadiumTableModel *stadiumModel)
     // Set this class's stadiumModel attribute to the one that's
     // passed in so we can use it later.
     this->stadiumModel = stadiumModel;
-
+    
     // Set the model of the stadiumInfo table
     ui->stadiumDetails_tableView_stadiumInfo->setModel(this->stadiumModel);
-
+    
     // Initialize table settings.
     initializeStadiumView();
 }
@@ -111,10 +156,10 @@ void StadiumDetails::initializeSouvenirTable(SouvenirTableModel *souvenirModel)
     // Set this class's souvenirModel attribute to the one that's
     // passed in so we can use it later.
     this->souvenirModel = souvenirModel;
-
+    
     // Set the model of the stadiumInfo table
     ui->stadiumDetails_tableView_souvenirs->setModel(this->souvenirModel);
-
+    
     // Initialize table settings.
     initializeSouvenirView();
 }
@@ -134,16 +179,16 @@ void StadiumDetails::on_stadiumDetails_league_comboBox_currentIndexChanged(int i
         NATIONAL,
         MAJOR
     };
-
+    
     enum Surfaces
     {
         ALL_SURFACES,
         GRASS,
         ASTRO
     };
-
+    
     int currentSurface = ui->stadiumDetails_surface_comboBox->currentIndex();
-
+    
     switch(currentSurface){
     case ALL_SURFACES:
         switch(index)
@@ -222,7 +267,7 @@ void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int 
         GRASS,
         ASTRO
     };
-
+    
     enum Leagues
     {
         ALL_LEAGUES,
@@ -230,10 +275,10 @@ void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int 
         NATIONAL,
         MAJOR
     };
-
+    
     // Get current league filter selection
     int currentLeague = ui->stadiumDetails_league_comboBox->currentIndex();
-
+    
     switch(currentLeague)
     {
     case ALL_LEAGUES:
@@ -335,4 +380,97 @@ void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_activated(const QMo
     souvenirModel->Initialize(stadium);
     // Reinitialize the souvenir view.
     initializeSouvenirView();
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked
+ * Submit all changes to the database permanently.
+ */
+void StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked()
+{
+    // Pop up a dialog to verify that admin wants to actually submit changes
+    QMessageBox *p = new QMessageBox(this);
+    p->setWindowTitle("Submit Changes");
+    p->setText("Submit all changes to the database");
+    p->setInformativeText("Are you sure?");
+    p->setStandardButtons(QMessageBox::Cancel | QMessageBox::Ok);
+    p->setDefaultButton(QMessageBox::Cancel);
+    int decision = p->exec();
+
+    // If the user hits OK
+    if(decision == QMessageBox::Ok)
+    {
+        // submit changes to the DB
+        stadiumModel->submitAll();
+        souvenirModel->submitAll();
+
+        // re-propagate tables
+        stadiumModel->select();
+        souvenirModel->select();
+    }
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked
+ * Prompt the user with a dialog that allows them to enter in
+ * souvenir info and add a new souvenir. Spiffy!
+ */
+void StadiumDetails::on_stadiumDetails_admin_addSouvenir_clicked()
+{
+    int selectedRow = ui->stadiumDetails_tableView_stadiumInfo->currentIndex().row();
+    if(selectedRow > -1)
+    {
+        QModelIndex stadiumName_index  = ui->stadiumDetails_tableView_stadiumInfo->model()->index(selectedRow, 1);
+        QModelIndex stadiumID_index  = ui->stadiumDetails_tableView_stadiumInfo->model()->index(selectedRow, 0);
+        QString stadiumName = ui->stadiumDetails_tableView_stadiumInfo->model()->data(stadiumName_index).toString();
+        int stadiumID = ui->stadiumDetails_tableView_stadiumInfo->model()->data(stadiumID_index).toInt();
+
+        qDebug() << stadiumName;
+        addsouvenir *souvenirPrompt = new addsouvenir(this, db, stadiumName);
+
+        QObject::connect(souvenirPrompt, SIGNAL(refreshModels()),
+                         this, SLOT(refreshModels()));
+
+        souvenirPrompt->setWindowModality(Qt::ApplicationModal);
+        souvenirPrompt->show();
+    }
+}
+
+/**
+ * @brief StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked
+ * When clicked, attempt to remove the selected souvenir. If no row is selected, throw an error.
+ */
+void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
+{
+    if(souvenirModel->removeRow(ui->stadiumDetails_tableView_souvenirs->currentIndex().row()))
+    {
+        int currentRow                = ui->stadiumDetails_tableView_souvenirs->currentIndex().row();
+        QModelIndex stadium_ID_index  = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 0);
+        QModelIndex nameIndex         = ui->stadiumDetails_tableView_souvenirs->model()->index(currentRow, 1);
+        QString itemName              = ui->stadiumDetails_tableView_souvenirs->model()->data(nameIndex).toString();
+        int stadium_ID                = ui->stadiumDetails_tableView_souvenirs->model()->data(stadium_ID_index).toInt();
+
+        // Pop up a warning
+        QMessageBox *p = new QMessageBox(this);
+        p->setWindowTitle("Remove Souvenir");
+        p->setText(itemName + " will be removed.");
+        p->setInformativeText("Are you sure?");
+        p->setStandardButtons(QMessageBox::Cancel | QMessageBox::Ok);
+        p->setDefaultButton(QMessageBox::Cancel);
+        int decision = p->exec();
+
+        // If they click ok, save changes to DB
+        if(decision == QMessageBox::Ok)
+        {
+            souvenirModel->submitAll();
+            souvenirModel->select();
+        }
+    }
+    else
+    {
+        QMessageBox *p = new QMessageBox(this);
+        p->setText("Please select a row.");
+        p->setStandardButtons(QMessageBox::Ok);
+        p->exec();
+    }
 }

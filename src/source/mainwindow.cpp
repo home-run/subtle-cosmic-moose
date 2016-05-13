@@ -7,11 +7,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("~/run Dream Vacation Planner");
+
     // Instantiate database
     db = new Database("data.db", "QSQLITE");
 
     // Allocate memory for all the different widget pages
-    stadiumDetails_widget 	= new StadiumDetails();
+    stadiumDetails_widget 	= new StadiumDetails(this, db);
     homePage_widget 		= new HomePage();
     planTrip_widget 		= new PlanTrip();
     editStadiumInfo_widget 	= new EditStadiumInfo();
@@ -32,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent) :
             stadiumDetails_widget, SLOT(initializeStadiumTable(StadiumTableModel*)));
     connect(this, SIGNAL(initializeSouvenirTable(SouvenirTableModel*)),
             stadiumDetails_widget, SLOT(initializeSouvenirTable(SouvenirTableModel*)));
+    connect(this, SIGNAL(adminFeaturesToggled(bool)),
+            stadiumDetails_widget, SLOT(toggleAdminFunctions(bool)));
 
     // toggle hiding of back/next button
     checkPage_hideShowBackNextButton();
@@ -48,6 +52,16 @@ MainWindow::~MainWindow()
     delete planTrip_widget;
     delete tripSummary_widget;
     delete ui;
+}
+
+/**
+ * @brief MainWindow::toggleAdminFeatures
+ * Emit a signal that activates or deactivates all admin features.
+ * @param isAdmin true if user is an admin
+ */
+void MainWindow::toggleAdminFeatures(bool isAdmin)
+{
+    emit adminFeaturesToggled(isAdmin);
 }
 
 
@@ -125,8 +139,6 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
     }
     checkPage_hideShowBackNextButton();
-
-
 }
 
 /**
@@ -181,7 +193,6 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     souvenirModel = new SouvenirTableModel(this, db);
     emit initializeStadiumTable(stadiumModel);
     emit initializeSouvenirTable(souvenirModel);
-
 }
 
 void MainWindow::leavingTripSummary()
@@ -202,3 +213,25 @@ void MainWindow::gotoHomePage()
     pageStackCache.clear();
 }
 
+/**
+ * @brief MainWindow::on_actionLogin_triggered
+ * Prompt the user for an admin password. If it's legit, send a signal that
+ * grants access to all admin functions in the application.
+ */
+void MainWindow::on_actionLogin_triggered()
+{
+    AdminLogin *adminPrompt = new AdminLogin(this);
+    QObject::connect(adminPrompt, SIGNAL(adminStatusChanged(bool)),
+                     this, SLOT(toggleAdminFeatures(bool)));
+    adminPrompt->setWindowModality(Qt::ApplicationModal);
+    adminPrompt->show();
+}
+
+/**
+ * @brief MainWindow::on_actionLogout_triggered
+ * Log the admin out and disable all of the admin features.
+ */
+void MainWindow::on_actionLogout_triggered()
+{
+    emit adminFeaturesToggled(false);
+}
