@@ -18,8 +18,6 @@ private slots:
 
     void testShortestPath();
 
-    void testShortestPathBetween2Points();
-
     void testVertexSet();
 
     void testHeap();
@@ -147,32 +145,43 @@ void Test_Main::testVertexSet()
     }
 }
 
+/**
+ * @brief Test_Main::testShortestPath
+ * This method tests the shortest path by creating a database and testing the shortest
+ * path algorithm starting at dodger stadium and going to all other vertices. These
+ * distances have been precalculated and desk checked. If anything happens to the graph
+ * which changes the distance it calculates, this will catch it.
+ */
 void Test_Main::testShortestPath()
 {
     Graph testGraph;
-    long distance;
+    QList<Vertex> vertexList;
     Vertex v;
 
 
     testGraph.createGraph(db);
 
-    v.setId(8);
+    v.setId(21);
     testGraph.shortestPath(v);
     testGraph.debug_outputDistances();
-    distance = testGraph.getTotalDistance();
 
-    qDebug() << "Total Distance is " << distance;
-    testGraph.createGraph(db);
-
-    v.setId(8);
-    testGraph.shortestPath(v);
-    testGraph.debug_outputDistances();
-    distance = testGraph.getTotalDistance();
-
-    qDebug() << "Total Distance is " << distance;
-
+    vertexList = testGraph.getVertices();
+    for(int i = 0; i < testGraph.getNumberVertices(); i++)
+    {
+        v = vertexList.at(i);
+        if(v.getName() == "Angels Stadium of Anaheim")
+        {
+            qDebug() << "Found Angels";
+            QVERIFY(v.getDistance() == 50);
+        }
+    }
 }
 
+/**
+ * @brief Test_Main::testHeap
+ * This method will create a heap of vertices and test each vertex at the root of the heap
+ * and popping it off the top to see if it matches in the graph / database.
+ */
 void Test_Main::testHeap()
 {
     Graph graph;
@@ -196,21 +205,6 @@ void Test_Main::testHeap()
         vertex = heap.removeMin();
         QVERIFY(vertex.getDistance() == list.at(vertex.getId()).getDistance());
     }
-}
-
-void Test_Main::testShortestPathBetween2Points()
-{
-    Graph testGraph;
-    Vertex v;
-    Vertex target;
-
-    testGraph.createGraph(db);
-
-    v.setId(1);
-    target.setId(5);
-
-    testGraph.findShortestPathTo(v, target);
-
 }
 
 //#endif //TEST_DATABASE_H
