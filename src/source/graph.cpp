@@ -477,3 +477,41 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
     }
     return path;
 }
+
+void Graph::minimumSpanningTree()
+{
+    Heap<Edge, comp> heapQ;
+    long *distance;
+    long *parent;
+    VertexSet T;
+    Vertex u;
+    Vertex v;
+    Edge e;
+
+    distance = new long[numVertices];
+    parent = new long[numVertices];
+
+    for(int i = 0; i < numVertices; i++)
+    {
+        for(int j = 0; j < numVertices; j++)
+        {
+            e.weight = adjacencyMatrix[i][j];
+            if(e.weight > 0)
+            {
+                e.idFrom = i;
+                e.idTo = j;
+                heapQ.insert(e);
+            }
+        }
+        distance[i] = INF;
+        parent[i] = -1;
+    }
+
+    while(!heapQ.isEmpty())
+    {
+        e = heapQ.removeMin();
+        if()
+    }
+
+
+}

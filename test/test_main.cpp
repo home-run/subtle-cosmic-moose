@@ -20,6 +20,8 @@ private slots:
 
     void testVertexSet();
 
+    void testMST();
+
     void testHeap();
 
 private:
@@ -318,6 +320,15 @@ void Test_Main::testHeap()
         vertex = heap.removeMin();
         QVERIFY(vertex.getDistance() == list.at(vertex.getId()).getDistance());
     }
+}
+
+void Test_Main::testMST()
+{
+    Graph graph;
+    graph.createGraph(db);
+
+    graph.minimumSpanningTree();
+
 }
 
 //#endif //TEST_DATABASE_H

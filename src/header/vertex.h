@@ -1,5 +1,8 @@
 #ifndef VERTEX_H
 #define VERTEX_H
+#ifndef INF
+#define INF INT_MAX - 10000
+#endif
 
 #include <QList>
 #include "Heap.h"
@@ -135,8 +138,7 @@ public:
      */
     bool operator==(const Vertex& v)
     {
-        return (v.getDistance() == this->getDistance()
-                && v.getId() == this->getId()
+        return (v.getId() == this->getId()
                 && v.getName() == this->getName());
     }
 
@@ -436,7 +438,7 @@ public:
     {
         Vertex vertex;	// Temp vertex to override any vertex in the set.
         // Set the distance, name, id and parent back to original values.
-        vertex.setDistance(INFINITY);
+        vertex.setDistance(INF);
         vertex.setName("empty");
         vertex.setId(-1);
         vertex.setParent(-1);

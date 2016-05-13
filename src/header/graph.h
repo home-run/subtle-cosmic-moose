@@ -72,6 +72,8 @@ public:
     QList<Vertex> getVertexPath(Vertex target);
 
     void findShortestPathTo(Vertex source, Vertex target);
+
+    void minimumSpanningTree();
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
