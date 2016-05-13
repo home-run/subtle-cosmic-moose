@@ -73,6 +73,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
 {
     int currentIndex;
 
+    ui->mainwindow_pushButton_next->setText("Next");
     // set currentIndex to current stackedWidget index
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
 
@@ -107,6 +108,7 @@ void MainWindow::on_mainwindow_pushButton_planTrip_clicked()
     int currentIndex;
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
     pageStackCache.push(currentIndex);
+    this->planTrip_widget->propagateStadiumTable(db);
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_PLAN_TRIP);
     checkPage_hideShowBackNextButton();
 }
@@ -155,6 +157,15 @@ void MainWindow::checkPage_hideShowBackNextButton()
     {
         ui->mainwindow_pushButton_back->setVisible(true);
         ui->mainwindow_pushButton_next->setVisible(true);
+    }
+
+    if(ui->mainwindow_stackedWidget->currentIndex() == PAGE_PLAN_TRIP)
+    {
+        ui->mainwindow_pushButton_next->setText("Plan Dream Vacation");
+    }
+    else
+    {
+        ui->mainwindow_pushButton_next->setText("Next");
     }
 }
 
