@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>resources_icons/button01_pressed.png</file>
+        <file>resources_icons/button01_unpressed.png</file>
+        <file>resources_icons/ProjectLogo_LoopOnce.gif</file>
+        <file>resources_icons/program_icon.png</file>
+        <file>resources_icons/program_mainscreenBG.png</file>
+    </qresource>
+</RCC>

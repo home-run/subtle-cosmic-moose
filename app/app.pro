@@ -11,3 +11,7 @@ CONFIG -= app_bundle
 SOURCES += source/main.cpp
 
 LIBS += -L../src -lsubtle-cosmic-moose
+
+RESOURCES += \
+    stylesheets.qrc \
+    icon_resources.qrc

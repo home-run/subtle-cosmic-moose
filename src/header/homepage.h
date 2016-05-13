@@ -15,6 +15,14 @@ public:
     explicit HomePage(QWidget *parent = 0);
     ~HomePage();
 
+signals:
+
+    void isFinished(bool);
+
+private slots:
+
+    void EmitFinished();
+
 private:
     Ui::HomePage *ui;
 };
