@@ -163,16 +163,129 @@ void Test_Main::testShortestPath()
 
     v.setId(21);
     testGraph.shortestPath(v);
-    testGraph.debug_outputDistances();
-
     vertexList = testGraph.getVertices();
     for(int i = 0; i < testGraph.getNumberVertices(); i++)
     {
         v = vertexList.at(i);
         if(v.getName() == "Angels Stadium of Anaheim")
         {
-            qDebug() << "Found Angels";
             QVERIFY(v.getDistance() == 50);
+        }
+        else if(v.getName() == "Comerica Park")
+        {
+            QVERIFY(v.getDistance() == 2120);
+        }
+        else if(v.getName() == "Fenway Park")
+        {
+            QVERIFY(v.getDistance() == 2660);
+        }
+        else if(v.getName() == "Globe Life Park in Arlington")
+        {
+            QVERIFY(v.getDistance() == 1280);
+        }
+        else if(v.getName() == "Kauffman Stadium")
+        {
+            QVERIFY(v.getDistance() == 1500);
+        }
+        else if(v.getName() == "Minute Maid Park")
+        {
+            QVERIFY(v.getDistance() == 1510);
+        }
+        else if(v.getName() == "O.co Coleum")
+        {
+            QVERIFY(v.getDistance() == 340);
+        }
+        else if(v.getName() == "Oriole Park at Camden Yards")
+        {
+            QVERIFY(v.getDistance() == 2500);
+        }
+        else if(v.getName() == "Progressive Field")
+        {
+            QVERIFY(v.getDistance() == 2210);
+        }
+        else if(v.getName() == "Rogers Centre")
+        {
+            QVERIFY(v.getDistance() == 2230);
+        }
+        else if(v.getName() == "SafeCo Field")
+        {
+            QVERIFY(v.getDistance() == 1020);
+        }
+        else if(v.getName() == "Target Field")
+        {
+            QVERIFY(v.getDistance() == 1500);
+        }
+        else if(v.getName() == "Tropicana Field")
+        {
+            QVERIFY(v.getDistance() == 2300);
+        }
+        else if(v.getName() == "US Cellular Field")
+        {
+            QVERIFY(v.getDistance() == 1880);
+        }
+        else if(v.getName() == "Yankee Stadium")
+        {
+            QVERIFY(v.getDistance() == 2620);
+        }
+        else if(v.getName() == "AT&T Park")
+        {
+            QVERIFY(v.getDistance() == 340);
+        }
+        else if(v.getName() == "Busch Stadium")
+        {
+            QVERIFY(v.getDistance() == 1735);
+        }
+        else if(v.getName() == "Chase Field")
+        {
+            QVERIFY(v.getDistance() == 410);
+        }
+        else if(v.getName() == "Citi Field")
+        {
+            QVERIFY(v.getDistance() == 2620);
+        }
+        else if(v.getName() == "Citizens Bank Park")
+        {
+            QVERIFY(v.getDistance() == 2590);
+        }
+        else if(v.getName() == "Coors Field")
+        {
+            QVERIFY(v.getDistance() == 940 );
+        }
+        else if(v.getName() == "Dodger Stadium")
+        {
+            QVERIFY(v.getDistance() == 0);
+        }
+        else if(v.getName() == "Great America Ball Park")
+        {
+            QVERIFY(v.getDistance() == 2045);
+        }
+        else if(v.getName() == "Marlins Park")
+        {
+            QVERIFY(v.getDistance() == 2475);
+        }
+        else if(v.getName() == "Miller Park")
+        {
+            QVERIFY(v.getDistance() == 1800);
+        }
+        else if(v.getName() == "Nationals Park")
+        {
+            QVERIFY(v.getDistance() == 2500);
+        }
+        else if(v.getName() == "Petco Park")
+        {
+            QVERIFY(v.getDistance() == 110);
+        }
+        else if(v.getName() == "PNC Park")
+        {
+            QVERIFY(v.getDistance() == 2305);
+        }
+        else if(v.getName() == "Turner Field")
+        {
+            QVERIFY(v.getDistance() == 2020);
+        }
+        else if(v.getName() == "Wrigely Field")
+        {
+            QVERIFY(v.getDistance() == 1880);
         }
     }
 }
