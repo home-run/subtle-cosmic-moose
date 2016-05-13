@@ -224,7 +224,9 @@ void MainWindow::on_actionLogout_triggered()
 {
     emit adminFeaturesToggled(false);
 }
-
+/*!
+ * \brief MainWindow::on_actionAdd_new_stadium_triggered
+ */
 void MainWindow::on_actionAdd_new_stadium_triggered()
 {
     db->AddStadium("Las Vegas Stadium","Las vegas Gamblers","123 Las Vegas Blv,NV 89101","(702) 962-4000","2016-04-11","50,000","Grass",0,"American","Modern");
