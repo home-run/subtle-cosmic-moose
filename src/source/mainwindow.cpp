@@ -226,6 +226,10 @@ void MainWindow::on_actionLogout_triggered()
 }
 /*!
  * \brief MainWindow::on_actionAdd_new_stadium_triggered
+ * @brief Adds stdaium with its corresponding attritbutes
+ * @brief Adds edges with weights between Lags Vegas and it surrounding cities.
+ * @brief Adds souviers to Lag Vegas stdium
+ *
  */
 void MainWindow::on_actionAdd_new_stadium_triggered()
 {
@@ -235,5 +239,14 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     db->AddDistance(id,7,325);
     db->AddDistance(id,22,300);
     db->AddDistance(id,18,250);
+
+
+    db->AddSouvenir("Las Vegas Stadium","Baseball cap",23.99);
+    db->AddSouvenir("Las Vegas Stadium","Baseball bat",45.39);
+    db->AddSouvenir("Las Vegas Stadium","Team pendant",15.39);
+    db->AddSouvenir("Las Vegas Stadium","Autographed baseball",19.99);
+
+
+
 
 }
