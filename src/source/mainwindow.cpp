@@ -204,7 +204,7 @@ void MainWindow::gotoHomePage()
 
 /**
  * @brief MainWindow::on_actionLogin_triggered
- * Prompt the user for an admin password. If it's legit, send a signal that
+ * Prompt the user for an admin password. If it's legit, send a signalx that
  * grants access to all admin functions in the application.
  */
 void MainWindow::on_actionLogin_triggered()
@@ -223,4 +223,9 @@ void MainWindow::on_actionLogin_triggered()
 void MainWindow::on_actionLogout_triggered()
 {
     emit adminFeaturesToggled(false);
+}
+
+void MainWindow::on_actionAdd_new_stadium_triggered()
+{
+    qDebug()<<"Hello! "<<db->AddStadium("Las Vegas Stadium","Las vegas Gamblers","123 Las Vegas Blv,NV 89101","(702) 962-4000","2016-04-11","50,000","Grass",0,"American","Modern");
 }

@@ -20,6 +20,8 @@ public:
   /// Add a souvenir to a stadium's souvenir list
   bool AddSouvenir(QString stadiumName, QString itemName, double itemPrice);
 
+  /// Add a Stadium to Stadium's data base
+  bool AddStadium(QString stadiumName,QString teamName,QString address,QString phoneNumber,QString dateOpened,QString capacity,QString turfType,long revenue,QString leauge,QString typology);
   // Accessors
   /// Retrieve a list of stadium names
   QStringList GetStadiumNames();
@@ -38,6 +40,7 @@ public:
 
   /// Get the query containing the ids and stadium names available in the database
   QSqlQuery getStadiumsNameId();
+
 };
 
 #endif // DATABASE_H

@@ -122,6 +122,43 @@ bool Database::AddSouvenir(QString stadiumName, QString itemName, double itemPri
     qDebug() << "That stadium does not exist!";
     return false;
 }
+/*!
+ * \brief Database::AddStadium
+ * \param stadiumName
+ * \param teamName
+ * \param address
+ * \param phoenNumber
+ * \param dateOpened
+ * \param capacity
+ * \param turfType
+ * \param revenue
+ * \param leauge
+ * \param typology
+ * \return
+ */
+bool Database::AddStadium(QString stadiumName,QString teamName,QString address,QString phoneNumber,QString dateOpened,QString capacity,QString turfType,long revenue,QString leauge,QString typology)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO stadiums(name,team,address,phone,date,capacity,turf,revenue,league,typology)"
+                  "VALUES (:name,:team,:address,:phone,:date,:capacity,:turf,:revenue,:league,:typology)");
+
+        query.bindValue(":name", stadiumName);
+        query.bindValue(":team", teamName);
+        query.bindValue(":address", address);
+        query.bindValue(":phone", phoneNumber);
+        query.bindValue(":date", dateOpened);
+        query.bindValue(":capacity", capacity);
+        query.bindValue(":turf", turfType);
+        query.bindValue(":revenue", QString::number(revenue));
+        query.bindValue(":league", leauge);
+        query.bindValue(":typology", typology);
+        if(query.exec()){
+            return true;
+        }
+
+            qDebug() << query.lastError().text();
+            return false;
+}
 
 /**
  * @brief Database::GetStadiumNames
