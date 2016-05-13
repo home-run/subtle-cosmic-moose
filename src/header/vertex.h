@@ -262,6 +262,11 @@ public:
         }
     }
 
+    Edge getNextEdge()
+    {
+        return edges.root();
+    }
+
 private:
     int id;
     QString name;

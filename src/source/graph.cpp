@@ -480,6 +480,98 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
 
 void Graph::minimumSpanningTree()
 {
+    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the
+                            //	vertices in the graph, ordered by the weight. Smallest
+                            //	weight is root
+    VertexSet T;			// Contains the set of vertices to which the shortest path
+                            //	has been found.
+    Vertex u;
+    Vertex v;
+    Vertex source;
+    Edge adjEdge;
+    int distanceSum;
+    long weight;
+    long *distances;
+    long *parent;
+    distances = new long[numVertices];
+    parent = new long[numVertices];
+
+    for(int i = 0; i < numVertices; i++)
+    {
+        weight = vertexList[i].getNextEdge().weight;
+        vertexList[i].setDistance(weight);
+        distances[i] = INF;
+        parent[i] = -1;
+    }
+
+    source = vertexList.at(0);
+    // Initialize all edges, and vertices to infinity
+//    initialize_single_source(source);
+    distances[0] = 0;
+
+    T.clear();
+    // Initialize the priority queue to start with the given source vertex as the first
+    //	vertex to explore.
+    vertexPQ.insert(vertexList[source.getId()]);
+
+    while(!vertexPQ.isEmpty())
+    {
+        u = vertexPQ.removeMin();
+        // While the current vertex u has an adjacent edge available.
+        while(vertexList.at(u.getId()).hasEdges() )
+        {
+            // Get the adjacent edge to the vertex. It will be the edge with the shortest
+            //	path currently available
+            adjEdge = vertexList[u.getId()].getNearestEdge();
+            v = vertexList.at(adjEdge.idTo);
+            // checks to see if a path between vertex u and vertex v exists. A path
+            //	exists if the value in the adjacency matrix is not 0
+            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
+            {
+                // Calculate the total distance between the vertex u and the weight
+                //	between the vertex u and vertex v
+                distanceSum = adjacencyMatrix[u.getId()][v.getId()];
+
+                // If the current distance to vertex v is greater than the sum of u's
+                //	current distance plus the weight in the adj matrix set the distance
+                //	to v to the new distance sum because it is a shorter path to that
+                //	vertex.
+                if(distances[v.getId()] > distanceSum && !T.contains(v))
+                {
+                    v.setDistance(distanceSum);
+                    distances[v.getId()] = distanceSum;
+                    v.setParent(u.getId());
+                    vertexList[v.getId()] = v;
+//                }
+
+//                // If the set T of found vertices does not contain the vertex v add the
+//                //	vertex v to the priority queue to see the shorter path.
+//                if(!T.contains(v))
+//                {
+                    vertexPQ.insert(v);
+                    T.insert(v);
+                }
+            }
+        }
+    }
+    // Once the algorithm is complete, clear the VertexSet T of all vertices.
+    T.clear();
+    int sum = 0;
+    for(int i = 0; i < numVertices; i++)
+    {
+        qDebug() << "Distance " << vertexList.at(i).getDistance();
+        qDebug() << "Distance list " << distances[i];
+        sum += vertexList.at(i).getDistance();
+    }
+    qDebug () << "Sum is " << sum;
+    delete [] distances;
+    delete [] parent;
+}
+
+
+/*
+void Graph::minimumSpanningTree()
+{
     Heap<Edge, comp> heapQ;
     long *distance;
     long *parent;
@@ -512,6 +604,5 @@ void Graph::minimumSpanningTree()
         e = heapQ.removeMin();
         if()
     }
-
-
 }
+*/
