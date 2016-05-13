@@ -39,7 +39,8 @@ HEADERS  += header/mainwindow.h \
     header/adminlogin.h \
     header/Heap.h \
     header/Exceptions.h \
-    header/addsouvenir.h
+    header/addsouvenir.h \
+    header/vertex.h
 
 FORMS    += form/mainwindow.ui \
     form/stadiumdetails.ui \

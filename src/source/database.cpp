@@ -58,7 +58,7 @@ QSqlQuery Database::getEdges()
 int Database::getNumberOfStadiums() const
 {
     QSqlQuery query;
-    query.exec("select count(*) from stadiums");
+    query.exec("select count(*) from stadiums;");
     if(query.next())
     {
         if(DEBUG)
