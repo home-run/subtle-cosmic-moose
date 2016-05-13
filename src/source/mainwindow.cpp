@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowTitle("~/run Dream Vacation Planner");
+    this->setWindowIcon(QIcon(":/icons/resources_icons/program_icon.png"));
 
     // Instantiate database
     db = new Database("data.db", "QSQLITE");
@@ -42,6 +43,11 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(hideNextButton(bool)));
     connect(planTrip_widget, SIGNAL(clickNext()),
             this, SLOT(clickNext()));
+    //Splash Screen Emits signal when done, call gotoHomePage Function
+    connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
+
+    //Start off with splash screen
+    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
 
     // toggle hiding of back/next button
     checkPage_toggleBackNextButtonVisible();
@@ -104,6 +110,8 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
         tripSummary_widget->populateTripPath();
         ui->mainwindow_pushButton_next->setVisible(false);
+        //Disables the Spacer
+        ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
         break;
     default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
@@ -182,6 +190,8 @@ void MainWindow::checkPage_toggleBackNextButtonVisible()
     {
         ui->mainwindow_pushButton_back->setVisible(true);
         ui->mainwindow_pushButton_next->setVisible(true);
+        //Enable Spacer
+        ui->mainwindow_horizontalSpacer_buttons->changeSize(40,60,QSizePolicy::Minimum);
     }
 }
 
@@ -217,6 +227,8 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     // toggle visibility of back/next button
     checkPage_toggleBackNextButtonVisible();
     ui->mainwindow_pushButton_next->setVisible(false);
+    //Disables the Spacer
+    ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 
     // initialize tables with data from database
     stadiumModel = new StadiumTableModel(this, db);
@@ -243,6 +255,16 @@ void MainWindow::gotoHomePage()
     pageStackCache.clear();
 }
 
+
+/*
+ QFile file(":/qss/darkorange.qss");
+ if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+ {
+     setStyleSheet(file.readAll());
+     file.close();
+ }
+ */
+
 /**
  * @brief MainWindow::on_actionLogin_triggered
  * Prompt the user for an admin password. If it's legit, send a signal that
@@ -265,3 +287,4 @@ void MainWindow::on_actionLogout_triggered()
 {
     emit adminFeaturesToggled(false);
 }
+
