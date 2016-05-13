@@ -38,6 +38,10 @@ MainWindow::MainWindow(QWidget *parent) :
             stadiumDetails_widget, SLOT(toggleAdminFunctions(bool)));
     connect(this, SIGNAL(propagateStadiumList(QSqlQuery)),
             planTrip_widget, SLOT(propagateStadiumList(QSqlQuery)));
+    connect(planTrip_widget, SIGNAL(hideNextButton(bool)),
+            this, SLOT(hideNextButton(bool)));
+    connect(planTrip_widget, SIGNAL(clickNext()),
+            this, SLOT(clickNext()));
 
     // toggle hiding of back/next button
     checkPage_toggleBackNextButtonVisible();
@@ -54,6 +58,11 @@ MainWindow::~MainWindow()
     delete planTrip_widget;
     delete tripSummary_widget;
     delete ui;
+}
+
+void MainWindow::clickNext()
+{
+    ui->mainwindow_pushButton_next->click();
 }
 
 /**
@@ -129,6 +138,7 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
     // Check if the stack is empty
     if(!pageStackCache.isEmpty())
     {
+        // events for the current page when back is clicked
         switch(ui->mainwindow_stackedWidget->currentIndex())
         {
         case PAGE_TRIP_SUMMARY : tripSummary_widget->clearData();
@@ -139,8 +149,17 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
         currentIndex = pageStackCache.pop();
         // Set the stacked widget to the previous index
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
+
+        checkPage_toggleBackNextButtonVisible();
+
+        // events for the page that is switched to
+        switch(currentIndex)
+        {
+        case PAGE_PLAN_TRIP :
+            ui->mainwindow_pushButton_next->setVisible(false);
+            break;
+        }
     }
-    checkPage_toggleBackNextButtonVisible();
 }
 
 /**
@@ -158,6 +177,15 @@ void MainWindow::checkPage_toggleBackNextButtonVisible()
     else
     {
         ui->mainwindow_pushButton_back->setVisible(true);
+        ui->mainwindow_pushButton_next->setVisible(true);
+    }
+}
+
+void MainWindow::hideNextButton(bool hidden)
+{
+    if(hidden){
+        ui->mainwindow_pushButton_next->setVisible(false);
+    } else {
         ui->mainwindow_pushButton_next->setVisible(true);
     }
 }

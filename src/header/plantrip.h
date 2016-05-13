@@ -17,6 +17,11 @@ public:
 
     ~PlanTrip();
 
+signals:
+    void hideNextButton(bool);
+    void clickNext();
+    void giveStadiumList(QStringList);
+
 public slots:
     void propagateStadiumList(QSqlQuery query);
 
@@ -28,6 +33,8 @@ private slots:
     void on_planTrip_toolButton_moveUp_clicked();
 
     void on_planTrip_toolButton_moveDown_clicked();
+
+    void on_planTrip_pushButton_dreamVacation_clicked();
 
 private:
     Ui::PlanTrip *ui;

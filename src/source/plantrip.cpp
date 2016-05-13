@@ -23,6 +23,8 @@ void PlanTrip::propagateStadiumList(QSqlQuery query)
 
     ui->planTrip_stadiums_tableWidget->addItems(stadiumNames);
 
+    emit hideNextButton(true);
+
 }
 
 void PlanTrip::on_planTrip_stadiums_tableWidget_doubleClicked(const QModelIndex &index)
@@ -49,4 +51,16 @@ void PlanTrip::on_planTrip_toolButton_moveDown_clicked()
     QListWidgetItem *currentItem = ui->planTrip_stadiumsChosen_tableWidget->takeItem(currentIndex);
     ui->planTrip_stadiumsChosen_tableWidget->insertItem(currentIndex+1, currentItem);
     ui->planTrip_stadiumsChosen_tableWidget->setCurrentRow(currentIndex+1);
+}
+
+void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
+{
+    int size = ui->planTrip_stadiumsChosen_tableWidget->count();
+    QStringList stadiumNames;
+    for(int i = 0; i < size; i++){
+        stadiumNames.append(ui->planTrip_stadiumsChosen_tableWidget->item(i)->text());
+    }
+
+    emit giveStadiumList(stadiumNames);
+    emit clickNext();
 }
