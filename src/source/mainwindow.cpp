@@ -36,9 +36,11 @@ MainWindow::MainWindow(QWidget *parent) :
             stadiumDetails_widget, SLOT(initializeSouvenirTable(SouvenirTableModel*)));
     connect(this, SIGNAL(adminFeaturesToggled(bool)),
             stadiumDetails_widget, SLOT(toggleAdminFunctions(bool)));
+    connect(this, SIGNAL(propagateStadiumList(QSqlQuery)),
+            planTrip_widget, SLOT(propagateStadiumList(QSqlQuery)));
 
     // toggle hiding of back/next button
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
 }
 
 MainWindow::~MainWindow()
@@ -92,7 +94,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         break;
     default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
-        checkPage_hideShowBackNextButton();
+        checkPage_toggleBackNextButtonVisible();
         break;
     }
 }
@@ -108,7 +110,9 @@ void MainWindow::on_mainwindow_pushButton_planTrip_clicked()
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
     pageStackCache.push(currentIndex);
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_PLAN_TRIP);
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
+    emit propagateStadiumList(db->getStadiumsNameId());
+
 }
 
 /**
@@ -136,7 +140,7 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
         // Set the stacked widget to the previous index
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
     }
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
 }
 
 /**
@@ -144,7 +148,7 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
  * Toggle the visibility of the back and next button based on which page
  * is being viewed.
  */
-void MainWindow::checkPage_hideShowBackNextButton()
+void MainWindow::checkPage_toggleBackNextButtonVisible()
 {
     if(pageStackCache.isEmpty() || ui->mainwindow_stackedWidget->currentIndex() < 2)
     {
@@ -174,7 +178,7 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_STADIUM_DETAILS);
 
     // toggle visibility of back/next button
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
     ui->mainwindow_pushButton_next->setVisible(false);
 
     // initialize tables with data from database
@@ -198,7 +202,7 @@ void MainWindow::gotoHomePage()
 {
     // TODO: CLEAR DATA IN ALL CURRENT WIDGETS
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_MAIN);
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
     pageStackCache.clear();
 }
 

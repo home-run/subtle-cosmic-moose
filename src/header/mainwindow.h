@@ -47,6 +47,7 @@ signals:
     void initializeSouvenirTable(SouvenirTableModel *souvenirModel);
     void adminFeaturesToggled(bool);
     void giveDB(Database *db);
+    void propagateStadiumList(QSqlQuery);
 
 private slots:
     void toggleAdminFeatures(bool isAdmin);
@@ -78,7 +79,7 @@ private:
     StadiumTableModel* stadiumModel;
     SouvenirTableModel* souvenirModel;
 
-    void checkPage_hideShowBackNextButton();
+    void checkPage_toggleBackNextButtonVisible();
     void leavingTripSummary();
 
 };
