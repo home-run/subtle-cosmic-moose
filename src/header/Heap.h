@@ -73,7 +73,7 @@ public:
      * element hierarchy.
      * @param newElement the element to add
      */
-    void insert(T newElement)
+    void insert(T& newElement)
     {
         elements.push_back(newElement);
         //call bubbleUp from the last element in the heap
@@ -88,6 +88,8 @@ public:
      */
     void remove(int index)
     {
+        if(index == 0){ index = 1; }
+
         if (!isEmpty())
         {
             elements[index] = elements[size()];
@@ -129,12 +131,16 @@ public:
     }
 
     /**
-     * @brief decreaseTopPriority
-     * Decreases the priority of the top element in the heap
+     * @brief removeMin
+     * This method will get the root element and pop it off the front of the heap.
+     * @return root node
      */
-    void decreaseTopPriority()
+    T removeMin()
     {
-
+        T rootNode;
+        rootNode = this->root();
+        this->remove(1);
+        return rootNode;
     }
 
 protected:

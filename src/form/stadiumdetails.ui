@@ -13,142 +13,128 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>651</width>
-     <height>321</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="stadiumDetails_stadiums_label">
-        <property name="text">
-         <string>Stadiums</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="stadiumDetails_league_comboBox">
-        <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="stadiumDetails_label_stadiumName">
          <property name="text">
-          <string>All Leagues</string>
+          <string>Placeholder: Stadium Name</string>
          </property>
-        </item>
-        <item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="stadiumDetails_label_teamName">
          <property name="text">
-          <string>American League</string>
+          <string>Placeholder: Team Name</string>
          </property>
-        </item>
-        <item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stadiumDetails_admin_submitChanges">
+       <property name="text">
+        <string>Submit Changes</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stadiumDetails_admin_addSouvenir">
+       <property name="text">
+        <string>Add Souvenir</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stadiumDetails_admin_removeSouvenir">
+       <property name="text">
+        <string>Remove Souvenir</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="stadiumDetails_stadiums_label">
          <property name="text">
-          <string>National League</string>
+          <string>Stadiums</string>
          </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Major League</string>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="stadiumDetails_surface_comboBox">
-        <item>
-         <property name="text">
-          <string>All Surfaces</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Grass Surface</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Astro Turf</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QTableView" name="stadiumDetails_tableView_stadiumInfo"/>
-    </item>
-    <item>
-     <widget class="QLabel" name="stadiumDetails_souvenirs_label">
-      <property name="text">
-       <string>Souvenirs</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTableView" name="stadiumDetails_tableView_souvenirs"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>10</y>
-     <width>499</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLabel" name="stadiumDetails_label_stadiumName">
-        <property name="text">
-         <string>Placeholder: Stadium Name</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="stadiumDetails_label_teamName">
-        <property name="text">
-         <string>Placeholder: Team Name</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QPushButton" name="stadiumDetails_admin_submitChanges">
-      <property name="text">
-       <string>Submit Changes</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="stadiumDetails_admin_addSouvenir">
-      <property name="text">
-       <string>Add Souvenir</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="stadiumDetails_admin_removeSouvenir">
-      <property name="text">
-       <string>Remove Souvenir</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="stadiumDetails_league_comboBox">
+         <item>
+          <property name="text">
+           <string>All Leagues</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>American League</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>National League</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Major League</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="stadiumDetails_surface_comboBox">
+         <item>
+          <property name="text">
+           <string>All Surfaces</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Grass Surface</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Astro Turf</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QTableView" name="stadiumDetails_tableView_stadiumInfo"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="stadiumDetails_souvenirs_label">
+       <property name="text">
+        <string>Souvenirs</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableView" name="stadiumDetails_tableView_souvenirs"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
