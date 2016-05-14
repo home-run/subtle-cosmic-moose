@@ -341,8 +341,9 @@ void Test_Main::testMST()
     }
 
     qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
-    qDebug() << "Smallest found " << smallest;
+    qDebug() << "Smallest found [ " << smallest << " ]";
     qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+    QVERIFY(smallest == 7060);
 
 }
 
