@@ -143,6 +143,19 @@ public:
     }
 
     /**
+     * @brief operator !=
+     * Overloaded comparison operator to see if the two vertices are not the same vertex.
+     * Compares the ID and the name of the vertex as its determining factors of equality.
+     * @param v
+     * @return true if they don't match; otherwise return false if they do.
+     */
+    bool operator!=(const Vertex& v)
+    {
+        return (v.getId() != this->getId() && v.getName() != this->getName());
+    }
+
+
+    /**
      * @brief operator <
      * Overloaded less than operator to compare this vertex distance
      * 	and the given vertex v
@@ -299,10 +312,11 @@ public:
         this->bucketSize = 0;
     }
 
-//    ~VertexSet()
-//    {
-//        delete [] buckets;
-//    }
+    ~VertexSet()
+    {
+        // Need to figure out why this crashes the program....
+        // delete [] buckets;
+    }
 
     /**
      * @brief insert
@@ -318,13 +332,21 @@ public:
         {
             if(v.getId() != 0 )
             {
-                this->buckets = new Vertex[v.getId()*100];
-                this->bucketSize = v.getId()*100;
+                // Changed the sizes to be a prime number
+                //	may need to be made bigger...
+//                this->buckets = new Vertex[v.getId()*100];
+//                this->bucketSize = v.getId()*100;
+                this->buckets = new Vertex[v.getId()*31];
+                this->bucketSize = v.getId()*31;
             }
             else
             {
-                this->buckets = new Vertex[100];
-                this->bucketSize = 100;
+                // Changed the sizes to be a prime number
+                //	may need to be made bigger...
+//                this->buckets = new Vertex[100];
+//                this->bucketSize = 100;
+                this->buckets = new Vertex[31];
+                this->bucketSize = 31;
             }
             for(int i =0; i < this->bucketSize; i++)
             {
@@ -333,7 +355,7 @@ public:
         }
         hashKey = this->hash(v);
         index = 0;
-        while(this->buckets[hashKey].getName() != "empty")
+        while(this->buckets[hashKey].getName() != "empty" && this->buckets[hashKey] != v)
         {
             hashKey = (this->hash(v) + index * this->doubleHash(v)) % this->bucketSize;
             index++;
