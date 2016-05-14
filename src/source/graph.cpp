@@ -480,5 +480,38 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
 
 long Graph::minimumSpanningTree(int source)
 {
+    VertexQueue<vertexComp> Q;
+    Vertex u;
+    Vertex v;
+    Edge edge;
+    long weight;
+    for(int u = 0; u < numVertices; u++)
+    {
+        vertexList[u].setDistance(INF);
+        vertexList[u].setParent(0);
+    }
+    vertexList[source].setDistance(0);
+    for(int index = 0; index < numVertices; index++)
+    {
+        Q.insert(vertexList[index]);
+    }
+
+    while(!Q.isEmpty())
+    {
+        u = Q.removeMin();
+        while(vertexList[u.getId()].hasEdges())
+        {
+            edge = vertexList[u.getId()].getNearestEdge();
+            v = vertexList[edge.idTo];
+            weight = adjacencyMatrix[u.getId()][v.getId()];
+            if(Q.contains(v) && weight < u.getDistance())
+            {
+                vertexList[v.getId()].setParent(u.getId());
+                vertexList[v.getId()].setDistance(weight);
+                Q.decreaseKey(weight, v);
+            }
+        }
+    }
+
     return 0;
 }

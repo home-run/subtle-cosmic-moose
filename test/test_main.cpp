@@ -361,19 +361,12 @@ void Test_Main::testDecreaseKey()
 
     for(int i = 0; i < graph.getNumberVertices(); i++)
     {
+        vList[i].setDistance(vList[i].getNearestEdge().weight);
         Q.insert(vList[i]);
     }
-    int index = 0;
-    while(!Q.isEmpty())
-    {
-        qDebug() << "Stadium " << Q.removeMin().getName() << " at index " << index;
-        index++;
-    }
 
-    Q.decreaseKey(50, vList[3]);
-    Q.decreaseKey(50, vList[2]);
-    Q.decreaseKey(50, vList[1]);
-    Q.decreaseKey(50, vList[0]);
+    int index = 0;
+    Q.decreaseKey(50, vList[23]);
 
 }
 

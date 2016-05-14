@@ -9,8 +9,7 @@
 #include "database.h"
 #include "Heap.h"
 #include "vertex.h"
-
-
+#include "vertexqueue.h"
 
 class Graph
 {

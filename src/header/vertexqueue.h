@@ -10,7 +10,7 @@
 #include "Exceptions.h"
 #include <QMap>
 #include "vertex.h"
-#include <vector>
+#include <QVector>
 #include <iostream>
 
 template <typename C>
@@ -80,6 +80,7 @@ public:
         elements.push_back(newElement);
         //call bubbleUp from the last element in the heap
         bubbleUp(size());
+        reindex();
     }
 
     /**
@@ -102,6 +103,7 @@ public:
         {
             throw RuntimeException("Heap is empty!");
         }
+        reindex();
     }
 
     /**
@@ -141,17 +143,64 @@ public:
     {
         Vertex rootNode;
         rootNode = this->root();
+        vertexMap.remove(rootNode.getName());
         this->remove(1);
         return rootNode;
     }
 
     void decreaseKey(long key, Vertex vertex)
     {
-        QMap<Vertex, int>::iterator iter;
+        int index;
+        index = vertexMap.value(vertex.getName());
+        qDebug() << "Decrease key " << key << " index - " << index;
+        qDebug() << "Setting " << vertex.getName() << " with weight " << vertex.getDistance() << " to the weight " << key;
+//        elements[index].setDistance(key);
+        try{
+            elements[index].setDistance(key);
+        }
+        catch(...)
+        {
+            qDebug() << "FAAAAILED....";
+        }
+    }
 
-        qDebug() << "Vertex " << vertex.getName() << " is at index " << vertexMap.value(vertex);
-        qDebug() << "- - - - - - - - - - Output QMap - - - - - - - - - - - - ";
-        iter = vertexMap.begin();
+    int getVertexIndex(Vertex vertex) const
+    {
+        return vertexMap.value(vertex.getName());
+    }
+
+    void printElementList()
+    {
+        for(int i = 1; i < elements.size(); i++)
+        {
+            qDebug() << "Element - " << elements[i].getName() << " with weight " << elements[i].getDistance();
+        }
+    }
+
+    void printMap()
+    {
+        QList<QString> list;
+        list = vertexMap.uniqueKeys();
+        for(int i = 0; i < list.size(); i++)
+        {
+            qDebug() << "Map index " << vertexMap.value(elements[i].getName()) << " is " << list[i];
+        }
+    }
+
+    void reindex()
+    {
+        if(elements.size() > 1)
+        {
+            for(int i = 1; i < elements.size();i++)
+            {
+                vertexMap.insert(elements[i].getName(),i);
+            }
+        }
+    }
+
+    bool contains(Vertex vertex)
+    {
+        return vertexMap.contains(vertex.getName());
     }
 
 protected:
@@ -175,6 +224,7 @@ protected:
 
             bubbleUp(index);
         }
+
     }
 
     /**
@@ -234,9 +284,12 @@ protected:
         }
     }
 
+
+
 private:
-    std::vector<Vertex> elements; ///< the vector of elements in the heap
-    QMap<Vertex, int> vertexMap;
+    QVector<Vertex> elements; ///< the vector of elements in the heap
+//    QMap<Vertex, int> vertexMap;
+    QMap<QString, int> vertexMap;
 
     /**
      * @brief
@@ -247,10 +300,14 @@ private:
     void swap(int index1, int index2)
     {
         Vertex temp = elements.at(index1);
-        elements.at(index1) = elements.at(index2);
-        elements.at(index2) = temp;
-        vertexMap.insert(elements.at(index1), index1);
-        vertexMap.insert(elements.at(index2), index2);
+//        elements.at(index1) = elements.at(index2);
+//        elements.at(index2) = temp;
+        elements[index1] = elements.at(index2);
+        elements[index2] = temp;
+        vertexMap.insert(elements.at(index1).getName(), index1);
+//        qDebug() << elements.at(index1).getName() << " is at index " << index1 << " now.";
+        vertexMap.insert(elements.at(index2).getName(), index2);
+//        qDebug() << elements.at(index2).getName() << " is at index " << index2 << " now.";
     }
 
     C isLess; ///< The comparator to use for bubbleUp and bubbleDown
