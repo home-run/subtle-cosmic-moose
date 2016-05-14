@@ -23,7 +23,10 @@ public slots:
 private slots:
     void on_purchaseWindow_comboBox_selectStadium_currentIndexChanged(const QString &arg1);
 
+    void on_purchaseWindow_tableView_souvenirList_doubleClicked(const QModelIndex &index);
+
 private:
+    void initializeCartWidget();
     void initializeSouvenirView();
     Ui::PurchaseWindow *ui;
     SouvenirTableModel *souvenirModel;
