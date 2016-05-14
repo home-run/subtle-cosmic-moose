@@ -419,17 +419,20 @@ long Graph::minimumSpanningTree(int source)
     while(!Q.isEmpty())
     {
         u = Q.removeMin();
-        while(vertexList[u.getId()].hasEdges())
+
+        for(int i = 0; i < numVertices; i++)
         {
-            edge = vertexList[u.getId()].getNearestEdge();
-            v = vertexList[edge.idTo];
-            weight = adjacencyMatrix[u.getId()][v.getId()];
-            if(Q.contains(v) && weight < u.getDistance() && adjacencyMatrix[u.getId()][v.getId()] != 0)
+            if(adjacencyMatrix[u.getId()][i] != 0)
             {
-                vertexList[v.getId()].setParent(u.getId());
-                vertexList[v.getId()].setDistance(weight);
-                distance[v.getId()] = weight;
-                Q.decreaseKey(weight, v);
+                v = vertexList[i];
+                weight = adjacencyMatrix[u.getId()][v.getId()];
+                if(Q.contains(v) && weight < vertexList[u.getId()].getDistance() && adjacencyMatrix[u.getId()][v.getId()] != 0)
+                {
+                    vertexList[v.getId()].setParent(u.getId());
+                    vertexList[v.getId()].setDistance(weight);
+                    distance[v.getId()] = weight;
+                    Q.decreaseKey(weight, v);
+                }
             }
         }
     }
@@ -438,8 +441,11 @@ long Graph::minimumSpanningTree(int source)
     for(int i = 0; i < numVertices; i++)
     {
 //        sum += vertexList[i].getDistance();
-        sum += distance[i];
-        qDebug() << "Sum is " << distance[i] << " at " << i;
+        if(100000 >= distance[i])
+        {
+            sum += distance[i];
+            qDebug() << "Sum is " << distance[i] << " at " << i;
+        }
     }
 
     return sum;

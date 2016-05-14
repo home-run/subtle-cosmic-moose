@@ -70,9 +70,10 @@ public:
 
     QList<Vertex> getVertexPath(Vertex target);
 
+    QList<Vertex> findShortestPathTo(Database *db, int source, int target);
+
     long minimumSpanningTree(int source);
 
-    QList<Vertex> findShortestPathTo(Database *db, int source, int target);
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
