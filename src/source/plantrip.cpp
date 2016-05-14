@@ -7,6 +7,7 @@ PlanTrip::PlanTrip(QWidget *parent) :
     ui(new Ui::PlanTrip)
 {
     ui->setupUi(this);
+
 }
 
 PlanTrip::~PlanTrip()

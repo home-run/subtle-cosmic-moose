@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     homePage_widget 		= new HomePage();
     planTrip_widget 		= new PlanTrip();
     editStadiumInfo_widget 	= new EditStadiumInfo();
-    purchaseWindow_widget 	= new PurchaseWindow();
+    purchaseWindow_widget 	= new PurchaseWindow(this, db);
     tripSummary_widget      = new TripSummary();
 
     // Add widgets to the stacked widget
@@ -43,11 +43,15 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(hideNextButton(bool)));
     connect(planTrip_widget, SIGNAL(clickNext()),
             this, SLOT(clickNext()));
+    // planTrip gives a list of stadiums to the purchaseWindow
+    connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
+            purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 
     //Start off with splash screen
-    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
+//    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
+    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_MAIN);
 
     // toggle hiding of back/next button
     checkPage_toggleBackNextButtonVisible();
