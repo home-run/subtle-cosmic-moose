@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
+    <width>725</width>
     <height>500</height>
    </rect>
   </property>
@@ -15,18 +15,56 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="6,6">
-     <item>
-      <widget class="QPushButton" name="planTrip_pushButton_dreamVacation">
-       <property name="text">
-        <string>Dream Vacation</string>
-       </property>
-      </widget>
-     </item>
+    <widget class="QPushButton" name="planTrip_pushButton_visitAll">
+     <property name="text">
+      <string>Visit All Stadiums</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QPushButton" name="planTrip_pushButton_MST">
+     <property name="text">
+      <string>Minimum Spanning Tree</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QPushButton" name="planTrip_pushButton_dreamVacation">
+     <property name="text">
+      <string>Dream Vacation</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="6">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QListWidget" name="planTrip_stadiums_tableWidget"/>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QToolButton" name="planTrip_toolButton_add">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="arrowType">
+            <enum>Qt::RightArrow</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="planTrip_toolButton_remove">
+           <property name="text">
+            <string>...</string>
+           </property>
+           <property name="arrowType">
+            <enum>Qt::LeftArrow</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QListWidget" name="planTrip_stadiumsChosen_tableWidget"/>

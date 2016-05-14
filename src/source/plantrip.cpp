@@ -94,3 +94,15 @@ void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
     emit giveStadiumList(stadiumNames);
     emit clickNext();
 }
+
+void PlanTrip::on_planTrip_toolButton_add_clicked()
+{
+    QModelIndex index = ui->planTrip_stadiums_tableWidget->currentIndex();
+    ui->planTrip_stadiumsChosen_tableWidget->addItem(ui->planTrip_stadiums_tableWidget->takeItem(index.row()));
+}
+
+void PlanTrip::on_planTrip_toolButton_remove_clicked()
+{
+    QModelIndex index = ui->planTrip_stadiumsChosen_tableWidget->currentIndex();
+    ui->planTrip_stadiums_tableWidget->addItem(ui->planTrip_stadiumsChosen_tableWidget->takeItem(index.row()));
+}

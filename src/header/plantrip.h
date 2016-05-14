@@ -36,6 +36,10 @@ private slots:
 
     void on_planTrip_pushButton_dreamVacation_clicked();
 
+    void on_planTrip_toolButton_add_clicked();
+
+    void on_planTrip_toolButton_remove_clicked();
+
 private:
     Ui::PlanTrip *ui;
 };
