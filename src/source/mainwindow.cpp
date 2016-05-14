@@ -256,7 +256,7 @@ void MainWindow::on_actionLogout_triggered()
  */
 void MainWindow::on_actionAdd_new_stadium_triggered()
 {
-    db->AddStadium("Las Vegas Stadium","Las vegas Gamblers","123 Las Vegas Blv,NV 89101","(702) 962-4000","2016-04-11","50,000","Grass",0,"American","Modern");
+    db->AddStadium("Las Vegas Stadium","Las Vegas Gamblers","123 Las Vegas Blv,NV 89101","(702) 962-4000","2016-04-11","50,000","Grass",0,"American","Modern");
     int id =  db->GetStadiumID("Las Vegas Stadium");
     qDebug()<<"ID; "<<id;
     db->AddDistance(id,7,325);
@@ -269,8 +269,10 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     db->AddSouvenir("Las Vegas Stadium","Team pendant",15.39);
     db->AddSouvenir("Las Vegas Stadium","Autographed baseball",19.99);
 
-
-
-
+    // initialize tables with data from database
+    stadiumModel = new StadiumTableModel(this, db);
+    souvenirModel = new SouvenirTableModel(this, db);
+    emit initializeStadiumTable(stadiumModel);
+    emit initializeSouvenirTable(souvenirModel);
 }
 
