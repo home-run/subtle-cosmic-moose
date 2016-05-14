@@ -95,12 +95,22 @@ void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
     emit clickNext();
 }
 
+/**
+ * @brief PlanTrip::on_planTrip_toolButton_add_clicked
+ * Remove the clicked item from the stadium list and add it to the list of stadiums
+ * chosen for the trip.
+ */
 void PlanTrip::on_planTrip_toolButton_add_clicked()
 {
     QModelIndex index = ui->planTrip_stadiums_tableWidget->currentIndex();
     ui->planTrip_stadiumsChosen_tableWidget->addItem(ui->planTrip_stadiums_tableWidget->takeItem(index.row()));
 }
 
+/**
+ * @brief PlanTrip::on_planTrip_toolButton_remove_clicked
+ * Remove the clicked item from the list of chosen stadiums and place it back
+ * in the list of stadiums.
+ */
 void PlanTrip::on_planTrip_toolButton_remove_clicked()
 {
     QModelIndex index = ui->planTrip_stadiumsChosen_tableWidget->currentIndex();
