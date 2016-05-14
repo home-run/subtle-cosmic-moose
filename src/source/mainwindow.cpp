@@ -37,6 +37,12 @@ MainWindow::MainWindow(QWidget *parent) :
             stadiumDetails_widget, SLOT(initializeSouvenirTable(SouvenirTableModel*)));
     connect(this, SIGNAL(adminFeaturesToggled(bool)),
             stadiumDetails_widget, SLOT(toggleAdminFunctions(bool)));
+    connect(this, SIGNAL(propagateStadiumList(QSqlQuery)),
+            planTrip_widget, SLOT(propagateStadiumList(QSqlQuery)));
+    connect(planTrip_widget, SIGNAL(hideNextButton(bool)),
+            this, SLOT(hideNextButton(bool)));
+    connect(planTrip_widget, SIGNAL(clickNext()),
+            this, SLOT(clickNext()));
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 
@@ -44,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
 
     // toggle hiding of back/next button
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
 }
 
 MainWindow::~MainWindow()
@@ -58,6 +64,15 @@ MainWindow::~MainWindow()
     delete planTrip_widget;
     delete tripSummary_widget;
     delete ui;
+}
+
+/**
+ * @brief MainWindow::clickNext
+ * Click the next button.
+ */
+void MainWindow::clickNext()
+{
+    ui->mainwindow_pushButton_next->click();
 }
 
 /**
@@ -100,7 +115,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         break;
     default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
-        checkPage_hideShowBackNextButton();
+        checkPage_toggleBackNextButtonVisible();
         break;
     }
 }
@@ -116,7 +131,9 @@ void MainWindow::on_mainwindow_pushButton_planTrip_clicked()
     currentIndex = ui->mainwindow_stackedWidget->currentIndex();
     pageStackCache.push(currentIndex);
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_PLAN_TRIP);
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
+    emit propagateStadiumList(db->getStadiumsNameId());
+
 }
 
 /**
@@ -133,6 +150,7 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
     // Check if the stack is empty
     if(!pageStackCache.isEmpty())
     {
+        // events for the current page when back is clicked
         switch(ui->mainwindow_stackedWidget->currentIndex())
         {
         case PAGE_TRIP_SUMMARY : tripSummary_widget->clearData();
@@ -143,8 +161,17 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
         currentIndex = pageStackCache.pop();
         // Set the stacked widget to the previous index
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
+
+        checkPage_toggleBackNextButtonVisible();
+
+        // events for the page that is switched to
+        switch(currentIndex)
+        {
+        case PAGE_PLAN_TRIP :
+            ui->mainwindow_pushButton_next->setVisible(false);
+            break;
+        }
     }
-    checkPage_hideShowBackNextButton();
 }
 
 /**
@@ -152,7 +179,7 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
  * Toggle the visibility of the back and next button based on which page
  * is being viewed.
  */
-void MainWindow::checkPage_hideShowBackNextButton()
+void MainWindow::checkPage_toggleBackNextButtonVisible()
 {
     if(pageStackCache.isEmpty() || ui->mainwindow_stackedWidget->currentIndex() < 2)
     {
@@ -165,6 +192,20 @@ void MainWindow::checkPage_hideShowBackNextButton()
         ui->mainwindow_pushButton_next->setVisible(true);
         //Enable Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(40,60,QSizePolicy::Minimum);
+    }
+}
+
+/**
+ * @brief MainWindow::hideNextButton
+ * If true, hide the next button. If false, show the next button.
+ * @param hidden
+ */
+void MainWindow::hideNextButton(bool hidden)
+{
+    if(hidden){
+        ui->mainwindow_pushButton_next->setVisible(false);
+    } else {
+        ui->mainwindow_pushButton_next->setVisible(true);
     }
 }
 
@@ -184,7 +225,7 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_STADIUM_DETAILS);
 
     // toggle visibility of back/next button
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
     ui->mainwindow_pushButton_next->setVisible(false);
     //Disables the Spacer
     ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
@@ -210,7 +251,7 @@ void MainWindow::gotoHomePage()
 {
     // TODO: CLEAR DATA IN ALL CURRENT WIDGETS
     ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_MAIN);
-    checkPage_hideShowBackNextButton();
+    checkPage_toggleBackNextButtonVisible();
     pageStackCache.clear();
 }
 
