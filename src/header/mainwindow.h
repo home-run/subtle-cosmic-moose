@@ -49,8 +49,11 @@ signals:
     void initializeSouvenirTable(SouvenirTableModel *souvenirModel);
     void adminFeaturesToggled(bool);
     void giveDB(Database *db);
+    void propagateStadiumList(QSqlQuery);
 
 private slots:
+    void clickNext();
+
     void toggleAdminFeatures(bool isAdmin);
 
     void on_mainwindow_pushButton_next_clicked();
@@ -67,6 +70,8 @@ private slots:
 
     void on_actionLogout_triggered();
 
+    void hideNextButton(bool hidden);
+
 private:
     Ui::MainWindow *  ui;
     StadiumDetails*   stadiumDetails_widget;
@@ -80,7 +85,7 @@ private:
     StadiumTableModel* stadiumModel;
     SouvenirTableModel* souvenirModel;
 
-    void checkPage_hideShowBackNextButton();
+    void checkPage_toggleBackNextButtonVisible();
     void leavingTripSummary();
 
 };
