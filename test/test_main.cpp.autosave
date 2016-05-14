@@ -370,10 +370,6 @@ void Test_Main::testDecreaseKey()
         index++;
     }
 
-    Q.decreaseKey(50, vList[3]);
-    Q.decreaseKey(50, vList[2]);
-    Q.decreaseKey(50, vList[1]);
-    Q.decreaseKey(50, vList[0]);
 
 }
 

@@ -37,6 +37,7 @@ public:
         this->name = "";
         this->parent = -1;
         this->distance = 0;
+        this->queuePosition = -1;
     }
 
     /**
@@ -136,7 +137,7 @@ public:
      * @param v
      * @return true if they are equal, false otherwise.
      */
-    bool operator==(const Vertex& v)
+    bool operator==(const Vertex& v) const
     {
         return (v.getId() == this->getId()
                 && v.getName() == this->getName());
@@ -149,7 +150,7 @@ public:
      * @param v
      * @return true if they don't match; otherwise return false if they do.
      */
-    bool operator!=(const Vertex& v)
+    bool operator!=(const Vertex& v) const
     {
         return (v.getId() != this->getId() && v.getName() != this->getName());
     }
@@ -162,7 +163,7 @@ public:
      * @param v
      * @return
      */
-    bool operator<(const Vertex &v)
+    bool operator<(const Vertex &v) const
     {
         return this->distance < v.getDistance();
     }
@@ -174,11 +175,32 @@ public:
      * @param v
      * @return
      */
-    bool operator>(const Vertex &v)
+    bool operator>(const Vertex &v) const
     {
         return this->distance > v.getDistance();
     }
-
+    /**
+     * @brief operator >=
+     * Overloaded greater than or equal operator to compare this vertex distance
+     * 	and the given vertex v
+     * @param v
+     * @return
+     */
+    bool operator>=(const Vertex &v) const
+    {
+        return this->distance >= v.getDistance();
+    }
+    /**
+     * @brief operator <=
+     * Overloaded less than or equal operator to compare this vertex distance
+     * 	and the given vertex v
+     * @param v
+     * @return
+     */
+    bool operator<=(const Vertex &v) const
+    {
+        return this->distance <= v.getDistance();
+    }
     /**
      * @brief operator =
      * Overloaded assignment operator to assign the values of the given vertex v to this
@@ -280,6 +302,16 @@ public:
         return edges.root();
     }
 
+    void setQueuePosition(int pos)
+    {
+        this->queuePosition = pos;
+    }
+
+    int getQueuePosition() const
+    {
+        return this->queuePosition;
+    }
+
 private:
     int id;
     QString name;
@@ -288,6 +320,7 @@ private:
     Heap<Edge, comp> edges;
     int numEdges;
     QList<Edge> backupEdges;
+    int queuePosition;
 };
 
 /**

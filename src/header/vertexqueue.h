@@ -8,10 +8,12 @@
 #define VERTEXQUEUE_H
 
 #include "Exceptions.h"
+#include <QMap>
 #include "vertex.h"
 #include <vector>
 #include <iostream>
 
+template <typename C>
 class VertexQueue
 {
 public:
@@ -143,6 +145,15 @@ public:
         return rootNode;
     }
 
+    void decreaseKey(long key, Vertex vertex)
+    {
+        QMap<Vertex, int>::iterator iter;
+
+        qDebug() << "Vertex " << vertex.getName() << " is at index " << vertexMap.value(vertex);
+        qDebug() << "- - - - - - - - - - Output QMap - - - - - - - - - - - - ";
+        iter = vertexMap.begin();
+    }
+
 protected:
 
     /**
@@ -225,6 +236,7 @@ protected:
 
 private:
     std::vector<Vertex> elements; ///< the vector of elements in the heap
+    QMap<Vertex, int> vertexMap;
 
     /**
      * @brief
@@ -237,6 +249,8 @@ private:
         Vertex temp = elements.at(index1);
         elements.at(index1) = elements.at(index2);
         elements.at(index2) = temp;
+        vertexMap.insert(elements.at(index1), index1);
+        vertexMap.insert(elements.at(index2), index2);
     }
 
     C isLess; ///< The comparator to use for bubbleUp and bubbleDown
@@ -337,6 +351,8 @@ private:
     {
         return ((index / 2) > 0);
     }
+
+
 };
 
 

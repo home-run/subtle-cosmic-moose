@@ -1,0 +1,30 @@
+Angels Stadium of Anaheim == 0
+Wrigley Field == 1
+Turner Field == 2
+PNC Park == 3
+Petco Park == 4
+Nationals Park == 5
+Miller Park == 6
+Marlins Park == 7
+Great America Ball Park == 8
+Dodger Stadium == 9
+Coors Field == 10
+Citizens Bank Park == 11
+Citi Field == 12
+Chase Field == 13
+Busch Stadium == 14
+AT&T Park == 15
+Yankee Stadium == 16
+US Cellular Field == 17
+Tropicana Field == 18
+Target Field == 19
+SafeCo Field == 20
+Rogers Centre == 21
+Progressive Field == 22
+Oriole Park at Camden Yards == 23
+O.co Coliseum == 24
+Minute Maid Park == 25
+Kauffman Stadium == 26
+Globe Life Park in Arlington == 27
+Fenway Park == 28
+Comerica Park == 29
