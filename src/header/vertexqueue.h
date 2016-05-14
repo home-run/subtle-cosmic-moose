@@ -98,12 +98,12 @@ public:
             elements[index] = elements[size()];
             elements.pop_back();
             bubbleDown(index);
+            reindex();
         }
         else
         {
             throw RuntimeException("Heap is empty!");
         }
-        reindex();
     }
 
     /**
@@ -150,18 +150,11 @@ public:
 
     void decreaseKey(long key, Vertex vertex)
     {
-        int index;
+        int index = 0;
         index = vertexMap.value(vertex.getName());
         qDebug() << "Decrease key " << key << " index - " << index;
         qDebug() << "Setting " << vertex.getName() << " with weight " << vertex.getDistance() << " to the weight " << key;
-//        elements[index].setDistance(key);
-        try{
-            elements[index].setDistance(key);
-        }
-        catch(...)
-        {
-            qDebug() << "FAAAAILED....";
-        }
+        elements[index].setDistance(key);
     }
 
     int getVertexIndex(Vertex vertex) const
@@ -189,9 +182,9 @@ public:
 
     void reindex()
     {
-        if(elements.size() > 1)
+        if(elements.size() > 0)
         {
-            for(int i = 1; i < elements.size();i++)
+            for(int i = 1; i < this->size();i++)
             {
                 vertexMap.insert(elements[i].getName(),i);
             }
@@ -287,7 +280,8 @@ protected:
 
 
 private:
-    QVector<Vertex> elements; ///< the vector of elements in the heap
+//    QVector<Vertex> elements; ///< the vector of elements in the heap
+    std::vector<Vertex> elements; ///< the vector of elements in the heap
 //    QMap<Vertex, int> vertexMap;
     QMap<QString, int> vertexMap;
 
@@ -300,13 +294,13 @@ private:
     void swap(int index1, int index2)
     {
         Vertex temp = elements.at(index1);
-//        elements.at(index1) = elements.at(index2);
-//        elements.at(index2) = temp;
-        elements[index1] = elements.at(index2);
-        elements[index2] = temp;
-        vertexMap.insert(elements.at(index1).getName(), index1);
+        elements.at(index1) = elements.at(index2);
+        elements.at(index2) = temp;
+//        elements[index1] = elements.at(index2);
+//        elements[index2] = temp;
+//        vertexMap.insert(elements.at(index1).getName(), index1);
 //        qDebug() << elements.at(index1).getName() << " is at index " << index1 << " now.";
-        vertexMap.insert(elements.at(index2).getName(), index2);
+//        vertexMap.insert(elements.at(index2).getName(), index2);
 //        qDebug() << elements.at(index2).getName() << " is at index " << index2 << " now.";
     }
 

@@ -17,8 +17,6 @@ private slots:
 
     void createGraph();
 
-    void testShortestPath();
-
     void testVertexSet();
 
     void testMST();
@@ -26,6 +24,8 @@ private slots:
     void testHeap();
 
     void testDecreaseKey();
+
+    void testShortestPath();
 
 private:
     // Put testing variables here
@@ -324,32 +324,6 @@ void Test_Main::testHeap()
         QVERIFY(vertex.getDistance() == list.at(vertex.getId()).getDistance());
     }
 }
-
-void Test_Main::testMST()
-{
-    Graph graph;
-    graph.createGraph(db);
-    long smallest = 0;
-    long current;
-
-    smallest = graph.minimumSpanningTree(0);
-    for(int i = 1; i < graph.getNumberVertices(); i++)
-    {
-        graph.createGraph(db);
-        current = graph.minimumSpanningTree(i);
-        if(current < smallest)
-        {
-            smallest = current;
-        }
-    }
-
-    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
-    qDebug() << "Smallest found [ " << smallest << " ]";
-    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
-    QVERIFY(smallest == 7060);
-
-}
-
 void Test_Main::testDecreaseKey()
 {
     VertexQueue<vertexComp> Q;
@@ -369,6 +343,21 @@ void Test_Main::testDecreaseKey()
     Q.decreaseKey(50, vList[23]);
 
 }
+
+void Test_Main::testMST()
+{
+    Graph graph;
+    graph.createGraph(db);
+    long smallest = 0;
+
+    smallest = graph.minimumSpanningTree(0);
+
+    qDebug() << "Smallest found [ " << smallest << " ]";
+    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+    QVERIFY(smallest == 7060);
+
+}
+
 
 //#endif //TEST_DATABASE_H
 

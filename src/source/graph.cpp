@@ -483,6 +483,7 @@ long Graph::minimumSpanningTree(int source)
     VertexQueue<vertexComp> Q;
     Vertex u;
     Vertex v;
+    long distance[30];
     Edge edge;
     long weight;
     for(int u = 0; u < numVertices; u++)
@@ -504,14 +505,23 @@ long Graph::minimumSpanningTree(int source)
             edge = vertexList[u.getId()].getNearestEdge();
             v = vertexList[edge.idTo];
             weight = adjacencyMatrix[u.getId()][v.getId()];
-            if(Q.contains(v) && weight < u.getDistance())
+            if(Q.contains(v) && weight < u.getDistance() && adjacencyMatrix[u.getId()][v.getId()] != 0)
             {
                 vertexList[v.getId()].setParent(u.getId());
                 vertexList[v.getId()].setDistance(weight);
+                distance[v.getId()] = weight;
                 Q.decreaseKey(weight, v);
             }
         }
     }
 
-    return 0;
+    long sum = 0;
+    for(int i = 0; i < numVertices; i++)
+    {
+//        sum += vertexList[i].getDistance();
+        sum += distance[i];
+        qDebug() << "Sum is " << distance[i] << " at " << i;
+    }
+
+    return sum;
 }
