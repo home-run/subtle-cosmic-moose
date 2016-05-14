@@ -9,6 +9,9 @@ PurchaseWindow::PurchaseWindow(QWidget *parent, Database *db) :
 
     // Set local db pointer to the database.
     this->db = db;
+
+    // Instantiate souvenirModel
+    souvenirModel = new SouvenirTableModel(this, db);
 }
 
 /**
@@ -61,16 +64,16 @@ void PurchaseWindow::propagateStadiumList(QStringList stadiums)
 
     // propagate comboBox with stadium list
     ui->purchaseWindow_comboBox_selectStadium->addItems(stadiums);
+}
 
-    // Instantiate souvenirModel
-    souvenirModel = new SouvenirTableModel(this, db);
-
+void PurchaseWindow::on_purchaseWindow_comboBox_selectStadium_currentIndexChanged(const QString &arg1)
+{
     // Get the name of the first Stadium in the list
     QString currentStadium = ui->purchaseWindow_comboBox_selectStadium->currentText();
     qDebug() << currentStadium;
 
     // Get the ID of that stadium
-    int stadiumID = db->GetStadiumID(currentStadium);
+    int stadiumID = db->GetStadiumID(arg1);
 
     // Initialize souvenirModel to the souvenirs of that stadium.
     souvenirModel->Initialize(stadiumID);
@@ -78,11 +81,7 @@ void PurchaseWindow::propagateStadiumList(QStringList stadiums)
     // Set model to the initialized souvenirModel
     ui->purchaseWindow_tableView_souvenirList->setModel(souvenirModel);
 
+    // Sets all table settings to make the table look pretty.
     initializeSouvenirView();
-}
-
-void PurchaseWindow::on_purchaseWindow_comboBox_selectStadium_currentIndexChanged(const QString &arg1)
-{
-
 }
 
