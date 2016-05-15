@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
 
+
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 

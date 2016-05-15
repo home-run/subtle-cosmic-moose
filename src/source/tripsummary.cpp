@@ -66,6 +66,51 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
 }
 
 /**
+ * @brief TripSummary::populatePurchaseReciept
+ * Populates the List widget with the information of purchases
+ * @param purchases
+ */
+void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> purchases)
+{
+    //Initial line for purchase reciept
+    ui->tripSummary_listWidget_Purchases->addItem(QString("****PURCHASE RECIEPT****"));
+
+    double totalPriceOfPurchase;
+
+    //Loop to get all items
+    for(int index = 0; index < purchases.size(); index++)
+    {
+        //copy all data over
+        QString name, price, quantity, stadium;
+        stadium = purchases.at(index).stadiumName;
+        name = purchases.at(index).itemName;
+        price.number(purchases.at(index).itemPrice);
+        quantity.number(purchases.at(index).quantity);
+
+        //Put into a giant string
+        QString purchaseStructToAppend = QString("Purchased From: %1\tItem Name: %2\tItem Price: %3\tQuantity: %4")
+                .arg(stadium,name,price,quantity);
+
+        totalPriceOfPurchase += purchases.at(index).itemPrice;
+
+        //TODO - Display statium totals in a tooltip
+        QListWidgetItem *purchaseItem = new QListWidgetItem(purchaseStructToAppend);
+        purchaseItem->setToolTip(QString("<Insert Item's Stadium Total Rev here>"));
+
+        //Add all data to the list itself
+        ui->tripSummary_listWidget_Purchases->addItem(purchaseItem);
+
+    }
+
+    //Final total purchase of the trip
+    QString totalPurchased("Your Total Amount is: ");
+    totalPurchased.append(QString::number(totalPriceOfPurchase));
+
+    //Add the total purchase
+    ui->tripSummary_listWidget_Purchases->addItem(totalPurchased);
+}
+
+/**
  * @brief TripSummary::clearData
  * Clears the list
  */
