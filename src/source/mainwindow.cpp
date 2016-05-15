@@ -211,9 +211,12 @@ void MainWindow::checkPage_toggleBackNextButtonVisible()
  */
 void MainWindow::hideNextButton(bool hidden)
 {
-    if(hidden){
+    if(hidden)
+    {
         ui->mainwindow_pushButton_next->setVisible(false);
-    } else {
+    }
+    else
+    {
         ui->mainwindow_pushButton_next->setVisible(true);
     }
 }
@@ -278,15 +281,6 @@ void MainWindow::gotoHomePage()
     pageStackCache.clear();
 }
 
-
-/*
- QFile file(":/qss/darkorange.qss");
- if(file.open(QIODevice::ReadOnly | QIODevice::Text))
- {
-     setStyleSheet(file.readAll());
-     file.close();
- }
- */
 
 /**
  * @brief MainWindow::on_actionLogin_triggered
