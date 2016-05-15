@@ -289,10 +289,10 @@ void MainWindow::on_actionLogout_triggered()
 }
 
 /*!
- * \brief MainWindow::on_actionAdd_new_stadium_triggered
- * @brief Adds stdaium with its corresponding attritbutes
+ * @brief MainWindow::on_actionAdd_new_stadium_triggered
+ * @brief Adds Las Vegas stdaium with its corresponding attritbutes
  * @brief Adds edges with weights between Lags Vegas and it surrounding cities.
- * @brief Adds souviers to Lag Vegas stdium
+ * @brief Adds souviers to Lag Vegas stadium
  *
  */
 void MainWindow::on_actionAdd_new_stadium_triggered()

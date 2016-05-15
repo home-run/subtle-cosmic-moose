@@ -122,19 +122,20 @@ bool Database::AddSouvenir(QString stadiumName, QString itemName, double itemPri
     qDebug() << "That stadium does not exist!";
     return false;
 }
-/*!
- * \brief Database::AddStadium
- * \param stadiumName
- * \param teamName
- * \param address
- * \param phoenNumber
- * \param dateOpened
- * \param capacity
- * \param turfType
- * \param revenue
- * \param leauge
- * \param typology
- * \return
+/**
+ * @brief Database::AddStadium
+ * Adds new Stadium to the data base with the following attributes.
+ * @param stadiumName
+ * @param teamName
+ * @param address
+ * @param phoenNumber
+ * @param dateOpened
+ * @param capacity
+ * @param turfType
+ * @param revenue
+ * @param leauge
+ * @param typology
+ * @return true if it worked else false
  */
 bool Database::AddStadium(QString stadiumName,QString teamName,QString address,QString phoneNumber,QString dateOpened,QString capacity,QString turfType,long revenue,QString leauge,QString typology)
 {
@@ -159,12 +160,13 @@ bool Database::AddStadium(QString stadiumName,QString teamName,QString address,Q
             qDebug() << query.lastError().text();
             return false;
 }
-/*!
- * \brief Database::AddDistance
- * \param a starting vertex
- * \param b ending vertex
- * \param distance weight of the edge
- * \return
+/**
+ * @brief Database::AddDistance
+ * Adds new distacne between two vertecies
+ * @param a starting vertex
+ * @param b ending vertex
+ * @param distance weight of the edge
+ * @return true if it worked else false
  */
 bool Database::AddDistance(int a,int b,long distance)
 {

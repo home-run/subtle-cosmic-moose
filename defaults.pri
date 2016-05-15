@@ -10,6 +10,3 @@ SUBDIRS += \
     $$PWD/app/app.pro
     $$PWD/src/src.pro
     $$PWD/test/test.pro
-
-DISTFILES += \
-    $$PWD/UML_test.qmodel
