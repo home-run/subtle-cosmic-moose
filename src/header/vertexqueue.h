@@ -148,6 +148,13 @@ public:
         return rootNode;
     }
 
+    /**
+     * @brief decreaseKey
+     * This method will take a key and vertex the find it within the vertexqueue then
+     * replace its current distance key with the given key.
+     * @param key
+     * @param vertex
+     */
     void decreaseKey(long key, Vertex vertex)
     {
         int index = 0;
@@ -157,11 +164,24 @@ public:
         elements[index].setDistance(key);
     }
 
+    /**
+     * @brief getVertexIndex
+     * This method will return the index of the vertex that is located within the vertex
+     * queue. The vertex will be given to a map that uses the vertex's name as the key
+     * and the value is the index of the vertex in the queue.
+     * @param vertex
+     * @return int value of the index in the priority queue
+     */
     int getVertexIndex(Vertex vertex) const
     {
         return vertexMap.value(vertex.getName());
     }
 
+    /**
+     * @brief printElementList
+     * Method for debugging the priority queue. This will print the vertices to the
+     * console.
+     */
     void printElementList()
     {
         for(int i = 1; i < elements.size(); i++)
@@ -170,6 +190,11 @@ public:
         }
     }
 
+    /**
+     * @brief printMap
+     * This method will iterate through the map output the list of values for the unique
+     * keys that are stored within the vertex map.
+     */
     void printMap()
     {
         QList<QString> list;
@@ -180,6 +205,11 @@ public:
         }
     }
 
+    /**
+     * @brief reindex
+     * This method will iterate through the vertexMap and change the current value of
+     * the given key in the map.
+     */
     void reindex()
     {
         if(elements.size() > 0)
@@ -191,6 +221,13 @@ public:
         }
     }
 
+    /**
+     * @brief contains
+     * This method wraps the vertex map object containing the vertices and will check
+     * if the priority queue contain the given vertex.
+     * @param vertex
+     * @return true if the priority queue contains the vertex; otherwise returns false
+     */
     bool contains(Vertex vertex)
     {
         return vertexMap.contains(vertex.getName());
@@ -280,9 +317,7 @@ protected:
 
 
 private:
-//    QVector<Vertex> elements; ///< the vector of elements in the heap
     std::vector<Vertex> elements; ///< the vector of elements in the heap
-//    QMap<Vertex, int> vertexMap;
     QMap<QString, int> vertexMap;
 
     /**
@@ -296,12 +331,6 @@ private:
         Vertex temp = elements.at(index1);
         elements.at(index1) = elements.at(index2);
         elements.at(index2) = temp;
-//        elements[index1] = elements.at(index2);
-//        elements[index2] = temp;
-//        vertexMap.insert(elements.at(index1).getName(), index1);
-//        qDebug() << elements.at(index1).getName() << " is at index " << index1 << " now.";
-//        vertexMap.insert(elements.at(index2).getName(), index2);
-//        qDebug() << elements.at(index2).getName() << " is at index " << index2 << " now.";
     }
 
     C isLess; ///< The comparator to use for bubbleUp and bubbleDown

@@ -286,6 +286,11 @@ public:
         return this->parent;
     }
 
+    /**
+     * @brief reinitializeEdges
+     * This method iterates the vertex's current edges and places them back into it's
+     * own priority queue (adjacency list).
+     */
     void reinitializeEdges()
     {
         Edge edge;
@@ -297,16 +302,33 @@ public:
         }
     }
 
+    /**
+     * @brief getNextEdge
+     * this will return the next edge available in verticee adjacency list.
+     * @return edge object of the adj list
+     */
     Edge getNextEdge()
     {
         return edges.root();
     }
 
+    /**
+     * @brief setQueuePosition
+     * Sets the vertex index that is relative to its position in the stored object that
+     * it is located in, such as a map, queue or a vector.
+     * @param pos
+     */
     void setQueuePosition(int pos)
     {
         this->queuePosition = pos;
     }
 
+    /**
+     * @brief getQueuePosition
+     * This returns the vertices index of the position / location that it is located in
+     * a container object.
+     * @return int
+     */
     int getQueuePosition() const
     {
         return this->queuePosition;
@@ -581,8 +603,5 @@ private:
         return hashKey;
     }
 };
-
-
-
 
 #endif // VERTEX_H
