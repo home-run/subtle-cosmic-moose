@@ -116,7 +116,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         break;
     case PAGE_PURCHASE_WINDOW:
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
-        tripSummary_widget->populateTripPath();
+
         purchaseWindow_widget->getPurchases();
         ui->mainwindow_pushButton_next->setVisible(false);
 
