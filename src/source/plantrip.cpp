@@ -27,7 +27,14 @@ void PlanTrip::propagateStadiumList(QSqlQuery query)
         stadiumNames.append( query.record().field("name").value().toString() );
     }
 
+    // clear just in case
+    ui->planTrip_stadiums_tableWidget->clear();
+
+    // add list
     ui->planTrip_stadiums_tableWidget->addItems(stadiumNames);
+
+    // clear selected stadiums
+    ui->planTrip_stadiumsChosen_tableWidget->clear();
 
     emit hideNextButton(true);
 
@@ -92,9 +99,11 @@ void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
         stadiumNames.append(ui->planTrip_stadiumsChosen_tableWidget->item(i)->text());
     }
 
-    emit giveStadiumList(stadiumNames);
-    emit clickNext();
-    emit hideNextButton(false);
+    if(stadiumNames.size() > 0){
+        emit giveStadiumList(stadiumNames);
+        emit clickNext();
+        emit hideNextButton(false);
+    }
 }
 
 /**

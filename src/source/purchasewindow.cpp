@@ -1,5 +1,6 @@
 #include "header/purchasewindow.h"
 #include "ui_purchasewindow.h"
+#include <QSpinBox>
 
 PurchaseWindow::PurchaseWindow(QWidget *parent, Database *db) :
     QWidget(parent),
@@ -59,6 +60,60 @@ PurchaseWindow::~PurchaseWindow()
 }
 
 /**
+ * @brief PurchaseWindow::getPurchases
+ * Retrieve a list of purchaseInfo structs containing all of the data
+ * in the souvenir purchase list (cart).
+ * contains:
+ *  - stadium name
+ *  - item name
+ *  - item price
+ *  - item quantity
+ *
+ * @return purchases a list of purchaseInfo structs
+ */
+QList<PurchaseWindow::purchaseInfo> PurchaseWindow::getPurchases()
+{
+    QList<purchaseInfo> purchases; // list of purchaseInfo structs
+    purchaseInfo row; // struct representing one row in the cart
+    QModelIndex stadiumNameIndex; // index of the stadium name
+    QModelIndex itemNameIndex; // index of the item name
+    QModelIndex priceIndex; // index of the price
+    QModelIndex quantityBoxIndex; // index of the quantity spinBox
+    QString stadiumName; // stadium name
+    QString itemName; // item name
+    QSpinBox *box; // quantity spinBox
+    double price; // price
+    int quantity; // quantity value
+
+    int rows = ui->purchaseWindow_tableWidget_shoppingCart->rowCount();
+
+    // Loop through the entire cart adding data to structs, and adding the structs to a list.
+    for(int i = 0; i < rows; i++)
+    {
+        stadiumNameIndex = ui->purchaseWindow_tableWidget_shoppingCart->model()->index(i, 0);
+        itemNameIndex    = ui->purchaseWindow_tableWidget_shoppingCart->model()->index(i, 1);
+        priceIndex       = ui->purchaseWindow_tableWidget_shoppingCart->model()->index(i, 2);
+
+        // set spinBox pointer to point at the spinBox in the tableWidget
+        box              = static_cast<QSpinBox*>(ui->purchaseWindow_tableWidget_shoppingCart->cellWidget(i, 3));
+
+        stadiumName = ui->purchaseWindow_tableWidget_shoppingCart->model()->data(stadiumNameIndex).toString();
+        itemName    = ui->purchaseWindow_tableWidget_shoppingCart->model()->data(itemNameIndex).toString();
+        price       = ui->purchaseWindow_tableWidget_shoppingCart->model()->data(priceIndex).toDouble();
+        quantity    = box->value();
+
+        row.stadiumName = stadiumName;
+        row.itemName    = itemName;
+        row.itemPrice   = price;
+        row.quantity    = quantity;
+
+        purchases.append(row);
+    }
+
+    return purchases;
+}
+
+/**
  * @brief PurchaseWindow::propagateStadiumList
  * Propagate the comboBox with the list of selected stadiums to visit.
  * @param stadiums QStringList of stadium names
@@ -106,35 +161,57 @@ void PurchaseWindow::on_purchaseWindow_comboBox_selectStadium_currentIndexChange
  */
 void PurchaseWindow::on_purchaseWindow_tableView_souvenirList_doubleClicked(const QModelIndex &index)
 {
+    // Set index of currently selected row in the souvenir List
     int selectedRow = index.row();
+
+    // Set QModelIndex of the name of the souvenir selected
     QModelIndex souvenirName_index  = ui->purchaseWindow_tableView_souvenirList->model()->index(selectedRow, 1);
+
+    // Set QModelIndex of the price of the souvenir clicked
     QModelIndex souvenirPrice_index  = ui->purchaseWindow_tableView_souvenirList->model()->index(selectedRow, 2);
+
+    // Set name of the currently selected souvenir
     QString souvenirName = ui->purchaseWindow_tableView_souvenirList->model()->data(souvenirName_index).toString();
+
+    // Set price of the currently selected souvenir
     double price = ui->purchaseWindow_tableView_souvenirList->model()->data(souvenirPrice_index).toDouble();
 
-    QTableWidgetItem *stadiumName = new QTableWidgetItem("testStadium");
-    QTableWidgetItem *itemName  = new QTableWidgetItem(souvenirName);
-    QTableWidgetItem *priceItem = new QTableWidgetItem(price);
-    QTableWidgetItem *quantity = new QTableWidgetItem("0");
+    // Create text items to insert into cart row
+    QTableWidgetItem *stadiumName = new QTableWidgetItem( ui->purchaseWindow_comboBox_selectStadium->currentText() );
+    QTableWidgetItem *itemName  = new QTableWidgetItem( souvenirName );
+    QTableWidgetItem *priceItem = new QTableWidgetItem( QString::number(price) );
 
+    // Create quantity spinBox to insert into cart row
+    QSpinBox *quantity = new QSpinBox( ui->purchaseWindow_tableWidget_shoppingCart );
+
+    // Set max and min quantities for quantity spinBox
+    quantity->setRange(1, 99);
+
+    // Get current row count (the index at which to insert the new row)
     int rowCount = ui->purchaseWindow_tableWidget_shoppingCart->rowCount();
 
+    // Insert the new row into the cart
     ui->purchaseWindow_tableWidget_shoppingCart->insertRow(rowCount);
-    ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount - 1, 0, stadiumName);
-    ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount - 1, 1, itemName);
-    ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount - 1, 2, priceItem);
-    ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount - 1, 3, quantity);
+    ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount, 0, stadiumName);
+    ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount, 1, itemName);
+    ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount, 2, priceItem);
+    ui->purchaseWindow_tableWidget_shoppingCart->setCellWidget(rowCount, 3, quantity);
 }
 
 void PurchaseWindow::initializeCartWidget()
-{
-    QTableWidgetItem *item = new QTableWidgetItem();
-
+{    
     QStringList headerData;
     headerData.append("Stadium");
     headerData.append("Item");
     headerData.append("Price");
     headerData.append("Quantity");
+
+    // clear shopping cart
+    ui->purchaseWindow_tableWidget_shoppingCart->clear();
+    ui->purchaseWindow_tableWidget_shoppingCart->clearContents();
+    while(ui->purchaseWindow_tableWidget_shoppingCart->rowCount() > 0){
+        ui->purchaseWindow_tableWidget_shoppingCart->removeRow(0);
+    }
 
     // set number of columns to size of headerData stringList
     ui->purchaseWindow_tableWidget_shoppingCart->setColumnCount(headerData.size());
@@ -169,4 +246,36 @@ void PurchaseWindow::initializeCartWidget()
     // stretch the last section of header
     ui->purchaseWindow_tableWidget_shoppingCart->horizontalHeader()->setStretchLastSection(true);
 
+}
+
+/**
+ * @brief PurchaseWindow::on_purchaseWindow_tableWidget_shoppingCart_doubleClicked
+ * Remove the clicked souvenir from the cart.
+ * @param index
+ */
+void PurchaseWindow::on_purchaseWindow_tableWidget_shoppingCart_doubleClicked(const QModelIndex &index)
+{
+    ui->purchaseWindow_tableWidget_shoppingCart->removeRow(index.row());
+}
+
+/**
+ * @brief PurchaseWindow::on_toolButton_clicked
+ * Add the current selected souvenir to the cart.
+ */
+void PurchaseWindow::on_toolButton_clicked()
+{
+    if(ui->purchaseWindow_tableView_souvenirList->currentIndex().row() > -1){
+        on_purchaseWindow_tableView_souvenirList_doubleClicked(ui->purchaseWindow_tableView_souvenirList->currentIndex());
+    }
+}
+
+/**
+ * @brief PurchaseWindow::on_toolButton_2_clicked
+ * Remove the selected souvenir from the cart.
+ */
+void PurchaseWindow::on_toolButton_2_clicked()
+{
+    if(ui->purchaseWindow_tableWidget_shoppingCart->currentIndex().row() > -1){
+    ui->purchaseWindow_tableWidget_shoppingCart->removeRow(ui->purchaseWindow_tableWidget_shoppingCart->currentIndex().row());
+    }
 }
