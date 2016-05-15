@@ -1,5 +1,6 @@
 #include <QtTest/QtTest>
 #include "../../src/header/database.h"
+#include "../../src/header/vertexqueue.h"
 #include "../../src/header/graph.h"
 
 class Test_Main : public QObject
@@ -16,11 +17,15 @@ private slots:
 
     void createGraph();
 
-    void testShortestPath();
-
     void testVertexSet();
 
+    void testMST();
+
     void testHeap();
+
+    void testDecreaseKey();
+
+    void testShortestPath();
 
 private:
     // Put testing variables here
@@ -163,6 +168,7 @@ void Test_Main::testShortestPath()
 
     v.setId(21);
     testGraph.shortestPath(v);
+//    testGraph.debug_outputDistances();
     vertexList = testGraph.getVertices();
     for(int i = 0; i < testGraph.getNumberVertices(); i++)
     {
@@ -173,7 +179,7 @@ void Test_Main::testShortestPath()
         }
         else if(v.getName() == "Comerica Park")
         {
-            QVERIFY(v.getDistance() == 2120);
+            QVERIFY(v.getDistance() == 2170);
         }
         else if(v.getName() == "Fenway Park")
         {
@@ -181,15 +187,15 @@ void Test_Main::testShortestPath()
         }
         else if(v.getName() == "Globe Life Park in Arlington")
         {
-            QVERIFY(v.getDistance() == 1280);
+            QVERIFY(v.getDistance() == 1330);
         }
         else if(v.getName() == "Kauffman Stadium")
         {
-            QVERIFY(v.getDistance() == 1500);
+            QVERIFY(v.getDistance() == 1550);
         }
         else if(v.getName() == "Minute Maid Park")
         {
-            QVERIFY(v.getDistance() == 1510);
+            QVERIFY(v.getDistance() == 1560);
         }
         else if(v.getName() == "O.co Coleum")
         {
@@ -197,11 +203,11 @@ void Test_Main::testShortestPath()
         }
         else if(v.getName() == "Oriole Park at Camden Yards")
         {
-            QVERIFY(v.getDistance() == 2500);
+            QVERIFY(v.getDistance() == 2600);
         }
         else if(v.getName() == "Progressive Field")
         {
-            QVERIFY(v.getDistance() == 2210);
+            QVERIFY(v.getDistance() == 2260);
         }
         else if(v.getName() == "Rogers Centre")
         {
@@ -209,7 +215,7 @@ void Test_Main::testShortestPath()
         }
         else if(v.getName() == "SafeCo Field")
         {
-            QVERIFY(v.getDistance() == 1020);
+            QVERIFY(v.getDistance() == 1070);
         }
         else if(v.getName() == "Target Field")
         {
@@ -217,39 +223,39 @@ void Test_Main::testShortestPath()
         }
         else if(v.getName() == "Tropicana Field")
         {
-            QVERIFY(v.getDistance() == 2300);
+            QVERIFY(v.getDistance() == 2350);
         }
         else if(v.getName() == "US Cellular Field")
         {
-            QVERIFY(v.getDistance() == 1880);
+            QVERIFY(v.getDistance() == 1930);
         }
         else if(v.getName() == "Yankee Stadium")
         {
-            QVERIFY(v.getDistance() == 2620);
+            QVERIFY(v.getDistance() == 2670);
         }
         else if(v.getName() == "AT&T Park")
         {
-            QVERIFY(v.getDistance() == 340);
+            QVERIFY(v.getDistance() == 390);
         }
         else if(v.getName() == "Busch Stadium")
         {
-            QVERIFY(v.getDistance() == 1735);
+            QVERIFY(v.getDistance() == 1785);
         }
         else if(v.getName() == "Chase Field")
         {
-            QVERIFY(v.getDistance() == 410);
+            QVERIFY(v.getDistance() == 460);
         }
         else if(v.getName() == "Citi Field")
         {
-            QVERIFY(v.getDistance() == 2620);
+            QVERIFY(v.getDistance() == 2720);
         }
         else if(v.getName() == "Citizens Bank Park")
         {
-            QVERIFY(v.getDistance() == 2590);
+            QVERIFY(v.getDistance() == 2690);
         }
         else if(v.getName() == "Coors Field")
         {
-            QVERIFY(v.getDistance() == 940 );
+            QVERIFY(v.getDistance() == 990 );
         }
         else if(v.getName() == "Dodger Stadium")
         {
@@ -257,11 +263,11 @@ void Test_Main::testShortestPath()
         }
         else if(v.getName() == "Great America Ball Park")
         {
-            QVERIFY(v.getDistance() == 2045);
+            QVERIFY(v.getDistance() == 2095);
         }
         else if(v.getName() == "Marlins Park")
         {
-            QVERIFY(v.getDistance() == 2475);
+            QVERIFY(v.getDistance() == 2525);
         }
         else if(v.getName() == "Miller Park")
         {
@@ -269,19 +275,19 @@ void Test_Main::testShortestPath()
         }
         else if(v.getName() == "Nationals Park")
         {
-            QVERIFY(v.getDistance() == 2500);
+            QVERIFY(v.getDistance() == 2550);
         }
         else if(v.getName() == "Petco Park")
         {
-            QVERIFY(v.getDistance() == 110);
+            QVERIFY(v.getDistance() == 160);
         }
         else if(v.getName() == "PNC Park")
         {
-            QVERIFY(v.getDistance() == 2305);
+            QVERIFY(v.getDistance() == 2355);
         }
         else if(v.getName() == "Turner Field")
         {
-            QVERIFY(v.getDistance() == 2020);
+            QVERIFY(v.getDistance() == 2070);
         }
         else if(v.getName() == "Wrigely Field")
         {
@@ -318,6 +324,71 @@ void Test_Main::testHeap()
         vertex = heap.removeMin();
         QVERIFY(vertex.getDistance() == list.at(vertex.getId()).getDistance());
     }
+}
+/**
+ * @brief Test_Main::testDecreaseKey
+ * This will do a test to decrease the key of the VertexQueue... There is no physical
+ * way to determine if this is successful yet besides visually checking.
+ */
+void Test_Main::testDecreaseKey()
+{
+    VertexQueue<vertexComp> Q;
+    QList<Vertex> vList;
+    Graph graph;
+
+    graph.createGraph(db);
+    vList = graph.getVertices();
+
+    for(int i = 0; i < graph.getNumberVertices(); i++)
+    {
+        vList[i].setDistance(vList[i].getNearestEdge().weight);
+        Q.insert(vList[i]);
+    }
+
+    int index = 0;
+    Q.decreaseKey(50, vList[23]);
+
+}
+
+/**
+ * @brief Test_Main::testMST
+ * This will test the minimum spanning tree algorithm by running it 30 times and seeing
+ * which path is the shortest that it finds. If you output each distance that it finds,
+ * then it should be missing indices 0(1), 1(2), 22(23), and 29(30) for the shortest
+ * possible MSTs.
+ */
+void Test_Main::testMST()
+{
+    Graph graph;
+    graph.createGraph(db);
+    long smallest = INF;
+    long prev = INF;
+    int index;
+
+    index = 0;
+    while(index < 30){
+        graph.createGraph(db);
+        prev = graph.minimumSpanningTree(index);
+        if(prev < smallest)
+        {
+            smallest = prev;
+        }
+//        if(prev == 7060)
+//        {
+//            shortestStartingIndices.push_back(index);
+//        }
+        index++;
+    }
+//    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+//    qDebug() << "Malik's Smallest found [ " << smallest << " ] at index = " << index;
+//    qDebug() << "Smallest starting indices found:";
+//    for(int i = 0; i < shortestStartingIndices.size(); i++)
+//    {
+//        qDebug() << shortestStartingIndices.at(i) << ", ";
+//    }
+//    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+    QVERIFY(smallest == 7060);
+
 }
 
 //#endif //TEST_DATABASE_H

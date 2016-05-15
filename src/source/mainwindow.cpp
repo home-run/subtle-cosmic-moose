@@ -46,6 +46,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // planTrip gives a list of stadiums to the purchaseWindow
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
+    //planTrip gives a list of stadiums also to tripSummary
+    connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
+            tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
+
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 
@@ -115,6 +119,10 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         tripSummary_widget->populateTripPath();
         purchaseWindow_widget->getPurchases();
         ui->mainwindow_pushButton_next->setVisible(false);
+
+        hideBackButton(true);
+        hideNextButton(true);
+        
         //Disables the Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
         break;
@@ -173,7 +181,7 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
         switch(currentIndex)
         {
         case PAGE_PLAN_TRIP :
-            ui->mainwindow_pushButton_next->setVisible(false);
+            hideNextButton(true);
             break;
         }
     }
@@ -188,13 +196,13 @@ void MainWindow::checkPage_toggleBackNextButtonVisible()
 {
     if(pageStackCache.isEmpty() || ui->mainwindow_stackedWidget->currentIndex() < 2)
     {
-        ui->mainwindow_pushButton_back->setVisible(false);
-        ui->mainwindow_pushButton_next->setVisible(false);
+        hideBackButton(true);
+        hideNextButton(true);
     }
     else
     {
-        ui->mainwindow_pushButton_back->setVisible(true);
-        ui->mainwindow_pushButton_next->setVisible(true);
+        hideBackButton(false);
+        hideNextButton(false);
         //Enable Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(40,60,QSizePolicy::Minimum);
     }
@@ -218,6 +226,20 @@ void MainWindow::hideNextButton(bool hidden)
 }
 
 /**
+ * @brief MainWindow::hideBackButton
+ * If true, hide the back button. If false, show the back button.
+ * @param hidden
+ */
+void MainWindow::hideBackButton(bool hidden)
+{
+    if(hidden){
+        ui->mainwindow_pushButton_back->setVisible(false);
+    } else {
+        ui->mainwindow_pushButton_back->setVisible(true);
+    }
+}
+
+/**
  * @brief MainWindow::on_mainwindow_pushButton_viewStadiums_clicked
  */
 void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
@@ -234,7 +256,7 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
 
     // toggle visibility of back/next button
     checkPage_toggleBackNextButtonVisible();
-    ui->mainwindow_pushButton_next->setVisible(false);
+    hideNextButton(true);
     //Disables the Spacer
     ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 
@@ -266,7 +288,7 @@ void MainWindow::gotoHomePage()
 
 /**
  * @brief MainWindow::on_actionLogin_triggered
- * Prompt the user for an admin password. If it's legit, send a signal that
+ * Prompt the user for an admin password. If it's legit, send a signalx that
  * grants access to all admin functions in the application.
  */
 void MainWindow::on_actionLogin_triggered()
@@ -285,5 +307,40 @@ void MainWindow::on_actionLogin_triggered()
 void MainWindow::on_actionLogout_triggered()
 {
     emit adminFeaturesToggled(false);
+}
+
+/**
+ * @brief MainWindow::on_actionAdd_new_stadium_triggered
+ * Adds new Stadium (Las Vegas) with it's following attributes.
+ * Adds edges with weights between Lags Vegas and it surrounding cities.
+ * Adds souviers to Lag Vegas stadium
+ */
+void MainWindow::on_actionAdd_new_stadium_triggered()
+{
+    // Adding Las Vegas Stadium with it's corresponding attributes
+    db->AddStadium("Las Vegas Stadium","Las Vegas Gamblers","123 Las Vegas Blv,NV 89101","(702) 962-4000","2016-04-11","50,000","Grass",0,"American","Modern");
+
+    // Gets Stadiums ID(las Vegas)
+    int id =  db->GetStadiumID("Las Vegas Stadium");
+    qDebug()<<"ID; "<<id;
+
+    // Adds Distances with it's vertecies to the current added Stadium(Las Vegas)
+    db->AddDistance(id,db->GetStadiumID("O.co Coliseum"),325);
+    db->AddDistance(id,db->GetStadiumID("Dodger Stadium"),300);
+    db->AddDistance(id,db->GetStadiumID("Chase Field"),250);
+
+    // Adds all the Souvenirs to Las Veags Stadium
+    db->AddSouvenir("Las Vegas Stadium","Baseball cap",23.99);
+    db->AddSouvenir("Las Vegas Stadium","Baseball bat",45.39);
+    db->AddSouvenir("Las Vegas Stadium","Team pendant",15.99);
+    db->AddSouvenir("Las Vegas Stadium","Autographed baseball",19.99);
+    db->AddSouvenir("Las Vegas Stadium","Team jersey",85.99);
+
+    // initialize tables with data from database
+    stadiumModel = new StadiumTableModel(this, db);
+    souvenirModel = new SouvenirTableModel(this, db);
+    //Emiting initilizaing for stadium and souvenir table;
+    emit initializeStadiumTable(stadiumModel);
+    emit initializeSouvenirTable(souvenirModel);
 }
 

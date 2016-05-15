@@ -357,97 +357,29 @@ void Graph::debug_printPath(Vertex vertex) const
 
 }
 
-void Graph::findShortestPathTo(Vertex source, Vertex target)
+/**
+ * @brief Graph::findShortestPathTo
+ * This is an overloaded method for find the shortest path between 2 vertices. It calls
+ * on other methods such as creating the graph, finding the shortest path to all vertices
+ * then getting the target vertex from the vertex list. After the algorithm has found
+ * the shortest path, it will return a QList of vertices in which it is required to
+ * traverse to get to the target vertex. The list will contain the starting vertex and
+ * ending vertex. Each vertex will have a distance value it takes to get to that vertex
+ * given the starting the vertex.
+ * @param db
+ * @param source
+ * @param target
+ * @return
+ */
+QList<Vertex> Graph::findShortestPathTo(Database *db, int source, int target)
 {
-    Heap<Vertex, vertexComp> vertexPQ;// Min-Heap (priority queue) containing all the
-                            //	vertices in the graph, ordered by the weight. Smallest
-                            //	weight is root
-    VertexSet T;			// Contains the set of vertices to which the shortest path
-                            //	has been found.
-    QList<Vertex> S;
-//    bool *visited;
-    Vertex u;
-    Vertex v;
-    Edge adjEdge;
-    int distanceSum;
+    Vertex vertex;
 
-    source = vertexList.at(source.getId());
-    target = vertexList.at(target.getId());
-    // Initialize all edges, and vertices to infinity
-    initialize_single_source(source);
-//    visited = new bool[numVertices];
-
-//    for(int v = 0; v < numVertices; v++)
-//    {
-//        visited[v] = false;
-//    }
-
-    T.clear();
-    // Initialize the priority queue to start with the given source vertex as the first
-    //	vertex to explore.
-    vertexPQ.insert(vertexList[source.getId()]);
-//    visited[source.getId()] = true;
-
-    while(!vertexPQ.isEmpty())
-    {
-        u = vertexPQ.removeMin();
-        if(target.getId() == u.getId())
-        {
-            break;
-        }
-        // While the current vertex u has an adjacent edge available.
-        while(vertexList.at(u.getId()).hasEdges() )
-        {
-            // Get the adjacent edge to the vertex. It will be the edge with the shortest
-            //	path currently available
-            adjEdge = vertexList[u.getId()].getNearestEdge();
-            v = vertexList.at(adjEdge.idTo);
-            // checks to see if a path between vertex u and vertex v exists. A path
-            //	exists if the value in the adjacency matrix is not 0
-            if(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0 )
-            {
-                // Calculate the total distance between the vertex u and the weight
-                //	between the vertex u and vertex v
-                distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];
-
-                // If the current distance to vertex v is greater than the sum of u's
-                //	current distance plus the weight in the adj matrix set the distance
-                //	to v to the new distance sum because it is a shorter path to that
-                //	vertex.
-                if(v.getDistance() > distanceSum )
-                {
-                    v.setDistance(distanceSum);
-                    v.setParent(u.getId());
-                    vertexList[v.getId()] = v;
-                }
-
-                // If the set T of found vertices does not contain the vertex v add the
-                //	vertex v to the priority queue to see the shorter path.
-                if(!T.contains(v))
-                {
-                    vertexPQ.insert(v);
-//                    T.insert(vertexList[u.getId()]);
-                    T.insert(v);
-                }
-            }
-        }
-        // Once all the adjacent vertices have been explored, add the the vertex U to the
-        //	set T of found shortest paths.
-    }
-    // Once the algorithm is complete, clear the VertexSet T of all vertices.
-//    T.clear();
-
-    while(u.getParent() != -1)
-    {
-        S.push_front(vertexList[u.getParent()]);
-        u = vertexList.at(u.getParent());
-    }
-    S.push_front(u);
-//    delete [] visited;
-    for(int i = 0; i < S.size(); i++)
-    {
-        qDebug() << "At i " << i << " is " << S.at(i).getName();
-    }
+    vertex = vertexList.at(source);
+    createGraph(db);
+    shortestPath(vertex);
+    vertex = vertexList.at(target);
+    return getVertexPath(vertex);
 
 }
 
@@ -476,4 +408,105 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
         parentId = vertexList[parentId].getParent();
     }
     return path;
+}
+
+/**
+ * @brief Graph::malik_minimumSpanningTree
+ * This method will generate the minimum spanning tree given a starting vertex. It is
+ * recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum
+ * spanning tree possible in the given graph. Each vertex will store the parent of the
+ * vertex that it had to traverse to get to.
+ * @param source
+ * @return long minimum distance between all vertices
+ */
+long Graph::minimumSpanningTree(int source)
+{
+    long *parent; 	// Array to store construted MST
+    long *key;		// Key values used to pick minumum weight edge in cut
+    bool *mstSet;	// To represent set of vertices not yet included MST
+
+
+    mstSet = new bool[numVertices];
+    parent = new long[numVertices];
+    key = new long[numVertices];
+
+
+    // Initialize all keys as INFINITE
+    for(int i = 0; i < numVertices; i++)
+    {
+        key[i] = INF;
+        mstSet[i] = false;
+    }
+
+    // Always include first lst vertex in MST.
+    key[source] = 0;		// Make key 0 so that this vertex is picked as first vertex include first lst vertex in MST.
+    parent[source] = -1;	// First node is always root of MST
+
+    // The MST will have V vertices
+    for(int count = 0; count < numVertices; count++)
+    {
+        // Pick the minimum key vertex from the set of vertices not yet included
+        //	in the MST
+        int u = minKey(key, mstSet);
+
+        // Add the picked vertex to the MST Set
+        mstSet[u] = true;
+
+        // Update key value and parent index of the adjacent vertices of the picked
+        //	vertex. Consider only those vertices which are not yet included in MST
+        for(int v = 0; v < numVertices; v++)
+        {
+            // Graph[u][v] is non zero only for adjacent vertices of m
+            //	mstSet[v] is false for vertices not yet included in MST
+            // 	Update the key only if graph[u][v] is smaller than key[v]
+            if (adjacencyMatrix[u][v] > 0 && mstSet[v] == false && adjacencyMatrix[u][v] < key[v])
+            {
+                parent[v] = u;
+                key[v] = adjacencyMatrix[u][v];
+            }
+        }
+    }
+    // A utility function to print the constructed MST stored in parent[]
+//    printf("Edge   Weight\n");
+    long sum = 0;
+    long weight;
+    for (int i = 0; i < numVertices; i++)
+    {
+//        printf("%d - %d    %d \n", parent[i], i, adjacencyMatrix[i][parent[i]]);
+        vertexList[i].setParent(parent[i]);
+        weight = adjacencyMatrix[i][parent[i]];
+        vertexList[i].setDistance(weight);
+//        qDebug() << "i - " << i << " Weight - " << weight << " key - " << key[i];
+        sum += weight;
+    }
+//    qDebug() <<"Total distance is : " << sum;
+
+    delete [] key;
+    delete [] parent;
+    delete [] mstSet;
+    return sum;
+}
+
+/**
+ * @brief Graph::minKey
+ * Utility function to find the vertex with minimum key value, from the set of vertices
+ * not yet included in the minimum spanning tree.
+ * @param key
+ * @param mstSet
+ * @return long - the minimum key value
+ */
+long Graph::minKey(long key[], bool mstSet[])
+{
+    long min = INF;
+    long min_index;
+    for(int v = 0; v < numVertices; v++)
+    {
+        if(mstSet[v] == false && key[v] < min)
+        {
+            min = key[v];
+            min_index = v;
+        }
+    }
+
+    return min_index;
 }

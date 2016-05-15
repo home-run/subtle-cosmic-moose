@@ -153,6 +153,8 @@
     </property>
     <addaction name="actionLogin"/>
     <addaction name="actionLogout"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_new_stadium"/>
    </widget>
    <addaction name="menuAdmin"/>
   </widget>
@@ -165,6 +167,11 @@
   <action name="actionLogout">
    <property name="text">
     <string>Logout</string>
+   </property>
+  </action>
+  <action name="actionAdd_new_stadium">
+   <property name="text">
+    <string>Update Stadiums </string>
    </property>
   </action>
  </widget>

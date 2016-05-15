@@ -40,7 +40,8 @@ HEADERS  += header/mainwindow.h \
     header/Heap.h \
     header/Exceptions.h \
     header/addsouvenir.h \
-    header/vertex.h
+    header/vertex.h \
+    header/vertexqueue.h
 
 FORMS    += form/mainwindow.ui \
     form/stadiumdetails.ui \
