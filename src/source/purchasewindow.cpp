@@ -248,18 +248,31 @@ void PurchaseWindow::initializeCartWidget()
 
 }
 
+/**
+ * @brief PurchaseWindow::on_purchaseWindow_tableWidget_shoppingCart_doubleClicked
+ * Remove the clicked souvenir from the cart.
+ * @param index
+ */
 void PurchaseWindow::on_purchaseWindow_tableWidget_shoppingCart_doubleClicked(const QModelIndex &index)
 {
     ui->purchaseWindow_tableWidget_shoppingCart->removeRow(index.row());
 }
 
+/**
+ * @brief PurchaseWindow::on_toolButton_clicked
+ * Add the current selected souvenir to the cart.
+ */
 void PurchaseWindow::on_toolButton_clicked()
 {
     if(ui->purchaseWindow_tableView_souvenirList->currentIndex().row() > -1){
-    on_purchaseWindow_tableView_souvenirList_doubleClicked(ui->purchaseWindow_tableView_souvenirList->currentIndex());
+        on_purchaseWindow_tableView_souvenirList_doubleClicked(ui->purchaseWindow_tableView_souvenirList->currentIndex());
     }
 }
 
+/**
+ * @brief PurchaseWindow::on_toolButton_2_clicked
+ * Remove the selected souvenir from the cart.
+ */
 void PurchaseWindow::on_toolButton_2_clicked()
 {
     if(ui->purchaseWindow_tableWidget_shoppingCart->currentIndex().row() > -1){

@@ -50,8 +50,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 
     //Start off with splash screen
-//    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
-    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_MAIN);
+    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
+
 
     // toggle hiding of back/next button
     checkPage_toggleBackNextButtonVisible();
