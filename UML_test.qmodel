@@ -35,9 +35,31 @@
                     <name>UML Test</name>
                    </MObject>
                   </base-MObject>
+                  <last-modified>1463251984531</last-modified>
                  </MDiagram>
                 </base-MDiagram>
                </MCanvasDiagram>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{9b934aed-da3e-434d-b1f8-2a59093de865}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{9b934aed-da3e-434d-b1f8-2a59093de865}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>New Class</name>
+                 </MObject>
+                </base-MObject>
+               </MClass>
               </instance>
              </target>
             </handle>
