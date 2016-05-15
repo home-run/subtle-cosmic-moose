@@ -357,12 +357,25 @@ void Graph::debug_printPath(Vertex vertex) const
 
 }
 
+/**
+ * @brief Graph::findShortestPathTo
+ * This is an overloaded method for find the shortest path between 2 vertices. It calls
+ * on other methods such as creating the graph, finding the shortest path to all vertices
+ * then getting the target vertex from the vertex list. After the algorithm has found
+ * the shortest path, it will return a QList of vertices in which it is required to
+ * traverse to get to the target vertex. The list will contain the starting vertex and
+ * ending vertex. Each vertex will have a distance value it takes to get to that vertex
+ * given the starting the vertex.
+ * @param db
+ * @param source
+ * @param target
+ * @return
+ */
 QList<Vertex> Graph::findShortestPathTo(Database *db, int source, int target)
 {
     Vertex vertex;
 
     vertex = vertexList.at(source);
-
     createGraph(db);
     shortestPath(vertex);
     vertex = vertexList.at(target);
@@ -397,62 +410,16 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
     return path;
 }
 
+/**
+ * @brief Graph::malik_minimumSpanningTree
+ * This method will generate the minimum spanning tree given a starting vertex. It is
+ * recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum
+ * spanning tree possible in the given graph. Each vertex will store the parent of the
+ * vertex that it had to traverse to get to.
+ * @param source
+ * @return long minimum distance between all vertices
+ */
 long Graph::minimumSpanningTree(int source)
-{
-    VertexQueue<vertexComp> Q;
-    Vertex u;
-    Vertex v;
-    long distance[30];
-    Edge edge;
-    long weight;
-    for(int u = 0; u < numVertices; u++)
-    {
-        vertexList[u].setDistance(INF);
-        vertexList[u].setParent(0);
-    }
-    vertexList[source].setDistance(0);
-    for(int index = 0; index < numVertices; index++)
-    {
-        Q.insert(vertexList[index]);
-    }
-
-    while(!Q.isEmpty())
-    {
-        u = Q.removeMin();
-
-        for(int i = 0; i < numVertices; i++)
-        {
-            if(adjacencyMatrix[u.getId()][i] != 0)
-            {
-                v = vertexList[i];
-                weight = adjacencyMatrix[u.getId()][v.getId()];
-                if(Q.contains(v) && weight < vertexList[u.getId()].getDistance() && adjacencyMatrix[u.getId()][v.getId()] != 0)
-                {
-                    vertexList[v.getId()].setParent(u.getId());
-                    vertexList[v.getId()].setDistance(weight);
-                    distance[v.getId()] = weight;
-                    Q.decreaseKey(weight, v);
-                }
-            }
-        }
-    }
-
-    long sum = 0;
-    for(int i = 0; i < numVertices; i++)
-    {
-//        sum += vertexList[i].getDistance();
-        if(100000 >= distance[i])
-        {
-            sum += distance[i];
-            qDebug() << "Sum is " << distance[i] << " at " << i;
-        }
-    }
-
-    return sum;
-}
-
-
-long Graph::malik_minimumSpanningTree(int source)
 {
     long *parent; 	// Array to store construted MST
     long *key;		// Key values used to pick minumum weight edge in cut
@@ -500,14 +467,23 @@ long Graph::malik_minimumSpanningTree(int source)
         }
     }
     // A utility function to print the constructed MST stored in parent[]
-    printf("Edge   Weight\n");
+//    printf("Edge   Weight\n");
     long sum = 0;
+    long weight;
     for (int i = 0; i < numVertices; i++)
     {
-        printf("%d - %d    %d \n", parent[i], i, adjacencyMatrix[i][parent[i]]);
-        sum += adjacencyMatrix[i][parent[i]];
+//        printf("%d - %d    %d \n", parent[i], i, adjacencyMatrix[i][parent[i]]);
+        vertexList[i].setParent(parent[i]);
+        weight = adjacencyMatrix[i][parent[i]];
+        vertexList[i].setDistance(weight);
+//        qDebug() << "i - " << i << " Weight - " << weight << " key - " << key[i];
+        sum += weight;
     }
-    qDebug() <<"Total distance is : " << sum;
+//    qDebug() <<"Total distance is : " << sum;
+
+    delete [] key;
+    delete [] parent;
+    delete [] mstSet;
     return sum;
 }
 
