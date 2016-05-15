@@ -72,6 +72,8 @@ private slots:
 
     void hideNextButton(bool hidden);
 
+    void hideBackButton(bool hidden);
+
 private:
     Ui::MainWindow *  ui;
     StadiumDetails*   stadiumDetails_widget;

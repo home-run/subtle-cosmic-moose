@@ -46,6 +46,10 @@ MainWindow::MainWindow(QWidget *parent) :
     // planTrip gives a list of stadiums to the purchaseWindow
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
+    //planTrip gives a list of stadiums also to tripSummary
+    connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
+            tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
+
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 
@@ -112,8 +116,9 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         break;
     case PAGE_PURCHASE_WINDOW:
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
-        tripSummary_widget->populateTripPath();
-        ui->mainwindow_pushButton_next->setVisible(false);
+
+        hideBackButton(true);
+        hideNextButton(true);
         //Disables the Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
         break;
@@ -172,7 +177,7 @@ void MainWindow::on_mainwindow_pushButton_back_clicked()
         switch(currentIndex)
         {
         case PAGE_PLAN_TRIP :
-            ui->mainwindow_pushButton_next->setVisible(false);
+            hideNextButton(true);
             break;
         }
     }
@@ -187,13 +192,13 @@ void MainWindow::checkPage_toggleBackNextButtonVisible()
 {
     if(pageStackCache.isEmpty() || ui->mainwindow_stackedWidget->currentIndex() < 2)
     {
-        ui->mainwindow_pushButton_back->setVisible(false);
-        ui->mainwindow_pushButton_next->setVisible(false);
+        hideBackButton(true);
+        hideNextButton(true);
     }
     else
     {
-        ui->mainwindow_pushButton_back->setVisible(true);
-        ui->mainwindow_pushButton_next->setVisible(true);
+        hideBackButton(false);
+        hideNextButton(false);
         //Enable Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(40,60,QSizePolicy::Minimum);
     }
@@ -214,6 +219,20 @@ void MainWindow::hideNextButton(bool hidden)
 }
 
 /**
+ * @brief MainWindow::hideBackButton
+ * If true, hide the back button. If false, show the back button.
+ * @param hidden
+ */
+void MainWindow::hideBackButton(bool hidden)
+{
+    if(hidden){
+        ui->mainwindow_pushButton_back->setVisible(false);
+    } else {
+        ui->mainwindow_pushButton_back->setVisible(true);
+    }
+}
+
+/**
  * @brief MainWindow::on_mainwindow_pushButton_viewStadiums_clicked
  */
 void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
@@ -230,7 +249,7 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
 
     // toggle visibility of back/next button
     checkPage_toggleBackNextButtonVisible();
-    ui->mainwindow_pushButton_next->setVisible(false);
+    hideNextButton(true);
     //Disables the Spacer
     ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 

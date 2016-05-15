@@ -2,6 +2,7 @@
 #define TRIPSUMMARY_H
 
 #include <QWidget>
+#include <graph.h>
 
 namespace Ui {
 class TripSummary;
@@ -12,14 +13,14 @@ class TripSummary : public QWidget
     Q_OBJECT
 
 signals:
+    /// Send a signal when the user presses the finish button
     void finishTrip(bool);
 
 public:
-    explicit TripSummary(QWidget *parent = 0);
+    explicit TripSummary(QWidget *parent = 0,  Database *db = 0);
     ~TripSummary();
 
     //Function populates listWidget with a string
-    void populateTripPath();
     void clearData();
 
 private slots:

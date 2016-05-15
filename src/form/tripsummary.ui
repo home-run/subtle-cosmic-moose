@@ -17,13 +17,7 @@
    <item>
     <layout class="QVBoxLayout" name="tripSummary_verticalLayout">
      <item>
-      <widget class="QListWidget" name="tripSummary_listWidget_tripPath">
-       <item>
-        <property name="text">
-         <string>From Dallas -&gt; Destination Boston : Distance [1290]</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QListWidget" name="tripSummary_listWidget_tripPath"/>
      </item>
      <item>
       <spacer name="tripSummary_verticalSpacer">

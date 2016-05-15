@@ -30,7 +30,7 @@ public:
      * Default Vertex constructor
      */
     Vertex(){
-        this->id = INT16_MAX;
+        this->id = INT_MAX;
         this->name = "";
         this->parent = -1;
         this->distance = 0;
