@@ -1,0 +1,986 @@
+******** Start testing of Test_Main *********
+Config: Using QtTest library 5.5.1, Qt 5.5.1 (x86_64-little_endian-lp64 shared (dynamic) release build; by Clang 6.0 (clang-600.0.56) (Apple))
+PASS   : Test_Main::initTestCase()
+PASS   : Test_Main::initTest()
+QDEBUG : Test_Main::testOpenDB() Database opened successfully
+PASS   : Test_Main::testOpenDB()
+QDEBUG : Test_Main::testNumberStadiums() Number of stadiums :  30
+PASS   : Test_Main::testNumberStadiums()
+QDEBUG : Test_Main::createGraph() Creating the graph
+PASS   : Test_Main::createGraph()
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Angels Stadium of Anaheim"  ] is [  2210  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Comerica Park"  ] is [  90  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Fenway Park"  ] is [  625  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Globe Life Park in Arlington"  ] is [  1205  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Kauffman Stadium"  ] is [  745  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Minute Maid Park"  ] is [  1215  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "O.co Coliseum"  ] is [  2535  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Oriole Park at Camden Yards"  ] is [  310  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Progressive Field"  ] is [  0  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Rogers Centre"  ] is [  300  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "SafeCo Field"  ] is [  2100  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Target Field"  ] is [  710  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Tropicana Field"  ] is [  1015  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "US Cellular Field"  ] is [  330  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Yankee Stadium"  ] is [  430  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "AT&T Park"  ] is [  2535  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Busch Stadium"  ] is [  535  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Chase Field"  ] is [  1885  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Citi Field"  ] is [  430  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Citizens Bank Park"  ] is [  400  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Coors Field"  ] is [  1305  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Dodger Stadium"  ] is [  2210  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Great America Ball Park"  ] is [  225  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Marlins Park"  ] is [  1200  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Miller Park"  ] is [  410  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Nationals Park"  ] is [  310  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Petco Park"  ] is [  2135  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "PNC Park"  ] is [  115  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Turner Field"  ] is [  600  ]
+QDEBUG : Test_Main::testShortestPath() Distance to [  "Wrigley Field"  ] is [  330  ]
+QDEBUG : Test_Main::testShortestPath() Total Distance is  28445
+PASS   : Test_Main::testShortestPath()
+QDEBUG : Test_Main::testShortestPathBetween2Points() At i  0  is  "Comerica Park"
+QDEBUG : Test_Main::testShortestPathBetween2Points() At i  1  is  "Comerica Park"
+QDEBUG : Test_Main::testShortestPathBetween2Points() At i  2  is  "Progressive Field"
+QDEBUG : Test_Main::testShortestPathBetween2Points() At i  3  is  "Great America Ball Park"
+QDEBUG : Test_Main::testShortestPathBetween2Points() At i  4  is  "Busch Stadium"
+PASS   : Test_Main::testShortestPathBetween2Points()
+PASS   : Test_Main::testVertexSet()
+PASS   : Test_Main::testHeap()
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+26 - 17    300 
+14 - 18    50 
+7 - 19    90 
+17 - 20    580 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+0 - 26    110 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6380
+Edge   Weight
+-1 - 1    210 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+1 - 8    90 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6480
+Edge   Weight
+8 - 1    90 
+-1 - 2    430 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+19 - 7    90 
+27 - 8    115 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+2 - 14    195 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+14 - 19    80 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+7 - 27    195 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6700
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+-1 - 3    0 
+3 - 4    460 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+-1 - 4    0 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+5 - 3    230 
+3 - 4    460 
+-1 - 5    0 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+-1 - 6    0 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+26 - 17    300 
+14 - 18    50 
+7 - 19    90 
+17 - 20    580 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+0 - 26    110 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6040
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+-1 - 7    0 
+27 - 8    115 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+7 - 27    195 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+-1 - 8    0 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+9 - 1    210 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+1 - 8    90 
+-1 - 9    0 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+15 - 6    50 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+-1 - 10    2070 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+10 - 15    680 
+4 - 16    235 
+26 - 17    300 
+14 - 18    50 
+7 - 19    90 
+17 - 20    580 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+0 - 26    110 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  8790
+Edge   Weight
+13 - 1    240 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+1 - 8    90 
+1 - 9    210 
+6 - 10    0 
+-1 - 11    0 
+23 - 12    210 
+24 - 13    80 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+11 - 24    300 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+-1 - 12    0 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+28 - 22    375 
+12 - 23    210 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+23 - 28    600 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+13 - 1    240 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+1 - 8    90 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+-1 - 13    0 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+19 - 7    90 
+27 - 8    115 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+-1 - 14    0 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+14 - 19    80 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+7 - 27    195 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+15 - 6    50 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+15 - 10    680 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+-1 - 15    0 
+4 - 16    235 
+26 - 17    300 
+14 - 18    50 
+7 - 19    90 
+17 - 20    580 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+0 - 26    110 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6720
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+-1 - 16    0 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+-1 - 17    0 
+14 - 18    50 
+7 - 19    90 
+17 - 20    580 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+18 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+19 - 7    90 
+27 - 8    115 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+18 - 14    50 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+-1 - 18    0 
+18 - 19    80 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+7 - 27    195 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+19 - 7    90 
+27 - 8    115 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+-1 - 19    0 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+7 - 27    195 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+-1 - 20    0 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+21 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+26 - 17    300 
+14 - 18    50 
+7 - 19    90 
+17 - 20    580 
+-1 - 21    0 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+21 - 26    110 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6330
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+-1 - 22    0 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+28 - 22    375 
+-1 - 23    0 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+23 - 28    600 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+13 - 1    240 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+1 - 8    90 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+24 - 13    80 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+-1 - 24    430 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6700
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+25 - 7    50 
+27 - 8    115 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+25 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+-1 - 25    0 
+17 - 26    300 
+25 - 27    195 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+20 - 4    560 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+4 - 16    235 
+26 - 17    300 
+14 - 18    50 
+7 - 19    90 
+17 - 20    580 
+0 - 21    50 
+16 - 22    310 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+-1 - 26    0 
+8 - 27    115 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+27 - 8    115 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+-1 - 27    225 
+22 - 28    375 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6495
+Edge   Weight
+8 - 1    90 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+22 - 8    225 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+1 - 13    240 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+28 - 22    375 
+28 - 23    600 
+13 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+-1 - 28    0 
+13 - 29    50 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+Edge   Weight
+29 - 1    240 
+14 - 2    195 
+4 - 3    460 
+16 - 4    235 
+3 - 5    230 
+0 - 6    340 
+27 - 7    195 
+1 - 8    90 
+1 - 9    210 
+6 - 10    0 
+24 - 11    300 
+23 - 12    210 
+29 - 13    50 
+19 - 14    80 
+6 - 15    50 
+22 - 16    310 
+20 - 17    580 
+14 - 18    50 
+7 - 19    90 
+4 - 20    560 
+0 - 21    50 
+8 - 22    225 
+28 - 23    600 
+29 - 24    80 
+7 - 25    50 
+17 - 26    300 
+8 - 27    115 
+22 - 28    375 
+-1 - 29    0 
+QDEBUG : Test_Main::testMinimumSpanningTree() Total distance is :  6270
+QDEBUG : Test_Main::testMinimumSpanningTree() The smallest MST was found using index  6  and the distance was  6040
+PASS   : Test_Main::testMinimumSpanningTree()
+PASS   : Test_Main::cleanupTestCase()
+Totals: 11 passed, 0 failed, 0 skipped, 0 blacklisted
+********* Finished testing of Test_Main *********
+/Users/dank/Dropbox/School/CS1D/2016_Spring/Projects/build-home-run-Desktop_Qt_5_5_1_clang_64bit-Debug/test/test.app/Contents/MacOS/test exited with code 0

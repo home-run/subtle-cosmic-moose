@@ -357,12 +357,25 @@ void Graph::debug_printPath(Vertex vertex) const
 
 }
 
+/**
+ * @brief Graph::findShortestPathTo
+ * This is an overloaded method for find the shortest path between 2 vertices. It calls
+ * on other methods such as creating the graph, finding the shortest path to all vertices
+ * then getting the target vertex from the vertex list. After the algorithm has found
+ * the shortest path, it will return a QList of vertices in which it is required to
+ * traverse to get to the target vertex. The list will contain the starting vertex and
+ * ending vertex. Each vertex will have a distance value it takes to get to that vertex
+ * given the starting the vertex.
+ * @param db
+ * @param source
+ * @param target
+ * @return
+ */
 QList<Vertex> Graph::findShortestPathTo(Database *db, int source, int target)
 {
     Vertex vertex;
 
     vertex = vertexList.at(source);
-
     createGraph(db);
     shortestPath(vertex);
     vertex = vertexList.at(target);
@@ -395,4 +408,105 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
         parentId = vertexList[parentId].getParent();
     }
     return path;
+}
+
+/**
+ * @brief Graph::malik_minimumSpanningTree
+ * This method will generate the minimum spanning tree given a starting vertex. It is
+ * recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum
+ * spanning tree possible in the given graph. Each vertex will store the parent of the
+ * vertex that it had to traverse to get to.
+ * @param source
+ * @return long minimum distance between all vertices
+ */
+long Graph::minimumSpanningTree(int source)
+{
+    long *parent; 	// Array to store construted MST
+    long *key;		// Key values used to pick minumum weight edge in cut
+    bool *mstSet;	// To represent set of vertices not yet included MST
+
+
+    mstSet = new bool[numVertices];
+    parent = new long[numVertices];
+    key = new long[numVertices];
+
+
+    // Initialize all keys as INFINITE
+    for(int i = 0; i < numVertices; i++)
+    {
+        key[i] = INF;
+        mstSet[i] = false;
+    }
+
+    // Always include first lst vertex in MST.
+    key[source] = 0;		// Make key 0 so that this vertex is picked as first vertex include first lst vertex in MST.
+    parent[source] = -1;	// First node is always root of MST
+
+    // The MST will have V vertices
+    for(int count = 0; count < numVertices; count++)
+    {
+        // Pick the minimum key vertex from the set of vertices not yet included
+        //	in the MST
+        int u = minKey(key, mstSet);
+
+        // Add the picked vertex to the MST Set
+        mstSet[u] = true;
+
+        // Update key value and parent index of the adjacent vertices of the picked
+        //	vertex. Consider only those vertices which are not yet included in MST
+        for(int v = 0; v < numVertices; v++)
+        {
+            // Graph[u][v] is non zero only for adjacent vertices of m
+            //	mstSet[v] is false for vertices not yet included in MST
+            // 	Update the key only if graph[u][v] is smaller than key[v]
+            if (adjacencyMatrix[u][v] > 0 && mstSet[v] == false && adjacencyMatrix[u][v] < key[v])
+            {
+                parent[v] = u;
+                key[v] = adjacencyMatrix[u][v];
+            }
+        }
+    }
+    // A utility function to print the constructed MST stored in parent[]
+//    printf("Edge   Weight\n");
+    long sum = 0;
+    long weight;
+    for (int i = 0; i < numVertices; i++)
+    {
+//        printf("%d - %d    %d \n", parent[i], i, adjacencyMatrix[i][parent[i]]);
+        vertexList[i].setParent(parent[i]);
+        weight = adjacencyMatrix[i][parent[i]];
+        vertexList[i].setDistance(weight);
+//        qDebug() << "i - " << i << " Weight - " << weight << " key - " << key[i];
+        sum += weight;
+    }
+//    qDebug() <<"Total distance is : " << sum;
+
+    delete [] key;
+    delete [] parent;
+    delete [] mstSet;
+    return sum;
+}
+
+/**
+ * @brief Graph::minKey
+ * Utility function to find the vertex with minimum key value, from the set of vertices
+ * not yet included in the minimum spanning tree.
+ * @param key
+ * @param mstSet
+ * @return long - the minimum key value
+ */
+long Graph::minKey(long key[], bool mstSet[])
+{
+    long min = INF;
+    long min_index;
+    for(int v = 0; v < numVertices; v++)
+    {
+        if(mstSet[v] == false && key[v] < min)
+        {
+            min = key[v];
+            min_index = v;
+        }
+    }
+
+    return min_index;
 }

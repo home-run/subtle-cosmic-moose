@@ -1,5 +1,8 @@
 #ifndef VERTEX_H
 #define VERTEX_H
+#ifndef INF
+#define INF INT_MAX - 10000
+#endif
 
 #include <QList>
 #include "Heap.h"
@@ -34,6 +37,7 @@ public:
         this->name = "";
         this->parent = -1;
         this->distance = 0;
+        this->queuePosition = -1;
     }
 
     /**
@@ -133,12 +137,24 @@ public:
      * @param v
      * @return true if they are equal, false otherwise.
      */
-    bool operator==(const Vertex& v)
+    bool operator==(const Vertex& v) const
     {
-        return (v.getDistance() == this->getDistance()
-                && v.getId() == this->getId()
+        return (v.getId() == this->getId()
                 && v.getName() == this->getName());
     }
+
+    /**
+     * @brief operator !=
+     * Overloaded comparison operator to see if the two vertices are not the same vertex.
+     * Compares the ID and the name of the vertex as its determining factors of equality.
+     * @param v
+     * @return true if they don't match; otherwise return false if they do.
+     */
+    bool operator!=(const Vertex& v) const
+    {
+        return (v.getId() != this->getId() && v.getName() != this->getName());
+    }
+
 
     /**
      * @brief operator <
@@ -147,7 +163,7 @@ public:
      * @param v
      * @return
      */
-    bool operator<(const Vertex &v)
+    bool operator<(const Vertex &v) const
     {
         return this->distance < v.getDistance();
     }
@@ -159,11 +175,32 @@ public:
      * @param v
      * @return
      */
-    bool operator>(const Vertex &v)
+    bool operator>(const Vertex &v) const
     {
         return this->distance > v.getDistance();
     }
-
+    /**
+     * @brief operator >=
+     * Overloaded greater than or equal operator to compare this vertex distance
+     * 	and the given vertex v
+     * @param v
+     * @return
+     */
+    bool operator>=(const Vertex &v) const
+    {
+        return this->distance >= v.getDistance();
+    }
+    /**
+     * @brief operator <=
+     * Overloaded less than or equal operator to compare this vertex distance
+     * 	and the given vertex v
+     * @param v
+     * @return
+     */
+    bool operator<=(const Vertex &v) const
+    {
+        return this->distance <= v.getDistance();
+    }
     /**
      * @brief operator =
      * Overloaded assignment operator to assign the values of the given vertex v to this
@@ -249,6 +286,11 @@ public:
         return this->parent;
     }
 
+    /**
+     * @brief reinitializeEdges
+     * This method iterates the vertex's current edges and places them back into it's
+     * own priority queue (adjacency list).
+     */
     void reinitializeEdges()
     {
         Edge edge;
@@ -260,6 +302,38 @@ public:
         }
     }
 
+    /**
+     * @brief getNextEdge
+     * this will return the next edge available in verticee adjacency list.
+     * @return edge object of the adj list
+     */
+    Edge getNextEdge()
+    {
+        return edges.root();
+    }
+
+    /**
+     * @brief setQueuePosition
+     * Sets the vertex index that is relative to its position in the stored object that
+     * it is located in, such as a map, queue or a vector.
+     * @param pos
+     */
+    void setQueuePosition(int pos)
+    {
+        this->queuePosition = pos;
+    }
+
+    /**
+     * @brief getQueuePosition
+     * This returns the vertices index of the position / location that it is located in
+     * a container object.
+     * @return int
+     */
+    int getQueuePosition() const
+    {
+        return this->queuePosition;
+    }
+
 private:
     int id;
     QString name;
@@ -268,6 +342,7 @@ private:
     Heap<Edge, comp> edges;
     int numEdges;
     QList<Edge> backupEdges;
+    int queuePosition;
 };
 
 /**
@@ -292,10 +367,11 @@ public:
         this->bucketSize = 0;
     }
 
-//    ~VertexSet()
-//    {
-//        delete [] buckets;
-//    }
+    ~VertexSet()
+    {
+        // Need to figure out why this crashes the program....
+        // delete [] buckets;
+    }
 
     /**
      * @brief insert
@@ -311,13 +387,21 @@ public:
         {
             if(v.getId() != 0 )
             {
-                this->buckets = new Vertex[v.getId()*100];
-                this->bucketSize = v.getId()*100;
+                // Changed the sizes to be a prime number
+                //	may need to be made bigger...
+//                this->buckets = new Vertex[v.getId()*100];
+//                this->bucketSize = v.getId()*100;
+                this->buckets = new Vertex[v.getId()*31];
+                this->bucketSize = v.getId()*31;
             }
             else
             {
-                this->buckets = new Vertex[100];
-                this->bucketSize = 100;
+                // Changed the sizes to be a prime number
+                //	may need to be made bigger...
+//                this->buckets = new Vertex[100];
+//                this->bucketSize = 100;
+                this->buckets = new Vertex[31];
+                this->bucketSize = 31;
             }
             for(int i =0; i < this->bucketSize; i++)
             {
@@ -326,7 +410,7 @@ public:
         }
         hashKey = this->hash(v);
         index = 0;
-        while(this->buckets[hashKey].getName() != "empty")
+        while(this->buckets[hashKey].getName() != "empty" && this->buckets[hashKey] != v)
         {
             hashKey = (this->hash(v) + index * this->doubleHash(v)) % this->bucketSize;
             index++;
@@ -436,7 +520,7 @@ public:
     {
         Vertex vertex;	// Temp vertex to override any vertex in the set.
         // Set the distance, name, id and parent back to original values.
-        vertex.setDistance(INFINITY);
+        vertex.setDistance(INF);
         vertex.setName("empty");
         vertex.setId(-1);
         vertex.setParent(-1);
@@ -519,8 +603,5 @@ private:
         return hashKey;
     }
 };
-
-
-
 
 #endif // VERTEX_H

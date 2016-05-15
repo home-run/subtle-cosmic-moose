@@ -9,8 +9,7 @@
 #include "database.h"
 #include "Heap.h"
 #include "vertex.h"
-
-
+#include "vertexqueue.h"
 
 class Graph
 {
@@ -69,9 +68,44 @@ public:
      */
     long getTotalDistance() const;
 
+    /**
+     * @brief Graph::getVertexPath
+     * Function will take a given vertex and traverse up the path of the given parent ids
+     * to construct the path that was taken to arrive at the target vertex. This method
+     * will return a QList of vertices, where index 0 is the starting vertice and the last
+     * vertex in the list is the given target vertex.
+     * @param target Vertex
+     * @return QList of Vertices
+     */
     QList<Vertex> getVertexPath(Vertex target);
 
+    /**
+     * @brief Graph::findShortestPathTo
+     * This is an overloaded method for find the shortest path between 2 vertices. It calls
+     * on other methods such as creating the graph, finding the shortest path to all vertices
+     * then getting the target vertex from the vertex list. After the algorithm has found
+     * the shortest path, it will return a QList of vertices in which it is required to
+     * traverse to get to the target vertex. The list will contain the starting vertex and
+     * ending vertex. Each vertex will have a distance value it takes to get to that vertex
+     * given the starting the vertex.
+     * @param db
+     * @param source
+     * @param target
+     * @return
+     */
     QList<Vertex> findShortestPathTo(Database *db, int source, int target);
+
+    /**
+     * @brief Graph::malik_minimumSpanningTree
+     * This method will generate the minimum spanning tree given a starting vertex. It is
+     * recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum
+     * spanning tree possible in the given graph. Each vertex will store the parent of the
+     * vertex that it had to traverse to get to.
+     * @param source
+     * @return long minimum distance between all vertices
+     */
+    long minimumSpanningTree(int source);
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -84,21 +118,23 @@ public:
 
     /**
      * @brief debug_outputDistances
-     * Method for outputting all the distances found after performing dijkstra's algorithm
-     * for finding the shortest path to all vertices.
+     * Method for outputting all the distances found after performing dijkstra's
+     * 	algorithm for finding the shortest path to all vertices.
      */
     void debug_outputDistances() const;
 
     void debug_printPath(Vertex vertex) const;
+
+    long minKey(long key[], bool mstSet[]);
+
 private:
 
-    QList<Vertex> vertexList;	// Stores the complete list of vertices in the graph
-    int adjacencyMatrix[50][50];// Adjacency Matrix that stores the weidghts between
-                                // 	all the vertices in the graph
-    int numVertices;			// Stores the number of total vertices in the graph
-    Heap<Edge, comp> edges;		// A min-heap to store all edges by priority
-                                // 	TODO: May need to remove this.
-
+    QList<Vertex> vertexList;       // Stores the complete list of vertices in the graph
+    int adjacencyMatrix[50][50];    // Adjacency Matrix that stores the weidghts between
+                                    // 	all the vertices in the graph
+    int numVertices;                // Stores the number of total vertices in the graph
+    Heap<Edge, comp> edges;         // A min-heap to store all edges by priority
+                                    // 	TODO: May need to remove this.
 
     /**
      * @brief initialize_single_source
