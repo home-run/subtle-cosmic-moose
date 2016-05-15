@@ -7,6 +7,7 @@ PlanTrip::PlanTrip(QWidget *parent) :
     ui(new Ui::PlanTrip)
 {
     ui->setupUi(this);
+
 }
 
 PlanTrip::~PlanTrip()
@@ -93,6 +94,7 @@ void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
 
     emit giveStadiumList(stadiumNames);
     emit clickNext();
+    emit hideNextButton(false);
 }
 
 /**

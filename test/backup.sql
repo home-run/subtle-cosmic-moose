@@ -1,4 +1,4 @@
-PRAGMA foreign_keys=OFF;
+PRAGMA foreign_keys=ON;
 BEGIN TRANSACTION;
 CREATE TABLE stadiums(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -9,7 +9,7 @@ CREATE TABLE stadiums(
 	date text not null,
 	capacity text not null,
 	turf text not null, 
-	revenue text not null,
+	revenue real default 0.0,
 	league text not null,
         typology text not null
 	);
@@ -205,7 +205,7 @@ INSERT INTO "distances" VALUES(1,27,110);
 INSERT INTO "distances" VALUES(1,12,1500);
 INSERT INTO "distances" VALUES(1,16,340);
 INSERT INTO "distances" VALUES(1,7,340);
-INSERT INTO "distances" VALUES(1,22,0);
+INSERT INTO "distances" VALUES(1,22,50);
 INSERT INTO "distances" VALUES(2,10,210);
 INSERT INTO "distances" VALUES(2,9,90);
 INSERT INTO "distances" VALUES(2,14,240);
@@ -228,12 +228,12 @@ INSERT INTO "distances" VALUES(6,18,1115);
 INSERT INTO "distances" VALUES(6,13,790);
 INSERT INTO "distances" VALUES(6,24,965);
 INSERT INTO "distances" VALUES(6,4,230);
-INSERT INTO "distances" VALUES(7,16,0);
+INSERT INTO "distances" VALUES(7,16,50);
 INSERT INTO "distances" VALUES(7,11,680);
 INSERT INTO "distances" VALUES(7,18,650);
 INSERT INTO "distances" VALUES(7,22,340);
 INSERT INTO "distances" VALUES(7,1,340);
-INSERT INTO "distances" VALUES(8,26,0);
+INSERT INTO "distances" VALUES(8,26,50);
 INSERT INTO "distances" VALUES(8,20,90);
 INSERT INTO "distances" VALUES(8,28,195);
 INSERT INTO "distances" VALUES(8,29,560);
@@ -257,17 +257,17 @@ INSERT INTO "distances" VALUES(12,25,300);
 INSERT INTO "distances" VALUES(13,23,790);
 INSERT INTO "distances" VALUES(13,6,790);
 INSERT INTO "distances" VALUES(13,24,210);
-INSERT INTO "distances" VALUES(14,30,0);
+INSERT INTO "distances" VALUES(14,30,50);
 INSERT INTO "distances" VALUES(14,25,80);
 INSERT INTO "distances" VALUES(14,2,240);
 INSERT INTO "distances" VALUES(14,23,250);
 INSERT INTO "distances" VALUES(14,5,415);
 INSERT INTO "distances" VALUES(15,3,195);
-INSERT INTO "distances" VALUES(15,19,0);
+INSERT INTO "distances" VALUES(15,19,50);
 INSERT INTO "distances" VALUES(15,20,80);
 INSERT INTO "distances" VALUES(15,28,315);
 INSERT INTO "distances" VALUES(16,11,680);
-INSERT INTO "distances" VALUES(16,7,0);
+INSERT INTO "distances" VALUES(16,7,50);
 INSERT INTO "distances" VALUES(16,22,340);
 INSERT INTO "distances" VALUES(16,1,340);
 INSERT INTO "distances" VALUES(16,18,650);
@@ -281,7 +281,7 @@ INSERT INTO "distances" VALUES(18,27,300);
 INSERT INTO "distances" VALUES(18,21,580);
 INSERT INTO "distances" VALUES(18,4,870);
 INSERT INTO "distances" VALUES(18,6,1115);
-INSERT INTO "distances" VALUES(19,15,0);
+INSERT INTO "distances" VALUES(19,15,50);
 INSERT INTO "distances" VALUES(19,20,80);
 INSERT INTO "distances" VALUES(19,3,195);
 INSERT INTO "distances" VALUES(19,28,315);
@@ -293,7 +293,7 @@ INSERT INTO "distances" VALUES(21,5,560);
 INSERT INTO "distances" VALUES(21,4,650);
 INSERT INTO "distances" VALUES(21,18,580);
 INSERT INTO "distances" VALUES(21,27,830);
-INSERT INTO "distances" VALUES(22,1,0);
+INSERT INTO "distances" VALUES(22,1,50);
 INSERT INTO "distances" VALUES(22,27,110);
 INSERT INTO "distances" VALUES(22,16,340);
 INSERT INTO "distances" VALUES(22,7,340);
@@ -315,7 +315,7 @@ INSERT INTO "distances" VALUES(25,12,300);
 INSERT INTO "distances" VALUES(25,30,80);
 INSERT INTO "distances" VALUES(25,14,80);
 INSERT INTO "distances" VALUES(25,10,430);
-INSERT INTO "distances" VALUES(26,8,0);
+INSERT INTO "distances" VALUES(26,8,50);
 INSERT INTO "distances" VALUES(26,28,195);
 INSERT INTO "distances" VALUES(26,29,560);
 INSERT INTO "distances" VALUES(26,24,930);
@@ -336,7 +336,7 @@ INSERT INTO "distances" VALUES(29,24,600);
 INSERT INTO "distances" VALUES(29,8,560);
 INSERT INTO "distances" VALUES(29,26,560);
 INSERT INTO "distances" VALUES(29,23,375);
-INSERT INTO "distances" VALUES(30,14,0);
+INSERT INTO "distances" VALUES(30,14,50);
 INSERT INTO "distances" VALUES(30,25,80);
 INSERT INTO "distances" VALUES(30,5,415);
 INSERT INTO "distances" VALUES(30,2,240);

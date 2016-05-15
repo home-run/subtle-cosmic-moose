@@ -9,7 +9,7 @@ CREATE TABLE stadiums(
 	date text not null,
 	capacity text not null,
 	turf text not null, 
-	revenue text not null,
+	revenue real default 0.0,
 	league text not null,
         typology text not null
 	);
