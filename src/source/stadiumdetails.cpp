@@ -226,7 +226,8 @@ void StadiumDetails::on_stadiumDetails_league_comboBox_currentIndexChanged(int i
             stadiumModel->setFilter("league = 'National' and turf = 'Grass'");
             break;
         case MAJOR:
-            stadiumModel->setFilter("league = 'Major' and turf = 'Grass'");
+//            stadiumModel->setFilter("league = 'Major' and turf = 'Grass'");
+            stadiumModel->setFilter("turf = 'Grass'");
             break;
         default:
             stadiumModel->setFilter("turf = 'Grass'");
@@ -246,7 +247,8 @@ void StadiumDetails::on_stadiumDetails_league_comboBox_currentIndexChanged(int i
             stadiumModel->setFilter("league = 'National' and turf = 'Astro Turf'");
             break;
         case MAJOR:
-            stadiumModel->setFilter("league = 'Major' and turf = 'Astro Turf'");
+//            stadiumModel->setFilter("league = 'Major' and turf = 'Astro Turf'");
+            stadiumModel->setFilter("turf = 'Astro Turf'");
             break;
         default:
             stadiumModel->setFilter("turf = 'Astro Turf'");
