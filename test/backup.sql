@@ -1,4 +1,4 @@
-PRAGMA foreign_keys=OFF;
+PRAGMA foreign_keys=ON;
 BEGIN TRANSACTION;
 CREATE TABLE stadiums(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -9,7 +9,7 @@ CREATE TABLE stadiums(
 	date text not null,
 	capacity text not null,
 	turf text not null, 
-	revenue text not null,
+	revenue real default 0.0,
 	league text not null,
         typology text not null
 	);
@@ -44,9 +44,9 @@ INSERT INTO "stadiums" VALUES(28,'PNC Park','Pittsburgh Pirates','115 Federal St
 INSERT INTO "stadiums" VALUES(29,'Turner Field','Atlanta Braves','755 Hank Aaron Drive Atlanta GA, 30315','(404) 522-7630','1997-03-29','49,586','Grass','0','National','Retro Classic');
 INSERT INTO "stadiums" VALUES(30,'Wrigley Field','Chicago Cubs','1060 West Addison Street Chicago IL, 60613','(773) 404-2827','1914-04-23','42,495','Grass','0','National','Jewel Box');
 CREATE TABLE souvenirs(
-	stadium_id int references stadiums(id) ON DELETE CASCADE,
-	name text not null,
-	price text not null);
+    stadium_id int references stadiums(id) ON DELETE CASCADE,
+    name text not null,
+    price text not null);
 INSERT INTO "souvenirs" VALUES(1,'Baseball cap','23.99');
 INSERT INTO "souvenirs" VALUES(1,'Baseball bat','45.39');
 INSERT INTO "souvenirs" VALUES(1,'Team pendant','15.99');
