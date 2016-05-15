@@ -341,16 +341,19 @@ void StadiumDetails::on_stadiumDetails_surface_comboBox_currentIndexChanged(int 
         switch(index)
         {
         case ALL_SURFACES:
-            stadiumModel->setFilter("league = 'Major'");
+//            stadiumModel->setFilter("league = 'Major'");
+            stadiumModel->setFilter("");
             break;
         case GRASS:
-            stadiumModel->setFilter("league = 'Major' and turf = 'Grass'");
+//            stadiumModel->setFilter("'Major' and turf = 'Grass'");
+            stadiumModel->setFilter("turf = 'Grass'");
             break;
         case ASTRO:
-            stadiumModel->setFilter("league = 'Major' and turf = 'Astro Turf'");
+//            stadiumModel->setFilter("league = 'Major'");
+            stadiumModel->setFilter("turf = 'Astro Turf'");
             break;
         default:
-            stadiumModel->setFilter("league = 'Major'");
+//            stadiumModel->setFilter("league = 'Major'");
             break;
         } // end switch
         break;
