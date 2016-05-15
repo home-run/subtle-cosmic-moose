@@ -33,6 +33,9 @@ void PlanTrip::propagateStadiumList(QSqlQuery query)
     // add list
     ui->planTrip_stadiums_tableWidget->addItems(stadiumNames);
 
+    // clear selected stadiums
+    ui->planTrip_stadiumsChosen_tableWidget->clear();
+
     emit hideNextButton(true);
 
 }
