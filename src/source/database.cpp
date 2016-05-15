@@ -122,6 +122,67 @@ bool Database::AddSouvenir(QString stadiumName, QString itemName, double itemPri
     qDebug() << "That stadium does not exist!";
     return false;
 }
+/**
+ * @brief Database::AddStadium
+ * Adds new Stadium to the data base with the following attributes.
+ * @param stadiumName
+ * @param teamName
+ * @param address
+ * @param phoneNumber
+ * @param dateOpened
+ * @param capacity
+ * @param turfType
+ * @param revenue
+ * @param leauge
+ * @param typology
+ * @return true if it worked else false
+ */
+bool Database::AddStadium(QString stadiumName,QString teamName,QString address,QString phoneNumber,QString dateOpened,QString capacity,QString turfType,long revenue,QString leauge,QString typology)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO stadiums(name,team,address,phone,date,capacity,turf,revenue,league,typology)"
+                  "VALUES (:name,:team,:address,:phone,:date,:capacity,:turf,:revenue,:league,:typology)");
+
+        query.bindValue(":name", stadiumName);
+        query.bindValue(":team", teamName);
+        query.bindValue(":address", address);
+        query.bindValue(":phone", phoneNumber);
+        query.bindValue(":date", dateOpened);
+        query.bindValue(":capacity", capacity);
+        query.bindValue(":turf", turfType);
+        query.bindValue(":revenue", QString::number(revenue));
+        query.bindValue(":league", leauge);
+        query.bindValue(":typology", typology);
+        if(query.exec()){
+            return true;
+        }
+
+            qDebug() << query.lastError().text();
+            return false;
+}
+/**
+ * @brief Database::AddDistance
+ * Adds new distacne between two vertecies
+ * @param a starting vertex
+ * @param b ending vertex
+ * @param distance weight of the edge
+ * @return true if it worked else false
+ */
+bool Database::AddDistance(int a,int b,long distance)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO distances(id_from,id_to,distance) Values(:id_from,:id_to,:distance)");
+
+        query.bindValue(":id_from", a);
+        query.bindValue(":id_to", b);
+        query.bindValue(":distance", QString::number(distance));
+        if(query.exec()){
+            return true;
+        }
+
+            qDebug() << query.lastError().text();
+            return false;
+}
 
 /**
  * @brief Database::GetStadiumNames
