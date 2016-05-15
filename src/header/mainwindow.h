@@ -70,6 +70,8 @@ private slots:
 
     void on_actionLogout_triggered();
 
+    void on_actionAdd_new_stadium_triggered();
+    
     void hideNextButton(bool hidden);
 
     void hideBackButton(bool hidden);
