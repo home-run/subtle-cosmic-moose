@@ -94,6 +94,7 @@ void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
 
     emit giveStadiumList(stadiumNames);
     emit clickNext();
+    emit hideNextButton(false);
 }
 
 /**

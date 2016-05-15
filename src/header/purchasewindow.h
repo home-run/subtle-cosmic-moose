@@ -17,6 +17,15 @@ public:
     explicit PurchaseWindow(QWidget *parent = 0, Database *db = 0);
     ~PurchaseWindow();
 
+    struct purchaseInfo{
+        QString stadiumName;
+        QString itemName;
+        double  itemPrice;
+        int     quantity;
+    };
+
+    QList<purchaseInfo> getPurchases();
+
 public slots:
     void propagateStadiumList(QStringList stadiums);
 

@@ -113,6 +113,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
     case PAGE_PURCHASE_WINDOW:
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
         tripSummary_widget->populateTripPath();
+        purchaseWindow_widget->getPurchases();
         ui->mainwindow_pushButton_next->setVisible(false);
         //Disables the Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
@@ -206,9 +207,12 @@ void MainWindow::checkPage_toggleBackNextButtonVisible()
  */
 void MainWindow::hideNextButton(bool hidden)
 {
-    if(hidden){
+    if(hidden)
+    {
         ui->mainwindow_pushButton_next->setVisible(false);
-    } else {
+    }
+    else
+    {
         ui->mainwindow_pushButton_next->setVisible(true);
     }
 }
@@ -259,15 +263,6 @@ void MainWindow::gotoHomePage()
     pageStackCache.clear();
 }
 
-
-/*
- QFile file(":/qss/darkorange.qss");
- if(file.open(QIODevice::ReadOnly | QIODevice::Text))
- {
-     setStyleSheet(file.readAll());
-     file.close();
- }
- */
 
 /**
  * @brief MainWindow::on_actionLogin_triggered
