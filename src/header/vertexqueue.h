@@ -117,24 +117,6 @@ public:
     }
 
     /**
-     * @brief
-     * Prints to console a breadth first search of the heap.
-     */
-    void printBreadthFirst() const
-    {
-        if (!isEmpty())
-        {
-            std::cout << "[1]: " << elements[1];
-            for (int i = 2; i < elements.size(); i++)
-            {
-                std::cout << ", ";
-                std::cout << std::endl;
-                std::cout << "[" << i << "]: " << elements[i];
-            }
-        }
-    }
-
-    /**
      * @brief removeMin
      * This method will get the root element and pop it off the front of the heap.
      * @return root node
