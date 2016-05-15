@@ -324,7 +324,8 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     emit initializeStadiumTable(stadiumModel);
     emit initializeSouvenirTable(souvenirModel);
     }
-    else
+    else{
         qDebug()<<"Stadium already added";
+    }
 }
 
