@@ -45,6 +45,10 @@ public:
     void clearData();
 
 private slots:
+    /**
+     * @brief on_tripSummary_pushButton_finishTripSummary_clicked
+     * Press the finish button and clear all data and return to Main Page
+     */
     void on_tripSummary_pushButton_finishTripSummary_clicked();
 
     /**
@@ -54,6 +58,12 @@ private slots:
      * determined by the algorithm.
      * */
     void accept_plannedTrip_listOfStadiums(QStringList);
+
+    /**
+     * @brief accept_plannedTrip_purchases
+     * @param thePurchases
+     */
+    void accept_plannedTrip_purchases(QList<PurchaseWindow::purchaseInfo> thePurchases);
 
 private:
     Ui::TripSummary *ui;
