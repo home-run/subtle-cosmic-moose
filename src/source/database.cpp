@@ -128,7 +128,7 @@ bool Database::AddSouvenir(QString stadiumName, QString itemName, double itemPri
  * @param stadiumName
  * @param teamName
  * @param address
- * @param phoenNumber
+ * @param phoneNumber
  * @param dateOpened
  * @param capacity
  * @param turfType
