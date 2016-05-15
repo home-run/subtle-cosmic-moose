@@ -92,6 +92,11 @@ public:
     void debug_outputDistances() const;
 
     void debug_printPath(Vertex vertex) const;
+
+    long malik_minimumSpanningTree(int source);
+
+    long minKey(long key[], bool mstSet[]);
+
 private:
 
     QList<Vertex> vertexList;	// Stores the complete list of vertices in the graph

@@ -348,16 +348,32 @@ void Test_Main::testMST()
 {
     Graph graph;
     graph.createGraph(db);
-    long smallest = 0;
+    long smallest = INF;
+    long prev = INF;
+    int index;
 
-    smallest = graph.minimumSpanningTree(0);
+//    smallest = graph.minimumSpanningTree(0);
 
-    qDebug() << "Smallest found [ " << smallest << " ]";
+//    qDebug() << "Smallest found [ " << smallest << " ]";
+//    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+//    QVERIFY(smallest == 7060);
+
+    index = 0;
+//    while(smallest != 7060 && index < 30){
+    while(index < 30){
+
+        prev = graph.malik_minimumSpanningTree(index);
+//        if(prev < smallest)
+//        {
+            smallest = prev;
+//        }
+        index++;
+    }
+    qDebug() << "Malik's Smallest found [ " << smallest << " ] at index = " << index;
     qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
     QVERIFY(smallest == 7060);
 
 }
-
 
 //#endif //TEST_DATABASE_H
 
