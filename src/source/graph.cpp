@@ -382,6 +382,46 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, int target)
     return getVertexPath(vertex);
 
 }
+/**
+ * @brief Graph::findShortestPathTo
+ * This is an overloaded method for find the shortest path between a starting vertex,
+ * and a list of vertices. It calls on other methods such as creating the graph,
+ * finding the shortest path to all vertices then getting the target vertex from the
+ * vertex list. After the algorithm has found the shortest path, it will return a
+ * QList of vertices in which it is required to traverse to get to the target vertex.
+ * The list will contain the starting vertex and ending vertex. Each vertex will have
+ * a distance value it takes to get to that vertex given the starting the vertex.
+ * @param db
+ * @param source
+ * @param stops
+ * @return
+ */
+QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> stops)
+{
+    QList<Vertex> foundPath;
+    QList<Vertex> completePath;
+
+    // For every vertex (index) given that a path is wished to be taken.
+    for(int i = 0; i < stops.size();i++)
+    {
+        createGraph(db);
+        // Find the shortest path from the starting point currently at
+        foundPath = findShortestPathTo(db, source, stops.at(i));
+
+        // Within the path that was found
+        for(int j = 1; j < foundPath.size();j++)
+        {
+            // Add each vertex in that path to the overall path to be returned.
+            completePath.push_back(foundPath[j]);
+        }
+
+        // Set the new starting vertex as the previous ending vertex index.
+        source = stops.at(i);
+    }
+
+    // Return the complete path found.
+    return completePath;
+}
 
 /**
  * @brief Graph::getVertexPath
