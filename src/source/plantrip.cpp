@@ -128,3 +128,15 @@ void PlanTrip::on_planTrip_toolButton_remove_clicked()
     QModelIndex index = ui->planTrip_stadiumsChosen_tableWidget->currentIndex();
     ui->planTrip_stadiums_tableWidget->addItem(ui->planTrip_stadiumsChosen_tableWidget->takeItem(index.row()));
 }
+
+/**
+ * @brief PlanTrip::on_planTrip_pushButton_visitAll_clicked
+ * Emit signals to click the next button and unhide the next button and then emit
+ * callVisitAll signal
+ */
+void PlanTrip::on_planTrip_pushButton_visitAll_clicked()
+{
+    emit clickNext();
+    emit clickNext(); //Skip the purchase window because reasons
+    emit callVisitAll();
+}

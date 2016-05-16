@@ -27,7 +27,7 @@ public:
      * list is ordered in the sortest path
      * @param pathOfTrip
      */
-    void populateTripPath(QList<Vertex> pathOfTrip);
+    void populateTripPath(QList<Vertex> pathOfTrip, bool isCustomTrip = true);
 
     /**
      * @brief populatePurchaseReciept
@@ -58,6 +58,12 @@ private slots:
      * determined by the algorithm.
      * */
     void accept_plannedTrip_listOfStadiums(QStringList);
+
+    /**
+     * @brief accept_visitAllStadiums
+     * Accepts the signal from planTrip which will run the visit All from Dogers Stadium
+     */
+    void accept_visitAllStadiums();
 
 private:
     Ui::TripSummary *ui;

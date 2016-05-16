@@ -46,10 +46,12 @@ MainWindow::MainWindow(QWidget *parent) :
     // planTrip gives a list of stadiums to the purchaseWindow
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
-    //planTrip gives a list of stadiums also to tripSummary
+    //planTrip gives a list of stadiums also to tripSummary (custom trip)
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
-
+    //planTrip Emits visit all signal, call function on tripSummary
+    connect(planTrip_widget, SIGNAL(callVisitAll()),
+            tripSummary_widget, SLOT(accept_visitAllStadiums()));
 
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));

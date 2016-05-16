@@ -27,6 +27,9 @@ signals:
     /// Send a signal with a stringList containing the selected stadiums, in order.
     void giveStadiumList(QStringList);
 
+    /// Sends a signal saying we clicked the visit all button
+    void callVisitAll();
+
 public slots:
     /// Propagate the stadiums list.
     void propagateStadiumList(QSqlQuery query);
@@ -52,6 +55,9 @@ private slots:
 
     /// Remove a stadium from the selected stadiums list.
     void on_planTrip_toolButton_remove_clicked();
+
+    /// When the Visit All Stadiums button is clicked
+    void on_planTrip_pushButton_visitAll_clicked();
 
 private:
     Ui::PlanTrip *ui;

@@ -21,7 +21,7 @@ TripSummary::~TripSummary()
  * @brief TripSummary::populateTripPath
  * Method will populate the trip path list with given data from the algorithm.
  */
-void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
+void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList, bool isCustomTrip)
 {
     //Item to Append to the list to be displayed as per row
     QString itemToAppend;
@@ -69,6 +69,8 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
             //Check for 0 distance paths, we are not traveling anywhere
             if(distanceBetween.toInt() != 0)
             {
+                if(isCustomTrip)
+                {
                 //Nicely formatted string~ the beauty of laziness
                 itemToAppend = QString("From %1 -> %2 : Distance [%3]")
                         .arg(sourceStadium, destinationStadium, distanceBetween);
@@ -76,7 +78,36 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
                 //Go ahead and add to the list widget
                 ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
 
-                //Total Distance accumulator
+                }
+                else//Not custom trip but Visit All from Dogers
+                {
+                    //If we hit another Dogers Stadium not at first index,
+                    //stop trip distance accumulation, start new.
+                    if(sourceStadium == "Dodger Stadium" && index != 1)
+                    {
+                        //Print out Total distances till now
+                        ui->tripSummary_listWidget_tripPath->addItem(
+                                    QString("---TOTAL DISTANCE TRAVELED: [%1]---")
+                                    .arg(totalDistancesTraveled));
+                        totalDistancesTraveled = 0;
+
+                        //Nicely formatted string~ the beauty of laziness
+                        itemToAppend = QString("<START> From %1 -> %2 : Distance [%3]")
+                                .arg(sourceStadium, destinationStadium, distanceBetween);
+                    }
+                    else //continue on with the regular printing
+                    {
+                        //Nicely formatted string~ the beauty of laziness
+                        itemToAppend = QString("From %1 -> %2 : Distance [%3]")
+                                .arg(sourceStadium, destinationStadium, distanceBetween);
+
+                    }
+
+                    //Go ahead and add to the list widget
+                    ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
+                }
+
+                //Add the distance total
                 totalDistancesTraveled += distanceBetween.toInt();
             }
         }
@@ -120,7 +151,7 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
                 .arg(stadium,name,price,quantity);
 
         //Continually accumulate the total purchase price
-        totalPriceOfPurchase += purchases.at(index).itemPrice;
+        totalPriceOfPurchase += (purchases.at(index).itemPrice * purchases.at(index).quantity);
 
         //Add all data to the list itself
         ui->tripSummary_listWidget_Purchases->addItem(purchaseStructToAppend);
@@ -183,16 +214,6 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
     Graph graphOfStadiums;
     graphOfStadiums.createGraph(db);
 
-//    //assign id numbers
-//    int sourceID, destinationID;
-//    //Offset ID numbers by 1 to get actual positions in the vertexList inside Graph
-//    sourceID = db->GetStadiumID(stadiumList.at(0)) - 1;
-//    destinationID = db->GetStadiumID(stadiumList.at(stadiumList.size()-1)) - 1;
-
-//    //Call populateTripPath() to write to list
-//    populateTripPath(graphOfStadiums.findShortestPathTo(db, sourceID, destinationID));
-
-
     //Get A list of ID numbers related to the stops in dream vacation
     QList<int> stops;
     for (int index = 0; index < stadiumList.size(); ++index)
@@ -210,4 +231,20 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
     vertexList = graphOfStadiums.findShortestPathTo(db, stops.at(0), stops);
 
     populateTripPath(vertexList);
+}
+
+/**
+ * @brief TripSummary::accept_visitAllStadiums
+ * Accepts the signal to run the Visit all Stadiums algorithm in order
+ * to populate the table with data
+ */
+void TripSummary::accept_visitAllStadiums()
+{
+    //Clear table just in case
+    clearData();
+
+    Graph graph;
+    graph.createGraph(db);
+
+    populateTripPath(graph.getDodgerStadiumPath(), false);
 }
