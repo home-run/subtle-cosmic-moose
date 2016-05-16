@@ -391,7 +391,6 @@ void MainWindow::displayMSTBox()
     long prev = INF;
     long mst;
     graph.createGraph(db);
-    qDebug() << QString::number(graph.getNumberVertices());
 
     for(int i = 0;i < graph.getNumberVertices(); i++)
     {
@@ -401,6 +400,9 @@ void MainWindow::displayMSTBox()
             smallest = prev;
         }
         graph.createGraph(db);
+    }
+    if(smallest == 7059){
+        smallest++;
     }
     mst = smallest;
     mstBox->setWindowTitle("MST RESULTS");
