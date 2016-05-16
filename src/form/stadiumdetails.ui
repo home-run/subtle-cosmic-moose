@@ -19,16 +19,12 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLabel" name="stadiumDetails_label_stadiumName">
+        <widget class="QLabel" name="stadiumDetails_label_total">
          <property name="text">
-          <string>Placeholder: Stadium Name</string>
+          <string>Total Revenue:</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="stadiumDetails_label_teamName">
-         <property name="text">
-          <string>Placeholder: Team Name</string>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

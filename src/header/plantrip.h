@@ -64,12 +64,11 @@ private slots:
     /// Remove a stadium from the selected stadiums list.
     void on_planTrip_toolButton_remove_clicked();
 
-<<<<<<< HEAD
     /// When the Visit All Stadiums button is clicked
     void on_planTrip_pushButton_visitAll_clicked();
-=======
+
+    /// When the MST button is clicked
     void on_planTrip_pushButton_MST_clicked();
->>>>>>> develop
 
 private:
     Ui::PlanTrip *ui;
