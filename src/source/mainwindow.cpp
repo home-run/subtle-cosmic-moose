@@ -369,7 +369,7 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
  */
 void MainWindow::displayMSTBox()
 {
-    QMessageBox *mstBox = new QMessageBox(this);
+    QMessageBox *mstBox = new QMessageBox();
     QString result = "The Minimum Spanning Tree is [ ";
     Graph graph;
     int smallest = INF;
