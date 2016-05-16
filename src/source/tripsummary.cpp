@@ -25,7 +25,8 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
 {
     //Item to Append to the list to be displayed as per row
     QString itemToAppend;
-
+    Graph graph;
+    graph.createGraph(db);
 
     for(int index = 0; index < postAlgorithmList.size(); index++)
     {
@@ -50,9 +51,15 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
             sourceStadium = postAlgorithmList.at(index-1).getName();
             //Destination is current index
             destinationStadium = postAlgorithmList.at(index).getName();
-            //Sum of total distances - sum of total distances of previous node
-            distanceBetween =
-            QString::number(postAlgorithmList.at(index).getDistance() - postAlgorithmList.at(index-1).getDistance());
+            //Edge of the distance traveled
+            distanceBetween = QString::number
+                    (
+                        graph.edgeWeight
+                        (
+                            db->GetStadiumID(sourceStadium)-1,
+                            db->GetStadiumID(destinationStadium)-1
+                        )
+                    );
 
 
             //Nicely formatted string~ the beauty of laziness
@@ -63,51 +70,6 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
         //Go ahead and add to the list widget
         ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
     }
-}
-
-/**
- * @brief TripSummary::populatePurchaseReciept
- * Populates the List widget with the information of purchases
- * @param purchases
- */
-void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> purchases)
-{
-    //Initial line for purchase reciept
-    ui->tripSummary_listWidget_Purchases->addItem(QString("****PURCHASE RECIEPT****"));
-
-    double totalPriceOfPurchase;
-
-    //Loop to get all items
-    for(int index = 0; index < purchases.size(); index++)
-    {
-        //copy all data over
-        QString name, price, quantity, stadium;
-        stadium = purchases.at(index).stadiumName;
-        name = purchases.at(index).itemName;
-        price.number(purchases.at(index).itemPrice);
-        quantity.number(purchases.at(index).quantity);
-
-        //Put into a giant string
-        QString purchaseStructToAppend = QString("Purchased From: %1\tItem Name: %2\tItem Price: %3\tQuantity: %4")
-                .arg(stadium,name,price,quantity);
-
-        totalPriceOfPurchase += purchases.at(index).itemPrice;
-
-        //TODO - Display statium totals in a tooltip
-        QListWidgetItem *purchaseItem = new QListWidgetItem(purchaseStructToAppend);
-        purchaseItem->setToolTip(QString("<Insert Item's Stadium Total Rev here>"));
-
-        //Add all data to the list itself
-        ui->tripSummary_listWidget_Purchases->addItem(purchaseItem);
-
-    }
-
-    //Final total purchase of the trip
-    QString totalPurchased("Your Total Amount is: ");
-    totalPurchased.append(QString::number(totalPriceOfPurchase));
-
-    //Add the total purchase
-    ui->tripSummary_listWidget_Purchases->addItem(totalPurchased);
 }
 
 /**
@@ -144,13 +106,39 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
     Graph graphOfStadiums;
     graphOfStadiums.createGraph(db);
 
-    //assign id numbers
-    int sourceID, destinationID;
-    //Offset ID numbers by 1 to get actual positions in the vertexList inside Graph
-    sourceID = db->GetStadiumID(stadiumList.at(0)) - 1;
-    destinationID = db->GetStadiumID(stadiumList.at(stadiumList.size()-1)) - 1;
+    for (int index = 0; index < stadiumList.size(); ++index)
+    {
+        qDebug() << db->GetStadiumID(stadiumList.at(index)) << " ID: "
+        << stadiumList.at(index);
+    }
 
-    //Call populateTripPath() to write to list
-    populateTripPath(graphOfStadiums.findShortestPathTo(db, sourceID, destinationID));
+//    //assign id numbers
+//    int sourceID, destinationID;
+//    //Offset ID numbers by 1 to get actual positions in the vertexList inside Graph
+//    sourceID = db->GetStadiumID(stadiumList.at(0)) - 1;
+//    destinationID = db->GetStadiumID(stadiumList.at(stadiumList.size()-1)) - 1;
+
+//    //Call populateTripPath() to write to list
+//    populateTripPath(graphOfStadiums.findShortestPathTo(db, sourceID, destinationID));
+
+
+    QList<int> stops;
+    for (int index = 0; index < stadiumList.size(); ++index)
+    {
+        int id = db->GetStadiumID(stadiumList.at(index)) -1;
+        qDebug() << id;
+        stops.append(id);
+    }
+
+    qDebug() << "*****Inside Returned QList<Vertex>*******";
+
+    QList<Vertex> vertexList;
+    vertexList = graphOfStadiums.findShortestPathTo(db, stops.at(0), stops);
+    for (int index = 0; index < vertexList.size(); ++index)
+    {
+        qDebug() << vertexList.at(index).getName() << " " << vertexList.at(index).getDistance() << " " << vertexList.at(index).getId();
+    }
+    populateTripPath(vertexList);
+
 
 }
