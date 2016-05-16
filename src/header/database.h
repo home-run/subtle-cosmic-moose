@@ -36,6 +36,9 @@ public:
   /// Retrieve a stadium ID given the name
   int GetStadiumID(QString name);
 
+  /// Retrieve the total amount of revenue from all stadiums.
+  double GetTotalRevenues();
+
   ///Destructor
   ~Database();
 

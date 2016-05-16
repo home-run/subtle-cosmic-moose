@@ -167,6 +167,11 @@ void StadiumDetails::initializeSouvenirTable(SouvenirTableModel *souvenirModel)
     initializeSouvenirView();
 }
 
+void StadiumDetails::updateTotalRevenue()
+{
+    ui->stadiumDetails_label_total->setText("Total Revenue: $" + QString::number(db->GetTotalRevenues()));
+}
+
 /**
  * @brief StadiumDetails::on_stadiumDetails_league_comboBox_currentIndexChanged
  * Changes the table filter based on which league is selected. Will filter stadiums
@@ -426,6 +431,9 @@ void StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked()
         // re-propagate tables
         stadiumModel->select();
         souvenirModel->select();
+
+        // update the total revenue in case they changed that value
+        updateTotalRevenue();
     }
 }
 
@@ -493,7 +501,11 @@ void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
         p->exec();
     }
 }
-
+/**
+ * @brief StadiumDetails::on_stadiumDetails_tableView_souvenirs_clicked
+ * Souvenir table is dependent on stdium table, each time new stadium is clicked, souvenir table needs to check if admin is logged in
+ * @param index
+ */
 void StadiumDetails::on_stadiumDetails_tableView_souvenirs_clicked(const QModelIndex &index)
 {
     if(admin_status)

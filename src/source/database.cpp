@@ -267,6 +267,36 @@ int Database::GetStadiumID(QString name)
 }
 
 /**
+ * @brief Database::GetTotalRevenues
+ * @return The sum of all stadium revenues
+ */
+double Database::GetTotalRevenues()
+{
+    QSqlQuery query;
+    double total = -1;
+
+    if(query.exec("select SUM(revenue) as total from stadiums")){
+        if(query.next())
+        {
+            total = query.record().field("total").value().toDouble();
+            qDebug() << QString::number(total);
+            return total;
+        }
+        else
+        {
+            qDebug() << query.lastError().text();
+            return -1;
+        }
+    }
+    else
+    {
+        qDebug() << query.lastError().text();
+        return -1;
+    }
+}
+
+
+/**            
  * @brief GetRevenue
  * Retrieve the current revenue value of a stadium given its ID.
  * @param id stadium ID
@@ -292,7 +322,7 @@ double Database::GetRevenue(int id)
         qDebug() << query.lastError().text();
         return -1;
     }
-}
+}        
 
 /**
  * @brief GetRevenue

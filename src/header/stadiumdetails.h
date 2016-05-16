@@ -30,6 +30,7 @@ public slots:
     void toggleAdminFunctions(bool isAdmin);
     void initializeStadiumTable(StadiumTableModel *stadiumModel);
     void initializeSouvenirTable(SouvenirTableModel *souvenirModel);
+    void updateTotalRevenue();
 
 private slots:
     void on_stadiumDetails_league_comboBox_currentIndexChanged(int index);
@@ -47,6 +48,7 @@ private slots:
     void on_stadiumDetails_admin_removeSouvenir_clicked();
 
     void on_stadiumDetails_tableView_souvenirs_clicked(const QModelIndex &index);
+
 
 private:
     Ui::StadiumDetails *ui;

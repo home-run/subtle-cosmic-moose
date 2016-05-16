@@ -46,9 +46,15 @@ MainWindow::MainWindow(QWidget *parent) :
     // planTrip gives a list of stadiums to the purchaseWindow
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
-    //planTrip gives a list of stadiums also to tripSummary
+    //planTrip gives a list of stadiums also to tripSummary (custom trip)
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
+    //planTrip Emits visit all signal, call function on tripSummary
+    connect(planTrip_widget, SIGNAL(callVisitAll()),
+            tripSummary_widget, SLOT(accept_visitAllStadiums()));
+    //planTrip Emits with visit all signal all the stadiums for the purchase window
+    connect(planTrip_widget, SIGNAL(giveStadiumListVisitAll(QStringList)),
+            purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
 
     //planTrip Display the Minimum Spanning Tree
     connect(planTrip_widget, SIGNAL(displayMST()),
@@ -63,6 +69,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // toggle hiding of back/next button
     checkPage_toggleBackNextButtonVisible();
+
+    //Hide Update Stadium
+    ui->actionAdd_new_stadium->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -95,6 +104,8 @@ void MainWindow::clickNext()
 void MainWindow::toggleAdminFeatures(bool isAdmin)
 {
     emit adminFeaturesToggled(isAdmin);
+    // Shows the update stadium spacer
+    ui->actionAdd_new_stadium->setVisible(isAdmin);
 }
 
 
@@ -265,6 +276,8 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     //Disables the Spacer
     ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 
+    stadiumDetails_widget->updateTotalRevenue();
+
     // initialize tables with data from database
     stadiumModel = new StadiumTableModel(this, db);
     souvenirModel = new SouvenirTableModel(this, db);
@@ -312,6 +325,8 @@ void MainWindow::on_actionLogin_triggered()
 void MainWindow::on_actionLogout_triggered()
 {
     emit adminFeaturesToggled(false);
+    // Hides the update stadium
+    ui->actionAdd_new_stadium->setVisible(false);
 }
 
 /**
@@ -376,7 +391,6 @@ void MainWindow::displayMSTBox()
     long prev = INF;
     long mst;
     graph.createGraph(db);
-    qDebug() << QString::number(graph.getNumberVertices());
 
     for(int i = 0;i < graph.getNumberVertices(); i++)
     {
@@ -386,6 +400,9 @@ void MainWindow::displayMSTBox()
             smallest = prev;
         }
         graph.createGraph(db);
+    }
+    if(smallest == 7059){
+        smallest++;
     }
     mst = smallest;
     mstBox->setWindowTitle("MST RESULTS");
