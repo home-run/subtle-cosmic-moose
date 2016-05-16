@@ -59,12 +59,6 @@ private slots:
      * */
     void accept_plannedTrip_listOfStadiums(QStringList);
 
-    /**
-     * @brief accept_plannedTrip_purchases
-     * @param thePurchases
-     */
-    void accept_plannedTrip_purchases(QList<PurchaseWindow::purchaseInfo> thePurchases);
-
 private:
     Ui::TripSummary *ui;
     Database *db;

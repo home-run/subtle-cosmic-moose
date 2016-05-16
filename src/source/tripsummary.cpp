@@ -25,7 +25,8 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
 {
     //Item to Append to the list to be displayed as per row
     QString itemToAppend;
-
+    Graph graph;
+    graph.createGraph(db);
 
     for(int index = 0; index < postAlgorithmList.size(); index++)
     {
@@ -123,7 +124,7 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
 void TripSummary::clearData()
 {
     ui->tripSummary_listWidget_tripPath->clear();
-    ui->tripSummary_tableWidget_Purchases->clear();
+    ui->tripSummary_listWidget_Purchases->clear();
 }
 
 /**
@@ -176,11 +177,11 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
 
     qDebug() << "*****Inside Returned QList<Vertex>*******";
 
-    QList<Vertex> vertexList;
-    vertexList = graphOfStadiums.findShortestPathTo(db, stops.at(0), stops);
-    for (int index = 0; index < vertexList.size(); ++index)
-    {
-        qDebug() << vertexList.at(index).getName() << " " << vertexList.at(index).getDistance() << " " << vertexList.at(index).getId();
-    }
-    populateTripPath(vertexList);
+//    QList<Vertex> vertexList;
+//    vertexList = graphOfStadiums.findShortestPathTo(db, stops.at(0), stops);
+//    for (int index = 0; index < vertexList.size(); ++index)
+//    {
+//        qDebug() << vertexList.at(index).getName() << " " << vertexList.at(index).getDistance() << " " << vertexList.at(index).getId();
+//    }
+//    populateTripPath(vertexList);
 }

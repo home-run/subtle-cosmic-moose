@@ -124,7 +124,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 
         //Pass over the purchases to trip summary
-        tripSummary_widget->accept_plannedTrip_purchases(purchaseWindow_widget->getPurchases());
+        tripSummary_widget->populatePurchaseReciept(purchaseWindow_widget->getPurchases());
 
         break;
     default:
