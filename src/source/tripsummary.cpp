@@ -50,9 +50,15 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
             sourceStadium = postAlgorithmList.at(index-1).getName();
             //Destination is current index
             destinationStadium = postAlgorithmList.at(index).getName();
-            //Sum of total distances - sum of total distances of previous node
-            distanceBetween =
-            QString::number(postAlgorithmList.at(index).getDistance() - postAlgorithmList.at(index-1).getDistance());
+            //Edge of the distance traveled
+            distanceBetween = QString::number
+                    (
+                        graph.edgeWeight
+                        (
+                            db->GetStadiumID(sourceStadium)-1,
+                            db->GetStadiumID(destinationStadium)-1
+                        )
+                    );
 
 
             //Nicely formatted string~ the beauty of laziness
@@ -144,13 +150,37 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
     Graph graphOfStadiums;
     graphOfStadiums.createGraph(db);
 
-    //assign id numbers
-    int sourceID, destinationID;
-    //Offset ID numbers by 1 to get actual positions in the vertexList inside Graph
-    sourceID = db->GetStadiumID(stadiumList.at(0)) - 1;
-    destinationID = db->GetStadiumID(stadiumList.at(stadiumList.size()-1)) - 1;
+    for (int index = 0; index < stadiumList.size(); ++index)
+    {
+        qDebug() << db->GetStadiumID(stadiumList.at(index)) << " ID: "
+        << stadiumList.at(index);
+    }
 
-    //Call populateTripPath() to write to list
-    populateTripPath(graphOfStadiums.findShortestPathTo(db, sourceID, destinationID));
+//    //assign id numbers
+//    int sourceID, destinationID;
+//    //Offset ID numbers by 1 to get actual positions in the vertexList inside Graph
+//    sourceID = db->GetStadiumID(stadiumList.at(0)) - 1;
+//    destinationID = db->GetStadiumID(stadiumList.at(stadiumList.size()-1)) - 1;
 
+//    //Call populateTripPath() to write to list
+//    populateTripPath(graphOfStadiums.findShortestPathTo(db, sourceID, destinationID));
+
+
+    QList<int> stops;
+    for (int index = 0; index < stadiumList.size(); ++index)
+    {
+        int id = db->GetStadiumID(stadiumList.at(index)) -1;
+        qDebug() << id;
+        stops.append(id);
+    }
+
+    qDebug() << "*****Inside Returned QList<Vertex>*******";
+
+    QList<Vertex> vertexList;
+    vertexList = graphOfStadiums.findShortestPathTo(db, stops.at(0), stops);
+    for (int index = 0; index < vertexList.size(); ++index)
+    {
+        qDebug() << vertexList.at(index).getName() << " " << vertexList.at(index).getDistance() << " " << vertexList.at(index).getId();
+    }
+    populateTripPath(vertexList);
 }

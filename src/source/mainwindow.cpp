@@ -122,6 +122,10 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
         hideNextButton(true);
         //Disables the Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
+
+        //Pass over the purchases to trip summary
+        tripSummary_widget->accept_plannedTrip_purchases(purchaseWindow_widget->getPurchases());
+
         break;
     default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
