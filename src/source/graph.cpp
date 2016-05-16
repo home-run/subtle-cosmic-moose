@@ -418,6 +418,7 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> sto
         // Set the new starting vertex as the previous ending vertex index.
         source = stops.at(i);
     }
+//    completePath
 
     // Return the complete path found.
     return completePath;

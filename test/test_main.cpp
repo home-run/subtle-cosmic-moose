@@ -411,13 +411,13 @@ void Test_Main::testCustomTrip()
 
     for(int i = 0; i < otherList.size(); i++)
     {
-        qDebug() << "Id : " << otherList.at(i);
+        qDebug() << "Index : " << i << " Id : " << otherList.at(i);
     }
 
     list = graph.findShortestPathTo(db,0,otherList);
     for(int i = 0;i < list.size(); i++)
     {
-        qDebug() << "Index - " << i << " " << list.at(i).getName();
+        qDebug() << "Index - " << i << " " << list.at(i).getName() << " with id " << list.at(i).getId();
     }
 }
 
