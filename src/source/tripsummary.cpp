@@ -86,7 +86,7 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
 
     //Go ahead and add to the list widget
     ui->tripSummary_listWidget_tripPath->addItem(
-                QString("TOTAL DISTANCE TRAVELED: [%1]")
+                QString("TOTAL DISTANCE TRAVELED: [%1 Miles]")
                 .arg(totalDistancesTraveled));
 }
 
@@ -128,8 +128,7 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
     }
 
     //Final total purchase of the trip
-    QString totalPurchased("Your Total Amount is: ");
-    totalPurchased.append(QString::number(totalPriceOfPurchase));
+    QString totalPurchased;
 
     //Add the total purchase
     ui->tripSummary_listWidget_Purchases->addItem(totalPurchased);
