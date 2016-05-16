@@ -163,7 +163,7 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
         ui->tripSummary_listWidget_Purchases->addItem(purchaseStructToAppend);
 
         // Add revenues to stadiums
-        db->AddRevenue(db->GetStadiumID(stadium), (purchases.at(index).itemPrice * purchases.at(index).quantity));
+        db->AddRevenue(db->GetStadiumID(purchases.at(index).stadiumName), (purchases.at(index).itemPrice * purchases.at(index).quantity));
 
     }
 
