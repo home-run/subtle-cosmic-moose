@@ -297,6 +297,19 @@ void Graph::shortestPath(Vertex source)
 }
 
 /**
+ * @brief Graph::shortestPath
+ * Overloaded method for determining the shortest path to all vertices given one starting
+ * vertex. Allows to pass in an integer as the source.
+ * @param source
+ */
+void Graph::shortestPath(int source)
+{
+    Vertex v;
+    v.setId(source);
+    shortestPath(v);
+}
+
+/**
  * @brief Graph::getTotalDistance
  * This method will the take the distances stored in each of the vertices after a search
  * for the shortest path has been performed.
@@ -382,6 +395,47 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, int target)
     return getVertexPath(vertex);
 
 }
+/**
+ * @brief Graph::findShortestPathTo
+ * This is an overloaded method for find the shortest path between a starting vertex,
+ * and a list of vertices. It calls on other methods such as creating the graph,
+ * finding the shortest path to all vertices then getting the target vertex from the
+ * vertex list. After the algorithm has found the shortest path, it will return a
+ * QList of vertices in which it is required to traverse to get to the target vertex.
+ * The list will contain the starting vertex and ending vertex. Each vertex will have
+ * a distance value it takes to get to that vertex given the starting the vertex.
+ * @param db
+ * @param source
+ * @param stops
+ * @return
+ */
+QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> stops)
+{
+    QList<Vertex> foundPath;
+    QList<Vertex> completePath;
+    QList<Vertex>::iterator iter;
+
+    // For every vertex (index) given that a path is wished to be taken.
+    for(int i = 0; i < stops.size();i++)
+    {
+        createGraph(db);
+        // Find the shortest path from the starting point currently at
+        foundPath = findShortestPathTo(db, source, stops.at(i));
+
+        // Within the path that was found
+        for(int j = 0; j < foundPath.size();j++)
+        {
+            // Add each vertex in that path to the overall path to be returned.
+            completePath.push_back(foundPath[j]);
+        }
+
+        // Set the new starting vertex as the previous ending vertex index.
+        source = stops.at(i);
+    }
+
+    // Return the complete path found.
+    return completePath;
+}
 
 /**
  * @brief Graph::getVertexPath
@@ -410,6 +464,14 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
     return path;
 }
 
+QList<Vertex> Graph::getVertexPath(int target)
+{
+    Vertex v;
+    v.setId(target);
+
+    return getVertexPath(v);
+}
+
 /**
  * @brief Graph::malik_minimumSpanningTree
  * This method will generate the minimum spanning tree given a starting vertex. It is
@@ -436,6 +498,8 @@ long Graph::minimumSpanningTree(int source)
     {
         key[i] = INF;
         mstSet[i] = false;
+        vertexList[i].setParent(-1);
+        vertexList[i].setDistance(INF);
     }
 
     // Always include first lst vertex in MST.
@@ -462,7 +526,9 @@ long Graph::minimumSpanningTree(int source)
             if (adjacencyMatrix[u][v] > 0 && mstSet[v] == false && adjacencyMatrix[u][v] < key[v])
             {
                 parent[v] = u;
+                vertexList[v].setParent(u);
                 key[v] = adjacencyMatrix[u][v];
+                vertexList[v].setDistance(key[v]);
             }
         }
     }
@@ -509,4 +575,58 @@ long Graph::minKey(long key[], bool mstSet[])
     }
 
     return min_index;
+}
+
+QList<Vertex> Graph::getDodgerStadiumPath()
+{
+    QList<Vertex> path;
+    Vertex vertex;
+    int parentId;
+
+    shortestPath(21);
+
+    for(int target = 0; target < numVertices; target++)
+    {
+        vertex = vertexList[target];
+        parentId = vertex.getParent();
+
+        path.push_front(vertex);
+        while(parentId > -1)
+        {
+            path.push_front(vertexList[parentId]);
+            parentId = vertexList[parentId].getParent();
+        }
+    }
+    return path;
+
+}
+
+QList<Vertex> Graph::mst()
+{
+    QList<Vertex> path;
+    Vertex vertex;
+    long smallest = INF;
+    long prev = INF;
+    int index;
+
+
+    index = 0;
+    for(int i = 0; i < numVertices; i++)
+    {
+        prev = minimumSpanningTree(index);
+        if(prev < smallest)
+        {
+            smallest = prev;
+        }
+        index++;
+    }
+
+    qDebug() << "Smallest is " << smallest;
+
+    for(int i = 0; i < numVertices; i++)
+    {
+        path += getVertexPath(i);
+    }
+
+    return path;
 }

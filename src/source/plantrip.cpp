@@ -2,12 +2,13 @@
 #include "ui_plantrip.h"
 #include <QDebug>
 
-PlanTrip::PlanTrip(QWidget *parent) :
+PlanTrip::PlanTrip(QWidget *parent, Database *db) :
     QWidget(parent),
     ui(new Ui::PlanTrip)
 {
     ui->setupUi(this);
 
+    this->db = db;
 }
 
 PlanTrip::~PlanTrip()
@@ -104,6 +105,7 @@ void PlanTrip::on_planTrip_pushButton_dreamVacation_clicked()
         emit clickNext();
         emit hideNextButton(false);
     }
+
 }
 
 /**
@@ -126,4 +128,22 @@ void PlanTrip::on_planTrip_toolButton_remove_clicked()
 {
     QModelIndex index = ui->planTrip_stadiumsChosen_tableWidget->currentIndex();
     ui->planTrip_stadiums_tableWidget->addItem(ui->planTrip_stadiumsChosen_tableWidget->takeItem(index.row()));
+}
+
+/**
+ * @brief PlanTrip::on_planTrip_pushButton_visitAll_clicked
+ * Emit signals to click the next button and unhide the next button and then emit
+ * callVisitAll signal
+ */
+void PlanTrip::on_planTrip_pushButton_visitAll_clicked()
+{
+    emit clickNext();
+    emit giveStadiumListVisitAll(db->GetStadiumNames());
+    emit hideNextButton(false);
+    emit callVisitAll();
+}
+
+void PlanTrip::on_planTrip_pushButton_MST_clicked()
+{
+    emit displayMST();
 }

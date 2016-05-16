@@ -33,7 +33,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QTableWidget" name="tripSummary_tableWidget_Purchases"/>
+      <widget class="QListWidget" name="tripSummary_listWidget_Purchases"/>
      </item>
      <item>
       <widget class="QPushButton" name="tripSummary_pushButton_finishTripSummary">

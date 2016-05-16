@@ -46,9 +46,19 @@ MainWindow::MainWindow(QWidget *parent) :
     // planTrip gives a list of stadiums to the purchaseWindow
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
-    //planTrip gives a list of stadiums also to tripSummary
+    //planTrip gives a list of stadiums also to tripSummary (custom trip)
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
+    //planTrip Emits visit all signal, call function on tripSummary
+    connect(planTrip_widget, SIGNAL(callVisitAll()),
+            tripSummary_widget, SLOT(accept_visitAllStadiums()));
+    //planTrip Emits with visit all signal all the stadiums for the purchase window
+    connect(planTrip_widget, SIGNAL(giveStadiumListVisitAll(QStringList)),
+            purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
+
+    //planTrip Display the Minimum Spanning Tree
+    connect(planTrip_widget, SIGNAL(displayMST()),
+            this, SLOT(displayMSTBox()));
 
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
@@ -117,14 +127,15 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
     case PAGE_PURCHASE_WINDOW:
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
 
-        purchaseWindow_widget->getPurchases();
-        ui->mainwindow_pushButton_next->setVisible(false);
-
         hideBackButton(true);
         hideNextButton(true);
-        
+
         //Disables the Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
+
+        //Pass over the purchases to trip summary
+        tripSummary_widget->populatePurchaseReciept(purchaseWindow_widget->getPurchases());
+
         break;
     default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
@@ -333,6 +344,10 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     db->AddDistance(id,db->GetStadiumID("Dodger Stadium"),300);
     db->AddDistance(id,db->GetStadiumID("Chase Field"),250);
 
+    db->AddDistance(db->GetStadiumID("Chase Field"), id, 250);
+    db->AddDistance(db->GetStadiumID("O.co Coliseum"),id,325);
+    db->AddDistance(db->GetStadiumID("Dodger Stadium"),id,300);
+
     // Adds all the Souvenirs to Las Veags Stadium
     db->AddSouvenir("Las Vegas Stadium","Baseball cap",23.99);
     db->AddSouvenir("Las Vegas Stadium","Baseball bat",45.39);
@@ -352,3 +367,38 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     }
 }
 
+
+/**
+ * @brief MainWindow::displayMSTBox
+ * This Function is a SLOT function for when the user selects to view the minimum spanning
+ * tree. It will perform the calculation n times to determine the ABSOLUTE minimum spanning
+ * tree. Once the results have been determined it will be inserted into a QMessageBox
+ * and displayed in a small window.
+ */
+void MainWindow::displayMSTBox()
+{
+    QMessageBox *mstBox = new QMessageBox();
+    QString result = "The Minimum Spanning Tree is [ ";
+    Graph graph;
+    long smallest = INF;
+    long prev = INF;
+    long mst;
+    graph.createGraph(db);
+    qDebug() << QString::number(graph.getNumberVertices());
+
+    for(int i = 0;i < graph.getNumberVertices(); i++)
+    {
+        prev = graph.minimumSpanningTree(i);
+        if(smallest > prev)
+        {
+            smallest = prev;
+        }
+        graph.createGraph(db);
+    }
+    mst = smallest;
+    mstBox->setWindowTitle("MST RESULTS");
+    result = result + QString::number(mst) + " ] miles.";
+    mstBox->setText(result);
+    mstBox->exec();
+    qDebug() << result;
+}
