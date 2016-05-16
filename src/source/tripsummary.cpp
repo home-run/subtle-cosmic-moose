@@ -120,13 +120,16 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
                 .arg(stadium,name,price,quantity);
 
         //Continually accumulate the total purchase price
-        totalPriceOfPurchase += purchases.at(index).itemPrice;
+        totalPriceOfPurchase += (purchases.at(index).itemPrice * purchases.at(index).quantity);
 
         //Add all data to the list itself
         ui->tripSummary_listWidget_Purchases->addItem(purchaseStructToAppend);
 
+        // Add revenues to stadiums
+        db->AddRevenue(db->GetStadiumID(stadium), (purchases.at(index).itemPrice * purchases.at(index).quantity));
+
         //TODO/FIXME - Display statium totals in a tooltip
-        ui->tripSummary_listWidget_Purchases->item(index)->setToolTip(QString("<Insert Item's Stadium Total Rev here>"));
+        ui->tripSummary_listWidget_Purchases->item(index)->setToolTip("$" + QString::number(db->GetRevenue(stadium)));
 
     }
 
@@ -166,6 +169,7 @@ void TripSummary::clearData()
 void TripSummary::on_tripSummary_pushButton_finishTripSummary_clicked()
 {
     emit(finishTrip(true));
+
     clearData();
 }
 
