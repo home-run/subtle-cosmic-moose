@@ -183,6 +183,27 @@ bool Database::AddDistance(int a,int b,long distance)
             qDebug() << query.lastError().text();
             return false;
 }
+/**
+ * @brief Database::AddRevenue
+ * Adds revenue of a stadium to the revenues database
+ * @param id stadiums id
+ * @param revenue of the stadium
+ * @return
+ */
+bool Database::AddRevenue(int id,long revenue)
+{
+    QSqlQuery query;
+    query.prepare("INSERT INTO revenues(stadium_id,revenue) Values(:id_from,:revenue)");
+
+        query.bindValue(":id_from", id);
+        query.bindValue(":revenue", revenue);
+        if(query.exec()){
+            return true;
+        }
+
+            qDebug() << query.lastError().text();
+            return false;
+}
 
 /**
  * @brief Database::GetStadiumNames
@@ -220,6 +241,32 @@ int Database::GetStadiumID(QString name)
     if(query.exec()){
         if(query.next()){
             return query.record().field("id").value().toInt();
+        }
+    }
+    else
+    {
+        qDebug() << this->lastError().text();
+    }
+
+    // it didn't work
+    return -1;
+}
+
+/**
+ * @brief getRevenue
+ * stadiums revenue
+ * @param id stadium
+ * @return
+ */
+long getRevenue(int id)
+{
+    QSqlQuery query;
+    query.prepare("select stadium_id from revenues where stadium_id = :stadium_id");
+    query.bindValue(":stadium_id", id);
+
+    if(query.exec()){
+        if(query.next()){
+            return query.record().field("revenue").value().toLongLong();
         }
     }
     else
