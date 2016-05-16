@@ -275,7 +275,7 @@ int Database::GetStadiumID(QString name)
 double Database::GetRevenue(int id)
 {
     QSqlQuery query;
-    query.prepare("select revenue froms stadiums where id = :id");
+    query.prepare("select revenue from stadiums where id = :id");
     query.bindValue(":id", id);
     if(query.exec()){
         if(query.next()){
@@ -304,7 +304,7 @@ double Database::GetRevenue(QString stadiumName)
 {
     QSqlQuery query;
 
-    query.prepare("select revenue froms stadiums where name = :name");
+    query.prepare("select revenue from stadiums where name = :name");
     query.bindValue(":name", stadiumName);
     if(query.exec()){
         if(query.next()){
