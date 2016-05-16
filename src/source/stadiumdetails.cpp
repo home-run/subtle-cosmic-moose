@@ -501,7 +501,11 @@ void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
         p->exec();
     }
 }
-
+/**
+ * @brief StadiumDetails::on_stadiumDetails_tableView_souvenirs_clicked
+ * Souvenir table is dependent on stdium table, each time new stadium is clicked, souvenir table needs to check if admin is logged in
+ * @param index
+ */
 void StadiumDetails::on_stadiumDetails_tableView_souvenirs_clicked(const QModelIndex &index)
 {
     if(admin_status)

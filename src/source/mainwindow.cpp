@@ -69,6 +69,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // toggle hiding of back/next button
     checkPage_toggleBackNextButtonVisible();
+
+    //Hide Update Stadium
+    ui->actionAdd_new_stadium->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -101,6 +104,8 @@ void MainWindow::clickNext()
 void MainWindow::toggleAdminFeatures(bool isAdmin)
 {
     emit adminFeaturesToggled(isAdmin);
+    // Shows the update stadium spacer
+    ui->actionAdd_new_stadium->setVisible(isAdmin);
 }
 
 
@@ -320,6 +325,8 @@ void MainWindow::on_actionLogin_triggered()
 void MainWindow::on_actionLogout_triggered()
 {
     emit adminFeaturesToggled(false);
+    // Hides the update stadium
+    ui->actionAdd_new_stadium->setVisible(false);
 }
 
 /**
