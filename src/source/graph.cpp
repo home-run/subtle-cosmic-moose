@@ -421,11 +421,16 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> sto
     }
 
     iter = completePath.begin();
-    for(int i = 0; i < completePath.size() - 1; i++)
+    qDebug() << "Erasing vertices";
+    iter++;
+    for(int i = 1; i < completePath.size() ; i++)
     {
-        if(completePath.at(i).getId() == completePath.at(i+1).getId())
+        if(completePath.at(i).getDistance() == 0)
         {
-            completePath.erase((iter+1));
+            qDebug() << "Erasing " << completePath.at(i).getName() << " with distance " << completePath.at(i).getDistance();
+            completePath.erase(iter);
+            --iter;
+            --i;
         }
         iter++;
     }
