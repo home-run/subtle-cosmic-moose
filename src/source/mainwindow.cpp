@@ -55,8 +55,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 
     //Start off with splash screen
-//    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
-    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_MAIN);
+    ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_HOME);
+
 
     // toggle hiding of back/next button
     checkPage_toggleBackNextButtonVisible();
@@ -120,6 +120,7 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
 
         hideBackButton(true);
         hideNextButton(true);
+
         //Disables the Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 
@@ -318,6 +319,8 @@ void MainWindow::on_actionLogout_triggered()
  */
 void MainWindow::on_actionAdd_new_stadium_triggered()
 {
+    if(db->GetStadiumID("Las Vegas Stadium")==-1)
+    {
     // Adding Las Vegas Stadium with it's corresponding attributes
     db->AddStadium("Las Vegas Stadium","Las Vegas Gamblers","123 Las Vegas Blv,NV 89101","(702) 962-4000","2016-04-11","50,000","Grass",0,"American","Modern");
 
@@ -343,5 +346,9 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     //Emiting initilizaing for stadium and souvenir table;
     emit initializeStadiumTable(stadiumModel);
     emit initializeSouvenirTable(souvenirModel);
+    }
+    else{
+        qDebug()<<"Stadium already added";
+    }
 }
 

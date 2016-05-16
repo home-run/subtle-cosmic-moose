@@ -96,7 +96,23 @@ public:
     QList<Vertex> findShortestPathTo(Database *db, int source, int target);
 
     /**
-     * @brief Graph::malik_minimumSpanningTree
+     * @brief Graph::findShortestPathTo
+     * This is an overloaded method for find the shortest path between a starting vertex,
+     * and a list of vertices. It calls on other methods such as creating the graph,
+     * finding the shortest path to all vertices then getting the target vertex from the
+     * vertex list. After the algorithm has found the shortest path, it will return a
+     * QList of vertices in which it is required to traverse to get to the target vertex.
+     * The list will contain the starting vertex and ending vertex. Each vertex will have
+     * a distance value it takes to get to that vertex given the starting the vertex.
+     * @param db
+     * @param source
+     * @param stops
+     * @return
+     */
+    QList<Vertex> findShortestPathTo(Database *db, int source, QList<int> stops);
+
+    /**
+     * @brief minimumSpanningTree
      * This method will generate the minimum spanning tree given a starting vertex. It is
      * recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum
      * spanning tree possible in the given graph. Each vertex will store the parent of the
