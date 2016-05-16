@@ -400,6 +400,7 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> sto
 {
     QList<Vertex> foundPath;
     QList<Vertex> completePath;
+    QList<Vertex>::iterator iter;
 
     // For every vertex (index) given that a path is wished to be taken.
     for(int i = 0; i < stops.size();i++)
@@ -418,7 +419,31 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> sto
         // Set the new starting vertex as the previous ending vertex index.
         source = stops.at(i);
     }
-//    completePath
+
+    iter = completePath.begin();
+    for(int i = 0; i < completePath.size() - 1; i++)
+    {
+        if(completePath.at(i).getId() == completePath.at(i+1).getId())
+        {
+            completePath.erase((iter+1));
+        }
+        iter++;
+    }
+
+    long nextDistance;
+    long currentDistance;
+
+    for(int index = 0; index < completePath.size() - 1; index++)
+    {
+        currentDistance = completePath.at(index).getDistance();
+        nextDistance = completePath.at(index + 1).getDistance();
+        qDebug() << "Current Distance " << currentDistance << " next distance " << nextDistance;
+
+        if(currentDistance > nextDistance )
+        {
+            completePath[index + 1].setDistance(nextDistance + currentDistance);
+        }
+    }
 
     // Return the complete path found.
     return completePath;

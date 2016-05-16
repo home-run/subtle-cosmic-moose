@@ -417,7 +417,7 @@ void Test_Main::testCustomTrip()
     list = graph.findShortestPathTo(db,0,otherList);
     for(int i = 0;i < list.size(); i++)
     {
-        qDebug() << "Index - " << i << " " << list.at(i).getName() << " with id " << list.at(i).getId();
+        qDebug() << "Index - " << i << " " << list.at(i).getName() << " with id " << list.at(i).getId() << " distance " << list.at(i).getDistance();
     }
 }
 
