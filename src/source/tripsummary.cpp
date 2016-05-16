@@ -129,8 +129,17 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
 
     //Final total purchase of the trip
     QString totalPurchased;
+
+    //If we had no purchases
+    if(totalPriceOfPurchase != 0)
+    {
     totalPurchased = QString("Your Total Amount is: $%1")
                             .arg(QString::number(totalPriceOfPurchase));
+    }
+    else
+    {
+        totalPurchased = "You had no purchases!";
+    }
 
     //Add the total purchase
     ui->tripSummary_listWidget_Purchases->addItem(totalPurchased);
