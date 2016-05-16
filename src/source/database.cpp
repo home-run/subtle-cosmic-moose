@@ -233,7 +233,7 @@ int Database::GetStadiumID(QString name)
 
 /**
  * @brief Database::GetTotalRevenues
- * @return
+ * @return The sum of all stadium revenues
  */
 double Database::GetTotalRevenues()
 {
