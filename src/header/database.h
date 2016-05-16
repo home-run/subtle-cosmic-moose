@@ -26,8 +26,9 @@ public:
   /// Add edges between vertecies to distances database
   bool AddDistance(int a,int b,long distance);
 
-  /// Adds a revenue to the revenues database
-  bool AddRevenue(int id,long revenue);
+  /// Alter a current stadium's total revenue
+  bool AddRevenue(int id, double revenue);
+
   // Accessors
   /// Retrieve a list of stadium names
   QStringList GetStadiumNames();

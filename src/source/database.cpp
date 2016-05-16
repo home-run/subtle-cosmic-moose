@@ -137,7 +137,9 @@ bool Database::AddSouvenir(QString stadiumName, QString itemName, double itemPri
  * @param typology
  * @return true if it worked else false
  */
-bool Database::AddStadium(QString stadiumName,QString teamName,QString address,QString phoneNumber,QString dateOpened,QString capacity,QString turfType,long revenue,QString leauge,QString typology)
+bool Database::AddStadium(QString stadiumName,QString teamName,QString address,
+                          QString phoneNumber,QString dateOpened,QString capacity,QString turfType,
+                          long revenue,QString leauge,QString typology)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO stadiums(name,team,address,phone,date,capacity,turf,revenue,league,typology)"
@@ -185,24 +187,37 @@ bool Database::AddDistance(int a,int b,long distance)
 }
 /**
  * @brief Database::AddRevenue
- * Adds revenue of a stadium to the revenues database
+ * Add amount to revenue attribute in stadiums table
  * @param id stadiums id
  * @param revenue of the stadium
  * @return
  */
-bool Database::AddRevenue(int id,long revenue)
+bool Database::AddRevenue(int id, double revenue)
 {
     QSqlQuery query;
-    query.prepare("INSERT INTO revenues(stadium_id,revenue) Values(:id_from,:revenue)");
-
-        query.bindValue(":id_from", id);
-        query.bindValue(":revenue", QString::number(revenue));
-        if(query.exec()){
-            return true;
+    query.prepare("select revenue from stadiums where id = :id");
+    query.bindValue(":id", id);
+    if(query.exec()){
+        if(query.next()){
+            int originalRev = query.record().field("revenue").value().toDouble();
+            query.clear();
+            query.prepare("update stadiums set revenue = :newRev where id = :id");
+            int newRev = originalRev + revenue;
+            query.bindValue(":newRev", newRev);
+            query.bindValue(":id", id);
+            return query.exec();
         }
-
+        else
+        {
             qDebug() << query.lastError().text();
             return false;
+        }
+    }
+    else
+    {
+        qDebug() << query.lastError().text();
+        return false;
+    }
 }
 
 /**
@@ -258,22 +273,24 @@ int Database::GetStadiumID(QString name)
  * @param id stadium
  * @return
  */
-long Database::getRevenue(int id)
+double Database::GetRevenue(int id)
 {
     QSqlQuery query;
-    query.prepare("select stadium_id from revenues where stadium_id = :stadium_id");
-    query.bindValue(":stadium_id", id);
-
+    query.prepare("select revenue froms stadiums where id = :id");
+    query.bindValue(":id", id);
     if(query.exec()){
         if(query.next()){
-            return query.record().field("revenue").value().toLongLong();
+            return query.record().field("revenue").value().toDouble();
+        }
+        else
+        {
+            qDebug() << query.lastError().text();
+            return -1;
         }
     }
     else
     {
-        qDebug() << this->lastError().text();
+        qDebug() << query.lastError().text();
+        return -1;
     }
-
-    // it didn't work
-    return -1;
 }
