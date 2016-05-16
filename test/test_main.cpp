@@ -27,6 +27,8 @@ private slots:
 
     void testShortestPath();
 
+    void testCustomTrip();
+
 private:
     // Put testing variables here
     Database *db;
@@ -389,6 +391,34 @@ void Test_Main::testMST()
 //    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
     QVERIFY(smallest == 7060);
 
+}
+
+
+void Test_Main::testCustomTrip()
+{
+    Graph graph;
+    QList<Vertex> list;
+    QList<int> otherList;
+    Vertex vertex;
+    graph.createGraph(db);
+
+    list = graph.getVertices();
+
+    for(int i = 0; i < 4;i++)
+    {
+        otherList.append(list.at(i).getId());
+    }
+
+    for(int i = 0; i < otherList.size(); i++)
+    {
+        qDebug() << "Index : " << i << " Id : " << otherList.at(i);
+    }
+
+    list = graph.findShortestPathTo(db,0,otherList);
+    for(int i = 0;i < list.size(); i++)
+    {
+        qDebug() << "Index - " << i << " " << list.at(i).getName() << " with id " << list.at(i).getId() << " distance " << list.at(i).getDistance();
+    }
 }
 
 //#endif //TEST_DATABASE_H

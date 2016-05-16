@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
 
+
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
 
@@ -117,14 +118,15 @@ void MainWindow::on_mainwindow_pushButton_next_clicked()
     case PAGE_PURCHASE_WINDOW:
         ui->mainwindow_stackedWidget->setCurrentIndex(PAGE_TRIP_SUMMARY);
 
-        purchaseWindow_widget->getPurchases();
-        ui->mainwindow_pushButton_next->setVisible(false);
-
         hideBackButton(true);
         hideNextButton(true);
-        
+
         //Disables the Spacer
         ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
+
+        //Pass over the purchases to trip summary
+        tripSummary_widget->populatePurchaseReciept(purchaseWindow_widget->getPurchases());
+
         break;
     default:
         ui->mainwindow_stackedWidget->setCurrentIndex(currentIndex);
