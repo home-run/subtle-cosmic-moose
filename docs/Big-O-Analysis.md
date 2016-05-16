@@ -23,26 +23,31 @@
 
 ## Algorithms
 ### Dijkstra's Algorithm
+-----
 Dijkstra's Algorithm is used for finding the shortest paths between vertices stored within a graph. The implementation of Dijsktra's algorithm is a variant of the original and finds the shortest path between a source node and all other nodes within a graph. It uses a minimum-heap priority queue to improve the efficiency of the algorithm when determining the path.
 
 
 __Algorithm__:shortestPath(Vertex source)
 
 ```cpp
+
 source = vertexList.at(source.getId());
 // Initialize all edges, and vertices to infinity
 initialize_single_source(source);
+
+
 ```
 
 This runs in __O(n)__ because `initialize_single_source(source)` will iterate through each vertex in the graph and initialize each vertex with a distance of _INFINITY_ and the parent to _-1_. Then it sets the source vertex to have a distance of 0 to represent it as being the starting vertex.
 
 
 ```cpp
+
+
 for(int vertex = 0; vertex < numVertices;vertex++)  // O(n) performance
-{
     vertexList[vertex].setDistance(INF);
     vertexList[vertex].setParent(-1);
-}
+
 vertexList[s.getId()].setDistance(0);
 ```
 This process is then
@@ -108,15 +113,81 @@ Since it utilizes a priorty queue to sort the vertices by its current distance i
 > Checking adjacent vertices for each vertex in the priority queue => O(nlogn) but since it only needs to check the vertices 
 
 
-```
-Initialize each vertices => O(n) + Insert into an empty priority queue => O(1) + Removal of a node => O(n) + Removal and checking of each edge ==> O(e) + Checking adjacent vertices for each vertex => O(nlogn)
-O(n + 1 + n + e + nlogn) => O(2n + e + nlogn)
-```
+>__Initialize each vertices => O(n) + Insert into priority queue => O(1) + Removal of a node => O(n) + Removal and checking of each edge ==> O(e) + Checking adjacent vertices for each vertex => O(nlogn)__
+>
+>__O(n) + O(1) + O(n) + O(e) + O(nlogn)__
+
+#### The resulting performance is :
+>__O(2n + 1 +  e + nlogn) = O(e + nlogn)__
 
 
+### MST prim’s
+-----
+
+The time complexity of Prim's algorithm depends on the data structures used for the graph and for ordering the edges by weight.Using an adjacency matrix or an adjacency list graph representation and linearly searching an array of weights to find the minimum weight edge, to add requires O(|V|2) running time. However, this running time can be greatly improved further by using heaps to implement finding minimum weight edges in the algorithm's inner loop. 
+A first improved version uses a heap to store all edges of the input graph, ordered by their weight. This leads to an O(|E| log |E|) worst-case running time. But storing vertices instead of edges can improve it still further. The heap should order the vertices by the smallest edge-weight that connects them to any vertex in the partially constructed minimum spanning tree (MST) (or infinity if no such edge exists). Every time a vertex v is chosen and added to the MST, a decrease-key operation is performed on all vertices w outside the partial MST such that v is connected to w, setting the key to the minimum of its previous value and the edge cost of (v,w).
+
+
+__Algorithm__: long minimumSpanningTree(int source)
+
+Initialize each vertex in the list, key, and mstSet to INFINITY and not found;
+
+```cpp
+    for(int i = 0; i < numVertices; i++)        // <== O(n)
+        key[i] = INF;
+        mstSet[i] = false;
+        vertexList[i].setParent(-1);
+        vertexList[i].setDistance(INF);
+    key[source] = 0;                            // <== O(1)
+    parent[source] = -1;                        // <== O(1)
+```
+
+>__Initialization takes O(n)__
+
+for each vertex in the graph find the minimum weight adjacent edge and set it as discovered
+```cpp
+    for(int count = 0; count < numVertices; count++) // <== O(n)
+        int u = minKey(key, mstSet);
+        mstSet[u] = true;
+```
+
+__Algorithm__: long Graph::minKey(long key[], bool mstSet[])
+```cpp
+    long min = INF;
+    long min_index;
+    for(int v = 0; v < numVertices; v++)            // <== O(n)
+        if(mstSet[v] == false && key[v] < min)
+            min = key[v];
+            min_index = v;
+
+    return min_index;
+```
+
+>__ Process to find the minimum edge is O(n*n) => O(n^2)
+
+Checking every edge that is adjacent to the current edge and to see if it has already been visited is a __O(n)__ process.
+```cpp
+        for(int v = 0; v < numVertices; v++)         // <== O(n)
+            
+            if (adjacencyMatrix[u][v] > 0 && mstSet[v] == false && adjacencyMatrix[u][v] < key[v])
+                parent[v] = u;
+                vertexList[v].setParent(u);
+                key[v] = adjacencyMatrix[u][v];
+                vertexList[v].setDistance(key[v]);
+```
+
+> __Process to find the vertex with the smallest possible weight which has not been discovered for each vertex is O(n*n)__
+
+Summing the total mst is its own process.
+```cpp
+    for (int i = 0; i < numVertices; i++)           // <= O(n)
+        sum += adjacencyMatrix[i][parent[i]];
+
+    return sum;
+```
 
 ### Heap
 Heap worst case,best case and average case are O(nlogn)
-The buildMaxHeap() operation is run once, and is O(n) in performance. The siftDown() function is O(log(n)), and is called n times. Therefore, the performance of this algorithm is O(n + n * log(n)) which evaluates to O(n log n).
-Also, the siftDown version of heapify has O(n) time complexity, while the siftUp version given below has O(n log n) time complexity due to its equivalence with inserting each element, one at a time, into an empty heap.
+The buildMaxHeap() operation is run once, and is O(n) in performance. The bubbleDown() function is O(log(n)), and is called n times. Therefore, the performance of this algorithm is O(n + n * log(n)) which evaluates to O(n log n).
+Also, the bubbleDown version of heapify has O(n) time complexity, while the bubbleUp version given below has O(n log n) time complexity due to its equivalence with inserting each element, one at a time, into an empty heap.
 
