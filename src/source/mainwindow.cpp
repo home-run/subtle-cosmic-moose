@@ -336,6 +336,10 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     db->AddDistance(id,db->GetStadiumID("Dodger Stadium"),300);
     db->AddDistance(id,db->GetStadiumID("Chase Field"),250);
 
+    db->AddDistance(db->GetStadiumID("Chase Field"), id, 250);
+    db->AddDistance(db->GetStadiumID("O.co Coliseum"),id,325);
+    db->AddDistance(db->GetStadiumID("Dodger Stadium"),id,300);
+
     // Adds all the Souvenirs to Las Veags Stadium
     db->AddSouvenir("Las Vegas Stadium","Baseball cap",23.99);
     db->AddSouvenir("Las Vegas Stadium","Baseball bat",45.39);
@@ -368,7 +372,7 @@ void MainWindow::displayMSTBox()
 
     for(int i = 0;i < graph.getNumberVertices(); i++)
     {
-        smallest = graph.minimumSpanningTree(7);
+        prev = graph.minimumSpanningTree(i);
         if(smallest > prev)
         {
             smallest = prev;
