@@ -375,10 +375,10 @@ void MainWindow::displayMSTBox()
     long smallest = 50000;
     long prev = ;
     long mst;
-    graph.createGraph(db);
 
     for(int i = 0;i < graph.getNumberVertices(); i++)
     {
+        graph.createGraph(db);
         prev = graph.minimumSpanningTree(i);
         if(smallest > prev)
         {
