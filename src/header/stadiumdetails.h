@@ -46,11 +46,14 @@ private slots:
 
     void on_stadiumDetails_admin_removeSouvenir_clicked();
 
+    void on_stadiumDetails_tableView_souvenirs_clicked(const QModelIndex &index);
+
 private:
     Ui::StadiumDetails *ui;
     StadiumTableModel *stadiumModel;
     SouvenirTableModel *souvenirModel;
     Database *db;
+    bool admin_status;
 };
 
 #endif // STADIUMDETAILS_H
