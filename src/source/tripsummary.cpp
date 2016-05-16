@@ -27,6 +27,7 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
     QString itemToAppend;
     Graph graph;
     graph.createGraph(db);
+    int totalDistancesTraveled = 0;
 
     for(int index = 0; index < postAlgorithmList.size(); index++)
     {
@@ -46,8 +47,6 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
 
             //Go ahead and add to the list widget
             ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
-
-            qDebug() << "Appending 0th";
 
         }
         else //Otherwise
@@ -77,13 +76,18 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
                 //Go ahead and add to the list widget
                 ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
 
-                qDebug() << "Appending non-zero distance";
-
+                //Total Distance accumulator
+                totalDistancesTraveled += distanceBetween.toInt();
             }
         }
         //Else don't append it
-        qDebug() << "Going to next Item";
+
     }
+
+    //Go ahead and add to the list widget
+    ui->tripSummary_listWidget_tripPath->addItem(
+                QString("TOTAL DISTANCE TRAVELED: [%1]")
+                .arg(totalDistancesTraveled));
 }
 
 /**
