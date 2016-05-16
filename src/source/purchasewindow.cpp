@@ -190,6 +190,9 @@ void PurchaseWindow::on_purchaseWindow_tableView_souvenirList_doubleClicked(cons
     // Get current row count (the index at which to insert the new row)
     int rowCount = ui->purchaseWindow_tableWidget_shoppingCart->rowCount();
 
+    // Hide the double-clicked row so the user cannot insert duplicates (buggy)
+    ui->purchaseWindow_tableView_souvenirList->hideRow(selectedRow);
+
     // Insert the new row into the cart
     ui->purchaseWindow_tableWidget_shoppingCart->insertRow(rowCount);
     ui->purchaseWindow_tableWidget_shoppingCart->setItem(rowCount, 0, stadiumName);
