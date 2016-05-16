@@ -168,6 +168,8 @@ public:
 
     long minKey(long key[], bool mstSet[]);
 
+    QList<Vertex> mst();
+
 private:
 
     QList<Vertex> vertexList;       // Stores the complete list of vertices in the graph

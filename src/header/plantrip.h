@@ -2,6 +2,7 @@
 #define PLANTRIP_H
 
 #include <QtSql/QtSql>
+#include <QMessageBox>
 #include <QWidget>
 
 namespace Ui {
@@ -26,6 +27,9 @@ signals:
 
     /// Send a signal with a stringList containing the selected stadiums, in order.
     void giveStadiumList(QStringList);
+
+    /// Send a signal to display the minimum spanning tree.
+    void displayMST();
 
 public slots:
     /// Propagate the stadiums list.
@@ -52,6 +56,8 @@ private slots:
 
     /// Remove a stadium from the selected stadiums list.
     void on_planTrip_toolButton_remove_clicked();
+
+    void on_planTrip_pushButton_MST_clicked();
 
 private:
     Ui::PlanTrip *ui;

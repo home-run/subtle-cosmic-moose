@@ -50,6 +50,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(planTrip_widget, SIGNAL(giveStadiumList(QStringList)),
             tripSummary_widget, SLOT(accept_plannedTrip_listOfStadiums(QStringList)));
 
+    //planTrip Display the Minimum Spanning Tree
+    connect(planTrip_widget, SIGNAL(displayMST()),
+            this, SLOT(displayMSTBox()));
 
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));
@@ -352,3 +355,29 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
     }
 }
 
+
+void MainWindow::displayMSTBox()
+{
+    QMessageBox *mstBox = new QMessageBox(this);
+    QString result = "The Minimum Spanning Tree is [ ";
+    Graph graph;
+    int smallest = INF;
+    long prev = INF;
+    int mst;
+    graph.createGraph(db);
+
+    for(int i = 0;i < graph.getNumberVertices(); i++)
+    {
+        smallest = graph.minimumSpanningTree(7);
+        if(smallest > prev)
+        {
+            smallest = prev;
+        }
+    }
+    mst = smallest;
+    mstBox->setWindowTitle("MST RESULTS");
+    result = result + QString::number(mst) + " ] miles.";
+    mstBox->setText(result);
+    mstBox->exec();
+    qDebug() << result;
+}

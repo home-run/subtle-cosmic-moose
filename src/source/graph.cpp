@@ -498,6 +498,8 @@ long Graph::minimumSpanningTree(int source)
     {
         key[i] = INF;
         mstSet[i] = false;
+        vertexList[i].setParent(-1);
+        vertexList[i].setDistance(INF);
     }
 
     // Always include first lst vertex in MST.
@@ -524,7 +526,9 @@ long Graph::minimumSpanningTree(int source)
             if (adjacencyMatrix[u][v] > 0 && mstSet[v] == false && adjacencyMatrix[u][v] < key[v])
             {
                 parent[v] = u;
+                vertexList[v].setParent(u);
                 key[v] = adjacencyMatrix[u][v];
+                vertexList[v].setDistance(key[v]);
             }
         }
     }
@@ -595,4 +599,34 @@ QList<Vertex> Graph::getDodgerStadiumPath()
     }
     return path;
 
+}
+
+QList<Vertex> Graph::mst()
+{
+    QList<Vertex> path;
+    Vertex vertex;
+    long smallest = INF;
+    long prev = INF;
+    int index;
+
+
+    index = 0;
+    for(int i = 0; i < numVertices; i++)
+    {
+        prev = minimumSpanningTree(index);
+        if(prev < smallest)
+        {
+            smallest = prev;
+        }
+        index++;
+    }
+
+    qDebug() << "Smallest is " << smallest;
+
+    for(int i = 0; i < numVertices; i++)
+    {
+        path += getVertexPath(i);
+    }
+
+    return path;
 }
