@@ -32,21 +32,27 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
     {
         QString sourceStadium, destinationStadium, distanceBetween;
 
-        switch(index)
-        {
         //Case 0th index, starting off at source
-        case 0:
+        if(index == 0)
+        {
+
             sourceStadium = "STARTING STADIUM";
             destinationStadium = postAlgorithmList.at(index).getName();
             distanceBetween = QString::number(0);
 
-
             //Nicely formatted string~ the beauty of laziness
             itemToAppend = QString("%1 -> %2 : Distance [%3]")
                     .arg(sourceStadium, destinationStadium, distanceBetween);
-            break;
 
-        default:
+            //Go ahead and add to the list widget
+            ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
+
+            qDebug() << "Appending 0th";
+
+        }
+        else //Otherwise
+        {
+            //Grab all data related to the path
             //Offset by 1 to get source
             sourceStadium = postAlgorithmList.at(index-1).getName();
             //Destination is current index
@@ -61,14 +67,22 @@ void TripSummary::populateTripPath(QList<Vertex> postAlgorithmList)
                         )
                     );
 
+            //Check for 0 distance paths, we are not traveling anywhere
+            if(distanceBetween.toInt() != 0)
+            {
+                //Nicely formatted string~ the beauty of laziness
+                itemToAppend = QString("From %1 -> %2 : Distance [%3]")
+                        .arg(sourceStadium, destinationStadium, distanceBetween);
 
-            //Nicely formatted string~ the beauty of laziness
-            itemToAppend = QString("From %1 -> %2 : Distance [%3]")
-                    .arg(sourceStadium, destinationStadium, distanceBetween);
+                //Go ahead and add to the list widget
+                ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
+
+                qDebug() << "Appending non-zero distance";
+
+            }
         }
-
-        //Go ahead and add to the list widget
-        ui->tripSummary_listWidget_tripPath->addItem(itemToAppend);
+        //Else don't append it
+        qDebug() << "Going to next Item";
     }
 }
 
@@ -151,12 +165,6 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
     Graph graphOfStadiums;
     graphOfStadiums.createGraph(db);
 
-    for (int index = 0; index < stadiumList.size(); ++index)
-    {
-        qDebug() << db->GetStadiumID(stadiumList.at(index)) << " ID: "
-        << stadiumList.at(index);
-    }
-
 //    //assign id numbers
 //    int sourceID, destinationID;
 //    //Offset ID numbers by 1 to get actual positions in the vertexList inside Graph
@@ -177,11 +185,9 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
 
     qDebug() << "*****Inside Returned QList<Vertex>*******";
 
-//    QList<Vertex> vertexList;
-//    vertexList = graphOfStadiums.findShortestPathTo(db, stops.at(0), stops);
-//    for (int index = 0; index < vertexList.size(); ++index)
-//    {
-//        qDebug() << vertexList.at(index).getName() << " " << vertexList.at(index).getDistance() << " " << vertexList.at(index).getId();
-//    }
-//    populateTripPath(vertexList);
+    //Get a List of vertex to be passed into the populate Trip Path
+    QList<Vertex> vertexList;
+    vertexList = graphOfStadiums.findShortestPathTo(db, stops.at(0), stops);
+
+    populateTripPath(vertexList);
 }
