@@ -163,12 +163,12 @@ __Algorithm__: long Graph::minKey(long key[], bool mstSet[])
     return min_index;
 ```
 
->__ Process to find the minimum edge is O(n*n) => O(n^2)
+>__Process to find the minimum edge is O(n*n) => O(n^2)__
 
 Checking every edge that is adjacent to the current edge and to see if it has already been visited is a __O(n)__ process.
 ```cpp
         for(int v = 0; v < numVertices; v++)         // <== O(n)
-            
+
             if (adjacencyMatrix[u][v] > 0 && mstSet[v] == false && adjacencyMatrix[u][v] < key[v])
                 parent[v] = u;
                 vertexList[v].setParent(u);
@@ -178,13 +178,9 @@ Checking every edge that is adjacent to the current edge and to see if it has al
 
 > __Process to find the vertex with the smallest possible weight which has not been discovered for each vertex is O(n*n)__
 
-Summing the total mst is its own process.
-```cpp
-    for (int i = 0; i < numVertices; i++)           // <= O(n)
-        sum += adjacencyMatrix[i][parent[i]];
+>__Since the process takes n + n^2 + n^2__
 
-    return sum;
-```
+>__O(n + n^2 + n^2) = O(n^2)__
 
 ### Heap
 Heap worst case,best case and average case are O(nlogn)
