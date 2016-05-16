@@ -167,6 +167,11 @@ void StadiumDetails::initializeSouvenirTable(SouvenirTableModel *souvenirModel)
     initializeSouvenirView();
 }
 
+void StadiumDetails::updateTotalRevenue()
+{
+    ui->stadiumDetails_label_total->setText("Total Revenue: $" + QString::number(db->GetTotalRevenues()));
+}
+
 /**
  * @brief StadiumDetails::on_stadiumDetails_league_comboBox_currentIndexChanged
  * Changes the table filter based on which league is selected. Will filter stadiums
@@ -426,6 +431,9 @@ void StadiumDetails::on_stadiumDetails_admin_submitChanges_clicked()
         // re-propagate tables
         stadiumModel->select();
         souvenirModel->select();
+
+        // update the total revenue in case they changed that value
+        updateTotalRevenue();
     }
 }
 

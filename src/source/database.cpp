@@ -230,3 +230,31 @@ int Database::GetStadiumID(QString name)
     // it didn't work
     return -1;
 }
+
+/**
+ * @brief Database::GetTotalRevenues
+ * @return
+ */
+double Database::GetTotalRevenues()
+{
+    QSqlQuery query;
+    double total = -1;
+
+    if(query.exec("select SUM(revenue) as total from stadiums")){
+        if(query.next()){
+            total = query.record().field("total").value().toDouble();
+            qDebug() << QString::number(total);
+        }
+        else
+        {
+            qDebug() << query.lastError().text();
+        }
+    }
+    else
+    {
+        qDebug() << query.lastError().text();
+    }
+
+    return total;
+
+}

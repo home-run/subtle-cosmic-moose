@@ -260,6 +260,8 @@ void MainWindow::on_mainwindow_pushButton_viewStadiums_clicked()
     //Disables the Spacer
     ui->mainwindow_horizontalSpacer_buttons->changeSize(0, 60, QSizePolicy::Fixed);
 
+    stadiumDetails_widget->updateTotalRevenue();
+
     // initialize tables with data from database
     stadiumModel = new StadiumTableModel(this, db);
     souvenirModel = new SouvenirTableModel(this, db);
