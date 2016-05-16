@@ -420,37 +420,37 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> sto
         source = stops.at(i);
     }
 
-    iter = completePath.begin();
-    qDebug() << "Erasing vertices";
-    iter++;
-    for(int i = 1; i < completePath.size() ; i++)
-    {
-        if(completePath.at(i).getDistance() == 0)
-        {
-            qDebug() << "Erasing " << completePath.at(i).getName() << " with distance " << completePath.at(i).getDistance();
-            completePath.erase(iter);
-            --iter;
-            --i;
-        }
-        iter++;
-    }
+//    iter = completePath.begin();
+//    qDebug() << "Erasing vertices";
+//    iter++;
+//    for(int i = 1; i < completePath.size() ; i++)
+//    {
+//        if(completePath.at(i).getDistance() == 0)
+//        {
+//            qDebug() << "Erasing " << completePath.at(i).getName() << " with distance " << completePath.at(i).getDistance();
+//            completePath.erase(iter);
+//            --iter;
+//            --i;
+//        }
+//        iter++;
+//    }
 
-    long nextDistance;
-    long currentDistance;
+//    long nextDistance;
+//    long currentDistance;
 
-    for(int index = 0; index < completePath.size() - 1; index++)
-    {
-        currentDistance = completePath.at(index).getDistance();
-        nextDistance = completePath.at(index + 1).getDistance();
-        qDebug() << "Current Distance " << currentDistance << " next distance " << nextDistance;
+//    for(int index = 0; index < completePath.size() - 1; index++)
+//    {
+//        currentDistance = completePath.at(index).getDistance();
+//        nextDistance = completePath.at(index + 1).getDistance();
+//        qDebug() << "Current Distance " << currentDistance << " next distance " << nextDistance;
 
-        if(currentDistance > nextDistance )
-        {
-            completePath[index + 1].setDistance(nextDistance + currentDistance);
-        }
-    }
+//        if(currentDistance > nextDistance )
+//        {
+//            completePath[index + 1].setDistance(nextDistance + currentDistance);
+//        }
+//    }
 
-    // Return the complete path found.
+//    // Return the complete path found.
     return completePath;
 }
 
