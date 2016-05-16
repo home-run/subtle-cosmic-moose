@@ -88,7 +88,6 @@ private:
     Database*         db;
     StadiumTableModel* stadiumModel;
     SouvenirTableModel* souvenirModel;
-
     void checkPage_toggleBackNextButtonVisible();
     void leavingTripSummary();
 
