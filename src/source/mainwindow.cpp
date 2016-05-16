@@ -372,18 +372,20 @@ void MainWindow::displayMSTBox()
     QMessageBox *mstBox = new QMessageBox();
     QString result = "The Minimum Spanning Tree is [ ";
     Graph graph;
-    long smallest = 50000;
-    long prev = ;
+    long smallest = INF;
+    long prev = INF;
     long mst;
+    graph.createGraph(db);
+    qDebug() << QString::number(graph.getNumberVertices());
 
     for(int i = 0;i < graph.getNumberVertices(); i++)
     {
-        graph.createGraph(db);
         prev = graph.minimumSpanningTree(i);
         if(smallest > prev)
         {
             smallest = prev;
         }
+        graph.createGraph(db);
     }
     mst = smallest;
     mstBox->setWindowTitle("MST RESULTS");
