@@ -242,7 +242,7 @@ __Validation__
 
 1. Continuous Integration
 2. QT Debugger
-3. Jarvis
+3. trarvis
 
 #### 4.3 Unit testing
 
