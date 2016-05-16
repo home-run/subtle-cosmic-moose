@@ -573,3 +573,26 @@ long Graph::minKey(long key[], bool mstSet[])
     return min_index;
 }
 
+QList<Vertex> Graph::getDodgerStadiumPath()
+{
+    QList<Vertex> path;
+    Vertex vertex;
+    int parentId;
+
+    shortestPath(21);
+
+    for(int target = 0; target < numVertices; target++)
+    {
+        vertex = vertexList[target];
+        parentId = vertex.getParent();
+
+        path.push_front(vertex);
+        while(parentId > -1)
+        {
+            path.push_front(vertexList[parentId]);
+            parentId = vertexList[parentId].getParent();
+        }
+    }
+    return path;
+
+}

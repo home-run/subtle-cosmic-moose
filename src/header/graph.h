@@ -140,6 +140,13 @@ public:
      */
     long minimumSpanningTree(int source);
 
+    /**
+     * @brief getDodgerStadiumPath
+     * This is a specialized function for finding the shortest path using dijkstra's
+     * algorithm starting at Dodger stadium.
+     * @return
+     */
+    QList<Vertex> getDodgerStadiumPath();
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Debug Methods
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
