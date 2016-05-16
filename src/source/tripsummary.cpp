@@ -129,6 +129,8 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
 
     //Final total purchase of the trip
     QString totalPurchased;
+    totalPurchased = QString("Your Total Amount is: $%1")
+                            .arg(QString::number(totalPriceOfPurchase));
 
     //Add the total purchase
     ui->tripSummary_listWidget_Purchases->addItem(totalPurchased);
