@@ -142,3 +142,8 @@ void PlanTrip::on_planTrip_pushButton_visitAll_clicked()
     emit hideNextButton(false);
     emit callVisitAll();
 }
+
+void PlanTrip::on_planTrip_pushButton_MST_clicked()
+{
+    emit displayMST();
+}

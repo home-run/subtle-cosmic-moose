@@ -381,8 +381,8 @@ void Test_Main::testMST()
 //        }
         index++;
     }
-//    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
-//    qDebug() << "Malik's Smallest found [ " << smallest << " ] at index = " << index;
+    qDebug () << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ";
+    qDebug() << "Malik's Smallest found [ " << smallest << " ] at index = " << index;
 //    qDebug() << "Smallest starting indices found:";
 //    for(int i = 0; i < shortestStartingIndices.size(); i++)
 //    {
