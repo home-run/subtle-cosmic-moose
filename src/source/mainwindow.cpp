@@ -360,6 +360,13 @@ void MainWindow::on_actionAdd_new_stadium_triggered()
 }
 
 
+/**
+ * @brief MainWindow::displayMSTBox
+ * This Function is a SLOT function for when the user selects to view the minimum spanning
+ * tree. It will perform the calculation n times to determine the ABSOLUTE minimum spanning
+ * tree. Once the results have been determined it will be inserted into a QMessageBox
+ * and displayed in a small window.
+ */
 void MainWindow::displayMSTBox()
 {
     QMessageBox *mstBox = new QMessageBox(this);
