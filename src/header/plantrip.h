@@ -3,6 +3,7 @@
 
 #include <QtSql/QtSql>
 #include <QWidget>
+#include "database.h"
 
 namespace Ui {
 class PlanTrip;
@@ -13,7 +14,7 @@ class PlanTrip : public QWidget
     Q_OBJECT
 
 public:
-    explicit PlanTrip(QWidget *parent = 0);
+    explicit PlanTrip(QWidget *parent = 0, Database *db = 0);
 
     ~PlanTrip();
 
@@ -29,6 +30,9 @@ signals:
 
     /// Sends a signal saying we clicked the visit all button
     void callVisitAll();
+
+    /// Sends a signal for Visitall Stadiums for purchase cart
+    void giveStadiumListVisitAll(QStringList);
 
 public slots:
     /// Propagate the stadiums list.
@@ -61,6 +65,7 @@ private slots:
 
 private:
     Ui::PlanTrip *ui;
+    Database *db;
 };
 
 #endif // PLANTRIP_H

@@ -145,9 +145,15 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
         price = QString::number(purchases.at(index).itemPrice);
         quantity = QString::number(purchases.at(index).quantity);
 
+        //Preformat dat shizzle
+        stadium = stadium.leftJustified(30-stadium.size(), ' ');
+        name = name.leftJustified(30-name.size(), ' ');
+        price = price.leftJustified(6-price.size(), ' ');
+        quantity = quantity.leftJustified(3-quantity.size(), ' ');
+
         //Put into a giant string
         purchaseStructToAppend =
-                QString("Purchased From: [%1] \tItem Name: [%2] \tItem Price: [%3] \tQuantity: [%4]")
+                QString("Purchased From: %1\tItem Name: %2\tItem Price: %3\tQuantity: %4")
                 .arg(stadium,name,price,quantity);
 
         //Continually accumulate the total purchase price

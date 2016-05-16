@@ -52,6 +52,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //planTrip Emits visit all signal, call function on tripSummary
     connect(planTrip_widget, SIGNAL(callVisitAll()),
             tripSummary_widget, SLOT(accept_visitAllStadiums()));
+    //planTrip Emits with visit all signal all the stadiums for the purchase window
+    connect(planTrip_widget, SIGNAL(giveStadiumListVisitAll(QStringList)),
+            purchaseWindow_widget, SLOT(propagateStadiumList(QStringList)));
 
     //Splash Screen Emits signal when done, call gotoHomePage Function
     connect(homePage_widget, SIGNAL(isFinished(bool)), this, SLOT(gotoHomePage()));

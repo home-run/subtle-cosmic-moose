@@ -2,12 +2,13 @@
 #include "ui_plantrip.h"
 #include <QDebug>
 
-PlanTrip::PlanTrip(QWidget *parent) :
+PlanTrip::PlanTrip(QWidget *parent, Database *db) :
     QWidget(parent),
     ui(new Ui::PlanTrip)
 {
     ui->setupUi(this);
 
+    this->db = db;
 }
 
 PlanTrip::~PlanTrip()
@@ -137,6 +138,7 @@ void PlanTrip::on_planTrip_toolButton_remove_clicked()
 void PlanTrip::on_planTrip_pushButton_visitAll_clicked()
 {
     emit clickNext();
-    emit clickNext(); //Skip the purchase window because reasons
+    emit giveStadiumListVisitAll(db->GetStadiumNames());
+    emit hideNextButton(false);
     emit callVisitAll();
 }
