@@ -146,7 +146,7 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
         quantity = QString::number(purchases.at(index).quantity);
 
         //Preformat dat shizzle
-        stadium = stadium.leftJustified(30-stadium.size(), ' ');
+        stadium = stadium.leftJustified(30, ' ');
         name = name.leftJustified(30-name.size(), ' ');
         price = price.leftJustified(6-price.size(), ' ');
         quantity = quantity.leftJustified(3-quantity.size(), ' ');
@@ -164,9 +164,6 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
 
         // Add revenues to stadiums
         db->AddRevenue(db->GetStadiumID(stadium), (purchases.at(index).itemPrice * purchases.at(index).quantity));
-
-        //TODO/FIXME - Display statium totals in a tooltip
-        ui->tripSummary_listWidget_Purchases->item(index)->setToolTip("$" + QString::number(db->GetRevenue(stadium)));
 
     }
 
