@@ -100,54 +100,58 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
     //Initial line for purchase reciept
     ui->tripSummary_listWidget_Purchases->addItem(QString("****PURCHASE RECIEPT****"));
 
+    //Declare some variables
+    QString name, price, quantity, stadium;
+    QString purchaseStructToAppend;
     double totalPriceOfPurchase;
 
     //Loop to get all items
     for(int index = 0; index < purchases.size(); index++)
     {
         //copy all data over
-        QString name, price, quantity, stadium;
         stadium = purchases.at(index).stadiumName;
         name = purchases.at(index).itemName;
-        price.number(purchases.at(index).itemPrice);
-        quantity.number(purchases.at(index).quantity);
+        price = QString::number(purchases.at(index).itemPrice);
+        quantity = QString::number(purchases.at(index).quantity);
 
         //Put into a giant string
-        QString purchaseStructToAppend = QString("Purchased From: %1\tItem Name: %2\tItem Price: %3\tQuantity: %4")
+        purchaseStructToAppend =
+                QString("Purchased From: [%1] \tItem Name: [%2] \tItem Price: [%3] \tQuantity: [%4]")
                 .arg(stadium,name,price,quantity);
 
+        //Continually accumulate the total purchase price
         totalPriceOfPurchase += purchases.at(index).itemPrice;
 
-        //TODO - Display statium totals in a tooltip
-        QListWidgetItem *purchaseItem = new QListWidgetItem(purchaseStructToAppend);
-        purchaseItem->setToolTip(QString("<Insert Item's Stadium Total Rev here>"));
-
         //Add all data to the list itself
-        ui->tripSummary_listWidget_Purchases->addItem(purchaseItem);
+        ui->tripSummary_listWidget_Purchases->addItem(purchaseStructToAppend);
+
+        //TODO/FIXME - Display statium totals in a tooltip
+        ui->tripSummary_listWidget_Purchases->item(index)->setToolTip(QString("<Insert Item's Stadium Total Rev here>"));
 
     }
 
     //Final total purchase of the trip
     QString totalPurchased;
 
-    //If we had no purchases
+    //If we had purchases
     if(totalPriceOfPurchase != 0)
     {
     totalPurchased = QString("Your Total Amount is: $%1")
                             .arg(QString::number(totalPriceOfPurchase));
     }
-    else
+    else //We had no purchases
     {
         totalPurchased = "You had no purchases!";
     }
 
     //Add the total purchase
     ui->tripSummary_listWidget_Purchases->addItem(totalPurchased);
+
 }
 
 /**
  * @brief TripSummary::clearData
- * Clears the list
+ * Clears the two lists
  */
 void TripSummary::clearData()
 {
@@ -189,9 +193,11 @@ void TripSummary::accept_plannedTrip_listOfStadiums(QStringList stadiumList)
 //    populateTripPath(graphOfStadiums.findShortestPathTo(db, sourceID, destinationID));
 
 
+    //Get A list of ID numbers related to the stops in dream vacation
     QList<int> stops;
     for (int index = 0; index < stadiumList.size(); ++index)
     {
+        //Offset ID numbers by 1 to get actual positions in the vertexList inside Graph
         int id = db->GetStadiumID(stadiumList.at(index)) -1;
         qDebug() << id;
         stops.append(id);
