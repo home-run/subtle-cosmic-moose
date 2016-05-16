@@ -252,7 +252,6 @@ int Database::GetStadiumID(QString name)
     QSqlQuery query;
     query.prepare("select id from stadiums where name = :name");
     query.bindValue(":name", name);
-
     if(query.exec()){
         if(query.next()){
             return query.record().field("id").value().toInt();
@@ -268,16 +267,45 @@ int Database::GetStadiumID(QString name)
 }
 
 /**
- * @brief getRevenue
- * stadiums revenue
- * @param id stadium
- * @return
+ * @brief GetRevenue
+ * Retrieve the current revenue value of a stadium given its ID.
+ * @param id stadium ID
+ * @return the current revenue of the stadium
  */
 double Database::GetRevenue(int id)
 {
     QSqlQuery query;
     query.prepare("select revenue froms stadiums where id = :id");
     query.bindValue(":id", id);
+    if(query.exec()){
+        if(query.next()){
+            return query.record().field("revenue").value().toDouble();
+        }
+        else
+        {
+            qDebug() << query.lastError().text();
+            return -1;
+        }
+    }
+    else
+    {
+        qDebug() << query.lastError().text();
+        return -1;
+    }
+}
+
+/**
+ * @brief GetRevenue
+ * Retrieve the current revenue value of a stadium given its name.
+ * @param id stadium ID
+ * @return the current revenue of the stadium
+ */
+double Database::GetRevenue(QString stadiumName)
+{
+    QSqlQuery query;
+
+    query.prepare("select revenue froms stadiums where name = :name");
+    query.bindValue(":name", stadiumName);
     if(query.exec()){
         if(query.next()){
             return query.record().field("revenue").value().toDouble();

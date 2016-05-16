@@ -48,8 +48,11 @@ public:
   /// Get the query containing the ids and stadium names available in the database
   QSqlQuery getStadiumsNameId();
 
-  /// Gets the revenue of the particular stadium
-  long getRevenue(int id);
+  /// Gets the revenue of the particular stadium given its ID
+  double GetRevenue(int id);
+
+  /// Gets the revenue of the particular stadium given its name
+  double GetRevenue(QString stadiumName);
 
 
 };
