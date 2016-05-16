@@ -196,7 +196,7 @@ bool Database::AddRevenue(int id,long revenue)
     query.prepare("INSERT INTO revenues(stadium_id,revenue) Values(:id_from,:revenue)");
 
         query.bindValue(":id_from", id);
-        query.bindValue(":revenue", revenue);
+        query.bindValue(":revenue", QString::number(revenue));
         if(query.exec()){
             return true;
         }
@@ -258,7 +258,7 @@ int Database::GetStadiumID(QString name)
  * @param id stadium
  * @return
  */
-long getRevenue(int id)
+long Database::getRevenue(int id)
 {
     QSqlQuery query;
     query.prepare("select stadium_id from revenues where stadium_id = :stadium_id");
