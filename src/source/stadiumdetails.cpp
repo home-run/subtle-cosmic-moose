@@ -376,6 +376,14 @@ void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_clicked(const QMode
     souvenirModel->Initialize(stadium);
     // Reinitialize the souvenir view.
     initializeSouvenirView();
+    if(admin_status)
+    {
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::DoubleClicked);
+    }
+    else
+    {
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::NoEditTriggers);
+    }
 }
 
 /**
@@ -491,11 +499,9 @@ void StadiumDetails::on_stadiumDetails_tableView_souvenirs_clicked(const QModelI
     if(admin_status)
     {
         ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::DoubleClicked);
-        qDebug()<<"yo sleep?";
     }
     else
     {
         ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
-                  qDebug()<<"na dawg get fucked up";
     }
 }
