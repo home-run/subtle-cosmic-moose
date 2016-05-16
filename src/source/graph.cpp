@@ -409,7 +409,7 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> sto
         foundPath = findShortestPathTo(db, source, stops.at(i));
 
         // Within the path that was found
-        for(int j = 1; j < foundPath.size();j++)
+        for(int j = 0; j < foundPath.size();j++)
         {
             // Add each vertex in that path to the overall path to be returned.
             completePath.push_back(foundPath[j]);
