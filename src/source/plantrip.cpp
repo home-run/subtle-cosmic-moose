@@ -128,3 +128,8 @@ void PlanTrip::on_planTrip_toolButton_remove_clicked()
     QModelIndex index = ui->planTrip_stadiumsChosen_tableWidget->currentIndex();
     ui->planTrip_stadiums_tableWidget->addItem(ui->planTrip_stadiumsChosen_tableWidget->takeItem(index.row()));
 }
+
+void PlanTrip::on_planTrip_pushButton_MST_clicked()
+{
+    emit displayMST();
+}
