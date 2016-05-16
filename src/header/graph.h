@@ -47,6 +47,12 @@ public:
     void shortestPath(Vertex source);
 
     /**
+     * @brief shortestPath
+     * Returns the shortest path given the starting ID of a vertex.
+     */
+    void shortestPath(int source);
+
+    /**
      * @brief clearGraph
      * This method clears the current graph
      * TODO: Needs to be updated for the current implementation of the graph search.
@@ -78,6 +84,18 @@ public:
      * @return QList of Vertices
      */
     QList<Vertex> getVertexPath(Vertex target);
+
+    /**
+     * @brief Graph::getVertexPath
+     * Function will take a given vertex and traverse up the path of the given parent ids
+     * to construct the path that was taken to arrive at the target vertex. This method
+     * will return a QList of vertices, where index 0 is the starting vertice and the last
+     * vertex in the list is the given target vertex.
+     * @param target Vertex
+     * @return QList of Vertices
+     */
+
+    QList<Vertex> getVertexPath(int target);
 
     /**
      * @brief Graph::findShortestPathTo

@@ -297,6 +297,19 @@ void Graph::shortestPath(Vertex source)
 }
 
 /**
+ * @brief Graph::shortestPath
+ * Overloaded method for determining the shortest path to all vertices given one starting
+ * vertex. Allows to pass in an integer as the source.
+ * @param source
+ */
+void Graph::shortestPath(int source)
+{
+    Vertex v;
+    v.setId(source);
+    shortestPath(v);
+}
+
+/**
  * @brief Graph::getTotalDistance
  * This method will the take the distances stored in each of the vertices after a search
  * for the shortest path has been performed.
@@ -420,37 +433,7 @@ QList<Vertex> Graph::findShortestPathTo(Database *db, int source, QList<int> sto
         source = stops.at(i);
     }
 
-//    iter = completePath.begin();
-//    qDebug() << "Erasing vertices";
-//    iter++;
-//    for(int i = 1; i < completePath.size() ; i++)
-//    {
-//        if(completePath.at(i).getDistance() == 0)
-//        {
-//            qDebug() << "Erasing " << completePath.at(i).getName() << " with distance " << completePath.at(i).getDistance();
-//            completePath.erase(iter);
-//            --iter;
-//            --i;
-//        }
-//        iter++;
-//    }
-
-//    long nextDistance;
-//    long currentDistance;
-
-//    for(int index = 0; index < completePath.size() - 1; index++)
-//    {
-//        currentDistance = completePath.at(index).getDistance();
-//        nextDistance = completePath.at(index + 1).getDistance();
-//        qDebug() << "Current Distance " << currentDistance << " next distance " << nextDistance;
-
-//        if(currentDistance > nextDistance )
-//        {
-//            completePath[index + 1].setDistance(nextDistance + currentDistance);
-//        }
-//    }
-
-//    // Return the complete path found.
+    // Return the complete path found.
     return completePath;
 }
 
@@ -479,6 +462,14 @@ QList<Vertex> Graph::getVertexPath(Vertex target)
         parentId = vertexList[parentId].getParent();
     }
     return path;
+}
+
+QList<Vertex> Graph::getVertexPath(int target)
+{
+    Vertex v;
+    v.setId(target);
+
+    return getVertexPath(v);
 }
 
 /**
@@ -581,3 +572,4 @@ long Graph::minKey(long key[], bool mstSet[])
 
     return min_index;
 }
+
