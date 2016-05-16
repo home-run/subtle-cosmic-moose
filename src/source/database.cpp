@@ -199,10 +199,10 @@ bool Database::AddRevenue(int id, double revenue)
     query.bindValue(":id", id);
     if(query.exec()){
         if(query.next()){
-            int originalRev = query.record().field("revenue").value().toDouble();
+            double originalRev = query.record().field("revenue").value().toDouble();
             query.clear();
             query.prepare("update stadiums set revenue = :newRev where id = :id");
-            int newRev = originalRev + revenue;
+            double newRev = originalRev + revenue;
             query.bindValue(":newRev", newRev);
             query.bindValue(":id", id);
             return query.exec();

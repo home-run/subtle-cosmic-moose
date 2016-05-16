@@ -125,6 +125,9 @@ void TripSummary::populatePurchaseReciept(QList<PurchaseWindow::purchaseInfo> pu
         //Add all data to the list itself
         ui->tripSummary_listWidget_Purchases->addItem(purchaseStructToAppend);
 
+        // Add revenues to stadiums
+        db->AddRevenue(db->GetStadiumID(stadium), (purchases.at(index).itemPrice * purchases.at(index).quantity));
+
         //TODO/FIXME - Display statium totals in a tooltip
         ui->tripSummary_listWidget_Purchases->item(index)->setToolTip("$" + QString::number(db->GetRevenue(stadium)));
 
