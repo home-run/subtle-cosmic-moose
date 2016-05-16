@@ -8,6 +8,7 @@ StadiumDetails::StadiumDetails(QWidget *parent, Database *db) :
     ui->setupUi(this);
     this->db = db;
     toggleAdminFunctions(false);
+    admin_status=false;
 }
 
 /**
@@ -103,19 +104,20 @@ void StadiumDetails::refreshModels()
  */
 void StadiumDetails::toggleAdminFunctions(bool isAdmin)
 {
+    admin_status=isAdmin;
     // Hide/unhide and enable/disable submit changes button
-    ui->stadiumDetails_admin_submitChanges->setEnabled(isAdmin);
-    ui->stadiumDetails_admin_submitChanges->setVisible(isAdmin);
+    ui->stadiumDetails_admin_submitChanges->setEnabled(admin_status);
+    ui->stadiumDetails_admin_submitChanges->setVisible(admin_status);
 
     // Hide/unhide and enable/disable add souvenir button
-    ui->stadiumDetails_admin_addSouvenir->setEnabled(isAdmin);
-    ui->stadiumDetails_admin_addSouvenir->setVisible(isAdmin);
+    ui->stadiumDetails_admin_addSouvenir->setEnabled(admin_status);
+    ui->stadiumDetails_admin_addSouvenir->setVisible(admin_status);
 
     // Hide/unhide and enable/disable remove souvenir button
-    ui->stadiumDetails_admin_removeSouvenir->setEnabled(isAdmin);
-    ui->stadiumDetails_admin_removeSouvenir->setVisible(isAdmin);
+    ui->stadiumDetails_admin_removeSouvenir->setEnabled(admin_status);
+    ui->stadiumDetails_admin_removeSouvenir->setVisible(admin_status);
 
-    if(isAdmin)
+    if(admin_status)
     {
         // make tables editable
         ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::DoubleClicked);
@@ -127,6 +129,7 @@ void StadiumDetails::toggleAdminFunctions(bool isAdmin)
         ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::NoEditTriggers);
         ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
     }
+
 }
 
 /**
@@ -373,6 +376,14 @@ void StadiumDetails::on_stadiumDetails_tableView_stadiumInfo_clicked(const QMode
     souvenirModel->Initialize(stadium);
     // Reinitialize the souvenir view.
     initializeSouvenirView();
+    if(admin_status)
+    {
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::DoubleClicked);
+    }
+    else
+    {
+        ui->stadiumDetails_tableView_stadiumInfo->setEditTriggers(QTableView::NoEditTriggers);
+    }
 }
 
 /**
@@ -480,5 +491,17 @@ void StadiumDetails::on_stadiumDetails_admin_removeSouvenir_clicked()
         p->setText("Please select a row.");
         p->setStandardButtons(QMessageBox::Ok);
         p->exec();
+    }
+}
+
+void StadiumDetails::on_stadiumDetails_tableView_souvenirs_clicked(const QModelIndex &index)
+{
+    if(admin_status)
+    {
+        ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::DoubleClicked);
+    }
+    else
+    {
+        ui->stadiumDetails_tableView_souvenirs->setEditTriggers(QTableView::NoEditTriggers);
     }
 }
