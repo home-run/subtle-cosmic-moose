@@ -1,0 +1,181 @@
+.TH "md__r_e_a_d_m_e" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__r_e_a_d_m_e \- README 
+\fC\fP
+.PP
+.SS "~/run (HOME RUN)"
+.PP
+.SS "##An application for planning a baseball fan's dream vacation\&. "
+.PP
+.SS "Git flow and branching scheme"
+.PP
+.IP "1." 4
+\fBAlways\fP branch from \fCdevelop\fP\&.
+.IP "2." 4
+Branch naming scheme is defined as such:
+.IP "  \(bu" 4
+\fC<issue number>-brief-description\fP
+.IP "  \(bu" 4
+For example, \fCissue #1 is to create a README file\fP, so my branch name is \fC1-readme\fP\&.
+.PP
+
+.IP "3." 4
+Include a '#' followed by the issue number in every commit\&.
+.IP "  \(bu" 4
+For example, commits to this branch will look like this: \fC[#1] Added stuff to readme\&.\fP
+.PP
+
+.IP "4." 4
+Never work on a branch without an associated issue\&. If you don't see the issue on waffle, create one\&.
+.IP "5." 4
+Always push a branch immediately after creating it\&. This is to correctly update issues on waffle, and also to let other teammates know what you're working on\&.
+.IP "6." 4
+Pull-requests must be reviewed by all members of the team before they are approved for merge\&.
+.IP "7." 4
+Delete the feature branch once a pull-request is merged\&.
+.PP
+.PP
+.SS "A mini command-line git tutorial (for our purposes for this project)"
+.PP
+0\&. Clone the repo\&.
+.IP "\(bu" 2
+\fCgit clone https://github.com/home-run/subtle-cosmic-moose.git\fP
+.IP "\(bu" 2
+\fCcd subtle-cosmic-moose\fP
+.PP
+.PP
+Switch to branch \fCdevelop\fP\&.
+.IP "\(bu" 2
+\fCgit checkout develop\fP
+.PP
+.PP
+Make sure to do a \fCgit pull\fP before branching, so you always have up-to-date code\&.
+.IP "3." 4
+Create/switch to your branch\&. (This one command does both\&.)
+.IP "  \(bu" 4
+\fCgit checkout -b 66-a-brief-description\fP
+.PP
+
+.IP "4." 4
+Push the newly created branch\&.
+.IP "  \(bu" 4
+\fCgit push -u origin 66-a-brief-description\fP
+.PP
+
+.IP "5." 4
+Start coding!
+.IP "6." 4
+Add your changes to the staging area to prepare for a commit\&.
+.IP "  \(bu" 4
+\fCgit add my_new_file\&.cpp\fP for files that don't exist on the repo yet\&.
+.IP "  \(bu" 4
+\fCgit add -u\fP for files that already exist on the repo that have been updated\&.
+.IP "  \(bu" 4
+You can use the command \fCgit status\fP to view the staging area at any time\&.
+.PP
+
+.IP "7." 4
+Make a commit\&. Make sure to include '#' followed by your issue number somewhere in the commit message\&.
+.IP "  \(bu" 4
+\fCgit commit -m '[#66] Mashed keys until it compiled\&. Don't bother testing it\&. It's fine, I swear\&.'\fP
+.PP
+
+.IP "8." 4
+Push your changes\&.
+.IP "  \(bu" 4
+If you used the command in \fBstep 4\fP, this is simply \fCgit push\fP (The \fC-u\fP flag sets the upstream so you don't have to explicitly set it for every push)\&.
+.IP "  \(bu" 4
+Otherwise, the command is \fCgit push origin 66-a-brief-description\fP
+.PP
+
+.IP "9." 4
+Drink more coffee\&. :coffee:
+.PP
+.PP
+.SS "A Brief Doxygen Style Guide"
+.PP
+\fBnote:\fP \fIALL code must be doxygen commented\&.\fP \fBIf your code isn't commented, it will not be approved for merge\&.\fP
+.PP
+\fBIn QT, typing\fP \fC/** + return\fP \fBabove a declaration will produce a doxygen comment block\&.\fP
+.PP
+Full commenting manual can be found \fChere\fP\&.
+.PP
+.SS "Things to note about Doxygen comments"
+.PP
+.IP "\(bu" 2
+Comments can come before the code item\&.
+.IP "\(bu" 2
+For class members and parameters they may also come after them\&.
+.IP "\(bu" 2
+They may be either brief (one line) or detailed or both\&.
+.IP "\(bu" 2
+Put the reference documentation type comments (class and method descriptions) \fBin the \&.h file\fP and \fInot\fP in (or, at least, in addition to) the \&.cpp files\&.
+.PP
+.PP
+.SS "Brief comment before"
+.PP
+Add an extra '/'
+.PP
+.PP
+.nf
+1 /// This method does something
+2 void DoSomething();
+.fi
+.PP
+.PP
+.SS "Detailed comment before"
+.PP
+Add an extra '*'
+.PP
+.PP
+.nf
+1 /** This is a method that does so
+2   * much that I must write an epic 
+3   * novel just to describe how much
+4   * it truly does\&. */
+5 void DoNothing();
+.fi
+.PP
+.PP
+.IP "\(bu" 2
+the intermediate leading '*'s are optional\&.
+.PP
+.PP
+.SS "Brief comment after"
+.PP
+Add an extra '/<'
+.PP
+.PP
+.nf
+1 void DoSomething(); ///< This method does something
+.fi
+.PP
+.PP
+.SS "Detailed comment after"
+.PP
+Add an extra '*<'
+.PP
+.PP
+.nf
+1 void DoNothing(); /**< This is a method that does so
+2   * much that I must write an epic 
+3   * novel just to describe how much
+4   * it truly does\&. */
+.fi
+.PP
+.PP
+.IP "\(bu" 2
+the intermediate leading '*'s are optional\&.
+.PP
+.PP
+.SS "Example \&.h file"
+.PP
+Below is a full example\&.
+.PP
+``` /**
+.IP "\(bu" 2
+
+.PP
+

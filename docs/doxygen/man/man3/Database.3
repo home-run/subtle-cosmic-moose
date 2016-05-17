@@ -1,0 +1,323 @@
+.TH "Database" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Database \- The \fBDatabase\fP class is a wrapper for QSqlDatabase\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <database\&.h>\fP
+.PP
+Inherits QSqlDatabase\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDatabase\fP (QString path, QString driver)"
+.br
+.RI "\fICreate database from specified db file and driver\&. \fP"
+.ti -1c
+.RI "bool \fBAddSouvenir\fP (QString stadiumName, QString itemName, double itemPrice)"
+.br
+.RI "\fIAdd a souvenir to a stadium's souvenir list\&. \fP"
+.ti -1c
+.RI "bool \fBAddStadium\fP (QString stadiumName, QString teamName, QString address, QString phoneNumber, QString dateOpened, QString capacity, QString turfType, long revenue, QString leauge, QString typology)"
+.br
+.RI "\fIAdd a Stadium to Stadium's data base\&. \fP"
+.ti -1c
+.RI "bool \fBAddDistance\fP (int a, int b, long distance)"
+.br
+.RI "\fIAdd edges between vertecies to distances database\&. \fP"
+.ti -1c
+.RI "bool \fBAddRevenue\fP (int id, double revenue)"
+.br
+.RI "\fIAlter a current stadium's total revenue\&. \fP"
+.ti -1c
+.RI "QStringList \fBGetStadiumNames\fP ()"
+.br
+.RI "\fIRetrieve a list of stadium names\&. \fP"
+.ti -1c
+.RI "int \fBGetStadiumID\fP (QString name)"
+.br
+.RI "\fIRetrieve a stadium ID given the name\&. \fP"
+.ti -1c
+.RI "double \fBGetTotalRevenues\fP ()"
+.br
+.RI "\fIRetrieve the total amount of revenue from all stadiums\&. \fP"
+.ti -1c
+.RI "\fB~Database\fP ()"
+.br
+.RI "\fIDestructor\&. \fP"
+.ti -1c
+.RI "QSqlQuery \fBgetEdges\fP ()"
+.br
+.RI "\fIRetrieve IDs and Distances\&. \fP"
+.ti -1c
+.RI "int \fBgetNumberOfStadiums\fP () const "
+.br
+.RI "\fIReturn the number of stadiums in the database\&. \fP"
+.ti -1c
+.RI "QSqlQuery \fBgetStadiumsNameId\fP ()"
+.br
+.RI "\fIGet the query containing the ids and stadium names available in the database\&. \fP"
+.ti -1c
+.RI "double \fBGetRevenue\fP (int id)"
+.br
+.RI "\fIGets the revenue of the particular stadium given its ID\&. \fP"
+.ti -1c
+.RI "double \fBGetRevenue\fP (QString stadiumName)"
+.br
+.RI "\fIGets the revenue of the particular stadium given its name\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBDatabase\fP class is a wrapper for QSqlDatabase\&. 
+.PP
+Definition at line 13 of file database\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Database::Database (QString path, QString driver)"
+
+.PP
+Create database from specified db file and driver\&. \fBDatabase::Database\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP Path to SQL \fBDatabase\fP file 
+.br
+\fIdriver\fP QString identifier for the specific flavor of SQL we are using\&. 
+.RE
+.PP
+
+.PP
+Definition at line 8 of file database\&.cpp\&.
+.SS "Database::~Database ()"
+
+.PP
+Destructor\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "bool Database::AddDistance (int a, int b, long distance)"
+
+.PP
+Add edges between vertecies to distances database\&. \fBDatabase::AddDistance\fP Adds new distacne between two vertecies\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa\fP starting vertex 
+.br
+\fIb\fP ending vertex 
+.br
+\fIdistance\fP weight of the edge 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if it worked else false 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file database\&.cpp\&.
+.SS "bool Database::AddRevenue (int id, double revenue)"
+
+.PP
+Alter a current stadium's total revenue\&. \fBDatabase::AddRevenue\fP Add amount to revenue attribute in stadiums table\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP stadiums id 
+.br
+\fIrevenue\fP of the stadium 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 195 of file database\&.cpp\&.
+.SS "bool Database::AddSouvenir (QString stadiumName, QString itemName, double itemPrice)"
+
+.PP
+Add a souvenir to a stadium's souvenir list\&. \fBDatabase::AddSouvenir\fP Add a souvenir to a certain stadium's souvenir list given the stadium's name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstadiumName\fP The stadium name 
+.br
+\fIitemName\fP The item name 
+.br
+\fIitemPrice\fP The item price 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if it worked 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file database\&.cpp\&.
+.SS "bool Database::AddStadium (QString stadiumName, QString teamName, QString address, QString phoneNumber, QString dateOpened, QString capacity, QString turfType, long revenue, QString leauge, QString typology)"
+
+.PP
+Add a Stadium to Stadium's data base\&. \fBDatabase::AddStadium\fP Adds new Stadium to the data base with the following attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstadiumName\fP 
+.br
+\fIteamName\fP 
+.br
+\fIaddress\fP 
+.br
+\fIphoneNumber\fP 
+.br
+\fIdateOpened\fP 
+.br
+\fIcapacity\fP 
+.br
+\fIturfType\fP 
+.br
+\fIrevenue\fP 
+.br
+\fIleauge\fP 
+.br
+\fItypology\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if it worked else false 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file database\&.cpp\&.
+.SS "QSqlQuery Database::getEdges ()"
+
+.PP
+Retrieve IDs and Distances\&. \fBDatabase::getEdges\fP Method that executes a SQL query to grab all ids to, ids from and distances from the distances table\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SQLquery containing the results of the 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file database\&.cpp\&.
+.SS "int Database::getNumberOfStadiums () const"
+
+.PP
+Return the number of stadiums in the database\&. \fBDatabase::getNumberOfStadiums\fP Method executes a sql query to get the total number of stadiums in the database\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int value # of stadiums 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file database\&.cpp\&.
+.SS "double Database::GetRevenue (int id)"
+
+.PP
+Gets the revenue of the particular stadium given its ID\&. GetRevenue Retrieve the current revenue value of a stadium given its ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP stadium ID 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the current revenue of the stadium 
+.RE
+.PP
+
+.PP
+Definition at line 305 of file database\&.cpp\&.
+.SS "double Database::GetRevenue (QString stadiumName)"
+
+.PP
+Gets the revenue of the particular stadium given its name\&. GetRevenue Retrieve the current revenue value of a stadium given its name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP stadium ID 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the current revenue of the stadium 
+.RE
+.PP
+
+.PP
+Definition at line 333 of file database\&.cpp\&.
+.SS "int Database::GetStadiumID (QString name)"
+
+.PP
+Retrieve a stadium ID given the name\&. \fBDatabase::GetStadiumID\fP Retrieve a stadium's unique ID given its name\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP the stadium name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the stadium ID 
+.RE
+.PP
+
+.PP
+Definition at line 250 of file database\&.cpp\&.
+.SS "QStringList Database::GetStadiumNames ()"
+
+.PP
+Retrieve a list of stadium names\&. \fBDatabase::GetStadiumNames\fP Retrieve a list of stadium names\&.
+.PP
+\fBReturns:\fP
+.RS 4
+names a list of stadium names 
+.RE
+.PP
+
+.PP
+Definition at line 228 of file database\&.cpp\&.
+.SS "QSqlQuery Database::getStadiumsNameId ()"
+
+.PP
+Get the query containing the ids and stadium names available in the database\&. \fBDatabase::getStadiumsNameId\fP Get the name, and ID of each of the stadiums from the database and order the results by id, descending order\&.
+.PP
+\fBReturns:\fP
+.RS 4
+SQLQuery containing the results from the exeuction 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file database\&.cpp\&.
+.SS "double Database::GetTotalRevenues ()"
+
+.PP
+Retrieve the total amount of revenue from all stadiums\&. \fBDatabase::GetTotalRevenues\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+The sum of all stadium revenues 
+.RE
+.PP
+
+.PP
+Definition at line 273 of file database\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

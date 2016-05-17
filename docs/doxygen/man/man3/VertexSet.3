@@ -1,0 +1,181 @@
+.TH "VertexSet" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VertexSet \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <vertex\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVertexSet\fP ()"
+.br
+.ti -1c
+.RI "\fB~VertexSet\fP ()"
+.br
+.ti -1c
+.RI "void \fBinsert\fP (\fBVertex\fP &v)"
+.br
+.RI "\fIinsert Method takes a vertex v and will insert it into the set\&. \fP"
+.ti -1c
+.RI "void \fBremove\fP (\fBVertex\fP v)"
+.br
+.RI "\fIremove This method will call on the search function that returns the hashed key value of the vertex\&. If the key is not -1 it will clear the vertex at that index\&. \fP"
+.ti -1c
+.RI "bool \fBcontains\fP (\fBVertex\fP v)"
+.br
+.RI "\fIcontains Searches through the set to see if the element exists in the set\&. \fP"
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.RI "\fIisEmpty \fP"
+.ti -1c
+.RI "int \fBgetSize\fP () const "
+.br
+.RI "\fIgetSize This method returns the size of the set, number of vertices in the set\&. \fP"
+.ti -1c
+.RI "void \fBdebugOutput\fP () const "
+.br
+.RI "\fIdebugOutput This is a debugging method used for outputting the names and the index at which a vertex is located at\&. Serves no other purpose than to output to the console\&. \fP"
+.ti -1c
+.RI "\fBVertexSet\fP * \fBoperator=\fP (const \fBQList\fP< \fBVertex\fP > &vertexList)"
+.br
+.RI "\fIoperator = Overloaded assignment operator for taking a list of vertices and converting into a set of vertices\&. \fP"
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.RI "\fIclear This method will clear the current set of vertices and reinitialze them to being 'empty'\&. \fP"
+.ti -1c
+.RI "void \fBoutputSet\fP () const "
+.br
+.RI "\fIoutputSet This is primarly a debugging method for testing the vertex set\&. It will iterate through the set and output the entire set\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 361 of file vertex\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "VertexSet::VertexSet ()\fC [inline]\fP"
+
+.PP
+Definition at line 364 of file vertex\&.h\&.
+.SS "VertexSet::~VertexSet ()\fC [inline]\fP"
+
+.PP
+Definition at line 370 of file vertex\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void VertexSet::clear ()\fC [inline]\fP"
+
+.PP
+clear This method will clear the current set of vertices and reinitialze them to being 'empty'\&. 
+.PP
+Definition at line 519 of file vertex\&.h\&.
+.SS "bool VertexSet::contains (\fBVertex\fP v)\fC [inline]\fP"
+
+.PP
+contains Searches through the set to see if the element exists in the set\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if found; otherwise return false if not found 
+.RE
+.PP
+
+.PP
+Definition at line 448 of file vertex\&.h\&.
+.SS "void VertexSet::debugOutput () const\fC [inline]\fP"
+
+.PP
+debugOutput This is a debugging method used for outputting the names and the index at which a vertex is located at\&. Serves no other purpose than to output to the console\&. 
+.PP
+Definition at line 486 of file vertex\&.h\&.
+.SS "int VertexSet::getSize () const\fC [inline]\fP"
+
+.PP
+getSize This method returns the size of the set, number of vertices in the set\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+int value of number of vertices in set 
+.RE
+.PP
+
+.PP
+Definition at line 476 of file vertex\&.h\&.
+.SS "void VertexSet::insert (\fBVertex\fP & v)\fC [inline]\fP"
+
+.PP
+insert Method takes a vertex v and will insert it into the set\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+
+.PP
+Definition at line 381 of file vertex\&.h\&.
+.SS "bool VertexSet::isEmpty () const\fC [inline]\fP"
+
+.PP
+isEmpty 
+.PP
+\fBReturns:\fP
+.RS 4
+true if set is empty; otherwise return false if not empty 
+.RE
+.PP
+
+.PP
+Definition at line 466 of file vertex\&.h\&.
+.SS "\fBVertexSet\fP* VertexSet::operator= (const \fBQList\fP< \fBVertex\fP > & vertexList)\fC [inline]\fP"
+
+.PP
+operator = Overloaded assignment operator for taking a list of vertices and converting into a set of vertices\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvertexList\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+this as a new set of vertices 
+.RE
+.PP
+
+.PP
+Definition at line 501 of file vertex\&.h\&.
+.SS "void VertexSet::outputSet () const\fC [inline]\fP"
+
+.PP
+outputSet This is primarly a debugging method for testing the vertex set\&. It will iterate through the set and output the entire set\&. 
+.PP
+Definition at line 539 of file vertex\&.h\&.
+.SS "void VertexSet::remove (\fBVertex\fP v)\fC [inline]\fP"
+
+.PP
+remove This method will call on the search function that returns the hashed key value of the vertex\&. If the key is not -1 it will clear the vertex at that index\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+
+.PP
+Definition at line 430 of file vertex\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

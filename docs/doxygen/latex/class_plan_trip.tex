@@ -1,0 +1,169 @@
+\hypertarget{class_plan_trip}{}\section{Plan\+Trip Class Reference}
+\label{class_plan_trip}\index{Plan\+Trip@{Plan\+Trip}}
+
+
+{\ttfamily \#include $<$plantrip.\+h$>$}
+
+Inheritance diagram for Plan\+Trip\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plan_trip}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_plan_trip_ad4e718e750e17dd0f28439a09fa65d0d}{propagate\+Stadium\+List} (Q\+Sql\+Query query)
+\begin{DoxyCompactList}\small\item\em Propagate the stadiums list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_plan_trip_aca48bc2b3be5f6fb459efeb3496c5466}{hide\+Next\+Button} (bool)
+\begin{DoxyCompactList}\small\item\em Send a signal to hide or show the mainwindow next button. \end{DoxyCompactList}\item 
+void \hyperlink{class_plan_trip_a996ab77b2600758fcaa5c98dfa77f2fd}{click\+Next} ()
+\begin{DoxyCompactList}\small\item\em Send a signal to click the mainwindow next button. \end{DoxyCompactList}\item 
+void \hyperlink{class_plan_trip_ac8896fbaa74477f262824c7276fbd90f}{give\+Stadium\+List} (Q\+String\+List)
+\begin{DoxyCompactList}\small\item\em Send a signal with a string\+List containing the selected stadiums, in order. \end{DoxyCompactList}\item 
+void \hyperlink{class_plan_trip_a8f4321d1518eaf73049755add0c9acda}{call\+Visit\+All} ()
+\begin{DoxyCompactList}\small\item\em Sends a signal saying we clicked the visit all button. \end{DoxyCompactList}\item 
+void \hyperlink{class_plan_trip_a11511d0b19fa50cec8e1c166b71e3843}{give\+Stadium\+List\+Visit\+All} (Q\+String\+List)
+\begin{DoxyCompactList}\small\item\em Sends a signal for Visitall Stadiums for purchase cart. \end{DoxyCompactList}\item 
+void \hyperlink{class_plan_trip_af5dfa60d754eb1b742fa75f8ea31ac2b}{display\+M\+ST} ()
+\begin{DoxyCompactList}\small\item\em Send a signal to display the minimum spanning tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plan_trip_a560e5efbd99d17cbbccee68423ff17a5}{Plan\+Trip} (Q\+Widget $\ast$parent=0, \hyperlink{class_database}{Database} $\ast$db=0)
+\item 
+\hyperlink{class_plan_trip_ae6a7198bf9faca413287acd7f147543a}{$\sim$\+Plan\+Trip} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file plantrip.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Plan\+Trip@{Plan\+Trip}!Plan\+Trip@{Plan\+Trip}}
+\index{Plan\+Trip@{Plan\+Trip}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{Plan\+Trip(\+Q\+Widget $\ast$parent=0, Database $\ast$db=0)}{PlanTrip(QWidget *parent=0, Database *db=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Plan\+Trip\+::\+Plan\+Trip (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}, }
+\item[{{\bf Database} $\ast$}]{db = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{class_plan_trip_a560e5efbd99d17cbbccee68423ff17a5}{}\label{class_plan_trip_a560e5efbd99d17cbbccee68423ff17a5}
+
+
+Definition at line 5 of file plantrip.\+cpp.
+
+\index{Plan\+Trip@{Plan\+Trip}!````~Plan\+Trip@{$\sim$\+Plan\+Trip}}
+\index{````~Plan\+Trip@{$\sim$\+Plan\+Trip}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{$\sim$\+Plan\+Trip()}{~PlanTrip()}}]{\setlength{\rightskip}{0pt plus 5cm}Plan\+Trip\+::$\sim$\+Plan\+Trip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plan_trip_ae6a7198bf9faca413287acd7f147543a}{}\label{class_plan_trip_ae6a7198bf9faca413287acd7f147543a}
+
+
+Definition at line 14 of file plantrip.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plan\+Trip@{Plan\+Trip}!call\+Visit\+All@{call\+Visit\+All}}
+\index{call\+Visit\+All@{call\+Visit\+All}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{call\+Visit\+All}{callVisitAll}}]{\setlength{\rightskip}{0pt plus 5cm}void Plan\+Trip\+::call\+Visit\+All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{class_plan_trip_a8f4321d1518eaf73049755add0c9acda}{}\label{class_plan_trip_a8f4321d1518eaf73049755add0c9acda}
+
+
+Sends a signal saying we clicked the visit all button. 
+
+\index{Plan\+Trip@{Plan\+Trip}!click\+Next@{click\+Next}}
+\index{click\+Next@{click\+Next}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{click\+Next}{clickNext}}]{\setlength{\rightskip}{0pt plus 5cm}void Plan\+Trip\+::click\+Next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{class_plan_trip_a996ab77b2600758fcaa5c98dfa77f2fd}{}\label{class_plan_trip_a996ab77b2600758fcaa5c98dfa77f2fd}
+
+
+Send a signal to click the mainwindow next button. 
+
+\index{Plan\+Trip@{Plan\+Trip}!display\+M\+ST@{display\+M\+ST}}
+\index{display\+M\+ST@{display\+M\+ST}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{display\+M\+ST}{displayMST}}]{\setlength{\rightskip}{0pt plus 5cm}void Plan\+Trip\+::display\+M\+ST (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{class_plan_trip_af5dfa60d754eb1b742fa75f8ea31ac2b}{}\label{class_plan_trip_af5dfa60d754eb1b742fa75f8ea31ac2b}
+
+
+Send a signal to display the minimum spanning tree. 
+
+\index{Plan\+Trip@{Plan\+Trip}!give\+Stadium\+List@{give\+Stadium\+List}}
+\index{give\+Stadium\+List@{give\+Stadium\+List}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{give\+Stadium\+List}{giveStadiumList}}]{\setlength{\rightskip}{0pt plus 5cm}void Plan\+Trip\+::give\+Stadium\+List (
+\begin{DoxyParamCaption}
+\item[{Q\+String\+List}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{class_plan_trip_ac8896fbaa74477f262824c7276fbd90f}{}\label{class_plan_trip_ac8896fbaa74477f262824c7276fbd90f}
+
+
+Send a signal with a string\+List containing the selected stadiums, in order. 
+
+\index{Plan\+Trip@{Plan\+Trip}!give\+Stadium\+List\+Visit\+All@{give\+Stadium\+List\+Visit\+All}}
+\index{give\+Stadium\+List\+Visit\+All@{give\+Stadium\+List\+Visit\+All}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{give\+Stadium\+List\+Visit\+All}{giveStadiumListVisitAll}}]{\setlength{\rightskip}{0pt plus 5cm}void Plan\+Trip\+::give\+Stadium\+List\+Visit\+All (
+\begin{DoxyParamCaption}
+\item[{Q\+String\+List}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{class_plan_trip_a11511d0b19fa50cec8e1c166b71e3843}{}\label{class_plan_trip_a11511d0b19fa50cec8e1c166b71e3843}
+
+
+Sends a signal for Visitall Stadiums for purchase cart. 
+
+\index{Plan\+Trip@{Plan\+Trip}!hide\+Next\+Button@{hide\+Next\+Button}}
+\index{hide\+Next\+Button@{hide\+Next\+Button}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{hide\+Next\+Button}{hideNextButton}}]{\setlength{\rightskip}{0pt plus 5cm}void Plan\+Trip\+::hide\+Next\+Button (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{class_plan_trip_aca48bc2b3be5f6fb459efeb3496c5466}{}\label{class_plan_trip_aca48bc2b3be5f6fb459efeb3496c5466}
+
+
+Send a signal to hide or show the mainwindow next button. 
+
+\index{Plan\+Trip@{Plan\+Trip}!propagate\+Stadium\+List@{propagate\+Stadium\+List}}
+\index{propagate\+Stadium\+List@{propagate\+Stadium\+List}!Plan\+Trip@{Plan\+Trip}}
+\subsubsection[{\texorpdfstring{propagate\+Stadium\+List}{propagateStadiumList}}]{\setlength{\rightskip}{0pt plus 5cm}void Plan\+Trip\+::propagate\+Stadium\+List (
+\begin{DoxyParamCaption}
+\item[{Q\+Sql\+Query}]{query}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{class_plan_trip_ad4e718e750e17dd0f28439a09fa65d0d}{}\label{class_plan_trip_ad4e718e750e17dd0f28439a09fa65d0d}
+
+
+Propagate the stadiums list. 
+
+\hyperlink{class_plan_trip_ad4e718e750e17dd0f28439a09fa65d0d}{Plan\+Trip\+::propagate\+Stadium\+List} Use a S\+QL query object to propagate the stadium list with stadium names.
+
+
+\begin{DoxyParams}{Parameters}
+{\em query} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file plantrip.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{plantrip_8h}{plantrip.\+h}\item 
+src/source/\hyperlink{plantrip_8cpp}{plantrip.\+cpp}\end{DoxyCompactItemize}

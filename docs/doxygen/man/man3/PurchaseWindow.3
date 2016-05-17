@@ -1,0 +1,95 @@
+.TH "PurchaseWindow" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PurchaseWindow \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <purchasewindow\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBpurchaseInfo\fP"
+.br
+.in -1c
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBpropagateStadiumList\fP (QStringList stadiums)"
+.br
+.RI "\fI\fBPurchaseWindow::propagateStadiumList\fP Propagate the comboBox with the list of selected stadiums to visit\&. \fP"
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPurchaseWindow\fP (QWidget *parent=0, \fBDatabase\fP *db=0)"
+.br
+.ti -1c
+.RI "\fB~PurchaseWindow\fP ()"
+.br
+.ti -1c
+.RI "\fBQList\fP< \fBpurchaseInfo\fP > \fBgetPurchases\fP ()"
+.br
+.RI "\fI\fBPurchaseWindow::getPurchases\fP Retrieve a list of \fBpurchaseInfo\fP structs containing all of the data in the souvenir purchase list (cart)\&. contains: \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 12 of file purchasewindow\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PurchaseWindow::PurchaseWindow (QWidget * parent = \fC0\fP, \fBDatabase\fP * db = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 5 of file purchasewindow\&.cpp\&.
+.SS "PurchaseWindow::~PurchaseWindow ()"
+
+.PP
+Definition at line 57 of file purchasewindow\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBQList\fP< \fBPurchaseWindow::purchaseInfo\fP > PurchaseWindow::getPurchases ()"
+
+.PP
+\fBPurchaseWindow::getPurchases\fP Retrieve a list of \fBpurchaseInfo\fP structs containing all of the data in the souvenir purchase list (cart)\&. contains: 
+.IP "\(bu" 2
+stadium name
+.IP "\(bu" 2
+item name
+.IP "\(bu" 2
+item price
+.IP "\(bu" 2
+item quantity
+.PP
+.PP
+\fBReturns:\fP
+.RS 4
+purchases a list of \fBpurchaseInfo\fP structs 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file purchasewindow\&.cpp\&.
+.SS "void PurchaseWindow::propagateStadiumList (QStringList stadiums)\fC [slot]\fP"
+
+.PP
+\fBPurchaseWindow::propagateStadiumList\fP Propagate the comboBox with the list of selected stadiums to visit\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstadiums\fP QStringList of stadium names 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file purchasewindow\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

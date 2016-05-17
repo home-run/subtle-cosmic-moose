@@ -1,0 +1,501 @@
+.TH "md_docs__test__plan" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_docs__test__plan \- Test Plan: home-run Date: 05/1/16 
+>Prepared by: Erik karlsson: Product owner Jesse Mazzella: Scrum Master Daniel Phan Sepehr Raissian
+.PP
+.SS "### TABLE OF CONTENTS "
+.PP
+Section Name  1\&.0 INTRODUCTION 1\&.1 Organization 2\&.0 OBJECTIVES AND TASKS 2\&.1 Objectives 2\&.2 Tasks 3\&.0 SCOPE 3\&.1 General 3\&.2 Tactics of Verification & Validation 4\&.0 Testing 4\&.1 General 4\&.2 Tools 4\&.3 Unit Testing 5\&.0 Hardware Requirements 6\&.0 Environment Requirements 6\&.1 Roles 6\&.2 Workstation 7\&.0 Test Schedule 
+.PP
+.SS "1\&.0 INTRODUCTION"
+.PP
+This program is a friendly user interface application that allows baseball fans to plan their dream vacation to major league baseball stadiums\&. Baseball fans can purchase souvenir’s along the trip\&. The application also has administrator account\&. The program is intended to run smoothly/efficient and data be consistence\&.
+.PP
+.SS "1\&.1 Organization"
+.PP
+\fBStage 1\fP: Planning and Requirement Analysis\&. \fBStage 2\fP: Defining Requirements\&. \fBStage 3\fP: Designing the product architecture\&. \fBStage 4\fP: Building or Developing the Product\&. \fBStage 5\fP: Testing the Product\&. \fBStage 6\fP: Deployment in the Market and Maintenance\&.
+.PP
+.SS "2\&.0 OBJECTIVES AND TASKS"
+.PP
+.SS "2\&.1 Objectives"
+.PP
+.IP "1." 4
+Admin has its own private account with root privilege\&.
+.IP "2." 4
+Admin can modify the stadium attributes\&.
+.IP "3." 4
+Admin can add new teams and their corresponding stadiums\&.
+.IP "4." 4
+Admin can add,remove and change available souvenirs and their prices\&.
+.IP "5." 4
+Propagate stadiums in a plan trip view
+.IP "6." 4
+Stores the distances between stadiums in a data base\&.
+.IP "7." 4
+Baseball fans can track their souvenir purchases and view the total cost when planning a trip\&.
+.IP "8." 4
+Baseball fans can plan a trip with the shortest distance starting at Dodger stadium and visiting every other stadiums\&.
+.IP "9." 4
+Baseball fans can view the total revenue of each stadiums on a trip plus the grand total for all stadiums\&.
+.IP "10." 4
+Baseball fans can plan a trip to all major stadiums with the shortest route\&.
+.IP "11." 4
+Baseball fans can plan a custom trip\&.
+.IP "12." 4
+Baseball fans can view the information of any particular baseball stadiums\&.
+.IP "13." 4
+Baseball fans view a sorted list of stadiums\&.
+.IP "14." 4
+Provides the ability to view stadiums sorted by park typology\&.
+.PP
+.PP
+.SS "2\&.2 Tasks"
+.PP
+.SS "__[Story #]__ - Description"
+.PP
+\fB[#2]\fP - Changes are persistent between executions of the program\&.
+.PP
+\fB[#2]\fP - Stadium attributes can only be modified to valid data\&.
+.PP
+\fB[#2]\fP - Confirmation is required before any modification is made to the persistent database\&.
+.PP
+\fB[#12]\fP - Somewhere in the program the fan has the ability to view all related data for the baseball stadiums\&.
+.PP
+\fB[#12]\fP - Baseball fan can view souvenirs for each stadium, including item name and price\&.
+.PP
+\fB[#12]\fP - Verify that tables are not editable\&.
+.PP
+\fB[#12]\fP - Verify last column stretches to end of table\&.
+.PP
+\fB[#13]\fP - Major League stadiums
+.PP
+\fB[#13]\fP - sorted by stadium name
+.PP
+\fB[#13]\fP - sorted by team name
+.PP
+\fB[#13]\fP - American League stadiums
+.PP
+\fB[#13]\fP - sorted by team name
+.PP
+\fB[#13]\fP - National League stadiums
+.PP
+\fB[#13]\fP - sorted by team name
+.PP
+\fB[#13]\fP - All stadiums with a grass surface
+.PP
+\fB[#13]\fP - sorted by team name
+.PP
+\fB[#13]\fP - All stadiums
+.PP
+\fB[#13]\fP - sorted chronologically by date opened
+.PP
+\fB[#13]\fP - sorted by seating capacity
+.PP
+\fB[#13]\fP - sorted by park typology
+.PP
+\fB[#13]\fP - Verify strings are sorted alphabetically
+.PP
+\fB[#13]\fP - If displaying in tables, make sure tables are not editable\&.
+.PP
+\fB[#1]\fP - Admin can log in by entering a password
+.PP
+\fB[#1]\fP - Upon successful login, admin-only functions are activated\&.
+.PP
+\fB[#1]\fP - This can be an admin-only area of the UI or admin functions can integrate with normal UI (i\&.e: secret buttons appear, features change)
+.PP
+\fB[#1]\fP - Verify bad passwords do not grant admin access\&.
+.PP
+\fB[#1]\fP - Test limit of characters in text box for password login\&.
+.PP
+\fB[#5]\fP - Display check box feature\&.
+.PP
+\fB[#5]\fP - Display stadium name\&.
+.PP
+\fB[#5]\fP - display team name\&.
+.PP
+\fB[#5]\fP - Added stadiums should appear in order the list\&.
+.PP
+\fB[#5]\fP - Removed stadiums should not appear in the list\&.
+.PP
+\fB[#5]\fP - user should have an option to use which typology to be sorted\&.
+.PP
+\fB[#5]\fP - no duplicate stadiums should exist\&.
+.PP
+\fB[#5]\fP - change of typology should only be accessible to administrator\&.
+.PP
+\fB[#6]\fP - Data to be persistent\&.
+.PP
+\fB[#6]\fP - Data Saves between executions\&.
+.PP
+\fB[#6]\fP - Data can be accessible to baseball fans undirected method\&.
+.PP
+\fB[#6]\fP - Data can only be directive accessible to the administrator\&.
+.PP
+\fB[#6]\fP - Stores the data/distances in a a from of vertex form corresponding to their ID’s\&.
+.PP
+\fB[#6]\fP - If a stadium is removed from the stadium list, its corresponding distances should also be removed\&.
+.PP
+\fB[#7]\fP - Fan can purchase souvenirs at each stadium on their trip
+.PP
+\fB[#7]\fP - Fan can view purchases and grand total at end of trip planning
+.PP
+\fB[#7]\fP - Verify that total amount spent is correct at the end of the trip planning\&.
+.PP
+\fB[#7]\fP - Verify that total amount spent at each stadium is correct\&.
+.PP
+\fB[#3]\fP - Admin can log in and access add stadium function or window
+.PP
+\fB[#3]\fP - Changes to database are persistent between executions
+.PP
+\fB[#3]\fP - Admin is presented with confirmation dialog before stadium is added or deleted
+.PP
+\fB[#3]\fP - Alterations to data are only performed once a button is pushed (save changes)
+.PP
+\fB[#3]\fP - Verify all data is valid
+.PP
+\fB[#3]\fP - Verify that text fields have a character cap (i\&.e\&. user cannot enter in 25015 characters and set that as the stadium name\&. Field lengths must have reasonable values)
+.PP
+.SS "3\&.0 SCOPE"
+.PP
+.IP "1." 4
+General
+.IP "  1." 6
+Performance
+.IP "  2." 6
+Persistence
+.IP "  3." 6
+Data structure
+.IP "  4." 6
+Efficiency
+.IP "  5." 6
+Functionality
+.IP "  6." 6
+Interface
+.IP "  7." 6
+Delegate UI design
+.PP
+
+.PP
+.PP
+3\&.2 Tactics of Verification & Validation
+.PP
+\fBVerification\fP
+.PP
+\fBValidation\fP
+.PP
+1 >Are you building it right?
+.PP
+>Are you building the right thing?
+.PP
+2 >Ensures that the software system meets all the functionality\&.
+.PP
+>Ensures that the functionalities meet the intended behavior\&.
+.PP
+3 >Verification takes place first and includes the checking for documentation, code, etc\&.
+.PP
+>Validation occurs after verification and mainly involves the checking of the overall product\&.
+.PP
+4 >Done by developers\&.
+.PP
+>Done by testers\&.
+.PP
+5 >It has static activities, as it includes collecting reviews, walkthroughs, and inspections to verify a software\&.
+.PP
+>It has dynamic activities, as it includes executing the software against the requirements\&.
+.PP
+6 >t is an objective process and no subjective decision should be needed to verify a software\&.
+.PP
+>It is a subjective process and involves subjective decisions on how well a software works\&.
+.PP
+.SS "4\&.0 TESTING"
+.PP
+.SS "4\&.1 General"
+.PP
+.IP "1." 4
+Performance: Analysis of big-O notation
+.IP "2." 4
+Persistence: a\&. Data is saved to Sqlite database and is retrieval between executions\&.
+.IP "3." 4
+Data structure: a\&. Dijkstra's algorithm to compute shortest distance\&. b\&. Prim's algorithm for MST\&. c\&. Splay tree to retrieve the same data\&. d\&. \fBHeap\fP to retrieve the smallest desirable data\&.
+.IP "4." 4
+Efficiency: Appropriately use the correct data structure for maximum efficiency\&.
+.IP "5." 4
+Functionality: a\&. Source code works and corresponds correctly\&. b\&. Classes, Methods/Functions, variables are named properly and meaningful corresponding to their desired functionality\&.
+.IP "6." 4
+Interface: a\&. Buttons do what is intended for\&. b\&. Buttons designed for baseball fans should only be presentable to them\&. c\&. Buttons designed for administrator should only be presentable to them\&. d\&. Tables are formated correctly and words don’t overlap each other\&.
+.IP "7." 4
+Delegate UI design a\&. Buttons are labeled correctly for their intended use\&. b\&. Buttons are sized appropriately and proportion to the current page\&. c\&. Color schemes are chosen carefully so widgets/buttons/backgrounds are clearly presentable\&. d\&. Use of too many unrelated colors are discouraged\&.
+.PP
+.PP
+.SS "4\&.2 Tools"
+.PP
+.IP "1." 4
+Continuous Integration
+.IP "2." 4
+QT Debugger
+.IP "3." 4
+trarvis
+.PP
+.PP
+.SS "4\&.3 Unit testing"
+.PP
+.IP "1." 4
+Admin has its own private account with root privilege\&.
+.PP
+a\&. Upon successful login, admin-only functions are activated\&. This can be an admin-only area of the UI or admin functions can integrate with normal UI (i\&.e: secret buttons appear, features change)
+.PP
+b\&. Verify bad passwords do not grant admin access\&.
+.PP
+c\&. Test limit of characters in text box for password login\&.
+.IP "  \(bu" 4
+Error handling:
+.IP "    \(bu" 6
+user-name and password should be captured with string
+.PP
+
+.IP "  \(bu" 4
+Security:
+.IP "    \(bu" 6
+Preventing brute force by applying limited redo password trial\&.
+.IP "    \(bu" 6
+SQL injection free by using prepare statements\&.
+.IP "    \(bu" 6
+Encrypted password\&.
+.PP
+
+.PP
+
+.IP "2." 4
+Admin can modify the stadium attributes\&.
+.PP
+a\&. Changes are persistent between executions of the program\&. 
+.PP
+.nf
+Modified attributes such as stadium name,turf type, capacity.
+
+.fi
+.PP
+.PP
+b\&. Stadium attributes can only be modified to valid data\&. 
+.PP
+.nf
+Irreverent data cannot be processed, such as inserting numbers to turf type.
+
+.fi
+.PP
+.PP
+c\&. Confirmation is required before any modification is made to the persistent database\&.
+.IP "3." 4
+Admin can add new teams and their corresponding stadiums\&.
+.PP
+a\&. Admin can log in and access add stadium function or window
+.PP
+b\&. Changes to database are persistent between executions
+.PP
+c\&. Admin is presented with confirmation dialog before stadium is added or deleted
+.PP
+d\&. Alterations to data are only performed once a button is pushed (save changes)
+.PP
+e\&. Verify all data is valid
+.PP
+f\&. Verify that text fields have a character cap (i\&.e\&. user cannot enter in 25015 characters and set that as the stadium name\&. Field lengths must have reasonable values)
+.IP "4." 4
+Admin can add,remove and change available souvenirs and their prices\&.
+.PP
+a\&. Upon successful login admin is granted access to special functions or a special area of the program and can perform admin duties
+.PP
+b\&. Admin can view list of souvenirs per stadium
+.PP
+c\&. Admin can add, remove or change item names and prices\&.
+.PP
+d\&. Before performing any action a confirmation dialog is presented to the admin to protect against accidental deletions or additions\&.
+.PP
+e\&. Changes to the data are persistent between executions\&.
+.IP "5." 4
+Propagate stadiums in a plan trip view
+.PP
+a\&. Display check box feature\&.
+.PP
+b\&. Display stadium name\&.
+.PP
+c\&. display team name\&.
+.PP
+d\&. Added stadiums should appear in order the list\&.
+.PP
+e\&. Removed stadiums should not appear in the list\&.
+.PP
+f\&. user should have an option to use which typology to be sorted\&.
+.PP
+g\&. no duplicate stadiums should exist\&.
+.PP
+h\&. change of typology should only be accessible to administrator\&.
+.IP "6." 4
+Stores the distances between stadiums in a data base\&.
+.PP
+a\&. Data to be persistent\&.
+.PP
+b\&. Data Saves between executions\&.
+.PP
+c\&. Data can be accessible to baseball fans undirected method\&.
+.PP
+d\&. Data can only be directive accessible to the administrator\&.
+.PP
+e\&. Stores the data/distances in a a from of vertex form corresponding to their ID’s\&.
+.PP
+f\&. If a stadium is removed from the stadium list, its corresponding distances should also be removed\&.
+.IP "7." 4
+Baseball fans can track their souvenir purchases and view the total cost when planning a trip\&.
+.PP
+a\&. Fan can purchase souvenirs at each stadium on their trip
+.PP
+b\&. Fan can view purchases and grand total at end of trip planning
+.PP
+c\&. Verify that total amount spent is correct at the end of the trip planning\&.
+.PP
+d\&. Verify that total amount spent at each stadium is correct\&.
+.IP "8." 4
+Baseball fans can plan a trip with the shortest distance starting at Dodger stadium and visiting every other stadiums\&.
+.PP
+a\&. Choses the shortest path after Dodger stadium\&.
+.IP "9." 4
+Baseball fans can view the total revenue of each stadiums on a trip plus the grand total for all stadiums\&.
+.PP
+a\&. Individual revenue is persistently updated and retrievable\&.
+.PP
+b\&. Total grand total revenue is retrievable and calculated upon request\&.
+.IP "10." 4
+Baseball fans can plan a trip to all major stadiums with the shortest route\&.
+.PP
+a\&. Using MST, baseball fan are given the shortest route to the surrounding stadiums based on the current location\&.
+.IP "11." 4
+Baseball fans can plan a custom trip\&.
+.PP
+a\&. Custom trip should only be applicable to the current existing stadiums in the data base\&.
+.PP
+b\&. Other executions such as purchasing souvenir’s should accessible and persistent\&.
+.PP
+c\&. Baseball fans can change their custom trip at any given time\&.
+.IP "12." 4
+Baseball fans can view the information of any particular baseball stadiums\&.
+.PP
+a\&. Somewhere in the program the fan has the ability to view all related data for the baseball stadiums\&.
+.PP
+b\&. Baseball fan can view souvenirs for each stadium, including item name and price\&.
+.PP
+c\&. Verify that tables are not editable\&.
+.PP
+d\&. Verify last column stretches to end of table\&.
+.IP "13." 4
+Baseball fans view a sorted list of stadiums\&.
+.PP
+a\&. Major League stadiums
+.PP
+b\&. Sorted by stadium name
+.PP
+c\&. Sorted by team name
+.PP
+d\&. American League stadiums
+.PP
+e\&. Sorted by team name
+.PP
+f\&. National League stadiums
+.PP
+g\&. Sorted by team name
+.PP
+h\&. All stadiums with a grass surface
+.PP
+i\&. Sorted by team name
+.PP
+j\&. All stadiums
+.PP
+k\&. sorted chronologically by date opened
+.PP
+l\&. sorted by seating capacity
+.PP
+m\&. sorted by park typology
+.PP
+n\&. Verify strings are sorted alphabetically
+.PP
+o\&. If displaying in tables, make sure tables are not editable\&.
+.IP "14." 4
+Provides the ability to view stadiums sorted by park typology\&.
+.PP
+a\&. Properly listed the stadiums sorted in a formated table\&.
+.PP
+b\&. Table isn’t editable\&.
+.PP
+.PP
+.SS "5\&.0 HARDWARE REQUIREMENTS"
+.PP
+Computers: \fBJesse\fP: i5 Processor, 8 GB Ram
+.PP
+\fBErik\fP: i7 Processor, 16 GB Ram
+.PP
+\fBDaniel\fP: i5 Processor, 8 GB Ram
+.PP
+\fBSepehr\fP: i5 Processor, 8 GB Ram
+.PP
+.SS "6\&.0 ENVIRONMENT REQUIREMENTS"
+.PP
+\fBJesse\fP: Arch Linux
+.PP
+\fBErik\fP: Mac OSX
+.PP
+\fBDaniel\fP: Windows 10
+.PP
+\fBSepehr\fP: Linux(Ubuntu)
+.PP
+.SS "6\&.1 Roles"
+.PP
+\fBJesse\fP: GUI Interface windows and data base\&.
+.PP
+\fBDaniel\fP: GUI Interface design and functionality\&.
+.PP
+\fBErik\fP: Data Structures implementation and data structures\&.
+.PP
+\fBSepehr\fP: Testing suit and data structures
+.PP
+.SS "6\&.2 Workstation"
+.PP
+QT Github Waffle Slack Doxygen
+.PP
+.SS "7\&.0 TEST SCHEDULE"
+.PP
+Sprint 1 – April 8th – April 18th :
+.PP
+.IP "\(bu" 2
+Data and \fBDatabase\fP Integrity Testing
+.IP "\(bu" 2
+Data Structures Testing
+.PP
+.PP
+Sprint 2 – April 18th – May 2nd :
+.PP
+.IP "\(bu" 2
+Data and \fBDatabase\fP Integrity Testing
+.IP "\(bu" 2
+Load Testing
+.IP "\(bu" 2
+Data Structures  Testing
+.IP "\(bu" 2
+GUI Interface Testing
+.PP
+.PP
+Sprint 3 – May 2nd - May 16th :
+.PP
+.IP "\(bu" 2
+Data and \fBDatabase\fP Integrity Testing
+.IP "\(bu" 2
+User Interface Testing
+.IP "\(bu" 2
+Function Testing
+.IP "\(bu" 2
+Data and \fBDatabase\fP Integrity Testing
+.IP "\(bu" 2
+Load Testing
+.IP "\(bu" 2
+GUI Testing 
+.PP
+

@@ -1,0 +1,467 @@
+$>$Prepared by\+: Erik karlsson\+: Product owner Jesse Mazzella\+: Scrum Master Daniel Phan Sepehr Raissian
+
+\subsection*{\#\#\# T\+A\+B\+LE OF C\+O\+N\+T\+E\+N\+TS }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*2{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Section }&{\bf Name  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}{\bf Section }&{\bf Name  }\\\cline{1-2}
+\endhead
+1.\+0 &I\+N\+T\+R\+O\+D\+U\+C\+T\+I\+ON \\\cline{1-2}
+1.\+1 &Organization \\\cline{1-2}
+2.\+0 &O\+B\+J\+E\+C\+T\+I\+V\+ES A\+ND T\+A\+S\+KS \\\cline{1-2}
+2.\+1 &Objectives \\\cline{1-2}
+2.\+2 &Tasks \\\cline{1-2}
+3.\+0 &S\+C\+O\+PE \\\cline{1-2}
+3.\+1 &General \\\cline{1-2}
+3.\+2 &Tactics of Verification \& Validation \\\cline{1-2}
+4.\+0 &Testing \\\cline{1-2}
+4.\+1 &General \\\cline{1-2}
+4.\+2 &Tools \\\cline{1-2}
+4.\+3 &Unit Testing \\\cline{1-2}
+5.\+0 &Hardware Requirements \\\cline{1-2}
+6.\+0 &Environment Requirements \\\cline{1-2}
+6.\+1 &Roles \\\cline{1-2}
+6.\+2 &Workstation \\\cline{1-2}
+7.\+0 &Test Schedule \\\cline{1-2}
+\end{longtabu}
+
+
+\subsection*{1.\+0 I\+N\+T\+R\+O\+D\+U\+C\+T\+I\+ON}
+
+This program is a friendly user interface application that allows baseball fans to plan their dream vacation to major league baseball stadiums. Baseball fans can purchase souvenir’s along the trip. The application also has administrator account. The program is intended to run smoothly/efficient and data be consistence.
+
+\subsubsection*{1.\+1 Organization}
+
+{\bfseries Stage 1}\+: Planning and Requirement Analysis. {\bfseries Stage 2}\+: Defining Requirements. {\bfseries Stage 3}\+: Designing the product architecture. {\bfseries Stage 4}\+: Building or Developing the Product. {\bfseries Stage 5}\+: Testing the Product. {\bfseries Stage 6}\+: Deployment in the Market and Maintenance.
+
+\subsubsection*{2.\+0 O\+B\+J\+E\+C\+T\+I\+V\+ES A\+ND T\+A\+S\+KS}
+
+\paragraph*{2.\+1 Objectives}
+
+
+\begin{DoxyEnumerate}
+\item Admin has its own private account with root privilege.
+\item Admin can modify the stadium attributes.
+\item Admin can add new teams and their corresponding stadiums.
+\item Admin can add,remove and change available souvenirs and their prices.
+\item Propagate stadiums in a plan trip view
+\item Stores the distances between stadiums in a data base.
+\item Baseball fans can track their souvenir purchases and view the total cost when planning a trip.
+\item Baseball fans can plan a trip with the shortest distance starting at Dodger stadium and visiting every other stadiums.
+\item Baseball fans can view the total revenue of each stadiums on a trip plus the grand total for all stadiums.
+\item Baseball fans can plan a trip to all major stadiums with the shortest route.
+\item Baseball fans can plan a custom trip.
+\item Baseball fans can view the information of any particular baseball stadiums.
+\item Baseball fans view a sorted list of stadiums.
+\item Provides the ability to view stadiums sorted by park typology.
+\end{DoxyEnumerate}
+
+\subsubsection*{2.\+2 Tasks}
+
+\paragraph*{\+\_\+\+\_\+\mbox{[}Story \#\mbox{]}\+\_\+\+\_\+ -\/ Description}
+
+{\bfseries \mbox{[}\#2\mbox{]}} -\/ Changes are persistent between executions of the program.
+
+{\bfseries \mbox{[}\#2\mbox{]}} -\/ Stadium attributes can only be modified to valid data.
+
+{\bfseries \mbox{[}\#2\mbox{]}} -\/ Confirmation is required before any modification is made to the persistent database.
+
+{\bfseries \mbox{[}\#12\mbox{]}} -\/ Somewhere in the program the fan has the ability to view all related data for the baseball stadiums.
+
+{\bfseries \mbox{[}\#12\mbox{]}} -\/ Baseball fan can view souvenirs for each stadium, including item name and price.
+
+{\bfseries \mbox{[}\#12\mbox{]}} -\/ Verify that tables are not editable.
+
+{\bfseries \mbox{[}\#12\mbox{]}} -\/ Verify last column stretches to end of table.
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ Major League stadiums
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted by stadium name
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted by team name
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ American League stadiums
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted by team name
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ National League stadiums
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted by team name
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ All stadiums with a grass surface
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted by team name
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ All stadiums
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted chronologically by date opened
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted by seating capacity
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ sorted by park typology
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ Verify strings are sorted alphabetically
+
+{\bfseries \mbox{[}\#13\mbox{]}} -\/ If displaying in tables, make sure tables are not editable.
+
+{\bfseries \mbox{[}\#1\mbox{]}} -\/ Admin can log in by entering a password
+
+{\bfseries \mbox{[}\#1\mbox{]}} -\/ Upon successful login, admin-\/only functions are activated.
+
+{\bfseries \mbox{[}\#1\mbox{]}} -\/ This can be an admin-\/only area of the UI or admin functions can integrate with normal UI (i.\+e\+: secret buttons appear, features change)
+
+{\bfseries \mbox{[}\#1\mbox{]}} -\/ Verify bad passwords do not grant admin access.
+
+{\bfseries \mbox{[}\#1\mbox{]}} -\/ Test limit of characters in text box for password login.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ Display check box feature.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ Display stadium name.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ display team name.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ Added stadiums should appear in order the list.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ Removed stadiums should not appear in the list.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ user should have an option to use which typology to be sorted.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ no duplicate stadiums should exist.
+
+{\bfseries \mbox{[}\#5\mbox{]}} -\/ change of typology should only be accessible to administrator.
+
+{\bfseries \mbox{[}\#6\mbox{]}} -\/ Data to be persistent.
+
+{\bfseries \mbox{[}\#6\mbox{]}} -\/ Data Saves between executions.
+
+{\bfseries \mbox{[}\#6\mbox{]}} -\/ Data can be accessible to baseball fans undirected method.
+
+{\bfseries \mbox{[}\#6\mbox{]}} -\/ Data can only be directive accessible to the administrator.
+
+{\bfseries \mbox{[}\#6\mbox{]}} -\/ Stores the data/distances in a a from of vertex form corresponding to their I\+D’s.
+
+{\bfseries \mbox{[}\#6\mbox{]}} -\/ If a stadium is removed from the stadium list, its corresponding distances should also be removed.
+
+{\bfseries \mbox{[}\#7\mbox{]}} -\/ Fan can purchase souvenirs at each stadium on their trip
+
+{\bfseries \mbox{[}\#7\mbox{]}} -\/ Fan can view purchases and grand total at end of trip planning
+
+{\bfseries \mbox{[}\#7\mbox{]}} -\/ Verify that total amount spent is correct at the end of the trip planning.
+
+{\bfseries \mbox{[}\#7\mbox{]}} -\/ Verify that total amount spent at each stadium is correct.
+
+{\bfseries \mbox{[}\#3\mbox{]}} -\/ Admin can log in and access add stadium function or window
+
+{\bfseries \mbox{[}\#3\mbox{]}} -\/ Changes to database are persistent between executions
+
+{\bfseries \mbox{[}\#3\mbox{]}} -\/ Admin is presented with confirmation dialog before stadium is added or deleted
+
+{\bfseries \mbox{[}\#3\mbox{]}} -\/ Alterations to data are only performed once a button is pushed (save changes)
+
+{\bfseries \mbox{[}\#3\mbox{]}} -\/ Verify all data is valid
+
+{\bfseries \mbox{[}\#3\mbox{]}} -\/ Verify that text fields have a character cap (i.\+e. user cannot enter in 25015 characters and set that as the stadium name. Field lengths must have reasonable values)
+
+\subsubsection*{3.\+0 S\+C\+O\+PE}
+
+
+\begin{DoxyEnumerate}
+\item General
+\begin{DoxyEnumerate}
+\item Performance
+\item Persistence
+\item Data structure
+\item Efficiency
+\item Functionality
+\item Interface
+\item Delegate UI design
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+3.\+2 Tactics of Verification \& Validation
+
+{\bfseries Verification}
+
+{\bfseries Validation}
+
+1 $>$Are you building it right?
+
+$>$Are you building the right thing?
+
+2 $>$Ensures that the software system meets all the functionality.
+
+$>$Ensures that the functionalities meet the intended behavior.
+
+3 $>$Verification takes place first and includes the checking for documentation, code, etc.
+
+$>$Validation occurs after verification and mainly involves the checking of the overall product.
+
+4 $>$Done by developers.
+
+$>$Done by testers.
+
+5 $>$It has static activities, as it includes collecting reviews, walkthroughs, and inspections to verify a software.
+
+$>$It has dynamic activities, as it includes executing the software against the requirements.
+
+6 $>$t is an objective process and no subjective decision should be needed to verify a software.
+
+$>$It is a subjective process and involves subjective decisions on how well a software works.
+
+\subsubsection*{4.\+0 T\+E\+S\+T\+I\+NG}
+
+\paragraph*{4.\+1 General}
+
+
+\begin{DoxyEnumerate}
+\item Performance\+: Analysis of big-\/O notation
+\item Persistence\+: a. Data is saved to Sqlite database and is retrieval between executions.
+\item Data structure\+: a. Dijkstra\textquotesingle{}s algorithm to compute shortest distance. b. Prim\textquotesingle{}s algorithm for M\+ST. c. Splay tree to retrieve the same data. d. \hyperlink{class_heap}{Heap} to retrieve the smallest desirable data.
+\item Efficiency\+: Appropriately use the correct data structure for maximum efficiency.
+\item Functionality\+: a. Source code works and corresponds correctly. b. Classes, Methods/\+Functions, variables are named properly and meaningful corresponding to their desired functionality.
+\item Interface\+: a. Buttons do what is intended for. b. Buttons designed for baseball fans should only be presentable to them. c. Buttons designed for administrator should only be presentable to them. d. Tables are formated correctly and words don’t overlap each other.
+\item Delegate UI design a. Buttons are labeled correctly for their intended use. b. Buttons are sized appropriately and proportion to the current page. c. Color schemes are chosen carefully so widgets/buttons/backgrounds are clearly presentable. d. Use of too many unrelated colors are discouraged.
+\end{DoxyEnumerate}
+
+\paragraph*{4.\+2 Tools}
+
+
+\begin{DoxyEnumerate}
+\item Continuous Integration
+\item QT Debugger
+\item trarvis
+\end{DoxyEnumerate}
+
+\paragraph*{4.\+3 Unit testing}
+
+
+\begin{DoxyEnumerate}
+\item Admin has its own private account with root privilege.
+
+a. Upon successful login, admin-\/only functions are activated. This can be an admin-\/only area of the UI or admin functions can integrate with normal UI (i.\+e\+: secret buttons appear, features change)
+
+b. Verify bad passwords do not grant admin access.
+
+c. Test limit of characters in text box for password login.
+\begin{DoxyItemize}
+\item Error handling\+:
+\begin{DoxyItemize}
+\item user-\/name and password should be captured with string
+\end{DoxyItemize}
+\item Security\+:
+\begin{DoxyItemize}
+\item Preventing brute force by applying limited redo password trial.
+\item S\+QL injection free by using prepare statements.
+\item Encrypted password.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Admin can modify the stadium attributes.
+
+a. Changes are persistent between executions of the program. \begin{DoxyVerb}Modified attributes such as stadium name,turf type, capacity.
+\end{DoxyVerb}
+
+
+b. Stadium attributes can only be modified to valid data. \begin{DoxyVerb}Irreverent data cannot be processed, such as inserting numbers to turf type.
+\end{DoxyVerb}
+
+
+c. Confirmation is required before any modification is made to the persistent database.
+\item Admin can add new teams and their corresponding stadiums.
+
+a. Admin can log in and access add stadium function or window
+
+b. Changes to database are persistent between executions
+
+c. Admin is presented with confirmation dialog before stadium is added or deleted
+
+d. Alterations to data are only performed once a button is pushed (save changes)
+
+e. Verify all data is valid
+
+f. Verify that text fields have a character cap (i.\+e. user cannot enter in 25015 characters and set that as the stadium name. Field lengths must have reasonable values)
+\item Admin can add,remove and change available souvenirs and their prices.
+
+a. Upon successful login admin is granted access to special functions or a special area of the program and can perform admin duties
+
+b. Admin can view list of souvenirs per stadium
+
+c. Admin can add, remove or change item names and prices.
+
+d. Before performing any action a confirmation dialog is presented to the admin to protect against accidental deletions or additions.
+
+e. Changes to the data are persistent between executions.
+\item Propagate stadiums in a plan trip view
+
+a. Display check box feature.
+
+b. Display stadium name.
+
+c. display team name.
+
+d. Added stadiums should appear in order the list.
+
+e. Removed stadiums should not appear in the list.
+
+f. user should have an option to use which typology to be sorted.
+
+g. no duplicate stadiums should exist.
+
+h. change of typology should only be accessible to administrator.
+\item Stores the distances between stadiums in a data base.
+
+a. Data to be persistent.
+
+b. Data Saves between executions.
+
+c. Data can be accessible to baseball fans undirected method.
+
+d. Data can only be directive accessible to the administrator.
+
+e. Stores the data/distances in a a from of vertex form corresponding to their I\+D’s.
+
+f. If a stadium is removed from the stadium list, its corresponding distances should also be removed.
+\item Baseball fans can track their souvenir purchases and view the total cost when planning a trip.
+
+a. Fan can purchase souvenirs at each stadium on their trip
+
+b. Fan can view purchases and grand total at end of trip planning
+
+c. Verify that total amount spent is correct at the end of the trip planning.
+
+d. Verify that total amount spent at each stadium is correct.
+\item Baseball fans can plan a trip with the shortest distance starting at Dodger stadium and visiting every other stadiums.
+
+a. Choses the shortest path after Dodger stadium.
+\item Baseball fans can view the total revenue of each stadiums on a trip plus the grand total for all stadiums.
+
+a. Individual revenue is persistently updated and retrievable.
+
+b. Total grand total revenue is retrievable and calculated upon request.
+\item Baseball fans can plan a trip to all major stadiums with the shortest route.
+
+a. Using M\+ST, baseball fan are given the shortest route to the surrounding stadiums based on the current location.
+\item Baseball fans can plan a custom trip.
+
+a. Custom trip should only be applicable to the current existing stadiums in the data base.
+
+b. Other executions such as purchasing souvenir’s should accessible and persistent.
+
+c. Baseball fans can change their custom trip at any given time.
+\item Baseball fans can view the information of any particular baseball stadiums.
+
+a. Somewhere in the program the fan has the ability to view all related data for the baseball stadiums.
+
+b. Baseball fan can view souvenirs for each stadium, including item name and price.
+
+c. Verify that tables are not editable.
+
+d. Verify last column stretches to end of table.
+\item Baseball fans view a sorted list of stadiums.
+
+a. Major League stadiums
+
+b. Sorted by stadium name
+
+c. Sorted by team name
+
+d. American League stadiums
+
+e. Sorted by team name
+
+f. National League stadiums
+
+g. Sorted by team name
+
+h. All stadiums with a grass surface
+
+i. Sorted by team name
+
+j. All stadiums
+
+k. sorted chronologically by date opened
+
+l. sorted by seating capacity
+
+m. sorted by park typology
+
+n. Verify strings are sorted alphabetically
+
+o. If displaying in tables, make sure tables are not editable.
+\item Provides the ability to view stadiums sorted by park typology.
+
+a. Properly listed the stadiums sorted in a formated table.
+
+b. Table isn’t editable.
+\end{DoxyEnumerate}
+
+\subsubsection*{5.\+0 H\+A\+R\+D\+W\+A\+RE R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+TS}
+
+Computers\+: {\bfseries Jesse}\+: i5 Processor, 8 GB Ram
+
+{\bfseries Erik}\+: i7 Processor, 16 GB Ram
+
+{\bfseries Daniel}\+: i5 Processor, 8 GB Ram
+
+{\bfseries Sepehr}\+: i5 Processor, 8 GB Ram
+
+\subsubsection*{6.\+0 E\+N\+V\+I\+R\+O\+N\+M\+E\+NT R\+E\+Q\+U\+I\+R\+E\+M\+E\+N\+TS}
+
+{\bfseries Jesse}\+: Arch Linux
+
+{\bfseries Erik}\+: Mac O\+SX
+
+{\bfseries Daniel}\+: Windows 10
+
+{\bfseries Sepehr}\+: Linux(\+Ubuntu)
+
+\subsubsection*{6.\+1 Roles}
+
+{\bfseries Jesse}\+: G\+UI Interface windows and data base.
+
+{\bfseries Daniel}\+: G\+UI Interface design and functionality.
+
+{\bfseries Erik}\+: Data Structures implementation and data structures.
+
+{\bfseries Sepehr}\+: Testing suit and data structures
+
+\subsubsection*{6.\+2 Workstation}
+
+QT Github Waffle Slack Doxygen
+
+\subsubsection*{7.\+0 T\+E\+ST S\+C\+H\+E\+D\+U\+LE}
+
+Sprint 1 – April 8th – April 18th \+:
+
+
+\begin{DoxyItemize}
+\item Data and \hyperlink{class_database}{Database} Integrity Testing
+\item Data Structures Testing
+\end{DoxyItemize}
+
+Sprint 2 – April 18th – May 2nd \+:
+
+
+\begin{DoxyItemize}
+\item Data and \hyperlink{class_database}{Database} Integrity Testing
+\item Load Testing
+\item Data Structures  \+Testing
+\item G\+UI Interface Testing
+\end{DoxyItemize}
+
+Sprint 3 – May 2nd -\/ May 16th \+:
+
+
+\begin{DoxyItemize}
+\item Data and \hyperlink{class_database}{Database} Integrity Testing
+\item User Interface Testing
+\item Function Testing
+\item Data and \hyperlink{class_database}{Database} Integrity Testing
+\item Load Testing
+\item G\+UI Testing 
+\end{DoxyItemize}

@@ -1,0 +1,1909 @@
+\hypertarget{class_q_vector}{}\section{Q\+Vector$<$ T $>$ Class Template Reference}
+\label{class_q_vector}\index{Q\+Vector$<$ T $>$@{Q\+Vector$<$ T $>$}}
+
+
+The \hyperlink{class_q_vector}{Q\+Vector} class is a template class that provides a dynamic array.  
+
+
+
+
+{\ttfamily \#include $<$qlist.\+h$>$}
+
+Inheritance diagram for Q\+Vector$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_vector}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Data\+::iterator \hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator}
+\item 
+typedef Data\+::const\+\_\+iterator \hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator}
+\item 
+typedef T \hyperlink{class_q_vector_afb003dbc70603eacc89c0c7ea495dd3d}{value\+\_\+type}
+\item 
+typedef \hyperlink{class_q_vector_afb003dbc70603eacc89c0c7ea495dd3d}{value\+\_\+type} $\ast$ \hyperlink{class_q_vector_ae3fa870723fe1109c22b1091d54075fa}{pointer}
+\item 
+typedef const \hyperlink{class_q_vector_afb003dbc70603eacc89c0c7ea495dd3d}{value\+\_\+type} $\ast$ \hyperlink{class_q_vector_aa5e3dc32b0a887d59bf5c5c30c95eb85}{const\+\_\+pointer}
+\item 
+typedef \hyperlink{class_q_vector_afb003dbc70603eacc89c0c7ea495dd3d}{value\+\_\+type} \& \hyperlink{class_q_vector_a86d1c26fb98028474e556d2e25b60633}{reference}
+\item 
+typedef const \hyperlink{class_q_vector_afb003dbc70603eacc89c0c7ea495dd3d}{value\+\_\+type} \& \hyperlink{class_q_vector_a4054473292677d3bc7d901db7b3b3f20}{const\+\_\+reference}
+\item 
+typedef qptrdiff \hyperlink{class_q_vector_aaccc790d3ba04fc52580cdfc9d9290fa}{difference\+\_\+type}
+\item 
+typedef \hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_a22a5801860ee27fedc7dca5062355089}{Iterator}
+\item 
+typedef \hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator} \hyperlink{class_q_vector_a480cfc218d799ecba92075c848e605c6}{Const\+Iterator}
+\item 
+typedef int \hyperlink{class_q_vector_afd8d3d4bf5a63a0c92128507dee59282}{size\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_q_vector_a93e8a3fa9e7f4934e5f97494ad17f518}{Q\+Vector} () Q\+\_\+\+D\+E\+C\+L\+\_\+\+N\+O\+T\+H\+R\+OW
+\item 
+\hyperlink{class_q_vector_a000f527522e85e6682807ff7edd9467f}{Q\+Vector} (int \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size})
+\item 
+\hyperlink{class_q_vector_a2c9d422d62125b04a4835de82666e9f2}{Q\+Vector} (int \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size}, const T \&t)
+\item 
+\hyperlink{class_q_vector_a58c57c94049f372ea119f2b0c60fc357}{Q\+Vector} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&v)
+\item 
+\hyperlink{class_q_vector_ada8501475bf1f9eb3e1aa6d70c84b79c}{$\sim$\+Q\+Vector} ()
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \& \hyperlink{class_q_vector_a36236603096c0c02def1c0d43f3ebbf5}{operator=} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&v)
+\item 
+void \hyperlink{class_q_vector_a35254d6c26569b985958b2ed15695fb6}{swap} (\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&other)
+\item 
+bool \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&v) const 
+\item 
+bool \hyperlink{class_q_vector_a7c3c88c0f770426a9b9dbb77ba1dcbfe}{operator!=} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&v) const 
+\item 
+int \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size} () const 
+\item 
+bool \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty} () const 
+\item 
+void \hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize} (int \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size})
+\item 
+int \hyperlink{class_q_vector_a160560e2aab0840e0de275ae9ca48f7a}{capacity} () const 
+\item 
+void \hyperlink{class_q_vector_aab71cce382721d176d1445434ae18e6a}{reserve} (int \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size})
+\item 
+void \hyperlink{class_q_vector_a8e0d583fe677dad6afd11ed4bc8b8927}{squeeze} ()
+\item 
+void \hyperlink{class_q_vector_a08d0d1da157ccc4b3de98ac618fab8e6}{detach} ()
+\item 
+bool \hyperlink{class_q_vector_af229e85b6aa5891a437b3efde705ceea}{is\+Detached} () const 
+\item 
+bool \hyperlink{class_q_vector_a05ceccc2b7cc2bebfcd9e05ee9406a0e}{is\+Shared\+With} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&other) const 
+\item 
+T $\ast$ \hyperlink{class_q_vector_acc8068ddfe8bc93852558914a5e73b5a}{data} ()
+\item 
+const T $\ast$ \hyperlink{class_q_vector_a0170fb9ced08d46ad0724049a1b7d680}{data} () const 
+\item 
+const T $\ast$ \hyperlink{class_q_vector_a598509c9fe544e8a47e375f47b5c8f50}{const\+Data} () const 
+\item 
+void \hyperlink{class_q_vector_a4ec0b396f1d5138386800318ca7d3a0d}{clear} ()
+\item 
+const T \& \hyperlink{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{at} (int i) const 
+\item 
+T \& \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+const T \& \hyperlink{class_q_vector_a4abb4e10e8ea7bcad4819f21c13711f2}{operator\mbox{[}$\,$\mbox{]}} (int i) const 
+\item 
+void \hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append} (const T \&t)
+\item 
+void \hyperlink{class_q_vector_a35a429cf3858d3c58246229b2cc18e93}{append} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&l)
+\item 
+void \hyperlink{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}{prepend} (const T \&t)
+\item 
+void \hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert} (int i, const T \&t)
+\item 
+void \hyperlink{class_q_vector_afb2c6bd6b45f3ce73f4c6556d492af53}{insert} (int i, int n, const T \&t)
+\item 
+void \hyperlink{class_q_vector_a488cf341031679a18361c89111794059}{replace} (int i, const T \&t)
+\item 
+void \hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove} (int i)
+\item 
+void \hyperlink{class_q_vector_aea3b154a0eaf41cb19cf9a916e426a33}{remove} (int i, int n)
+\item 
+void \hyperlink{class_q_vector_a93907fcd36758247f6d6e074240f9f02}{remove\+First} ()
+\item 
+void \hyperlink{class_q_vector_a601a6ef4768c988b5ce96e05a8449f64}{remove\+Last} ()
+\item 
+T \hyperlink{class_q_vector_a96a07a40f38b70e6c71fc3f01749636b}{take\+First} ()
+\item 
+T \hyperlink{class_q_vector_a81212706ea7a741742d342d0c370a783}{take\+Last} ()
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \& \hyperlink{class_q_vector_aa508b6403bbbe6f81b67d0c9257b7d2b}{fill} (const T \&t, int \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size}=-\/1)
+\item 
+int \hyperlink{class_q_vector_a015c576d25fc9707466b3b301e10f33d}{index\+Of} (const T \&t, int from=0) const 
+\item 
+int \hyperlink{class_q_vector_a06149e241b9907f6c2b379c4e5279338}{last\+Index\+Of} (const T \&t, int from=-\/1) const 
+\item 
+bool \hyperlink{class_q_vector_a048b668c8baf8e2503656a751e73ddad}{contains} (const T \&t) const 
+\item 
+int \hyperlink{class_q_vector_a0ba5f2f633ab9eb813e6433464f095a6}{count} (const T \&t) const 
+\item 
+void \hyperlink{class_q_vector_a33bedda19185b72dcaa008f52ddd3ed0}{remove\+At} (int i)
+\item 
+int \hyperlink{class_q_vector_aa78630cc416f99d5d1984ea402da9516}{remove\+All} (const T \&t)
+\item 
+bool \hyperlink{class_q_vector_aae46c554ac81f614f376425cef90149d}{remove\+One} (const T \&t)
+\item 
+int \hyperlink{class_q_vector_a44cb545af1984e4c9432b0cc57525664}{length} () const 
+\item 
+T \hyperlink{class_q_vector_a47372e861a3e52af5d2ea6ee29bc5de0}{take\+At} (int i)
+\item 
+\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}{begin} ()
+\item 
+\hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator} \hyperlink{class_q_vector_af4315069a3caf05631993ec7d57881fa}{begin} () const 
+\item 
+\hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator} \hyperlink{class_q_vector_a4ccddab5fdd95438143d5dbb17afc404}{cbegin} () const 
+\item 
+\hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator} \hyperlink{class_q_vector_a8f2ae9da9b4f929a1cbb718e2ff1a9ca}{const\+Begin} () const 
+\item 
+\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{end} ()
+\item 
+\hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator} \hyperlink{class_q_vector_ad13adb8ee2256f8b583509d7d9c4ca44}{end} () const 
+\item 
+\hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator} \hyperlink{class_q_vector_aae87e757422aae4f12f8b8b60b2efb19}{cend} () const 
+\item 
+\hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{const\+\_\+iterator} \hyperlink{class_q_vector_a86b54d84b2435c97d8ec62d5149eeee8}{const\+End} () const 
+\item 
+\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_a85e9511cdd9b7949828749a8092af924}{insert} (\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} before, int n, const T \&x)
+\item 
+\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_acb1662d362fcf2fcc2ae820d08fd159d}{insert} (\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} before, const T \&x)
+\item 
+\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_af58c46c4f0db158717e382fe894c1484}{erase} (\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}{begin}, \hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{end})
+\item 
+\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} \hyperlink{class_q_vector_a86403f70f137b660c6750f2b37c1e7d0}{erase} (\hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{iterator} pos)
+\item 
+int \hyperlink{class_q_vector_a7523e0dd8ab0759ad53b32d18da10780}{count} () const 
+\item 
+T \& \hyperlink{class_q_vector_a85cff791949dfb35bc432c6c5afae966}{first} ()
+\item 
+const T \& \hyperlink{class_q_vector_ac9e38c34b78e0460d7f19713d5588e7d}{first} () const 
+\item 
+T \& \hyperlink{class_q_vector_a93f335707c6d1003dd2b594e4066ed0b}{last} ()
+\item 
+const T \& \hyperlink{class_q_vector_a200d93e8b761b606c07f86fe4be44cef}{last} () const 
+\item 
+bool \hyperlink{class_q_vector_a264d1d6641f51e6fe2bbd1fdb1e93528}{starts\+With} (const T \&t) const 
+\item 
+bool \hyperlink{class_q_vector_a166cfa66c83c7255127a40ad26773a99}{ends\+With} (const T \&t) const 
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \hyperlink{class_q_vector_a09c185dcd5d2f02fd05dd4db84be1d28}{mid} (int pos, int len=-\/1) const 
+\item 
+T \hyperlink{class_q_vector_a3788cd97b1cd4898d508422cb1227f8c}{value} (int i) const 
+\item 
+T \hyperlink{class_q_vector_a6e81cced2857ea1d3bd3eb5eb90fe527}{value} (int i, const T \&default\+Value) const 
+\item 
+void \hyperlink{class_q_vector_a64a78ac295cf7c41fde971c9811116a9}{push\+\_\+back} (const T \&t)
+\item 
+void \hyperlink{class_q_vector_a6d51ebc0e8ff3ee57ac13170086827a5}{push\+\_\+front} (const T \&t)
+\item 
+void \hyperlink{class_q_vector_a4e4045d36b19dc7a6b8e3893f27f2b99}{pop\+\_\+back} ()
+\item 
+void \hyperlink{class_q_vector_aabe2aff9d7f1496d37d04c50e3741d0e}{pop\+\_\+front} ()
+\item 
+bool \hyperlink{class_q_vector_a07249d8a8b0eade3f37104ae0357d0bf}{empty} () const 
+\item 
+T \& \hyperlink{class_q_vector_a479198a1d185e0191e1170c200bb74aa}{front} ()
+\item 
+\hyperlink{class_q_vector_a4054473292677d3bc7d901db7b3b3f20}{const\+\_\+reference} \hyperlink{class_q_vector_a402094ad8fe1fe7ead5d6217466da3bc}{front} () const 
+\item 
+\hyperlink{class_q_vector_a86d1c26fb98028474e556d2e25b60633}{reference} \hyperlink{class_q_vector_abbea52a372bdc71b374acb422e4a4ce0}{back} ()
+\item 
+\hyperlink{class_q_vector_a4054473292677d3bc7d901db7b3b3f20}{const\+\_\+reference} \hyperlink{class_q_vector_a0bb36e8f88a033d56d422f6b65c29465}{back} () const 
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \& \hyperlink{class_q_vector_add550c8dd5120227c645ecb069cb7196}{operator+=} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&l)
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \hyperlink{class_q_vector_a8f2255fa151633ab15cd46a1ea9d8bf1}{operator+} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&l) const 
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \& \hyperlink{class_q_vector_a7597c1f0f004594f8e446bb6ae09601c}{operator+=} (const T \&t)
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \& \hyperlink{class_q_vector_a60144939301f38042c9f702ae887ea16}{operator$<$$<$} (const T \&t)
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \& \hyperlink{class_q_vector_a36aa335f06fab320bc322cb817808a34}{operator$<$$<$} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&l)
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \hyperlink{class_q_vector_a604c990aa7914fc3840c740b4bb0ff7d}{to\+List} () const 
+\item 
+std\+::vector$<$ T $>$ \hyperlink{class_q_vector_a0bb56bf3c3e5c533efda20ff4394b444}{to\+Std\+Vector} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \hyperlink{class_q_vector_a81688755b0166749fde54c1108690825}{from\+List} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&list)
+\item 
+static \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \hyperlink{class_q_vector_a4bb034c193b1f443b235df30323ee2d0}{from\+Std\+Vector} (const std\+::vector$<$ T $>$ \&vector)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_q_vector_a3c463c91639ee085a365c4bf70fcbe31}{Q\+Region}
+\end{DoxyCompactItemize}
+\subsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+Q\+Data\+Stream \& \hyperlink{class_q_vector_a556a703e2a1987feda15598f2d097d34}{operator$<$$<$} (Q\+Data\+Stream \&out, const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&vector)
+\item 
+Q\+Data\+Stream \& \hyperlink{class_q_vector_aa3718549b9b553556b654f6e00aaa914}{operator$>$$>$} (Q\+Data\+Stream \&in, \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&vector)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class Q\+Vector$<$ T $>$}
+
+The \hyperlink{class_q_vector}{Q\+Vector} class is a template class that provides a dynamic array. 
+
+Qt\+Core
+
+\hyperlink{class_q_vector}{Q\+Vector}$<$T$>$ is one of Qt\textquotesingle{}s generic \{container classes\}. It stores its items in adjacent memory locations and provides fast index-\/based access.
+
+\hyperlink{class_q_list}{Q\+List}$<$T$>$, Q\+Linked\+List$<$T$>$, and Q\+Var\+Length\+Array$<$T$>$ provide similar functionality. Here\textquotesingle{}s an overview\+:
+
+\begin{DoxyItemize}
+\item For most purposes, \hyperlink{class_q_list}{Q\+List} is the right class to use. Operations like \hyperlink{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}{prepend()} and \hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()} are usually faster than with \hyperlink{class_q_vector}{Q\+Vector} because of the way \hyperlink{class_q_list}{Q\+List} stores its items in memory (see \{Algorithmic Complexity\} for details), and its index-\/based A\+PI is more convenient than Q\+Linked\+List\textquotesingle{}s iterator-\/based A\+PI. It also expands to less code in your executable. \item If you need a real linked list, with guarantees of \{constant time\} insertions in the middle of the list and iterators to items rather than indexes, use Q\+Linked\+List. \item If you want the items to occupy adjacent memory positions, or if your items are larger than a pointer and you want to avoid the overhead of allocating them on the heap individually at insertion time, then use \hyperlink{class_q_vector}{Q\+Vector}. \item If you want a low-\/level variable-\/size array, Q\+Var\+Length\+Array may be sufficient. \end{DoxyItemize}
+Here\textquotesingle{}s an example of a \hyperlink{class_q_vector}{Q\+Vector} that stores integers and a \hyperlink{class_q_vector}{Q\+Vector} that stores Q\+String values\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \hyperlink{class_q_vector}{Q\+Vector} stores a vector (or array) of items. Typically, vectors are created with an initial size. For example, the following code constructs a \hyperlink{class_q_vector}{Q\+Vector} with 200 elements\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ The elements are automatically initialized with a \{default-\/constructed value\}. If you want to initialize the vector with a different value, pass that value as the second argument to the constructor\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ You can also call \hyperlink{class_q_vector_aa508b6403bbbe6f81b67d0c9257b7d2b}{fill()} at any time to fill the vector with a value.
+
+\hyperlink{class_q_vector}{Q\+Vector} uses 0-\/based indexes, just like C++ arrays. To access the item at a particular index position, you can use \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()}. On non-\/const vectors, \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()} returns a reference to the item that can be used on the left side of an assignment\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ For read-\/only access, an alternative syntax is to use \hyperlink{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{at()}\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \hyperlink{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{at()} can be faster than \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()}, because it never causes a \{deep copy\} to occur.
+
+Another way to access the data stored in a \hyperlink{class_q_vector}{Q\+Vector} is to call \hyperlink{class_q_vector_acc8068ddfe8bc93852558914a5e73b5a}{data()}. The function returns a pointer to the first item in the vector. You can use the pointer to directly access and modify the elements stored in the vector. The pointer is also useful if you need to pass a \hyperlink{class_q_vector}{Q\+Vector} to a function that accepts a plain C++ array.
+
+If you want to find all occurrences of a particular value in a vector, use \hyperlink{class_q_vector_a015c576d25fc9707466b3b301e10f33d}{index\+Of()} or \hyperlink{class_q_vector_a06149e241b9907f6c2b379c4e5279338}{last\+Index\+Of()}. The former searches forward starting from a given index position, the latter searches backward. Both return the index of the matching item if they found one; otherwise, they return -\/1. For example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ If you simply want to check whether a vector contains a particular value, use \hyperlink{class_q_vector_a048b668c8baf8e2503656a751e73ddad}{contains()}. If you want to find out how many times a particular value occurs in the vector, use \hyperlink{class_q_vector_a0ba5f2f633ab9eb813e6433464f095a6}{count()}.
+
+\hyperlink{class_q_vector}{Q\+Vector} provides these basic functions to add, move, and remove items\+: \hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()}, \hyperlink{class_q_vector_a488cf341031679a18361c89111794059}{replace()}, \hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove()}, \hyperlink{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}{prepend()}, \hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append()}. With the exception of \hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append()} and \hyperlink{class_q_vector_a488cf341031679a18361c89111794059}{replace()}, these functions can be slow (\{linear time\}) for large vectors, because they require moving many items in the vector by one position in memory. If you want a container class that provides fast insertion/removal in the middle, use \hyperlink{class_q_list}{Q\+List} or Q\+Linked\+List instead.
+
+Unlike plain C++ arrays, Q\+Vectors can be resized at any time by calling \hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()}. If the new size is larger than the old size, \hyperlink{class_q_vector}{Q\+Vector} might need to reallocate the whole vector. \hyperlink{class_q_vector}{Q\+Vector} tries to reduce the number of reallocations by preallocating up to twice as much memory as the actual data needs.
+
+If you know in advance approximately how many items the \hyperlink{class_q_vector}{Q\+Vector} will contain, you can call \hyperlink{class_q_vector_aab71cce382721d176d1445434ae18e6a}{reserve()}, asking \hyperlink{class_q_vector}{Q\+Vector} to preallocate a certain amount of memory. You can also call \hyperlink{class_q_vector_a160560e2aab0840e0de275ae9ca48f7a}{capacity()} to find out how much memory \hyperlink{class_q_vector}{Q\+Vector} actually allocated.
+
+Note that using non-\/const operators and functions can cause \hyperlink{class_q_vector}{Q\+Vector} to do a deep copy of the data. This is due to \{implicit sharing\}.
+
+\hyperlink{class_q_vector}{Q\+Vector}\textquotesingle{}s value type must be an \{assignable data type\}. This covers most data types that are commonly used, but the compiler won\textquotesingle{}t let you, for example, store a Q\+Widget as a value; instead, store a Q\+Widget $\ast$. A few functions have additional requirements; for example, \hyperlink{class_q_vector_a015c576d25fc9707466b3b301e10f33d}{index\+Of()} and \hyperlink{class_q_vector_a06149e241b9907f6c2b379c4e5279338}{last\+Index\+Of()} expect the value type to support {\ttfamily \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()}}. These requirements are documented on a per-\/function basis.
+
+Like the other container classes, \hyperlink{class_q_vector}{Q\+Vector} provides \{Java-\/style iterators\} (Q\+Vector\+Iterator and Q\+Mutable\+Vector\+Iterator) and \{S\+T\+L-\/style iterators\} (\hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{Q\+Vector\+::const\+\_\+iterator} and \hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{Q\+Vector\+::iterator}). In practice, these are rarely used, because you can use indexes into the \hyperlink{class_q_vector}{Q\+Vector}.
+
+In addition to \hyperlink{class_q_vector}{Q\+Vector}, Qt also provides Q\+Var\+Length\+Array, a very low-\/level class with little functionality that is optimized for speed.
+
+\hyperlink{class_q_vector}{Q\+Vector} does {\itshape not} support inserting, prepending, appending or replacing with references to its own values. Doing so will cause your application to abort with an error message.
+
+\begin{DoxySeeAlso}{See also}
+Q\+Vector\+Iterator, Q\+Mutable\+Vector\+Iterator, \hyperlink{class_q_list}{Q\+List}, Q\+Linked\+List 
+\end{DoxySeeAlso}
+
+
+Definition at line 62 of file qlist.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\index{Q\+Vector@{Q\+Vector}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator}{const_iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf const\+\_\+iterator}}\hypertarget{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{}\label{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}
+The \hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{Q\+Vector\+::const\+\_\+iterator} typedef provides an S\+T\+L-\/style const iterator for \hyperlink{class_q_vector}{Q\+Vector} and \hyperlink{class_q_stack}{Q\+Stack}.
+
+\hyperlink{class_q_vector}{Q\+Vector} provides both \{S\+T\+L-\/style iterators\} and \{Java-\/style iterators\}. The S\+T\+L-\/style const iterator is simply a typedef for \char`\"{}const T $\ast$\char`\"{} (pointer to const T).
+
+\begin{DoxyWarning}{Warning}
+Iterators on implicitly shared containers do not work exactly like S\+T\+L-\/iterators. You should avoid copying a container while iterators are active on that container. For more information, read \{Implicit sharing iterator problem\}.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8f2ae9da9b4f929a1cbb718e2ff1a9ca}{Q\+Vector\+::const\+Begin()}, \hyperlink{class_q_vector_a86b54d84b2435c97d8ec62d5149eeee8}{Q\+Vector\+::const\+End()}, \hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{Q\+Vector\+::iterator}, Q\+Vector\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 177 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!const\+\_\+pointer@{const\+\_\+pointer}}
+\index{const\+\_\+pointer@{const\+\_\+pointer}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{const\+\_\+pointer}{const_pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf const\+\_\+pointer}}\hypertarget{class_q_vector_aa5e3dc32b0a887d59bf5c5c30c95eb85}{}\label{class_q_vector_aa5e3dc32b0a887d59bf5c5c30c95eb85}
+Typedef for const T $\ast$. Provided for S\+TL compatibility. 
+
+Definition at line 218 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!const\+\_\+reference@{const\+\_\+reference}}
+\index{const\+\_\+reference@{const\+\_\+reference}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{const\+\_\+reference}{const_reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf const\+\_\+reference}}\hypertarget{class_q_vector_a4054473292677d3bc7d901db7b3b3f20}{}\label{class_q_vector_a4054473292677d3bc7d901db7b3b3f20}
+Typedef for T \&. Provided for S\+TL compatibility. 
+
+Definition at line 220 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!Const\+Iterator@{Const\+Iterator}}
+\index{Const\+Iterator@{Const\+Iterator}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{Const\+Iterator}{ConstIterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf Const\+Iterator}}\hypertarget{class_q_vector_a480cfc218d799ecba92075c848e605c6}{}\label{class_q_vector_a480cfc218d799ecba92075c848e605c6}
+Qt-\/style synonym for \hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{Q\+Vector\+::const\+\_\+iterator}. 
+
+Definition at line 223 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!difference\+\_\+type@{difference\+\_\+type}}
+\index{difference\+\_\+type@{difference\+\_\+type}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{difference\+\_\+type}{difference_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf difference\+\_\+type}}\hypertarget{class_q_vector_aaccc790d3ba04fc52580cdfc9d9290fa}{}\label{class_q_vector_aaccc790d3ba04fc52580cdfc9d9290fa}
+Typedef for ptrdiff\+\_\+t. Provided for S\+TL compatibility. 
+
+Definition at line 221 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!iterator@{iterator}}
+\index{iterator@{iterator}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{iterator}{iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf iterator}}\hypertarget{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{}\label{class_q_vector_af6ac26e0dfede6e3045be0c947201267}
+The \hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{Q\+Vector\+::iterator} typedef provides an S\+T\+L-\/style non-\/const iterator for \hyperlink{class_q_vector}{Q\+Vector} and \hyperlink{class_q_stack}{Q\+Stack}.
+
+\hyperlink{class_q_vector}{Q\+Vector} provides both \{S\+T\+L-\/style iterators\} and \{Java-\/style iterators\}. The S\+T\+L-\/style non-\/const iterator is simply a typedef for \char`\"{}\+T $\ast$\char`\"{} (pointer to T).
+
+\begin{DoxyWarning}{Warning}
+Iterators on implicitly shared containers do not work exactly like S\+T\+L-\/iterators. You should avoid copying a container while iterators are active on that container. For more information, read \{Implicit sharing iterator problem\}.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}{Q\+Vector\+::begin()}, \hyperlink{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{Q\+Vector\+::end()}, \hyperlink{class_q_vector_a01e19bfad7fefd3e97ef197f4ed2cceb}{Q\+Vector\+::const\+\_\+iterator}, Q\+Mutable\+Vector\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 176 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{Iterator}{Iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf Iterator}}\hypertarget{class_q_vector_a22a5801860ee27fedc7dca5062355089}{}\label{class_q_vector_a22a5801860ee27fedc7dca5062355089}
+Qt-\/style synonym for \hyperlink{class_q_vector_af6ac26e0dfede6e3045be0c947201267}{Q\+Vector\+::iterator}. 
+
+Definition at line 222 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!pointer@{pointer}}
+\index{pointer@{pointer}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{pointer}{pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf pointer}}\hypertarget{class_q_vector_ae3fa870723fe1109c22b1091d54075fa}{}\label{class_q_vector_ae3fa870723fe1109c22b1091d54075fa}
+Typedef for T $\ast$. Provided for S\+TL compatibility. 
+
+Definition at line 217 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!reference@{reference}}
+\index{reference@{reference}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{reference}{reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf reference}}\hypertarget{class_q_vector_a86d1c26fb98028474e556d2e25b60633}{}\label{class_q_vector_a86d1c26fb98028474e556d2e25b60633}
+Typedef for T \&. Provided for S\+TL compatibility. 
+
+Definition at line 219 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!size\+\_\+type@{size\+\_\+type}}
+\index{size\+\_\+type@{size\+\_\+type}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{size\+\_\+type}{size_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf size\+\_\+type}}\hypertarget{class_q_vector_afd8d3d4bf5a63a0c92128507dee59282}{}\label{class_q_vector_afd8d3d4bf5a63a0c92128507dee59282}
+Typedef for int. Provided for S\+TL compatibility. 
+
+Definition at line 224 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{value\+\_\+type}{value_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf value\+\_\+type}}\hypertarget{class_q_vector_afb003dbc70603eacc89c0c7ea495dd3d}{}\label{class_q_vector_afb003dbc70603eacc89c0c7ea495dd3d}
+Typedef for T. Provided for S\+TL compatibility. 
+
+Definition at line 216 of file qvector.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{Q\+Vector() Q\+\_\+\+D\+E\+C\+L\+\_\+\+N\+O\+T\+H\+R\+OW}{QVector() Q_DECL_NOTHROW}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf Q\+Vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a93e8a3fa9e7f4934e5f97494ad17f518}{}\label{class_q_vector_a93e8a3fa9e7f4934e5f97494ad17f518}
+Constructs an empty vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 64 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{Q\+Vector(int size)}{QVector(int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf Q\+Vector} (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{class_q_vector_a000f527522e85e6682807ff7edd9467f}{}\label{class_q_vector_a000f527522e85e6682807ff7edd9467f}
+Constructs a vector with an initial size of {\itshape size} elements.
+
+The elements are initialized with a \{default-\/constructed value\}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 442 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{Q\+Vector(int size, const T \&t)}{QVector(int size, const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf Q\+Vector} (
+\begin{DoxyParamCaption}
+\item[{int}]{size, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_a2c9d422d62125b04a4835de82666e9f2}{}\label{class_q_vector_a2c9d422d62125b04a4835de82666e9f2}
+Constructs a vector with an initial size of {\itshape size} elements. Each element is initialized with {\itshape value}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()}, \hyperlink{class_q_vector_aa508b6403bbbe6f81b67d0c9257b7d2b}{fill()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 456 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\index{Q\+Vector@{Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{Q\+Vector(const Q\+Vector$<$ T $>$ \&v)}{QVector(const QVector< T > &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf Q\+Vector} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a58c57c94049f372ea119f2b0c60fc357}{}\label{class_q_vector_a58c57c94049f372ea119f2b0c60fc357}
+Constructs a copy of {\itshape other}.
+
+This operation takes \{constant time\}, because \hyperlink{class_q_vector}{Q\+Vector} is \{implicitly shared\}. This makes returning a \hyperlink{class_q_vector}{Q\+Vector} from a function very fast. If a shared instance is modified, it will be copied (copy-\/on-\/write), and that takes \{linear time\}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a36236603096c0c02def1c0d43f3ebbf5}{operator=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 326 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!````~Q\+Vector@{$\sim$\+Q\+Vector}}
+\index{````~Q\+Vector@{$\sim$\+Q\+Vector}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{$\sim$\+Q\+Vector()}{~QVector()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::$\sim${\bf Q\+Vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_ada8501475bf1f9eb3e1aa6d70c84b79c}{}\label{class_q_vector_ada8501475bf1f9eb3e1aa6d70c84b79c}
+Destroys the vector. 
+
+Definition at line 68 of file qvector.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+Vector@{Q\+Vector}!append@{append}}
+\index{append@{append}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{append(const T \&t)}{append(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::append (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{}\label{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}
+Inserts {\itshape value} at the end of the vector.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This is the same as calling resize(\hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()} + 1) and assigning {\itshape value} to the new last element in the vector.
+
+This operation is relatively fast, because \hyperlink{class_q_vector}{Q\+Vector} typically allocates more memory than necessary, so it can grow without reallocating the entire vector each time.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a60144939301f38042c9f702ae887ea16}{operator$<$$<$()}, \hyperlink{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}{prepend()}, \hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 601 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!append@{append}}
+\index{append@{append}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{append(const Q\+Vector$<$ T $>$ \&l)}{append(const QVector< T > &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::append (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a35a429cf3858d3c58246229b2cc18e93}{}\label{class_q_vector_a35a429cf3858d3c58246229b2cc18e93}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+\begin{DoxySince}{Since}
+5.\+5
+\end{DoxySince}
+Appends the items of the {\itshape value} vector to this vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a60144939301f38042c9f702ae887ea16}{operator$<$$<$()}, \hyperlink{class_q_vector_add550c8dd5120227c645ecb069cb7196}{operator+=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 131 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!at@{at}}
+\index{at@{at}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{at(int i) const }{at(int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T \& {\bf Q\+Vector}$<$ T $>$\+::at (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{}\label{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}
+Returns the item at index position {\itshape i} in the vector.
+
+{\itshape i} must be a valid index position in the vector (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a3788cd97b1cd4898d508422cb1227f8c}{value()}, \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 392 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!back@{back}}
+\index{back@{back}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{back()}{back()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::reference} {\bf Q\+Vector}$<$ T $>$\+::back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_abbea52a372bdc71b374acb422e4a4ce0}{}\label{class_q_vector_abbea52a372bdc71b374acb422e4a4ce0}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_vector_a93f335707c6d1003dd2b594e4066ed0b}{last()}. 
+
+Definition at line 233 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!back@{back}}
+\index{back@{back}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{back() const }{back() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+reference} {\bf Q\+Vector}$<$ T $>$\+::back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a0bb36e8f88a033d56d422f6b65c29465}{}\label{class_q_vector_a0bb36e8f88a033d56d422f6b65c29465}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 234 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!begin@{begin}}
+\index{begin@{begin}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{begin()}{begin()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::iterator} {\bf Q\+Vector}$<$ T $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}{}\label{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}
+Returns an \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the first item in the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8f2ae9da9b4f929a1cbb718e2ff1a9ca}{const\+Begin()}, \hyperlink{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{end()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 179 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!begin@{begin}}
+\index{begin@{begin}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+iterator} {\bf Q\+Vector}$<$ T $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_af4315069a3caf05631993ec7d57881fa}{}\label{class_q_vector_af4315069a3caf05631993ec7d57881fa}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 180 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!capacity@{capacity}}
+\index{capacity@{capacity}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{capacity() const }{capacity() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a160560e2aab0840e0de275ae9ca48f7a}{}\label{class_q_vector_a160560e2aab0840e0de275ae9ca48f7a}
+Returns the maximum number of items that can be stored in the vector without forcing a reallocation.
+
+The sole purpose of this function is to provide a means of fine tuning \hyperlink{class_q_vector}{Q\+Vector}\textquotesingle{}s memory usage. In general, you will rarely ever need to call this function. If you want to know how many items are in the vector, call \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_aab71cce382721d176d1445434ae18e6a}{reserve()}, \hyperlink{class_q_vector_a8e0d583fe677dad6afd11ed4bc8b8927}{squeeze()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 88 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{cbegin() const }{cbegin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+iterator} {\bf Q\+Vector}$<$ T $>$\+::cbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a4ccddab5fdd95438143d5dbb17afc404}{}\label{class_q_vector_a4ccddab5fdd95438143d5dbb17afc404}
+\begin{DoxySince}{Since}
+5.\+0
+\end{DoxySince}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the first item in the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}{begin()}, \hyperlink{class_q_vector_aae87e757422aae4f12f8b8b60b2efb19}{cend()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 181 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!cend@{cend}}
+\index{cend@{cend}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{cend() const }{cend() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+iterator} {\bf Q\+Vector}$<$ T $>$\+::cend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_aae87e757422aae4f12f8b8b60b2efb19}{}\label{class_q_vector_aae87e757422aae4f12f8b8b60b2efb19}
+\begin{DoxySince}{Since}
+5.\+0
+\end{DoxySince}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the imaginary item after the last item in the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a4ccddab5fdd95438143d5dbb17afc404}{cbegin()}, \hyperlink{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{end()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 185 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!clear@{clear}}
+\index{clear@{clear}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+Vector}$<$ T $>$\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a4ec0b396f1d5138386800318ca7d3a0d}{}\label{class_q_vector_a4ec0b396f1d5138386800318ca7d3a0d}
+Removes all the elements from the vector and releases the memory used by the vector. 
+
+Definition at line 389 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!const\+Begin@{const\+Begin}}
+\index{const\+Begin@{const\+Begin}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{const\+Begin() const }{constBegin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+iterator} {\bf Q\+Vector}$<$ T $>$\+::const\+Begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a8f2ae9da9b4f929a1cbb718e2ff1a9ca}{}\label{class_q_vector_a8f2ae9da9b4f929a1cbb718e2ff1a9ca}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the first item in the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}{begin()}, \hyperlink{class_q_vector_a86b54d84b2435c97d8ec62d5149eeee8}{const\+End()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 182 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!const\+Data@{const\+Data}}
+\index{const\+Data@{const\+Data}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{const\+Data() const }{constData() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T $\ast$ {\bf Q\+Vector}$<$ T $>$\+::const\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a598509c9fe544e8a47e375f47b5c8f50}{}\label{class_q_vector_a598509c9fe544e8a47e375f47b5c8f50}
+Returns a const pointer to the data stored in the vector. The pointer can be used to access the items in the vector. The pointer remains valid as long as the vector isn\textquotesingle{}t reallocated.
+
+This function is mostly useful to pass a vector to a function that accepts a plain C++ array.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_acc8068ddfe8bc93852558914a5e73b5a}{data()}, \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 124 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!const\+End@{const\+End}}
+\index{const\+End@{const\+End}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{const\+End() const }{constEnd() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+iterator} {\bf Q\+Vector}$<$ T $>$\+::const\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a86b54d84b2435c97d8ec62d5149eeee8}{}\label{class_q_vector_a86b54d84b2435c97d8ec62d5149eeee8}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the imaginary item after the last item in the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8f2ae9da9b4f929a1cbb718e2ff1a9ca}{const\+Begin()}, \hyperlink{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{end()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 186 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!contains@{contains}}
+\index{contains@{contains}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{contains(const T \&t) const }{contains(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::contains (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a048b668c8baf8e2503656a751e73ddad}{}\label{class_q_vector_a048b668c8baf8e2503656a751e73ddad}
+Returns {\ttfamily true} if the vector contains an occurrence of {\itshape value}; otherwise returns {\ttfamily false}.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a015c576d25fc9707466b3b301e10f33d}{index\+Of()}, \hyperlink{class_q_vector_a0ba5f2f633ab9eb813e6433464f095a6}{count()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 804 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!count@{count}}
+\index{count@{count}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{count(const T \&t) const }{count(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::count (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a0ba5f2f633ab9eb813e6433464f095a6}{}\label{class_q_vector_a0ba5f2f633ab9eb813e6433464f095a6}
+Returns the number of occurrences of {\itshape value} in the vector.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a048b668c8baf8e2503656a751e73ddad}{contains()}, \hyperlink{class_q_vector_a015c576d25fc9707466b3b301e10f33d}{index\+Of()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 812 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!count@{count}}
+\index{count@{count}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{count() const }{count() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a7523e0dd8ab0759ad53b32d18da10780}{}\label{class_q_vector_a7523e0dd8ab0759ad53b32d18da10780}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Same as \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}. 
+
+Definition at line 203 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!data@{data}}
+\index{data@{data}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{data()}{data()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T $\ast$ {\bf Q\+Vector}$<$ T $>$\+::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_acc8068ddfe8bc93852558914a5e73b5a}{}\label{class_q_vector_acc8068ddfe8bc93852558914a5e73b5a}
+Returns a pointer to the data stored in the vector. The pointer can be used to access and modify the items in the vector.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ The pointer remains valid as long as the vector isn\textquotesingle{}t reallocated.
+
+This function is mostly useful to pass a vector to a function that accepts a plain C++ array.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a598509c9fe544e8a47e375f47b5c8f50}{const\+Data()}, \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 122 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!data@{data}}
+\index{data@{data}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{data() const }{data() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T $\ast$ {\bf Q\+Vector}$<$ T $>$\+::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a0170fb9ced08d46ad0724049a1b7d680}{}\label{class_q_vector_a0170fb9ced08d46ad0724049a1b7d680}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 123 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!detach@{detach}}
+\index{detach@{detach}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{detach()}{detach()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+Vector}$<$ T $>$\+::detach (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a08d0d1da157ccc4b3de98ac618fab8e6}{}\label{class_q_vector_a08d0d1da157ccc4b3de98ac618fab8e6}
+
+
+Definition at line 347 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!empty@{empty}}
+\index{empty@{empty}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a07249d8a8b0eade3f37104ae0357d0bf}{}\label{class_q_vector_a07249d8a8b0eade3f37104ae0357d0bf}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()}, returning {\ttfamily true} if the vector is empty; otherwise returns {\ttfamily false}. 
+
+Definition at line 229 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!end@{end}}
+\index{end@{end}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{end()}{end()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::iterator} {\bf Q\+Vector}$<$ T $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{}\label{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}
+Returns an \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the imaginary item after the last item in the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad0c2c0e80b789c3a78a8c3a32dba31cc}{begin()}, \hyperlink{class_q_vector_a86b54d84b2435c97d8ec62d5149eeee8}{const\+End()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 183 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!end@{end}}
+\index{end@{end}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+iterator} {\bf Q\+Vector}$<$ T $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_ad13adb8ee2256f8b583509d7d9c4ca44}{}\label{class_q_vector_ad13adb8ee2256f8b583509d7d9c4ca44}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 184 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!ends\+With@{ends\+With}}
+\index{ends\+With@{ends\+With}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{ends\+With(const T \&t) const }{endsWith(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::ends\+With (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a166cfa66c83c7255127a40ad26773a99}{}\label{class_q_vector_a166cfa66c83c7255127a40ad26773a99}
+\begin{DoxySince}{Since}
+4.\+5
+\end{DoxySince}
+Returns {\ttfamily true} if this vector is not empty and its last item is equal to {\itshape value}; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()}, \hyperlink{class_q_vector_a93f335707c6d1003dd2b594e4066ed0b}{last()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 209 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!erase@{erase}}
+\index{erase@{erase}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{erase(iterator begin, iterator end)}{erase(iterator begin, iterator end)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf iterator} {\bf Q\+Vector}$<$ T $>$\+::erase (
+\begin{DoxyParamCaption}
+\item[{{\bf iterator}}]{begin, }
+\item[{{\bf iterator}}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_af58c46c4f0db158717e382fe894c1484}{}\label{class_q_vector_af58c46c4f0db158717e382fe894c1484}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Removes all the items from {\itshape begin} up to (but not including) {\itshape end}. Returns an iterator to the same item that {\itshape end} referred to before the call. 
+
+Definition at line 674 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!erase@{erase}}
+\index{erase@{erase}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{erase(iterator pos)}{erase(iterator pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::iterator} {\bf Q\+Vector}$<$ T $>$\+::erase (
+\begin{DoxyParamCaption}
+\item[{{\bf iterator}}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a86403f70f137b660c6750f2b37c1e7d0}{}\label{class_q_vector_a86403f70f137b660c6750f2b37c1e7d0}
+Removes the item pointed to by the iterator {\itshape pos} from the vector, and returns an iterator to the next item in the vector (which may be \hyperlink{class_q_vector_aee13fe5819dcac8aee22f40f31c2790b}{end()}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()}, \hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 200 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!fill@{fill}}
+\index{fill@{fill}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{fill(const T \&t, int size=-\/1)}{fill(const T &t, int size=-1)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ \& {\bf Q\+Vector}$<$ T $>$\+::fill (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{int}]{size = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_aa508b6403bbbe6f81b67d0c9257b7d2b}{}\label{class_q_vector_aa508b6403bbbe6f81b67d0c9257b7d2b}
+Assigns {\itshape value} to all items in the vector. If {\itshape size} is different from -\/1 (the default), the vector is resized to size {\itshape size} beforehand.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 732 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!first@{first}}
+\index{first@{first}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{first()}{first()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T \& {\bf Q\+Vector}$<$ T $>$\+::first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a85cff791949dfb35bc432c6c5afae966}{}\label{class_q_vector_a85cff791949dfb35bc432c6c5afae966}
+Returns a reference to the first item in the vector. This function assumes that the vector isn\textquotesingle{}t empty.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a93f335707c6d1003dd2b594e4066ed0b}{last()}, \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 204 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!first@{first}}
+\index{first@{first}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{first() const }{first() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+Vector}$<$ T $>$\+::first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_ac9e38c34b78e0460d7f19713d5588e7d}{}\label{class_q_vector_ac9e38c34b78e0460d7f19713d5588e7d}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 205 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!from\+List@{from\+List}}
+\index{from\+List@{from\+List}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{from\+List(const Q\+List$<$ T $>$ \&list)}{fromList(const QList< T > &list)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ {\bf Q\+Vector}$<$ T $>$\+::from\+List (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_q_vector_a81688755b0166749fde54c1108690825}{}\label{class_q_vector_a81688755b0166749fde54c1108690825}
+Returns a \hyperlink{class_q_vector}{Q\+Vector} object with the data contained in {\itshape list}.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a604c990aa7914fc3840c740b4bb0ff7d}{to\+List()}, \hyperlink{class_q_list_a2cd704f6f4c066e501e170fd8c11cf28}{Q\+List\+::to\+Vector()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 862 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!from\+Std\+Vector@{from\+Std\+Vector}}
+\index{from\+Std\+Vector@{from\+Std\+Vector}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{from\+Std\+Vector(const std\+::vector$<$ T $>$ \&vector)}{fromStdVector(const std::vector< T > &vector)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ {\bf Q\+Vector}$<$ T $>$\+::from\+Std\+Vector (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ T $>$ \&}]{vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{class_q_vector_a4bb034c193b1f443b235df30323ee2d0}{}\label{class_q_vector_a4bb034c193b1f443b235df30323ee2d0}
+Returns a \hyperlink{class_q_vector}{Q\+Vector} object with the data contained in {\itshape vector}. The order of the elements in the \hyperlink{class_q_vector}{Q\+Vector} is the same as in {\itshape vector}.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a0bb56bf3c3e5c533efda20ff4394b444}{to\+Std\+Vector()}, \hyperlink{class_q_list_af0810b38261117b3616803519d825c9c}{Q\+List\+::from\+Std\+List()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 251 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!front@{front}}
+\index{front@{front}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{front()}{front()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T \& {\bf Q\+Vector}$<$ T $>$\+::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a479198a1d185e0191e1170c200bb74aa}{}\label{class_q_vector_a479198a1d185e0191e1170c200bb74aa}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_vector_a85cff791949dfb35bc432c6c5afae966}{first()}. 
+
+Definition at line 231 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!front@{front}}
+\index{front@{front}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{front() const }{front() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::const\+\_\+reference} {\bf Q\+Vector}$<$ T $>$\+::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a402094ad8fe1fe7ead5d6217466da3bc}{}\label{class_q_vector_a402094ad8fe1fe7ead5d6217466da3bc}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 232 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!index\+Of@{index\+Of}}
+\index{index\+Of@{index\+Of}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{index\+Of(const T \&t, int from=0) const }{indexOf(const T &t, int from=0) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::index\+Of (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{int}]{from = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a015c576d25fc9707466b3b301e10f33d}{}\label{class_q_vector_a015c576d25fc9707466b3b301e10f33d}
+Returns the index position of the first occurrence of {\itshape value} in the vector, searching forward from index position {\itshape from}. Returns -\/1 if no item matched.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a06149e241b9907f6c2b379c4e5279338}{last\+Index\+Of()}, \hyperlink{class_q_vector_a048b668c8baf8e2503656a751e73ddad}{contains()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 771 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!insert@{insert}}
+\index{insert@{insert}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{insert(int i, const T \&t)}{insert(int i, const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{}\label{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}
+Inserts {\itshape value} at index position {\itshape i} in the vector. If {\itshape i} is 0, the value is prepended to the vector. If {\itshape i} is \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}, the value is appended to the vector.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ For large vectors, this operation can be slow (\{linear time\}), because it requires moving all the items at indexes {\itshape i} and above by one position further in memory. If you want a container class that provides a fast \hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()} function, use Q\+Linked\+List instead.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append()}, \hyperlink{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}{prepend()}, \hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 404 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!insert@{insert}}
+\index{insert@{insert}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{insert(int i, int n, const T \&t)}{insert(int i, int n, const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{count, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_afb2c6bd6b45f3ce73f4c6556d492af53}{}\label{class_q_vector_afb2c6bd6b45f3ce73f4c6556d492af53}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Inserts {\itshape count} copies of {\itshape value} at index position {\itshape i} in the vector.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+
+
+Definition at line 408 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!insert@{insert}}
+\index{insert@{insert}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{insert(iterator before, int n, const T \&x)}{insert(iterator before, int n, const T &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$\+::{\bf iterator} {\bf Q\+Vector}$<$ T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf iterator}}]{before, }
+\item[{int}]{count, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_a85e9511cdd9b7949828749a8092af924}{}\label{class_q_vector_a85e9511cdd9b7949828749a8092af924}
+Inserts {\itshape count} copies of {\itshape value} in front of the item pointed to by the iterator {\itshape before}. Returns an iterator pointing at the first of the inserted items. 
+
+Definition at line 639 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!insert@{insert}}
+\index{insert@{insert}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{insert(iterator before, const T \&x)}{insert(iterator before, const T &x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector\+::iterator} {\bf Q\+Vector}$<$ T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf iterator}}]{before, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_acb1662d362fcf2fcc2ae820d08fd159d}{}\label{class_q_vector_acb1662d362fcf2fcc2ae820d08fd159d}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Inserts {\itshape value} in front of the item pointed to by the iterator {\itshape before}. Returns an iterator pointing at the inserted item. 
+
+Definition at line 198 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!is\+Detached@{is\+Detached}}
+\index{is\+Detached@{is\+Detached}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{is\+Detached() const }{isDetached() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::is\+Detached (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_af229e85b6aa5891a437b3efde705ceea}{}\label{class_q_vector_af229e85b6aa5891a437b3efde705ceea}
+
+
+Definition at line 101 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{is\+Empty() const }{isEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{}\label{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}
+Returns {\ttfamily true} if the vector has size 0; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}, \hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 84 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!is\+Shared\+With@{is\+Shared\+With}}
+\index{is\+Shared\+With@{is\+Shared\+With}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{is\+Shared\+With(const Q\+Vector$<$ T $>$ \&other) const }{isSharedWith(const QVector< T > &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::is\+Shared\+With (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a05ceccc2b7cc2bebfcd9e05ee9406a0e}{}\label{class_q_vector_a05ceccc2b7cc2bebfcd9e05ee9406a0e}
+
+
+Definition at line 120 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!last@{last}}
+\index{last@{last}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{last()}{last()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T \& {\bf Q\+Vector}$<$ T $>$\+::last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a93f335707c6d1003dd2b594e4066ed0b}{}\label{class_q_vector_a93f335707c6d1003dd2b594e4066ed0b}
+Returns a reference to the last item in the vector. This function assumes that the vector isn\textquotesingle{}t empty.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a85cff791949dfb35bc432c6c5afae966}{first()}, \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 206 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!last@{last}}
+\index{last@{last}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{last() const }{last() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+Vector}$<$ T $>$\+::last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a200d93e8b761b606c07f86fe4be44cef}{}\label{class_q_vector_a200d93e8b761b606c07f86fe4be44cef}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 207 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!last\+Index\+Of@{last\+Index\+Of}}
+\index{last\+Index\+Of@{last\+Index\+Of}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{last\+Index\+Of(const T \&t, int from=-\/1) const }{lastIndexOf(const T &t, int from=-1) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::last\+Index\+Of (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{int}]{from = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a06149e241b9907f6c2b379c4e5279338}{}\label{class_q_vector_a06149e241b9907f6c2b379c4e5279338}
+Returns the index position of the last occurrence of the value {\itshape value} in the vector, searching backward from index position {\itshape from}. If {\itshape from} is -\/1 (the default), the search starts at the last item. Returns -\/1 if no item matched.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a015c576d25fc9707466b3b301e10f33d}{index\+Of()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 786 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!length@{length}}
+\index{length@{length}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{length() const }{length() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a44cb545af1984e4c9432b0cc57525664}{}\label{class_q_vector_a44cb545af1984e4c9432b0cc57525664}
+\begin{DoxySince}{Since}
+5.\+2
+\end{DoxySince}
+Same as \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()} and \hyperlink{class_q_vector_a0ba5f2f633ab9eb813e6433464f095a6}{count()}.
+
+Provided for compatibility with \hyperlink{class_q_list}{Q\+List}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}, \hyperlink{class_q_vector_a0ba5f2f633ab9eb813e6433464f095a6}{count()}, \hyperlink{class_q_list_ac1755c03849804156e624efcd6562874}{Q\+List\+::length()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 172 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!mid@{mid}}
+\index{mid@{mid}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{mid(int pos, int len=-\/1) const }{mid(int pos, int len=-1) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+Vector}$<$ T $>$ {\bf Q\+Vector}$<$ T $>$\+::mid (
+\begin{DoxyParamCaption}
+\item[{int}]{pos, }
+\item[{int}]{length = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a09c185dcd5d2f02fd05dd4db84be1d28}{}\label{class_q_vector_a09c185dcd5d2f02fd05dd4db84be1d28}
+Returns a sub-\/vector which contains elements from this vector, starting at position {\itshape pos}. If {\itshape length} is -\/1 (the default), all elements after {\itshape pos} are included; otherwise {\itshape length} elements (or all remaining elements if there are less than {\itshape length} elements) are included. 
+
+Definition at line 820 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator"!=(const Q\+Vector$<$ T $>$ \&v) const }{operator!=(const QVector< T > &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a7c3c88c0f770426a9b9dbb77ba1dcbfe}{}\label{class_q_vector_a7c3c88c0f770426a9b9dbb77ba1dcbfe}
+Returns {\ttfamily true} if {\itshape other} is not equal to this vector; otherwise returns {\ttfamily false}.
+
+Two vectors are considered equal if they contain the same values in the same order.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 80 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator+@{operator+}}
+\index{operator+@{operator+}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator+(const Q\+Vector$<$ T $>$ \&l) const }{operator+(const QVector< T > &l) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ {\bf Q\+Vector}$<$ T $>$\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a8f2255fa151633ab15cd46a1ea9d8bf1}{}\label{class_q_vector_a8f2255fa151633ab15cd46a1ea9d8bf1}
+Returns a vector that contains all the items in this vector followed by all the items in the {\itshape other} vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_add550c8dd5120227c645ecb069cb7196}{operator+=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 238 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator+=(const Q\+Vector$<$ T $>$ \&l)}{operator+=(const QVector< T > &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ \& {\bf Q\+Vector}$<$ T $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_add550c8dd5120227c645ecb069cb7196}{}\label{class_q_vector_add550c8dd5120227c645ecb069cb7196}
+Appends the items of the {\itshape other} vector to this vector and returns a reference to this vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8f2255fa151633ab15cd46a1ea9d8bf1}{operator+()}, \hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 746 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator+=(const T \&t)}{operator+=(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a7597c1f0f004594f8e446bb6ae09601c}{}\label{class_q_vector_a7597c1f0f004594f8e446bb6ae09601c}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Appends {\itshape value} to the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append()}, \hyperlink{class_q_vector_a60144939301f38042c9f702ae887ea16}{operator$<$$<$()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 240 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(const Q\+Vector$<$ T $>$ \&l)}{operator<<(const QVector< T > &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ \& {\bf Q\+Vector}$<$ T $>$\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a36aa335f06fab320bc322cb817808a34}{}\label{class_q_vector_a36aa335f06fab320bc322cb817808a34}
+Appends {\itshape other} to the vector and returns a reference to the vector. 
+
+Definition at line 244 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(const T \&t)}{operator<<(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ \& {\bf Q\+Vector}$<$ T $>$\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a60144939301f38042c9f702ae887ea16}{}\label{class_q_vector_a60144939301f38042c9f702ae887ea16}
+Appends {\itshape value} to the vector and returns a reference to this vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append()}, \hyperlink{class_q_vector_add550c8dd5120227c645ecb069cb7196}{operator+=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 242 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator=@{operator=}}
+\index{operator=@{operator=}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator=(const Q\+Vector$<$ T $>$ \&v)}{operator=(const QVector< T > &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Vector}$<$ T $>$ \& {\bf Q\+Vector}$<$ T $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_a36236603096c0c02def1c0d43f3ebbf5}{}\label{class_q_vector_a36236603096c0c02def1c0d43f3ebbf5}
+Assigns {\itshape other} to this vector and returns a reference to this vector.
+
+Move-\/assigns {\itshape other} to this \hyperlink{class_q_vector}{Q\+Vector} instance.
+
+\begin{DoxySince}{Since}
+5.\+2 
+\end{DoxySince}
+
+
+Definition at line 432 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator==@{operator==}}
+\index{operator==@{operator==}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator==(const Q\+Vector$<$ T $>$ \&v) const }{operator==(const QVector< T > &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{}\label{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}
+Returns {\ttfamily true} if {\itshape other} is equal to this vector; otherwise returns {\ttfamily false}.
+
+Two vectors are considered equal if they contain the same values in the same order.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_vector_a4d4ee275a13de28d0da7e49085ba7a7d}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a7c3c88c0f770426a9b9dbb77ba1dcbfe}{operator!=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 719 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator[](int i)}{operator[](int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T \& {\bf Q\+Vector}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{}\label{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}
+Returns the item at index position {\itshape i} as a modifiable reference.
+
+{\itshape i} must be a valid index position in the vector (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}).
+
+Note that using non-\/const operators can cause \hyperlink{class_q_vector}{Q\+Vector} to do a deep copy.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{at()}, \hyperlink{class_q_vector_a3788cd97b1cd4898d508422cb1227f8c}{value()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 400 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator[](int i) const }{operator[](int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T \& {\bf Q\+Vector}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a4abb4e10e8ea7bcad4819f21c13711f2}{}\label{class_q_vector_a4abb4e10e8ea7bcad4819f21c13711f2}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Same as at({\itshape i}). 
+
+Definition at line 396 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{pop\+\_\+back()}{pop_back()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::pop\+\_\+back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a4e4045d36b19dc7a6b8e3893f27f2b99}{}\label{class_q_vector_a4e4045d36b19dc7a6b8e3893f27f2b99}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_vector_a601a6ef4768c988b5ce96e05a8449f64}{remove\+Last()}. 
+
+Definition at line 227 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{pop\+\_\+front()}{pop_front()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::pop\+\_\+front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_aabe2aff9d7f1496d37d04c50e3741d0e}{}\label{class_q_vector_aabe2aff9d7f1496d37d04c50e3741d0e}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_vector_a93907fcd36758247f6d6e074240f9f02}{remove\+First()}. 
+
+Definition at line 228 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!prepend@{prepend}}
+\index{prepend@{prepend}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{prepend(const T \&t)}{prepend(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::prepend (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}{}\label{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}
+Inserts {\itshape value} at the beginning of the vector.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This is the same as vector.\+insert(0, {\itshape value}).
+
+For large vectors, this operation can be slow (\{linear time\}), because it requires moving all the items in the vector by one position further in memory. If you want a container class that provides a fast \hyperlink{class_q_vector_a94da89ec9a0c1b5205065ecf08ec1a7d}{prepend()} function, use \hyperlink{class_q_list}{Q\+List} or Q\+Linked\+List instead.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{append()}, \hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 420 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{push\+\_\+back(const T \&t)}{push_back(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::push\+\_\+back (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a64a78ac295cf7c41fde971c9811116a9}{}\label{class_q_vector_a64a78ac295cf7c41fde971c9811116a9}
+This function is provided for S\+TL compatibility. It is equivalent to append({\itshape value}). 
+
+Definition at line 225 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!push\+\_\+front@{push\+\_\+front}}
+\index{push\+\_\+front@{push\+\_\+front}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{push\+\_\+front(const T \&t)}{push_front(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::push\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a6d51ebc0e8ff3ee57ac13170086827a5}{}\label{class_q_vector_a6d51ebc0e8ff3ee57ac13170086827a5}
+This function is provided for S\+TL compatibility. It is equivalent to prepend({\itshape value}). 
+
+Definition at line 226 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!remove@{remove}}
+\index{remove@{remove}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{remove(int i)}{remove(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+Vector}$<$ T $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{}\label{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Removes the element at index position {\itshape i}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()}, \hyperlink{class_q_vector_a488cf341031679a18361c89111794059}{replace()}, \hyperlink{class_q_vector_aa508b6403bbbe6f81b67d0c9257b7d2b}{fill()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 416 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!remove@{remove}}
+\index{remove@{remove}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{remove(int i, int n)}{remove(int i, int n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+Vector}$<$ T $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{count}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_aea3b154a0eaf41cb19cf9a916e426a33}{}\label{class_q_vector_aea3b154a0eaf41cb19cf9a916e426a33}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Removes {\itshape count} elements from the middle of the vector, starting at index position {\itshape i}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8567b12d7fa5d23de69ba87e27646ee5}{insert()}, \hyperlink{class_q_vector_a488cf341031679a18361c89111794059}{replace()}, \hyperlink{class_q_vector_aa508b6403bbbe6f81b67d0c9257b7d2b}{fill()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 412 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!remove\+All@{remove\+All}}
+\index{remove\+All@{remove\+All}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{remove\+All(const T \&t)}{removeAll(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::remove\+All (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_aa78630cc416f99d5d1984ea402da9516}{}\label{class_q_vector_aa78630cc416f99d5d1984ea402da9516}
+\begin{DoxySince}{Since}
+5.\+4
+\end{DoxySince}
+Removes all elements that compare equal to {\itshape t} from the vector. Returns the number of elements removed, if any.
+
+Provided for compatibility with \hyperlink{class_q_list}{Q\+List}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_aae46c554ac81f614f376425cef90149d}{remove\+One()}, \hyperlink{class_q_list_af882739967540dbf2810411f997039de}{Q\+List\+::remove\+All()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 152 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!remove\+At@{remove\+At}}
+\index{remove\+At@{remove\+At}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{remove\+At(int i)}{removeAt(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::remove\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a33bedda19185b72dcaa008f52ddd3ed0}{}\label{class_q_vector_a33bedda19185b72dcaa008f52ddd3ed0}
+\begin{DoxySince}{Since}
+5.\+2
+\end{DoxySince}
+Removes the element at index position {\itshape i}. Equivalent to 
+\begin{DoxyCode}
+\textcolor{keyword}{remove}(i);
+\end{DoxyCode}
+
+
+Provided for compatibility with \hyperlink{class_q_list}{Q\+List}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove()}, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{Q\+List\+::remove\+At()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 151 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!remove\+First@{remove\+First}}
+\index{remove\+First@{remove\+First}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{remove\+First()}{removeFirst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::remove\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a93907fcd36758247f6d6e074240f9f02}{}\label{class_q_vector_a93907fcd36758247f6d6e074240f9f02}
+\begin{DoxySince}{Since}
+5.\+1 Removes the first item in the vector. Calling this function is equivalent to calling remove(0). The vector must not be empty. If the vector can be empty, call \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} before calling this function.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove()}, \hyperlink{class_q_vector_a96a07a40f38b70e6c71fc3f01749636b}{take\+First()}, \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 138 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!remove\+Last@{remove\+Last}}
+\index{remove\+Last@{remove\+Last}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{remove\+Last()}{removeLast()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+Vector}$<$ T $>$\+::remove\+Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a601a6ef4768c988b5ce96e05a8449f64}{}\label{class_q_vector_a601a6ef4768c988b5ce96e05a8449f64}
+\begin{DoxySince}{Since}
+5.\+1 Removes the last item in the vector. Calling this function is equivalent to calling remove(\hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()} -\/ 1). The vector must not be empty. If the vector can be empty, call \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} before calling this function.
+\end{DoxySince}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove()}, \hyperlink{class_q_vector_a81212706ea7a741742d342d0c370a783}{take\+Last()}, \hyperlink{class_q_vector_a93907fcd36758247f6d6e074240f9f02}{remove\+First()}, \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 624 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!remove\+One@{remove\+One}}
+\index{remove\+One@{remove\+One}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{remove\+One(const T \&t)}{removeOne(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::remove\+One (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_aae46c554ac81f614f376425cef90149d}{}\label{class_q_vector_aae46c554ac81f614f376425cef90149d}
+\begin{DoxySince}{Since}
+5.\+4
+\end{DoxySince}
+Removes the first element that compares equal to {\itshape t} from the vector. Returns whether an element was, in fact, removed.
+
+Provided for compatibility with \hyperlink{class_q_list}{Q\+List}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_aa78630cc416f99d5d1984ea402da9516}{remove\+All()}, \hyperlink{class_q_list_a4d25954344152f81e20ec6171f1bbcbd}{Q\+List\+::remove\+One()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 164 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!replace@{replace}}
+\index{replace@{replace}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{replace(int i, const T \&t)}{replace(int i, const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::replace (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a488cf341031679a18361c89111794059}{}\label{class_q_vector_a488cf341031679a18361c89111794059}
+Replaces the item at index position {\itshape i} with {\itshape value}.
+
+{\itshape i} must be a valid index position in the vector (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()}, \hyperlink{class_q_vector_a795fabfd2431ce0878ff4ba3c06e7e2b}{remove()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 424 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!reserve@{reserve}}
+\index{reserve@{reserve}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{reserve(int size)}{reserve(int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+Vector}$<$ T $>$\+::reserve (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_aab71cce382721d176d1445434ae18e6a}{}\label{class_q_vector_aab71cce382721d176d1445434ae18e6a}
+Attempts to allocate memory for at least {\itshape size} elements. If you know in advance how large the vector will be, you can call this function, and if you call \hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()} often you are likely to get better performance. If {\itshape size} is an underestimate, the worst that will happen is that the \hyperlink{class_q_vector}{Q\+Vector} will be a bit slower.
+
+The sole purpose of this function is to provide a means of fine tuning \hyperlink{class_q_vector}{Q\+Vector}\textquotesingle{}s memory usage. In general, you will rarely ever need to call this function. If you want to change the size of the vector, call \hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a8e0d583fe677dad6afd11ed4bc8b8927}{squeeze()}, \hyperlink{class_q_vector_a160560e2aab0840e0de275ae9ca48f7a}{capacity()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 361 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!resize@{resize}}
+\index{resize@{resize}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{resize(int size)}{resize(int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+Vector}$<$ T $>$\+::resize (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{}\label{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}
+Sets the size of the vector to {\itshape size}. If {\itshape size} is greater than the current size, elements are added to the end; the new elements are initialized with a \{default-\/constructed value\}. If {\itshape size} is less than the current size, elements are removed from the end.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{size()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 371 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!size@{size}}
+\index{size@{size}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+Vector}$<$ T $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}{}\label{class_q_vector_aa5739a6bcb52f9b9532ac661cca45b8b}
+Returns the number of items in the vector.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()}, \hyperlink{class_q_vector_a12d291b2dda474720c33a97bfe1b0973}{resize()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 82 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!squeeze@{squeeze}}
+\index{squeeze@{squeeze}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{squeeze()}{squeeze()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::squeeze (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a8e0d583fe677dad6afd11ed4bc8b8927}{}\label{class_q_vector_a8e0d583fe677dad6afd11ed4bc8b8927}
+Releases any memory not required to store the items.
+
+The sole purpose of this function is to provide a means of fine tuning \hyperlink{class_q_vector}{Q\+Vector}\textquotesingle{}s memory usage. In general, you will rarely ever need to call this function.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_aab71cce382721d176d1445434ae18e6a}{reserve()}, \hyperlink{class_q_vector_a160560e2aab0840e0de275ae9ca48f7a}{capacity()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 90 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!starts\+With@{starts\+With}}
+\index{starts\+With@{starts\+With}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{starts\+With(const T \&t) const }{startsWith(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+Vector}$<$ T $>$\+::starts\+With (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a264d1d6641f51e6fe2bbd1fdb1e93528}{}\label{class_q_vector_a264d1d6641f51e6fe2bbd1fdb1e93528}
+\begin{DoxySince}{Since}
+4.\+5
+\end{DoxySince}
+Returns {\ttfamily true} if this vector is not empty and its first item is equal to {\itshape value}; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()}, \hyperlink{class_q_vector_a85cff791949dfb35bc432c6c5afae966}{first()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 208 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!swap@{swap}}
+\index{swap@{swap}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{swap(\+Q\+Vector$<$ T $>$ \&other)}{swap(QVector< T > &other)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+Vector}$<$ T $>$\+::swap (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+Vector}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a35254d6c26569b985958b2ed15695fb6}{}\label{class_q_vector_a35254d6c26569b985958b2ed15695fb6}
+\begin{DoxySince}{Since}
+4.\+8
+\end{DoxySince}
+Swaps vector {\itshape other} with this vector. This operation is very fast and never fails. 
+
+Definition at line 75 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!take\+At@{take\+At}}
+\index{take\+At@{take\+At}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{take\+At(int i)}{takeAt(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf Q\+Vector}$<$ T $>$\+::take\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a47372e861a3e52af5d2ea6ee29bc5de0}{}\label{class_q_vector_a47372e861a3e52af5d2ea6ee29bc5de0}
+\begin{DoxySince}{Since}
+5.\+2
+\end{DoxySince}
+Removes the element at index position {\itshape i} and returns it.
+
+Equivalent to 
+\begin{DoxyCode}
+T t = \hyperlink{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{at}(i);
+\textcolor{keyword}{remove}(i);
+\textcolor{keywordflow}{return} t;
+\end{DoxyCode}
+
+
+Provided for compatibility with \hyperlink{class_q_list}{Q\+List}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a96a07a40f38b70e6c71fc3f01749636b}{take\+First()}, \hyperlink{class_q_vector_a81212706ea7a741742d342d0c370a783}{take\+Last()}, \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{Q\+List\+::take\+At()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 173 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!take\+First@{take\+First}}
+\index{take\+First@{take\+First}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{take\+First()}{takeFirst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf Q\+Vector}$<$ T $>$\+::take\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a96a07a40f38b70e6c71fc3f01749636b}{}\label{class_q_vector_a96a07a40f38b70e6c71fc3f01749636b}
+\begin{DoxySince}{Since}
+5.\+1
+\end{DoxySince}
+Removes the first item in the vector and returns it. This function assumes the vector is not empty. To avoid failure, call \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} before calling this function.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a81212706ea7a741742d342d0c370a783}{take\+Last()}, \hyperlink{class_q_vector_a93907fcd36758247f6d6e074240f9f02}{remove\+First()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 140 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!take\+Last@{take\+Last}}
+\index{take\+Last@{take\+Last}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{take\+Last()}{takeLast()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf Q\+Vector}$<$ T $>$\+::take\+Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a81212706ea7a741742d342d0c370a783}{}\label{class_q_vector_a81212706ea7a741742d342d0c370a783}
+\begin{DoxySince}{Since}
+5.\+1
+\end{DoxySince}
+Removes the last item in the list and returns it. This function assumes the vector is not empty. To avoid failure, call \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} before calling this function.
+
+If you don\textquotesingle{}t use the return value, \hyperlink{class_q_vector_a601a6ef4768c988b5ce96e05a8449f64}{remove\+Last()} is more efficient.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a96a07a40f38b70e6c71fc3f01749636b}{take\+First()}, \hyperlink{class_q_vector_a601a6ef4768c988b5ce96e05a8449f64}{remove\+Last()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 141 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!to\+List@{to\+List}}
+\index{to\+List@{to\+List}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{to\+List() const }{toList() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+List}$<$ T $>$ {\bf Q\+Vector}$<$ T $>$\+::to\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a604c990aa7914fc3840c740b4bb0ff7d}{}\label{class_q_vector_a604c990aa7914fc3840c740b4bb0ff7d}
+Returns a \hyperlink{class_q_list}{Q\+List} object with the data contained in this \hyperlink{class_q_vector}{Q\+Vector}.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a81688755b0166749fde54c1108690825}{from\+List()}, \hyperlink{class_q_list_ac9f7e64d962222b0660e51adbd128ef7}{Q\+List\+::from\+Vector()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 843 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!to\+Std\+Vector@{to\+Std\+Vector}}
+\index{to\+Std\+Vector@{to\+Std\+Vector}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{to\+Std\+Vector() const }{toStdVector() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\+::vector$<$ T $>$ {\bf Q\+Vector}$<$ T $>$\+::to\+Std\+Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_vector_a0bb56bf3c3e5c533efda20ff4394b444}{}\label{class_q_vector_a0bb56bf3c3e5c533efda20ff4394b444}
+Returns a std\+::vector object with the data contained in this \hyperlink{class_q_vector}{Q\+Vector}. Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_a4bb034c193b1f443b235df30323ee2d0}{from\+Std\+Vector()}, \hyperlink{class_q_list_a4da73cbb34b8ace233ec93eacc6ddb79}{Q\+List\+::to\+Std\+List()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 253 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!value@{value}}
+\index{value@{value}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{value(int i) const }{value(int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE T {\bf Q\+Vector}$<$ T $>$\+::value (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a3788cd97b1cd4898d508422cb1227f8c}{}\label{class_q_vector_a3788cd97b1cd4898d508422cb1227f8c}
+Returns the value at index position {\itshape i} in the vector.
+
+If the index {\itshape i} is out of bounds, the function returns a \{default-\/constructed value\}. If you are certain that {\itshape i} is within bounds, you can use \hyperlink{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{at()} instead, which is slightly faster.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector_ab97dbaa9b950ec9c3f3ac51bb602235c}{at()}, \hyperlink{class_q_vector_a145585285bf96d5fcd8ce10f7bc6ec3e}{operator\mbox{[}$\,$\mbox{]}()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 587 of file qvector.\+h.
+
+\index{Q\+Vector@{Q\+Vector}!value@{value}}
+\index{value@{value}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{value(int i, const T \&default\+Value) const }{value(int i, const T &defaultValue) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE T {\bf Q\+Vector}$<$ T $>$\+::value (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{const T \&}]{default\+Value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_vector_a6e81cced2857ea1d3bd3eb5eb90fe527}{}\label{class_q_vector_a6e81cced2857ea1d3bd3eb5eb90fe527}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+If the index {\itshape i} is out of bounds, the function returns {\itshape default\+Value}. 
+
+Definition at line 595 of file qvector.\+h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Q\+Vector@{Q\+Vector}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(\+Q\+Data\+Stream \&out, const Q\+Vector$<$ T $>$ \&vector)}{operator<<(QDataStream &out, const QVector< T > &vector)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+Data\+Stream \& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{out, }
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{class_q_vector_a556a703e2a1987feda15598f2d097d34}{}\label{class_q_vector_a556a703e2a1987feda15598f2d097d34}
+Writes the vector {\itshape vector} to stream {\itshape out}.
+
+This function requires the value type to implement {\ttfamily \hyperlink{class_q_vector_a60144939301f38042c9f702ae887ea16}{operator$<$$<$()}}.
+
+\begin{DoxySeeAlso}{See also}
+\{Serializing Qt Data Types\}\{Format of the Q\+Data\+Stream operators\} 
+\end{DoxySeeAlso}
+\index{Q\+Vector@{Q\+Vector}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{operator$>$$>$(\+Q\+Data\+Stream \&in, Q\+Vector$<$ T $>$ \&vector)}{operator>>(QDataStream &in, QVector< T > &vector)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+Data\+Stream \& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{in, }
+\item[{{\bf Q\+Vector}$<$ T $>$ \&}]{vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{class_q_vector_aa3718549b9b553556b654f6e00aaa914}{}\label{class_q_vector_aa3718549b9b553556b654f6e00aaa914}
+Reads a vector from stream {\itshape in} into {\itshape vector}.
+
+This function requires the value type to implement {\ttfamily \hyperlink{class_q_vector_aa3718549b9b553556b654f6e00aaa914}{operator$>$$>$()}}.
+
+\begin{DoxySeeAlso}{See also}
+\{Serializing Qt Data Types\}\{Format of the Q\+Data\+Stream operators\} 
+\end{DoxySeeAlso}
+\index{Q\+Vector@{Q\+Vector}!Q\+Region@{Q\+Region}}
+\index{Q\+Region@{Q\+Region}!Q\+Vector@{Q\+Vector}}
+\subsubsection[{\texorpdfstring{Q\+Region}{QRegion}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ friend class Q\+Region\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_q_vector_a3c463c91639ee085a365c4bf70fcbe31}{}\label{class_q_vector_a3c463c91639ee085a365c4bf70fcbe31}
+
+
+Definition at line 256 of file qvector.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qlist_8h}{qlist.\+h}\item 
+docs/extra-\/files/\hyperlink{qvector_8h}{qvector.\+h}\item 
+docs/extra-\/files/\hyperlink{qvector_8cpp}{qvector.\+cpp}\end{DoxyCompactItemize}

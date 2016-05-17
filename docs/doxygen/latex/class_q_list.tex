@@ -1,0 +1,1719 @@
+\hypertarget{class_q_list}{}\section{Q\+List$<$ T $>$ Class Template Reference}
+\label{class_q_list}\index{Q\+List$<$ T $>$@{Q\+List$<$ T $>$}}
+
+
+The \hyperlink{class_q_list}{Q\+List} class is a template class that provides lists.  
+
+
+
+
+{\ttfamily \#include $<$qlist.\+h$>$}
+
+Inheritance diagram for Q\+List$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_list}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_q_list_1_1const__iterator}{Q\+List\+::const\+\_\+iterator} class provides an S\+T\+L-\/style const iterator for \hyperlink{class_q_list}{Q\+List} and Q\+Queue. \end{DoxyCompactList}\item 
+class \hyperlink{class_q_list_1_1iterator}{iterator}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_q_list_1_1iterator}{Q\+List\+::iterator} class provides an S\+T\+L-\/style non-\/const iterator for \hyperlink{class_q_list}{Q\+List} and Q\+Queue. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_q_list_1_1_memory_layout}{Memory\+Layout}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_acfbe3160851f25b0daeec4c7b0439f35}{Iterator}
+\item 
+typedef \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_a2bac7028ad973eb7ff10b2bb1fc58305}{Const\+Iterator}
+\item 
+typedef int \hyperlink{class_q_list_a5b78b75651f6641fe9339b050508aa6f}{size\+\_\+type}
+\item 
+typedef T \hyperlink{class_q_list_a5c685421300b8a855730c9b06ff43605}{value\+\_\+type}
+\item 
+typedef \hyperlink{class_q_list_a5c685421300b8a855730c9b06ff43605}{value\+\_\+type} $\ast$ \hyperlink{class_q_list_ad81e368aee3084fe5ddc056fa649a4ac}{pointer}
+\item 
+typedef const \hyperlink{class_q_list_a5c685421300b8a855730c9b06ff43605}{value\+\_\+type} $\ast$ \hyperlink{class_q_list_ac2d1086a1098740e3ee2ed66e4f63f7b}{const\+\_\+pointer}
+\item 
+typedef \hyperlink{class_q_list_a5c685421300b8a855730c9b06ff43605}{value\+\_\+type} \& \hyperlink{class_q_list_adc9961317867d5844c90efac09c09bfb}{reference}
+\item 
+typedef const \hyperlink{class_q_list_a5c685421300b8a855730c9b06ff43605}{value\+\_\+type} \& \hyperlink{class_q_list_ae8717226a5e2af5b53d3e22d4b1654aa}{const\+\_\+reference}
+\item 
+typedef qptrdiff \hyperlink{class_q_list_a253a81bf62c0d83e0f5e8abc61ac87f9}{difference\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_q_list_a74043360170a66953054a21e9661e274}{Q\+List} () Q\+\_\+\+D\+E\+C\+L\+\_\+\+N\+O\+T\+H\+R\+OW
+\item 
+\hyperlink{class_q_list_a43794b89e15c6c36bd2ae2054c4f8de2}{Q\+List} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&l)
+\item 
+\hyperlink{class_q_list_a0c359563cd4585ffeab2d71e7f523811}{$\sim$\+Q\+List} ()
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \& \hyperlink{class_q_list_af210d61c252a7f0124854a9fea8fc23d}{operator=} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&l)
+\item 
+void \hyperlink{class_q_list_a0db2f46bd41dd9ce5553f0be73825eb6}{swap} (\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&other)
+\item 
+bool \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&l) const 
+\item 
+bool \hyperlink{class_q_list_ad3d2c51aa92fbff38a7dfe5ad8e6b1e7}{operator!=} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&l) const 
+\item 
+int \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size} () const 
+\item 
+void \hyperlink{class_q_list_a522859faa6db19022d44dd799078c199}{detach} ()
+\item 
+void \hyperlink{class_q_list_af112ea5d3c4200a720e248dffc39c4cc}{detach\+Shared} ()
+\item 
+bool \hyperlink{class_q_list_aa130852a9913d0d152900acbf142f81c}{is\+Detached} () const 
+\item 
+bool \hyperlink{class_q_list_ae89d314b75b59e294eed8597202ca74e}{is\+Shared\+With} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&other) const 
+\item 
+bool \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty} () const 
+\item 
+void \hyperlink{class_q_list_a19c0e32852df02f13bd2a4dd3d637f04}{clear} ()
+\item 
+const T \& \hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{at} (int i) const 
+\item 
+const T \& \hyperlink{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{operator\mbox{[}$\,$\mbox{]}} (int i) const 
+\item 
+T \& \hyperlink{class_q_list_aaa62d7f41e6fc05dff4da8dba575bfe6}{operator\mbox{[}$\,$\mbox{]}} (int i)
+\item 
+void \hyperlink{class_q_list_aedf0849585d0ba83a3ca3cce25fcddb1}{reserve} (int \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size})
+\item 
+void \hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append} (const T \&t)
+\item 
+void \hyperlink{class_q_list_a16e557469f7a3562adb43ebbd46354db}{append} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&t)
+\item 
+void \hyperlink{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}{prepend} (const T \&t)
+\item 
+void \hyperlink{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{insert} (int i, const T \&t)
+\item 
+void \hyperlink{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}{replace} (int i, const T \&t)
+\item 
+void \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At} (int i)
+\item 
+int \hyperlink{class_q_list_af882739967540dbf2810411f997039de}{remove\+All} (const T \&t)
+\item 
+bool \hyperlink{class_q_list_a4d25954344152f81e20ec6171f1bbcbd}{remove\+One} (const T \&t)
+\item 
+T \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At} (int i)
+\item 
+T \hyperlink{class_q_list_a8059621f8145f7b79278f619c1bb0e47}{take\+First} ()
+\item 
+T \hyperlink{class_q_list_a410757ac0ab9febcda1541fa43adb98c}{take\+Last} ()
+\item 
+void \hyperlink{class_q_list_a19a4be38371f5a6b340b246a247b1f67}{move} (int from, int to)
+\item 
+void \hyperlink{class_q_list_ac9689c368581be3ad0ae047292c007fa}{swap} (int i, int j)
+\item 
+int \hyperlink{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}{index\+Of} (const T \&t, int from=0) const 
+\item 
+int \hyperlink{class_q_list_aa0b792f98f9cf740bb6a8774572eac18}{last\+Index\+Of} (const T \&t, int from=-\/1) const 
+\item 
+bool \hyperlink{class_q_list_aedb4de9a920c63b531d2064bf0bee652}{contains} (const T \&t) const 
+\item 
+int \hyperlink{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}{count} (const T \&t) const 
+\item 
+\hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_a06847e57431af245c937c8cfe1c14761}{begin} ()
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_a9bbf2e9781ec8f486f35d680c100c8bd}{begin} () const 
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_a3777e78981166825439ff10be6475152}{cbegin} () const 
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_a8f6d53fe01e1c2aaea0a446580f99cdb}{const\+Begin} () const 
+\item 
+\hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}{end} ()
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_a132567f83a4c5f5a2a7073c3fe200c28}{end} () const 
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_a37f3b118d722e64fb834121fa3858fc4}{cend} () const 
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_a66e34d5df478dda9190b9b075317690d}{const\+End} () const 
+\item 
+\hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_ae8308037e361e7e9112987ed41beefb6}{insert} (\hyperlink{class_q_list_1_1iterator}{iterator} before, const T \&t)
+\item 
+\hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_abe1d81b038b41b873794dab10bbb4ffd}{erase} (\hyperlink{class_q_list_1_1iterator}{iterator} pos)
+\item 
+\hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_a6873182c98006cfc7d4bd4637f2122b1}{erase} (\hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_a0d91b8dcfdf240b85c2349f339021cfa}{first}, \hyperlink{class_q_list_1_1iterator}{iterator} \hyperlink{class_q_list_a0e12e5e4af39fe20f860fe88a4fbc258}{last})
+\item 
+int \hyperlink{class_q_list_a94d3d2a8770163005f619c4fc6715b58}{count} () const 
+\item 
+int \hyperlink{class_q_list_ac1755c03849804156e624efcd6562874}{length} () const 
+\item 
+T \& \hyperlink{class_q_list_a0d91b8dcfdf240b85c2349f339021cfa}{first} ()
+\item 
+const T \& \hyperlink{class_q_list_ae6dd7daa61bc35d4087d86ed48a94483}{first} () const 
+\item 
+T \& \hyperlink{class_q_list_a0e12e5e4af39fe20f860fe88a4fbc258}{last} ()
+\item 
+const T \& \hyperlink{class_q_list_aea03869b849a94805b4f32efcfb91f6c}{last} () const 
+\item 
+void \hyperlink{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}{remove\+First} ()
+\item 
+void \hyperlink{class_q_list_a755672d6b82fc61e949a5b803b531855}{remove\+Last} ()
+\item 
+bool \hyperlink{class_q_list_a6f3ab95623c1be43d05579604e9725c3}{starts\+With} (const T \&t) const 
+\item 
+bool \hyperlink{class_q_list_a56fc27955aa88be311fcc586b90ec1b7}{ends\+With} (const T \&t) const 
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \hyperlink{class_q_list_a92da113812831b97bac90aec3e49ec4f}{mid} (int pos, int \hyperlink{class_q_list_ac1755c03849804156e624efcd6562874}{length}=-\/1) const 
+\item 
+T \hyperlink{class_q_list_a3b4873989858726d6c67ee0c2cef23f9}{value} (int i) const 
+\item 
+T \hyperlink{class_q_list_a069f4168424cb4ea5fa737845e0344c5}{value} (int i, const T \&default\+Value) const 
+\item 
+void \hyperlink{class_q_list_a23747ae8cb19b7e4bf24de944aa97bf2}{push\+\_\+back} (const T \&t)
+\item 
+void \hyperlink{class_q_list_aa0ffa16b4f92679d5d8f96fbaf872b0a}{push\+\_\+front} (const T \&t)
+\item 
+T \& \hyperlink{class_q_list_abfdbbac7bf0f4bb038a4970e526a16dd}{front} ()
+\item 
+const T \& \hyperlink{class_q_list_a4e8454fbc329f687de1a4f4521fc6014}{front} () const 
+\item 
+T \& \hyperlink{class_q_list_a7083f8e5508d1e9d3fcd0e08e2e5856b}{back} ()
+\item 
+const T \& \hyperlink{class_q_list_ad594bd054a766853a55ab37dede212fb}{back} () const 
+\item 
+void \hyperlink{class_q_list_a962412c448917350122d257ffe589f72}{pop\+\_\+front} ()
+\item 
+void \hyperlink{class_q_list_adb1888f063a883ecc656a1daf0347a79}{pop\+\_\+back} ()
+\item 
+bool \hyperlink{class_q_list_af93da7b266824a11caae7cd3e5900d30}{empty} () const 
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \& \hyperlink{class_q_list_a6f36674c5ad943e3a23cfc73c0a2fee1}{operator+=} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&l)
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \hyperlink{class_q_list_a7ed66a2541edf55b0ea33778778ee6c0}{operator+} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&l) const 
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \& \hyperlink{class_q_list_a63856d5ed93fdf5e9f6c188415d81839}{operator+=} (const T \&t)
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \& \hyperlink{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}{operator$<$$<$} (const T \&t)
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ T $>$ \& \hyperlink{class_q_list_a902fc01867da3047603546e10bb102e6}{operator$<$$<$} (const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&l)
+\item 
+\hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \hyperlink{class_q_list_a2cd704f6f4c066e501e170fd8c11cf28}{to\+Vector} () const 
+\item 
+\hyperlink{class_q_set}{Q\+Set}$<$ T $>$ \hyperlink{class_q_list_af534f77fa45d1f5c70bae4fcb1341803}{to\+Set} () const 
+\item 
+std\+::list$<$ T $>$ \hyperlink{class_q_list_a4da73cbb34b8ace233ec93eacc6ddb79}{to\+Std\+List} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \hyperlink{class_q_list_ac9f7e64d962222b0660e51adbd128ef7}{from\+Vector} (const \hyperlink{class_q_vector}{Q\+Vector}$<$ T $>$ \&vector)
+\item 
+static \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \hyperlink{class_q_list_a11d8c4df34e11f1f5539ea37f3d2130b}{from\+Set} (const \hyperlink{class_q_set}{Q\+Set}$<$ T $>$ \&set)
+\item 
+static \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \hyperlink{class_q_list_af0810b38261117b3616803519d825c9c}{from\+Std\+List} (const std\+::list$<$ T $>$ \&list)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_q_list_a67171474c4da6cc8efe0c7fafefd2b2d}{iterator}
+\item 
+class \hyperlink{class_q_list_ac220ce1c155db1ac44146c12d178056f}{const\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsection*{Related Functions}
+(Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+Q\+Data\+Stream \& \hyperlink{class_q_list_ac29861f3dbb1fff94b022d274713e3b8}{operator$<$$<$} (Q\+Data\+Stream \&out, const \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&list)
+\item 
+Q\+Data\+Stream \& \hyperlink{class_q_list_ab4ba1c178d4cab8a72ef68798eaefabc}{operator$>$$>$} (Q\+Data\+Stream \&in, \hyperlink{class_q_list}{Q\+List}$<$ T $>$ \&list)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class Q\+List$<$ T $>$}
+
+The \hyperlink{class_q_list}{Q\+List} class is a template class that provides lists. 
+
+Qt\+Core
+
+\hyperlink{class_q_list}{Q\+List}$<$T$>$ is one of Qt\textquotesingle{}s generic \{container classes\}. It stores a list of values and provides fast index-\/based access as well as fast insertions and removals.
+
+\hyperlink{class_q_list}{Q\+List}$<$T$>$, Q\+Linked\+List$<$T$>$, and \hyperlink{class_q_vector}{Q\+Vector}$<$T$>$ provide similar functionality. Here\textquotesingle{}s an overview\+:
+
+\begin{DoxyItemize}
+\item For most purposes, \hyperlink{class_q_list}{Q\+List} is the right class to use. Its index-\/based A\+PI is more convenient than Q\+Linked\+List\textquotesingle{}s iterator-\/based A\+PI, and it is usually faster than \hyperlink{class_q_vector}{Q\+Vector} because of the way it stores its items in memory. It also expands to less code in your executable. \item If you need a real linked list, with guarantees of \{constant time\} insertions in the middle of the list and iterators to items rather than indexes, use Q\+Linked\+List. \item If you want the items to occupy adjacent memory positions, use \hyperlink{class_q_vector}{Q\+Vector}. \end{DoxyItemize}
+Internally, \hyperlink{class_q_list}{Q\+List}$<$T$>$ is represented as an array of pointers to items of type T. If T is itself a pointer type or a basic type that is no larger than a pointer, or if T is one of Qt\textquotesingle{}s \{shared classes\}, then \hyperlink{class_q_list}{Q\+List}$<$T$>$ stores the items directly in the pointer array. For lists under a thousand items, this array representation allows for very fast insertions in the middle, and it allows index-\/based access. Furthermore, operations like \hyperlink{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}{prepend()} and \hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append()} are very fast, because \hyperlink{class_q_list}{Q\+List} preallocates memory at both ends of its internal array. (See \{Algorithmic Complexity\} for details.) Note, however, that for unshared list items that are larger than a pointer, each append or insert of a new item requires allocating the new item on the heap, and this per item allocation might make \hyperlink{class_q_vector}{Q\+Vector} a better choice in cases that do lots of appending or inserting, since \hyperlink{class_q_vector}{Q\+Vector} allocates memory for its items in a single heap allocation.
+
+Note that the internal array only ever gets bigger over the life of the list. It never shrinks. The internal array is deallocated by the destructor and by the assignment operator, when one list is assigned to another.
+
+Here\textquotesingle{}s an example of a \hyperlink{class_q_list}{Q\+List} that stores integers and a \hyperlink{class_q_list}{Q\+List} that stores Q\+Date values\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Qt includes a Q\+String\+List class that inherits \hyperlink{class_q_list}{Q\+List}$<$Q\+String$>$ and adds a few convenience functions, such as Q\+String\+List\+::join() and Q\+String\+List\+::filter(). Q\+String\+::split() creates Q\+String\+Lists from strings.
+
+\hyperlink{class_q_list}{Q\+List} stores a list of items. The default constructor creates an empty list. To insert items into the list, you can use \hyperlink{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}{operator$<$$<$()}\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \hyperlink{class_q_list}{Q\+List} provides these basic functions to add, move, and remove items\+: \hyperlink{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{insert()}, \hyperlink{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}{replace()}, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()}, \hyperlink{class_q_list_a19a4be38371f5a6b340b246a247b1f67}{move()}, and \hyperlink{class_q_list_a0db2f46bd41dd9ce5553f0be73825eb6}{swap()}. In addition, it provides the following convenience functions\+: \hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append()}, \hyperlink{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}{prepend()}, \hyperlink{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}{remove\+First()}, and \hyperlink{class_q_list_a755672d6b82fc61e949a5b803b531855}{remove\+Last()}.
+
+\hyperlink{class_q_list}{Q\+List} uses 0-\/based indexes, just like C++ arrays. To access the item at a particular index position, you can use \hyperlink{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{operator\mbox{[}$\,$\mbox{]}()}. On non-\/const lists, \hyperlink{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{operator\mbox{[}$\,$\mbox{]}()} returns a reference to the item and can be used on the left side of an assignment\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Because \hyperlink{class_q_list}{Q\+List} is implemented as an array of pointers, this operation is very fast (\{constant time\}). For read-\/only access, an alternative syntax is to use \hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{at()}\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{at()} can be faster than \hyperlink{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{operator\mbox{[}$\,$\mbox{]}()}, because it never causes a \{deep copy\} to occur.
+
+A common requirement is to remove an item from a list and do something with it. For this, \hyperlink{class_q_list}{Q\+List} provides \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At()}, \hyperlink{class_q_list_a8059621f8145f7b79278f619c1bb0e47}{take\+First()}, and \hyperlink{class_q_list_a410757ac0ab9febcda1541fa43adb98c}{take\+Last()}. Here\textquotesingle{}s a loop that removes the items from a list one at a time and calls {\ttfamily delete} on them\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Inserting and removing items at either ends of the list is very fast (\{constant time\} in most cases), because \hyperlink{class_q_list}{Q\+List} preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.
+
+If you want to find all occurrences of a particular value in a list, use \hyperlink{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}{index\+Of()} or \hyperlink{class_q_list_aa0b792f98f9cf740bb6a8774572eac18}{last\+Index\+Of()}. The former searches forward starting from a given index position, the latter searches backward. Both return the index of a matching item if they find it; otherwise, they return -\/1. For example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ If you simply want to check whether a list contains a particular value, use \hyperlink{class_q_list_aedb4de9a920c63b531d2064bf0bee652}{contains()}. If you want to find out how many times a particular value occurs in the list, use \hyperlink{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}{count()}. If you want to replace all occurrences of a particular value with another, use \hyperlink{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}{replace()}.
+
+\hyperlink{class_q_list}{Q\+List}\textquotesingle{}s value type must be an \{assignable data type\}. This covers most data types that are commonly used, but the compiler won\textquotesingle{}t let you, for example, store a Q\+Widget as a value; instead, store a Q\+Widget $\ast$. A few functions have additional requirements; for example, \hyperlink{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}{index\+Of()} and \hyperlink{class_q_list_aa0b792f98f9cf740bb6a8774572eac18}{last\+Index\+Of()} expect the value type to support {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}. These requirements are documented on a per-\/function basis.
+
+Like the other container classes, \hyperlink{class_q_list}{Q\+List} provides \{Java-\/style iterators\} (Q\+List\+Iterator and Q\+Mutable\+List\+Iterator) and \{S\+T\+L-\/style iterators\} (\hyperlink{class_q_list_1_1const__iterator}{Q\+List\+::const\+\_\+iterator} and \hyperlink{class_q_list_1_1iterator}{Q\+List\+::iterator}). In practice, these are rarely used, because you can use indexes into the \hyperlink{class_q_list}{Q\+List}. \hyperlink{class_q_list}{Q\+List} is implemented in such a way that direct index-\/based access is just as fast as using iterators.
+
+\hyperlink{class_q_list}{Q\+List} does {\itshape not} support inserting, prepending, appending or replacing with references to its own values. Doing so will cause your application to abort with an error message.
+
+To make \hyperlink{class_q_list}{Q\+List} as efficient as possible, its member functions don\textquotesingle{}t validate their input before using it. Except for \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()}, member functions always assume the list is {\itshape not} empty. Member functions that take index values as parameters always assume their index value parameters are in the valid range. This means \hyperlink{class_q_list}{Q\+List} member functions can fail. If you define Q\+T\+\_\+\+N\+O\+\_\+\+D\+E\+B\+UG when you compile, failures will not be detected. If you {\itshape don\textquotesingle{}t} define Q\+T\+\_\+\+N\+O\+\_\+\+D\+E\+B\+UG, failures will be detected using Q\+\_\+\+A\+S\+S\+E\+R\+T() or Q\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+X() with an appropriate message.
+
+To avoid failures when your list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling other member functions. If you must pass an index value that might not be in the valid range, check that it is less than the value returned by \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()} but {\itshape not} less than 0.
+
+Definition at line 113 of file qlist.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\index{Q\+List@{Q\+List}!const\+\_\+pointer@{const\+\_\+pointer}}
+\index{const\+\_\+pointer@{const\+\_\+pointer}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{const\+\_\+pointer}{const_pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf const\+\_\+pointer}}\hypertarget{class_q_list_ac2d1086a1098740e3ee2ed66e4f63f7b}{}\label{class_q_list_ac2d1086a1098740e3ee2ed66e4f63f7b}
+Typedef for const T $\ast$. Provided for S\+TL compatibility. 
+
+Definition at line 342 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!const\+\_\+reference@{const\+\_\+reference}}
+\index{const\+\_\+reference@{const\+\_\+reference}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{const\+\_\+reference}{const_reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf const\+\_\+reference}}\hypertarget{class_q_list_ae8717226a5e2af5b53d3e22d4b1654aa}{}\label{class_q_list_ae8717226a5e2af5b53d3e22d4b1654aa}
+Typedef for const T \&. Provided for S\+TL compatibility. 
+
+Definition at line 344 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!Const\+Iterator@{Const\+Iterator}}
+\index{Const\+Iterator@{Const\+Iterator}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{Const\+Iterator}{ConstIterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf Const\+Iterator}}\hypertarget{class_q_list_a2bac7028ad973eb7ff10b2bb1fc58305}{}\label{class_q_list_a2bac7028ad973eb7ff10b2bb1fc58305}
+Qt-\/style synonym for \hyperlink{class_q_list_1_1const__iterator}{Q\+List\+::const\+\_\+iterator}. 
+
+Definition at line 313 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!difference\+\_\+type@{difference\+\_\+type}}
+\index{difference\+\_\+type@{difference\+\_\+type}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{difference\+\_\+type}{difference_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf difference\+\_\+type}}\hypertarget{class_q_list_a253a81bf62c0d83e0f5e8abc61ac87f9}{}\label{class_q_list_a253a81bf62c0d83e0f5e8abc61ac87f9}
+Typedef for ptrdiff\+\_\+t. Provided for S\+TL compatibility. 
+
+Definition at line 346 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!Iterator@{Iterator}}
+\index{Iterator@{Iterator}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{Iterator}{Iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf Iterator}}\hypertarget{class_q_list_acfbe3160851f25b0daeec4c7b0439f35}{}\label{class_q_list_acfbe3160851f25b0daeec4c7b0439f35}
+Qt-\/style synonym for \hyperlink{class_q_list_1_1iterator}{Q\+List\+::iterator}. 
+
+Definition at line 312 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!pointer@{pointer}}
+\index{pointer@{pointer}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{pointer}{pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf pointer}}\hypertarget{class_q_list_ad81e368aee3084fe5ddc056fa649a4ac}{}\label{class_q_list_ad81e368aee3084fe5ddc056fa649a4ac}
+Typedef for T $\ast$. Provided for S\+TL compatibility. 
+
+Definition at line 341 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!reference@{reference}}
+\index{reference@{reference}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{reference}{reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf reference}}\hypertarget{class_q_list_adc9961317867d5844c90efac09c09bfb}{}\label{class_q_list_adc9961317867d5844c90efac09c09bfb}
+Typedef for T \&. Provided for S\+TL compatibility. 
+
+Definition at line 343 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!size\+\_\+type@{size\+\_\+type}}
+\index{size\+\_\+type@{size\+\_\+type}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{size\+\_\+type}{size_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf size\+\_\+type}}\hypertarget{class_q_list_a5b78b75651f6641fe9339b050508aa6f}{}\label{class_q_list_a5b78b75651f6641fe9339b050508aa6f}
+Typedef for int. Provided for S\+TL compatibility. 
+
+Definition at line 339 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{value\+\_\+type}{value_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf value\+\_\+type}}\hypertarget{class_q_list_a5c685421300b8a855730c9b06ff43605}{}\label{class_q_list_a5c685421300b8a855730c9b06ff43605}
+Typedef for T. Provided for S\+TL compatibility. 
+
+Definition at line 340 of file qlist.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Q\+List@{Q\+List}!Q\+List@{Q\+List}}
+\index{Q\+List@{Q\+List}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{Q\+List() Q\+\_\+\+D\+E\+C\+L\+\_\+\+N\+O\+T\+H\+R\+OW}{QList() Q_DECL_NOTHROW}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf Q\+List} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a74043360170a66953054a21e9661e274}{}\label{class_q_list_a74043360170a66953054a21e9661e274}
+Constructs an empty list. 
+
+Definition at line 139 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!Q\+List@{Q\+List}}
+\index{Q\+List@{Q\+List}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{Q\+List(const Q\+List$<$ T $>$ \&l)}{QList(const QList< T > &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+List}$<$ T $>$\+::{\bf Q\+List} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_a43794b89e15c6c36bd2ae2054c4f8de2}{}\label{class_q_list_a43794b89e15c6c36bd2ae2054c4f8de2}
+Constructs a copy of {\itshape other}.
+
+This operation takes \{constant time\}, because \hyperlink{class_q_list}{Q\+List} is \{implicitly shared\}. This makes returning a \hyperlink{class_q_list}{Q\+List} from a function very fast. If a shared instance is modified, it will be copied (copy-\/on-\/write), and that takes \{linear time\}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_af210d61c252a7f0124854a9fea8fc23d}{operator=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 775 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!````~Q\+List@{$\sim$\+Q\+List}}
+\index{````~Q\+List@{$\sim$\+Q\+List}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{$\sim$\+Q\+List()}{~QList()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+List}$<$ T $>$\+::$\sim${\bf Q\+List} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_a0c359563cd4585ffeab2d71e7f523811}{}\label{class_q_list_a0c359563cd4585ffeab2d71e7f523811}
+Destroys the list. References to the values in the list and all iterators of this list become invalid. 
+
+Definition at line 793 of file qlist.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+List@{Q\+List}!append@{append}}
+\index{append@{append}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{append(const T \&t)}{append(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE void {\bf Q\+List}$<$ T $>$\+::append (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{}\label{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}
+Inserts {\itshape value} at the end of the list.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This is the same as list.\+insert(\hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}, {\itshape value}).
+
+If this list is not shared, this operation is typically very fast (amortized \{constant time\}), because \hyperlink{class_q_list}{Q\+List} preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}{operator$<$$<$()}, \hyperlink{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}{prepend()}, \hyperlink{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{insert()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 548 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!append@{append}}
+\index{append@{append}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{append(const Q\+List$<$ T $>$ \&t)}{append(const QList< T > &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::append (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a16e557469f7a3562adb43ebbd46354db}{}\label{class_q_list_a16e557469f7a3562adb43ebbd46354db}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+\begin{DoxySince}{Since}
+4.\+5
+\end{DoxySince}
+Appends the items of the {\itshape value} list to this list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}{operator$<$$<$()}, \hyperlink{class_q_list_a6f36674c5ad943e3a23cfc73c0a2fee1}{operator+=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 931 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!at@{at}}
+\index{at@{at}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{at(int i) const }{at(int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T \& {\bf Q\+List}$<$ T $>$\+::at (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{}\label{class_q_list_a0cc68a58145ae69d679da558f4d5e849}
+Returns the item at index position {\itshape i} in the list. {\itshape i} must be a valid index position in the list (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}).
+
+This function is very fast (\{constant time\}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a3b4873989858726d6c67ee0c2cef23f9}{value()}, \hyperlink{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{operator\mbox{[}$\,$\mbox{]}()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 509 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!back@{back}}
+\index{back@{back}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{back()}{back()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T \& {\bf Q\+List}$<$ T $>$\+::back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a7083f8e5508d1e9d3fcd0e08e2e5856b}{}\label{class_q_list_a7083f8e5508d1e9d3fcd0e08e2e5856b}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_list_a0e12e5e4af39fe20f860fe88a4fbc258}{last()}. The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function. 
+
+Definition at line 334 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!back@{back}}
+\index{back@{back}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{back() const }{back() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+List}$<$ T $>$\+::back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ad594bd054a766853a55ab37dede212fb}{}\label{class_q_list_ad594bd054a766853a55ab37dede212fb}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 335 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!begin@{begin}}
+\index{begin@{begin}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{begin()}{begin()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::iterator} {\bf Q\+List}$<$ T $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a06847e57431af245c937c8cfe1c14761}{}\label{class_q_list_a06847e57431af245c937c8cfe1c14761}
+Returns an \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the first item in the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a8f6d53fe01e1c2aaea0a446580f99cdb}{const\+Begin()}, \hyperlink{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}{end()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 299 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!begin@{begin}}
+\index{begin@{begin}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a9bbf2e9781ec8f486f35d680c100c8bd}{}\label{class_q_list_a9bbf2e9781ec8f486f35d680c100c8bd}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 300 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{cbegin() const }{cbegin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::cbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a3777e78981166825439ff10be6475152}{}\label{class_q_list_a3777e78981166825439ff10be6475152}
+\begin{DoxySince}{Since}
+5.\+0
+\end{DoxySince}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the first item in the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a06847e57431af245c937c8cfe1c14761}{begin()}, \hyperlink{class_q_list_a37f3b118d722e64fb834121fa3858fc4}{cend()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 301 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!cend@{cend}}
+\index{cend@{cend}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{cend() const }{cend() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::cend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a37f3b118d722e64fb834121fa3858fc4}{}\label{class_q_list_a37f3b118d722e64fb834121fa3858fc4}
+\begin{DoxySince}{Since}
+5.\+0
+\end{DoxySince}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the imaginary item after the last item in the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a3777e78981166825439ff10be6475152}{cbegin()}, \hyperlink{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}{end()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 305 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!clear@{clear}}
+\index{clear@{clear}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE void {\bf Q\+List}$<$ T $>$\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_a19c0e32852df02f13bd2a4dd3d637f04}{}\label{class_q_list_a19c0e32852df02f13bd2a4dd3d637f04}
+Removes all items from the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_af882739967540dbf2810411f997039de}{remove\+All()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 841 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!const\+Begin@{const\+Begin}}
+\index{const\+Begin@{const\+Begin}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{const\+Begin() const }{constBegin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::const\+Begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a8f6d53fe01e1c2aaea0a446580f99cdb}{}\label{class_q_list_a8f6d53fe01e1c2aaea0a446580f99cdb}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the first item in the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a06847e57431af245c937c8cfe1c14761}{begin()}, \hyperlink{class_q_list_a66e34d5df478dda9190b9b075317690d}{const\+End()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 302 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!const\+End@{const\+End}}
+\index{const\+End@{const\+End}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{const\+End() const }{constEnd() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::const\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a66e34d5df478dda9190b9b075317690d}{}\label{class_q_list_a66e34d5df478dda9190b9b075317690d}
+Returns a const \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the imaginary item after the last item in the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a8f6d53fe01e1c2aaea0a446580f99cdb}{const\+Begin()}, \hyperlink{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}{end()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 306 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!contains@{contains}}
+\index{contains@{contains}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{contains(const T \&t) const }{contains(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE bool {\bf Q\+List}$<$ T $>$\+::contains (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_aedb4de9a920c63b531d2064bf0bee652}{}\label{class_q_list_aedb4de9a920c63b531d2064bf0bee652}
+Returns {\ttfamily true} if the list contains an occurrence of {\itshape value}; otherwise returns {\ttfamily false}.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}{index\+Of()}, \hyperlink{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}{count()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 970 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!count@{count}}
+\index{count@{count}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{count(const T \&t) const }{count(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE int {\bf Q\+List}$<$ T $>$\+::count (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}{}\label{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}
+Returns the number of occurrences of {\itshape value} in the list.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_aedb4de9a920c63b531d2064bf0bee652}{contains()}, \hyperlink{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}{index\+Of()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 995 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!count@{count}}
+\index{count@{count}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{count() const }{count() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+List}$<$ T $>$\+::count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a94d3d2a8770163005f619c4fc6715b58}{}\label{class_q_list_a94d3d2a8770163005f619c4fc6715b58}
+Returns the number of items in the list. This is effectively the same as \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}. 
+
+Definition at line 314 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!detach@{detach}}
+\index{detach@{detach}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{detach()}{detach()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::detach (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a522859faa6db19022d44dd799078c199}{}\label{class_q_list_a522859faa6db19022d44dd799078c199}
+
+
+Definition at line 159 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!detach\+Shared@{detach\+Shared}}
+\index{detach\+Shared@{detach\+Shared}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{detach\+Shared()}{detachShared()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::detach\+Shared (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_af112ea5d3c4200a720e248dffc39c4cc}{}\label{class_q_list_af112ea5d3c4200a720e248dffc39c4cc}
+
+
+Definition at line 161 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!empty@{empty}}
+\index{empty@{empty}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_af93da7b266824a11caae7cd3e5900d30}{}\label{class_q_list_af93da7b266824a11caae7cd3e5900d30}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} and returns {\ttfamily true} if the list is empty. 
+
+Definition at line 338 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!end@{end}}
+\index{end@{end}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{end()}{end()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::iterator} {\bf Q\+List}$<$ T $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}{}\label{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}
+Returns an \{S\+T\+L-\/style iterators\}\{S\+T\+L-\/style iterator\} pointing to the imaginary item after the last item in the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a06847e57431af245c937c8cfe1c14761}{begin()}, \hyperlink{class_q_list_a66e34d5df478dda9190b9b075317690d}{const\+End()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 303 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!end@{end}}
+\index{end@{end}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a132567f83a4c5f5a2a7073c3fe200c28}{}\label{class_q_list_a132567f83a4c5f5a2a7073c3fe200c28}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 304 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!ends\+With@{ends\+With}}
+\index{ends\+With@{ends\+With}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{ends\+With(const T \&t) const }{endsWith(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::ends\+With (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a56fc27955aa88be311fcc586b90ec1b7}{}\label{class_q_list_a56fc27955aa88be311fcc586b90ec1b7}
+\begin{DoxySince}{Since}
+4.\+5
+\end{DoxySince}
+Returns {\ttfamily true} if this list is not empty and its last item is equal to {\itshape value}; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()}, \hyperlink{class_q_list_aedb4de9a920c63b531d2064bf0bee652}{contains()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 323 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!erase@{erase}}
+\index{erase@{erase}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{erase(iterator pos)}{erase(iterator pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Q\+List}$<$ T $>$\+::{\bf iterator} {\bf Q\+List}$<$ T $>$\+::erase (
+\begin{DoxyParamCaption}
+\item[{{\bf iterator}}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_abe1d81b038b41b873794dab10bbb4ffd}{}\label{class_q_list_abe1d81b038b41b873794dab10bbb4ffd}
+Removes the item associated with the iterator {\itshape pos} from the list, and returns an iterator to the next item in the list (which may be \hyperlink{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}{end()}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{insert()}, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 497 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!erase@{erase}}
+\index{erase@{erase}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{erase(iterator first, iterator last)}{erase(iterator first, iterator last)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::iterator} {\bf Q\+List}$<$ T $>$\+::erase (
+\begin{DoxyParamCaption}
+\item[{{\bf iterator}}]{begin, }
+\item[{{\bf iterator}}]{end}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_a6873182c98006cfc7d4bd4637f2122b1}{}\label{class_q_list_a6873182c98006cfc7d4bd4637f2122b1}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Removes all the items from {\itshape begin} up to (but not including) {\itshape end}. Returns an iterator to the same item that {\itshape end} referred to before the call. \index{Q\+List@{Q\+List}!first@{first}}
+\index{first@{first}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{first()}{first()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T \& {\bf Q\+List}$<$ T $>$\+::first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a0d91b8dcfdf240b85c2349f339021cfa}{}\label{class_q_list_a0d91b8dcfdf240b85c2349f339021cfa}
+Returns a reference to the first item in the list. The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a0e12e5e4af39fe20f860fe88a4fbc258}{last()}, \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 316 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!first@{first}}
+\index{first@{first}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{first() const }{first() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+List}$<$ T $>$\+::first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ae6dd7daa61bc35d4087d86ed48a94483}{}\label{class_q_list_ae6dd7daa61bc35d4087d86ed48a94483}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 317 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!from\+Set@{from\+Set}}
+\index{from\+Set@{from\+Set}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{from\+Set(const Q\+Set$<$ T $>$ \&set)}{fromSet(const QSet< T > &set)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::from\+Set (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Set}$<$ T $>$ \&}]{set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_q_list_a11d8c4df34e11f1f5539ea37f3d2130b}{}\label{class_q_list_a11d8c4df34e11f1f5539ea37f3d2130b}
+Returns a \hyperlink{class_q_list}{Q\+List} object with the data contained in {\itshape set}. The order of the elements in the \hyperlink{class_q_list}{Q\+List} is undefined.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_ac9f7e64d962222b0660e51adbd128ef7}{from\+Vector()}, \hyperlink{class_q_list_af534f77fa45d1f5c70bae4fcb1341803}{to\+Set()}, Q\+Set\+::to\+List() 
+\end{DoxySeeAlso}
+\index{Q\+List@{Q\+List}!from\+Std\+List@{from\+Std\+List}}
+\index{from\+Std\+List@{from\+Std\+List}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{from\+Std\+List(const std\+::list$<$ T $>$ \&list)}{fromStdList(const std::list< T > &list)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::from\+Std\+List (
+\begin{DoxyParamCaption}
+\item[{const std\+::list$<$ T $>$ \&}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{class_q_list_af0810b38261117b3616803519d825c9c}{}\label{class_q_list_af0810b38261117b3616803519d825c9c}
+Returns a \hyperlink{class_q_list}{Q\+List} object with the data contained in {\itshape list}. The order of the elements in the \hyperlink{class_q_list}{Q\+List} is the same as in {\itshape list}.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a4da73cbb34b8ace233ec93eacc6ddb79}{to\+Std\+List()}, \hyperlink{class_q_vector_a4bb034c193b1f443b235df30323ee2d0}{Q\+Vector\+::from\+Std\+Vector()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 365 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!from\+Vector@{from\+Vector}}
+\index{from\+Vector@{from\+Vector}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{from\+Vector(const Q\+Vector$<$ T $>$ \&vector)}{fromVector(const QVector< T > &vector)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::from\+Vector (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Vector}$<$ T $>$ \&}]{vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_q_list_ac9f7e64d962222b0660e51adbd128ef7}{}\label{class_q_list_ac9f7e64d962222b0660e51adbd128ef7}
+Returns a \hyperlink{class_q_list}{Q\+List} object with the data contained in {\itshape vector}.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a11d8c4df34e11f1f5539ea37f3d2130b}{from\+Set()}, \hyperlink{class_q_list_a2cd704f6f4c066e501e170fd8c11cf28}{to\+Vector()}, \hyperlink{class_q_vector_a604c990aa7914fc3840c740b4bb0ff7d}{Q\+Vector\+::to\+List()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 868 of file qvector.\+h.
+
+\index{Q\+List@{Q\+List}!front@{front}}
+\index{front@{front}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{front()}{front()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T \& {\bf Q\+List}$<$ T $>$\+::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_abfdbbac7bf0f4bb038a4970e526a16dd}{}\label{class_q_list_abfdbbac7bf0f4bb038a4970e526a16dd}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_list_a0d91b8dcfdf240b85c2349f339021cfa}{first()}. The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function. 
+
+Definition at line 332 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!front@{front}}
+\index{front@{front}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{front() const }{front() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+List}$<$ T $>$\+::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a4e8454fbc329f687de1a4f4521fc6014}{}\label{class_q_list_a4e8454fbc329f687de1a4f4521fc6014}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 333 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!index\+Of@{index\+Of}}
+\index{index\+Of@{index\+Of}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{index\+Of(const T \&t, int from=0) const }{indexOf(const T &t, int from=0) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE int {\bf Q\+List}$<$ T $>$\+::index\+Of (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{int}]{from = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}{}\label{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}
+Returns the index position of the first occurrence of {\itshape value} in the list, searching forward from index position {\itshape from}. Returns -\/1 if no item matched.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+Note that \hyperlink{class_q_list}{Q\+List} uses 0-\/based indexes, just like C++ arrays. Negative indexes are not supported with the exception of the value mentioned above.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_aa0b792f98f9cf740bb6a8774572eac18}{last\+Index\+Of()}, \hyperlink{class_q_list_aedb4de9a920c63b531d2064bf0bee652}{contains()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 937 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!insert@{insert}}
+\index{insert@{insert}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{insert(int i, const T \&t)}{insert(int i, const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{}\label{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}
+Inserts {\itshape value} at index position {\itshape i} in the list. If {\itshape i} is 0, the value is prepended to the list. If {\itshape i} is \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}, the value is appended to the list.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append()}, \hyperlink{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}{prepend()}, \hyperlink{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}{replace()}, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 616 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!insert@{insert}}
+\index{insert@{insert}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{insert(iterator before, const T \&t)}{insert(iterator before, const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf iterator} {\bf Q\+List}$<$ T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf iterator}}]{before, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ae8308037e361e7e9112987ed41beefb6}{}\label{class_q_list_ae8308037e361e7e9112987ed41beefb6}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Inserts {\itshape value} in front of the item pointed to by the iterator {\itshape before}. Returns an iterator pointing at the inserted item. Note that the iterator passed to the function will be invalid after the call; the returned iterator should be used instead. 
+
+Definition at line 478 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!is\+Detached@{is\+Detached}}
+\index{is\+Detached@{is\+Detached}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{is\+Detached() const }{isDetached() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::is\+Detached (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_aa130852a9913d0d152900acbf142f81c}{}\label{class_q_list_aa130852a9913d0d152900acbf142f81c}
+
+
+Definition at line 168 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{is\+Empty() const }{isEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{}\label{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}
+Returns {\ttfamily true} if the list contains no items; otherwise returns false.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 182 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!is\+Shared\+With@{is\+Shared\+With}}
+\index{is\+Shared\+With@{is\+Shared\+With}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{is\+Shared\+With(const Q\+List$<$ T $>$ \&other) const }{isSharedWith(const QList< T > &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::is\+Shared\+With (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ae89d314b75b59e294eed8597202ca74e}{}\label{class_q_list_ae89d314b75b59e294eed8597202ca74e}
+
+
+Definition at line 180 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!last@{last}}
+\index{last@{last}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{last()}{last()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T \& {\bf Q\+List}$<$ T $>$\+::last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a0e12e5e4af39fe20f860fe88a4fbc258}{}\label{class_q_list_a0e12e5e4af39fe20f860fe88a4fbc258}
+Returns a reference to the last item in the list. The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a0d91b8dcfdf240b85c2349f339021cfa}{first()}, \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 318 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!last@{last}}
+\index{last@{last}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{last() const }{last() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+List}$<$ T $>$\+::last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_aea03869b849a94805b4f32efcfb91f6c}{}\label{class_q_list_aea03869b849a94805b4f32efcfb91f6c}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. 
+
+Definition at line 319 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!last\+Index\+Of@{last\+Index\+Of}}
+\index{last\+Index\+Of@{last\+Index\+Of}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{last\+Index\+Of(const T \&t, int from=-\/1) const }{lastIndexOf(const T &t, int from=-1) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE int {\bf Q\+List}$<$ T $>$\+::last\+Index\+Of (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{int}]{from = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_aa0b792f98f9cf740bb6a8774572eac18}{}\label{class_q_list_aa0b792f98f9cf740bb6a8774572eac18}
+Returns the index position of the last occurrence of {\itshape value} in the list, searching backward from index position {\itshape from}. If {\itshape from} is -\/1 (the default), the search starts at the last item. Returns -\/1 if no item matched.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+Note that \hyperlink{class_q_list}{Q\+List} uses 0-\/based indexes, just like C++ arrays. Negative indexes are not supported with the exception of the value mentioned above.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a1fa87bbf834812e0f400d8c14ab35b8a}{index\+Of()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 952 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!length@{length}}
+\index{length@{length}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{length() const }{length() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+List}$<$ T $>$\+::length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ac1755c03849804156e624efcd6562874}{}\label{class_q_list_ac1755c03849804156e624efcd6562874}
+\begin{DoxySince}{Since}
+4.\+5
+\end{DoxySince}
+This function is identical to \hyperlink{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}{count()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}{count()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 315 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!mid@{mid}}
+\index{mid@{mid}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{mid(int pos, int length=-\/1) const }{mid(int pos, int length=-1) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+List}$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::mid (
+\begin{DoxyParamCaption}
+\item[{int}]{pos, }
+\item[{int}]{length = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_a92da113812831b97bac90aec3e49ec4f}{}\label{class_q_list_a92da113812831b97bac90aec3e49ec4f}
+Returns a sub-\/list which includes elements from this list, starting at position {\itshape pos}. If {\itshape length} is -\/1 (the default), all elements from {\itshape pos} are included; otherwise {\itshape length} elements (or all remaining elements if there are less than {\itshape length} elements) are included. 
+
+Definition at line 676 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!move@{move}}
+\index{move@{move}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{move(int from, int to)}{move(int from, int to)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+List}$<$ T $>$\+::move (
+\begin{DoxyParamCaption}
+\item[{int}]{from, }
+\item[{int}]{to}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a19a4be38371f5a6b340b246a247b1f67}{}\label{class_q_list_a19a4be38371f5a6b340b246a247b1f67}
+Moves the item at index position {\itshape from} to index position {\itshape to}.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This is the same as insert({\itshape }\{to\}, take\+At({\itshape }\{from\})).This function assumes that both {\itshape from} and {\itshape to} are at least 0 but less than \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}. To avoid failure, test that both {\itshape from} and {\itshape to} are at least 0 and less than \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a0db2f46bd41dd9ce5553f0be73825eb6}{swap()}, \hyperlink{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{insert()}, \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 667 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator"!=(const Q\+List$<$ T $>$ \&l) const }{operator!=(const QList< T > &l) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ad3d2c51aa92fbff38a7dfe5ad8e6b1e7}{}\label{class_q_list_ad3d2c51aa92fbff38a7dfe5ad8e6b1e7}
+Returns {\ttfamily true} if {\itshape other} is not equal to this list; otherwise returns {\ttfamily false}.
+
+Two lists are considered equal if they contain the same values in the same order.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 155 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator+@{operator+}}
+\index{operator+@{operator+}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator+(const Q\+List$<$ T $>$ \&l) const }{operator+(const QList< T > &l) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a7ed66a2541edf55b0ea33778778ee6c0}{}\label{class_q_list_a7ed66a2541edf55b0ea33778778ee6c0}
+Returns a list that contains all the items in this list followed by all the items in the {\itshape other} list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a6f36674c5ad943e3a23cfc73c0a2fee1}{operator+=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 350 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator+=(const Q\+List$<$ T $>$ \&l)}{operator+=(const QList< T > &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+List}$<$ T $>$ \& {\bf Q\+List}$<$ T $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_a6f36674c5ad943e3a23cfc73c0a2fee1}{}\label{class_q_list_a6f36674c5ad943e3a23cfc73c0a2fee1}
+Appends the items of the {\itshape other} list to this list and returns a reference to this list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a7ed66a2541edf55b0ea33778778ee6c0}{operator+()}, \hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 908 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator+=(const T \&t)}{operator+=(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a63856d5ed93fdf5e9f6c188415d81839}{}\label{class_q_list_a63856d5ed93fdf5e9f6c188415d81839}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Appends {\itshape value} to the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append()}, \hyperlink{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}{operator$<$$<$()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 352 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(const T \&t)}{operator<<(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}{}\label{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Appends {\itshape value} to the list. 
+
+Definition at line 354 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(const Q\+List$<$ T $>$ \&l)}{operator<<(const QList< T > &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$ \& {\bf Q\+List}$<$ T $>$\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a902fc01867da3047603546e10bb102e6}{}\label{class_q_list_a902fc01867da3047603546e10bb102e6}
+Appends the items of the {\itshape other} list to this list and returns a reference to this list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a6f36674c5ad943e3a23cfc73c0a2fee1}{operator+=()}, \hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 356 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator=@{operator=}}
+\index{operator=@{operator=}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator=(const Q\+List$<$ T $>$ \&l)}{operator=(const QList< T > &l)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+List}$<$ T $>$ \& {\bf Q\+List}$<$ T $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_af210d61c252a7f0124854a9fea8fc23d}{}\label{class_q_list_af210d61c252a7f0124854a9fea8fc23d}
+Assigns {\itshape other} to this list and returns a reference to this list.
+
+Move-\/assigns {\itshape other} to this \hyperlink{class_q_list}{Q\+List} instance.
+
+\begin{DoxySince}{Since}
+5.\+2 
+\end{DoxySince}
+
+
+Definition at line 469 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator==@{operator==}}
+\index{operator==@{operator==}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator==(const Q\+List$<$ T $>$ \&l) const }{operator==(const QList< T > &l) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE bool {\bf Q\+List}$<$ T $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{}\label{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}
+Returns {\ttfamily true} if {\itshape other} is equal to this list; otherwise returns false.
+
+Two lists are considered equal if they contain the same values in the same order.
+
+This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_ad3d2c51aa92fbff38a7dfe5ad8e6b1e7}{operator!=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 800 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator[](int i) const }{operator[](int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ const T \& {\bf Q\+List}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{}\label{class_q_list_ac143057ba0fa5934e704e5ff638339d4}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+Same as \hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{at()}. This function runs in \{constant time\}. 
+
+Definition at line 513 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator[](int i)}{operator[](int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T \& {\bf Q\+List}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_aaa62d7f41e6fc05dff4da8dba575bfe6}{}\label{class_q_list_aaa62d7f41e6fc05dff4da8dba575bfe6}
+Returns the item at index position {\itshape i} as a modifiable reference. {\itshape i} must be a valid index position in the list (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}).
+
+If this function is called on a list that is currently being shared, it will trigger a copy of all elements. Otherwise, this function runs in \{constant time\}. If you do not want to modify the list you should use \hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{Q\+List\+::at()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{at()}, \hyperlink{class_q_list_a3b4873989858726d6c67ee0c2cef23f9}{value()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 517 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!pop\+\_\+back@{pop\+\_\+back}}
+\index{pop\+\_\+back@{pop\+\_\+back}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{pop\+\_\+back()}{pop_back()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::pop\+\_\+back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_adb1888f063a883ecc656a1daf0347a79}{}\label{class_q_list_adb1888f063a883ecc656a1daf0347a79}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_list_a755672d6b82fc61e949a5b803b531855}{remove\+Last()}. The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function. 
+
+Definition at line 337 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!pop\+\_\+front@{pop\+\_\+front}}
+\index{pop\+\_\+front@{pop\+\_\+front}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{pop\+\_\+front()}{pop_front()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::pop\+\_\+front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a962412c448917350122d257ffe589f72}{}\label{class_q_list_a962412c448917350122d257ffe589f72}
+This function is provided for S\+TL compatibility. It is equivalent to \hyperlink{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}{remove\+First()}. The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function. 
+
+Definition at line 336 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!prepend@{prepend}}
+\index{prepend@{prepend}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{prepend(const T \&t)}{prepend(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::prepend (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}{}\label{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}
+Inserts {\itshape value} at the beginning of the list.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This is the same as list.\+insert(0, {\itshape value}).
+
+If this list is not shared, this operation is typically very fast (amortized \{constant time\}), because \hyperlink{class_q_list}{Q\+List} preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{append()}, \hyperlink{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{insert()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 582 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!push\+\_\+back@{push\+\_\+back}}
+\index{push\+\_\+back@{push\+\_\+back}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{push\+\_\+back(const T \&t)}{push_back(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::push\+\_\+back (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a23747ae8cb19b7e4bf24de944aa97bf2}{}\label{class_q_list_a23747ae8cb19b7e4bf24de944aa97bf2}
+This function is provided for S\+TL compatibility. It is equivalent to \{\hyperlink{class_q_list_a3a1e18c5fb9cc04324825a46540638c5}{Q\+List\+::append()}\}\{append({\itshape value})\}. 
+
+Definition at line 330 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!push\+\_\+front@{push\+\_\+front}}
+\index{push\+\_\+front@{push\+\_\+front}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{push\+\_\+front(const T \&t)}{push_front(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::push\+\_\+front (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_aa0ffa16b4f92679d5d8f96fbaf872b0a}{}\label{class_q_list_aa0ffa16b4f92679d5d8f96fbaf872b0a}
+This function is provided for S\+TL compatibility. It is equivalent to \{\hyperlink{class_q_list_a3d6003bfe5d2e7495df9dae2902743d0}{Q\+List\+::prepend()}\}\{prepend({\itshape value})\}. 
+
+Definition at line 331 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!remove\+All@{remove\+All}}
+\index{remove\+All@{remove\+All}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{remove\+All(const T \&t)}{removeAll(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE int {\bf Q\+List}$<$ T $>$\+::remove\+All (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_af882739967540dbf2810411f997039de}{}\label{class_q_list_af882739967540dbf2810411f997039de}
+Removes all occurrences of {\itshape value} in the list and returns the number of entries removed.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a4d25954344152f81e20ec6171f1bbcbd}{remove\+One()}, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()}, \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At()}, \hyperlink{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}{replace()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 847 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!remove\+At@{remove\+At}}
+\index{remove\+At@{remove\+At}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{remove\+At(int i)}{removeAt(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf Q\+List}$<$ T $>$\+::remove\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a318a24dd49568516ad82cc341fe1aada}{}\label{class_q_list_a318a24dd49568516ad82cc341fe1aada}
+Removes the item at index position {\itshape i}. {\itshape i} must be a valid index position in the list (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At()}, \hyperlink{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}{remove\+First()}, \hyperlink{class_q_list_a755672d6b82fc61e949a5b803b531855}{remove\+Last()}, \hyperlink{class_q_list_a4d25954344152f81e20ec6171f1bbcbd}{remove\+One()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 521 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!remove\+First@{remove\+First}}
+\index{remove\+First@{remove\+First}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{remove\+First()}{removeFirst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::remove\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}{}\label{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}
+Removes the first item in the list. Calling this function is equivalent to calling remove\+At(0). The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()}, \hyperlink{class_q_list_a8059621f8145f7b79278f619c1bb0e47}{take\+First()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 320 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!remove\+Last@{remove\+Last}}
+\index{remove\+Last@{remove\+Last}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{remove\+Last()}{removeLast()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::remove\+Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a755672d6b82fc61e949a5b803b531855}{}\label{class_q_list_a755672d6b82fc61e949a5b803b531855}
+Removes the last item in the list. Calling this function is equivalent to calling remove\+At(\hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()} -\/ 1). The list must not be empty. If the list can be empty, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()}, \hyperlink{class_q_list_a410757ac0ab9febcda1541fa43adb98c}{take\+Last()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 321 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!remove\+One@{remove\+One}}
+\index{remove\+One@{remove\+One}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{remove\+One(const T \&t)}{removeOne(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE bool {\bf Q\+List}$<$ T $>$\+::remove\+One (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_a4d25954344152f81e20ec6171f1bbcbd}{}\label{class_q_list_a4d25954344152f81e20ec6171f1bbcbd}
+\begin{DoxySince}{Since}
+4.\+4
+\end{DoxySince}
+Removes the first occurrence of {\itshape value} in the list and returns true on success; otherwise returns {\ttfamily false}.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ This function requires the value type to have an implementation of {\ttfamily \hyperlink{class_q_list_a5de7da6896f7bd2a446dbdaab6466c0f}{operator==()}}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_af882739967540dbf2810411f997039de}{remove\+All()}, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()}, \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At()}, \hyperlink{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}{replace()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 873 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!replace@{replace}}
+\index{replace@{replace}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{replace(int i, const T \&t)}{replace(int i, const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::replace (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}{}\label{class_q_list_ab39c49b508cf66371cc536c2bc3fb544}
+Replaces the item at index position {\itshape i} with {\itshape value}. {\itshape i} must be a valid index position in the list (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{operator\mbox{[}$\,$\mbox{]}()}, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 650 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!reserve@{reserve}}
+\index{reserve@{reserve}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{reserve(int size)}{reserve(int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE void {\bf Q\+List}$<$ T $>$\+::reserve (
+\begin{DoxyParamCaption}
+\item[{int}]{alloc}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_list_aedf0849585d0ba83a3ca3cce25fcddb1}{}\label{class_q_list_aedf0849585d0ba83a3ca3cce25fcddb1}
+Reserve space for {\itshape alloc} elements.
+
+If {\itshape alloc} is smaller than the current size of the list, nothing will happen.
+
+Use this function to avoid repetetive reallocation of \hyperlink{class_q_list}{Q\+List}\textquotesingle{}s internal data if you can predict how many elements will be appended. Note that the reservation applies only to the internal pointer array.
+
+\begin{DoxySince}{Since}
+4.\+7 
+\end{DoxySince}
+
+
+Definition at line 537 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!size@{size}}
+\index{size@{size}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+List}$<$ T $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{}\label{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}
+Returns the number of items in the list.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()}, \hyperlink{class_q_list_a0d021cc6668a845a26097dc9d36e8c2f}{count()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 157 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!starts\+With@{starts\+With}}
+\index{starts\+With@{starts\+With}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{starts\+With(const T \&t) const }{startsWith(const T &t) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::starts\+With (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a6f3ab95623c1be43d05579604e9725c3}{}\label{class_q_list_a6f3ab95623c1be43d05579604e9725c3}
+\begin{DoxySince}{Since}
+4.\+5
+\end{DoxySince}
+Returns {\ttfamily true} if this list is not empty and its first item is equal to {\itshape value}; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()}, \hyperlink{class_q_list_aedb4de9a920c63b531d2064bf0bee652}{contains()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 322 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!swap@{swap}}
+\index{swap@{swap}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{swap(\+Q\+List$<$ T $>$ \&other)}{swap(QList< T > &other)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::swap (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+List}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a0db2f46bd41dd9ce5553f0be73825eb6}{}\label{class_q_list_a0db2f46bd41dd9ce5553f0be73825eb6}
+\begin{DoxySince}{Since}
+4.\+8
+\end{DoxySince}
+Swaps list {\itshape other} with this list. This operation is very fast and never fails. 
+
+Definition at line 148 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!swap@{swap}}
+\index{swap@{swap}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{swap(int i, int j)}{swap(int i, int j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf Q\+List}$<$ T $>$\+::swap (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_ac9689c368581be3ad0ae047292c007fa}{}\label{class_q_list_ac9689c368581be3ad0ae047292c007fa}
+Exchange the item at index position {\itshape i} with the item at index position {\itshape j}. This function assumes that both {\itshape i} and {\itshape j} are at least 0 but less than \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}. To avoid failure, test that both {\itshape i} and {\itshape j} are at least 0 and less than \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a19a4be38371f5a6b340b246a247b1f67}{move()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 658 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!take\+At@{take\+At}}
+\index{take\+At@{take\+At}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{take\+At(int i)}{takeAt(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf Q\+List}$<$ T $>$\+::take\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{}\label{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}
+Removes the item at index position {\itshape i} and returns it. {\itshape i} must be a valid index position in the list (i.\+e., 0 $<$= {\itshape i} $<$ \hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()}).
+
+If you don\textquotesingle{}t use the return value, \hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()} is more efficient.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a318a24dd49568516ad82cc341fe1aada}{remove\+At()}, \hyperlink{class_q_list_a8059621f8145f7b79278f619c1bb0e47}{take\+First()}, \hyperlink{class_q_list_a410757ac0ab9febcda1541fa43adb98c}{take\+Last()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 525 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!take\+First@{take\+First}}
+\index{take\+First@{take\+First}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{take\+First()}{takeFirst()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf Q\+List}$<$ T $>$\+::take\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a8059621f8145f7b79278f619c1bb0e47}{}\label{class_q_list_a8059621f8145f7b79278f619c1bb0e47}
+Removes the first item in the list and returns it. This is the same as take\+At(0). This function assumes the list is not empty. To avoid failure, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function.
+
+If this list is not shared, this operation takes \{constant time\}.
+
+If you don\textquotesingle{}t use the return value, \hyperlink{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}{remove\+First()} is more efficient.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a410757ac0ab9febcda1541fa43adb98c}{take\+Last()}, \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At()}, \hyperlink{class_q_list_a46dbbac39b9f24f1d4432a40dfea58e7}{remove\+First()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 530 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!take\+Last@{take\+Last}}
+\index{take\+Last@{take\+Last}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{take\+Last()}{takeLast()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf Q\+List}$<$ T $>$\+::take\+Last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a410757ac0ab9febcda1541fa43adb98c}{}\label{class_q_list_a410757ac0ab9febcda1541fa43adb98c}
+Removes the last item in the list and returns it. This is the same as take\+At(\hyperlink{class_q_list_a2ee18cf0bec5e1d0951a1ca1ccfb93fe}{size()} -\/ 1). This function assumes the list is not empty. To avoid failure, call \hyperlink{class_q_list_a7425e13d514dd7adc3cf210679eea5c3}{is\+Empty()} before calling this function.
+
+If this list is not shared, this operation takes \{constant time\}.
+
+If you don\textquotesingle{}t use the return value, \hyperlink{class_q_list_a755672d6b82fc61e949a5b803b531855}{remove\+Last()} is more efficient.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a8059621f8145f7b79278f619c1bb0e47}{take\+First()}, \hyperlink{class_q_list_a078f9ab0404fcfb8fcc0ee1b7c6699c4}{take\+At()}, \hyperlink{class_q_list_a755672d6b82fc61e949a5b803b531855}{remove\+Last()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 533 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!to\+Set@{to\+Set}}
+\index{to\+Set@{to\+Set}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{to\+Set() const }{toSet() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+Set}$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::to\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_af534f77fa45d1f5c70bae4fcb1341803}{}\label{class_q_list_af534f77fa45d1f5c70bae4fcb1341803}
+Returns a \hyperlink{class_q_set}{Q\+Set} object with the data contained in this \hyperlink{class_q_list}{Q\+List}. Since \hyperlink{class_q_set}{Q\+Set} doesn\textquotesingle{}t allow duplicates, the resulting \hyperlink{class_q_set}{Q\+Set} might be smaller than the original list was.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a2cd704f6f4c066e501e170fd8c11cf28}{to\+Vector()}, \hyperlink{class_q_list_a11d8c4df34e11f1f5539ea37f3d2130b}{from\+Set()}, Q\+Set\+::from\+List() 
+\end{DoxySeeAlso}
+\index{Q\+List@{Q\+List}!to\+Std\+List@{to\+Std\+List}}
+\index{to\+Std\+List@{to\+Std\+List}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{to\+Std\+List() const }{toStdList() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\+::list$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::to\+Std\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_a4da73cbb34b8ace233ec93eacc6ddb79}{}\label{class_q_list_a4da73cbb34b8ace233ec93eacc6ddb79}
+Returns a std\+::list object with the data contained in this \hyperlink{class_q_list}{Q\+List}. Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_af0810b38261117b3616803519d825c9c}{from\+Std\+List()}, \hyperlink{class_q_vector_a0bb56bf3c3e5c533efda20ff4394b444}{Q\+Vector\+::to\+Std\+Vector()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 367 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!to\+Vector@{to\+Vector}}
+\index{to\+Vector@{to\+Vector}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{to\+Vector() const }{toVector() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE {\bf Q\+Vector}$<$ T $>$ {\bf Q\+List}$<$ T $>$\+::to\+Vector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_a2cd704f6f4c066e501e170fd8c11cf28}{}\label{class_q_list_a2cd704f6f4c066e501e170fd8c11cf28}
+Returns a \hyperlink{class_q_vector}{Q\+Vector} object with the data contained in this \hyperlink{class_q_list}{Q\+List}.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_af534f77fa45d1f5c70bae4fcb1341803}{to\+Set()}, \hyperlink{class_q_list_ac9f7e64d962222b0660e51adbd128ef7}{from\+Vector()}, \hyperlink{class_q_vector_a81688755b0166749fde54c1108690825}{Q\+Vector\+::from\+List()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 853 of file qvector.\+h.
+
+\index{Q\+List@{Q\+List}!value@{value}}
+\index{value@{value}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{value(int i) const }{value(int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE T {\bf Q\+List}$<$ T $>$\+::value (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_a3b4873989858726d6c67ee0c2cef23f9}{}\label{class_q_list_a3b4873989858726d6c67ee0c2cef23f9}
+Returns the value at index position {\itshape i} in the list.
+
+If the index {\itshape i} is out of bounds, the function returns a \{default-\/constructed value\}. If you are certain that the index is going to be within bounds, you can use \hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{at()} instead, which is slightly faster.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a0cc68a58145ae69d679da558f4d5e849}{at()}, \hyperlink{class_q_list_ac143057ba0fa5934e704e5ff638339d4}{operator\mbox{[}$\,$\mbox{]}()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 707 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!value@{value}}
+\index{value@{value}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{value(int i, const T \&default\+Value) const }{value(int i, const T &defaultValue) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+\_\+\+O\+U\+T\+O\+F\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE T {\bf Q\+List}$<$ T $>$\+::value (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{const T \&}]{default\+Value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_list_a069f4168424cb4ea5fa737845e0344c5}{}\label{class_q_list_a069f4168424cb4ea5fa737845e0344c5}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+If the index {\itshape i} is out of bounds, the function returns {\itshape default\+Value}. 
+
+Definition at line 716 of file qlist.\+h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Q\+List@{Q\+List}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator}{const_iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ friend class {\bf const\+\_\+iterator}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_q_list_ac220ce1c155db1ac44146c12d178056f}{}\label{class_q_list_ac220ce1c155db1ac44146c12d178056f}
+
+
+Definition at line 296 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!iterator@{iterator}}
+\index{iterator@{iterator}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{iterator}{iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ friend class {\bf iterator}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_q_list_a67171474c4da6cc8efe0c7fafefd2b2d}{}\label{class_q_list_a67171474c4da6cc8efe0c7fafefd2b2d}
+
+
+Definition at line 257 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(\+Q\+Data\+Stream \&out, const Q\+List$<$ T $>$ \&list)}{operator<<(QDataStream &out, const QList< T > &list)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+Data\+Stream \& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{out, }
+\item[{const {\bf Q\+List}$<$ T $>$ \&}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{class_q_list_ac29861f3dbb1fff94b022d274713e3b8}{}\label{class_q_list_ac29861f3dbb1fff94b022d274713e3b8}
+Writes the list {\itshape list} to stream {\itshape out}.
+
+This function requires the value type to implement {\ttfamily \hyperlink{class_q_list_ac2346b83b0fce8b70836bd7a660ec346}{operator$<$$<$()}}.
+
+\begin{DoxySeeAlso}{See also}
+\{Serializing Qt Data Types\}\{Format of the Q\+Data\+Stream operators\} 
+\end{DoxySeeAlso}
+\index{Q\+List@{Q\+List}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{operator$>$$>$(\+Q\+Data\+Stream \&in, Q\+List$<$ T $>$ \&list)}{operator>>(QDataStream &in, QList< T > &list)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Q\+Data\+Stream \& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{Q\+Data\+Stream \&}]{in, }
+\item[{{\bf Q\+List}$<$ T $>$ \&}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [related]}}\hypertarget{class_q_list_ab4ba1c178d4cab8a72ef68798eaefabc}{}\label{class_q_list_ab4ba1c178d4cab8a72ef68798eaefabc}
+Reads a list from stream {\itshape in} into {\itshape list}.
+
+This function requires the value type to implement {\ttfamily \hyperlink{class_q_list_ab4ba1c178d4cab8a72ef68798eaefabc}{operator$>$$>$()}}.
+
+\begin{DoxySeeAlso}{See also}
+\{Serializing Qt Data Types\}\{Format of the Q\+Data\+Stream operators\} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Data Documentation}
+\index{Q\+List@{Q\+List}!d@{d}}
+\index{d@{d}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{d}{d}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+Data\+::\+Data}$\ast$ {\bf Q\+List}$<$ T $>$\+::d}\hypertarget{class_q_list_a0abacfae13771c5af1356a5e42c7703c}{}\label{class_q_list_a0abacfae13771c5af1356a5e42c7703c}
+
+
+Definition at line 136 of file qlist.\+h.
+
+\index{Q\+List@{Q\+List}!p@{p}}
+\index{p@{p}!Q\+List@{Q\+List}}
+\subsubsection[{\texorpdfstring{p}{p}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+Data} {\bf Q\+List}$<$ T $>$\+::p}\hypertarget{class_q_list_a888da6d032fd3682090650b1d63ee741}{}\label{class_q_list_a888da6d032fd3682090650b1d63ee741}
+
+
+Definition at line 136 of file qlist.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qlist_8h}{qlist.\+h}\item 
+docs/extra-\/files/\hyperlink{qlist_8cpp}{qlist.\+cpp}\item 
+docs/extra-\/files/\hyperlink{qvector_8h}{qvector.\+h}\end{DoxyCompactItemize}

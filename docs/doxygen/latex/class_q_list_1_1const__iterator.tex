@@ -1,0 +1,486 @@
+\hypertarget{class_q_list_1_1const__iterator}{}\section{Q\+List$<$ T $>$\+:\+:const\+\_\+iterator Class Reference}
+\label{class_q_list_1_1const__iterator}\index{Q\+List$<$ T $>$\+::const\+\_\+iterator@{Q\+List$<$ T $>$\+::const\+\_\+iterator}}
+
+
+The \hyperlink{class_q_list_1_1const__iterator}{Q\+List\+::const\+\_\+iterator} class provides an S\+T\+L-\/style const iterator for \hyperlink{class_q_list}{Q\+List} and Q\+Queue.  
+
+
+
+
+{\ttfamily \#include $<$qlist.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::random\+\_\+access\+\_\+iterator\+\_\+tag \hyperlink{class_q_list_1_1const__iterator_a3f60c0d419aa760c74baf9259c5309a7}{iterator\+\_\+category}
+\item 
+typedef qptrdiff \hyperlink{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}{difference\+\_\+type}
+\item 
+typedef T \hyperlink{class_q_list_1_1const__iterator_a47f4f5c7fa5edd61cf19a5dde299c588}{value\+\_\+type}
+\item 
+typedef const T $\ast$ \hyperlink{class_q_list_1_1const__iterator_a533c6c850de0bc2484878d5c4bcb0513}{pointer}
+\item 
+typedef const T \& \hyperlink{class_q_list_1_1const__iterator_a52b9df9ae3c6d68e3b34cc0430e782e6}{reference}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_q_list_1_1const__iterator_afe91d91a7946da54e2e07ffed0e8f5f5}{const\+\_\+iterator} ()
+\item 
+\hyperlink{class_q_list_1_1const__iterator_ac38ce73f4abe9cdbf7d7c2a0a6f5af12}{const\+\_\+iterator} (Node $\ast$n)
+\item 
+\hyperlink{class_q_list_1_1const__iterator_a1fac43c70d34ac46e680ec03072c3107}{const\+\_\+iterator} (const \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \&o)
+\item 
+\hyperlink{class_q_list_1_1const__iterator_a7564cc84899e520dcc3be05c7ab6a7be}{const\+\_\+iterator} (const \hyperlink{class_q_list_1_1iterator}{iterator} \&o)
+\item 
+const T \& \hyperlink{class_q_list_1_1const__iterator_ae8ba811eff602158dc96bb4091069839}{operator$\ast$} () const 
+\item 
+const T $\ast$ \hyperlink{class_q_list_1_1const__iterator_ae4d16b861e178013e71ee231a4a5f6e6}{operator-\/$>$} () const 
+\item 
+const T \& \hyperlink{class_q_list_1_1const__iterator_a0bc2c77f62a523b99897b7d9d46ec9ce}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}{difference\+\_\+type} j) const 
+\item 
+bool \hyperlink{class_q_list_1_1const__iterator_afcc84c3f71a5a747a2323b11eee25a33}{operator==} (const \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \&o) const 
+\item 
+bool \hyperlink{class_q_list_1_1const__iterator_a3fed9135a0637f7057d41d7a29be7528}{operator!=} (const \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \&o) const 
+\item 
+bool \hyperlink{class_q_list_1_1const__iterator_a9da50890a3ecb341646c7f0b884dd75f}{operator$<$} (const \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\item 
+bool \hyperlink{class_q_list_1_1const__iterator_ae7f68657a78b318d3a9b11566f2755aa}{operator$<$=} (const \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\item 
+bool \hyperlink{class_q_list_1_1const__iterator_aba039471e2636c49e3ccf31966ee2cf6}{operator$>$} (const \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\item 
+bool \hyperlink{class_q_list_1_1const__iterator_aab6f2d1a5b1d0a313580123be000d0bb}{operator$>$=} (const \hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{class_q_list_1_1const__iterator_a429a8e3aa3de97b20c59f0a8524c94d9}{operator++} ()
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_1_1const__iterator_ad040d3871a716a76f1b57705fb666bd5}{operator++} (int)
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{class_q_list_1_1const__iterator_ac84c629637f34370020d66afc3a2a2cf}{operator-\/-\/} ()
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_1_1const__iterator_a46d687d497d7aa49e5b65d52d3b4eb20}{operator-\/-\/} (int)
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{class_q_list_1_1const__iterator_afe9c88b39e111149d46cddc4a4caf445}{operator+=} (\hyperlink{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}{difference\+\_\+type} j)
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{class_q_list_1_1const__iterator_a4a975b8077a87db810d6cb3606e23558}{operator-\/=} (\hyperlink{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}{difference\+\_\+type} j)
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_1_1const__iterator_a38269688da0773c04e5207ab9828f965}{operator+} (\hyperlink{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}{difference\+\_\+type} j) const 
+\item 
+\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_list_1_1const__iterator_a15eef6f9c016b44cebdc748d35a25f05}{operator-\/} (\hyperlink{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}{difference\+\_\+type} j) const 
+\item 
+int \hyperlink{class_q_list_1_1const__iterator_ad67a8f57c648efb3675f8cb9f3dc7d00}{operator-\/} (\hyperlink{class_q_list_1_1const__iterator}{const\+\_\+iterator} j) const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Node $\ast$ \hyperlink{class_q_list_1_1const__iterator_aaf98a66ebc335c3f611550ce99c1406c}{i}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\\*
+class Q\+List$<$ T $>$\+::const\+\_\+iterator}
+
+The \hyperlink{class_q_list_1_1const__iterator}{Q\+List\+::const\+\_\+iterator} class provides an S\+T\+L-\/style const iterator for \hyperlink{class_q_list}{Q\+List} and Q\+Queue. 
+
+Qt\+Core \hyperlink{class_q_list}{Q\+List} provides both \{S\+T\+L-\/style iterators\} and \{Java-\/style iterators\}. The S\+T\+L-\/style iterators are more low-\/level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know S\+TL, have the advantage of familiarity.
+
+\hyperlink{class_q_list}{Q\+List}$<$T$>$\+::const\+\_\+iterator allows you to iterate over a \hyperlink{class_q_list}{Q\+List}$<$T$>$ (or a Q\+Queue$<$T$>$). If you want to modify the \hyperlink{class_q_list}{Q\+List} as you iterate over it, use \hyperlink{class_q_list_1_1iterator}{Q\+List\+::iterator} instead. It is generally good practice to use \hyperlink{class_q_list_1_1const__iterator}{Q\+List\+::const\+\_\+iterator} on a non-\/const \hyperlink{class_q_list}{Q\+List} as well, unless you need to change the \hyperlink{class_q_list}{Q\+List} through the iterator. Const iterators are slightly faster, and can improve code readability.
+
+The default \hyperlink{class_q_list_1_1const__iterator}{Q\+List\+::const\+\_\+iterator} constructor creates an uninitialized iterator. You must initialize it using a \hyperlink{class_q_list}{Q\+List} function like \hyperlink{class_q_list_a8f6d53fe01e1c2aaea0a446580f99cdb}{Q\+List\+::const\+Begin()}, \hyperlink{class_q_list_a66e34d5df478dda9190b9b075317690d}{Q\+List\+::const\+End()}, or \hyperlink{class_q_list_a2ae4b66fdb5875c4c55eb903fa5ca25b}{Q\+List\+::insert()} before you can start iterating. Here\textquotesingle{}s a typical loop that prints all the items stored in a list\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Most \hyperlink{class_q_list}{Q\+List} functions accept an integer index rather than an iterator. For that reason, iterators are rarely useful in connection with \hyperlink{class_q_list}{Q\+List}. One place where S\+T\+L-\/style iterators do make sense is as arguments to \{generic algorithms\}.
+
+For example, here\textquotesingle{}s how to delete all the widgets stored in a \hyperlink{class_q_list}{Q\+List}$<$Q\+Widget $\ast$$>$\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Multiple iterators can be used on the same list. However, be aware that any non-\/const function call performed on the \hyperlink{class_q_list}{Q\+List} will render all existing iterators undefined. If you need to keep iterators over a long period of time, we recommend that you use Q\+Linked\+List rather than \hyperlink{class_q_list}{Q\+List}.
+
+\begin{DoxyWarning}{Warning}
+Iterators on implicitly shared containers do not work exactly like S\+T\+L-\/iterators. You should avoid copying a container while iterators are active on that container. For more information, read \{Implicit sharing iterator problem\}.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1iterator}{Q\+List\+::iterator}, Q\+List\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 259 of file qlist.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!difference\+\_\+type@{difference\+\_\+type}}
+\index{difference\+\_\+type@{difference\+\_\+type}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{difference\+\_\+type}{difference_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf const\+\_\+iterator\+::difference\+\_\+type}}\hypertarget{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}{}\label{class_q_list_1_1const__iterator_a3fd13f34a4cad0b55bff738b349a87c6}
+
+
+Definition at line 264 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!iterator\+\_\+category@{iterator\+\_\+category}}
+\index{iterator\+\_\+category@{iterator\+\_\+category}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{iterator\+\_\+category}{iterator_category}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf const\+\_\+iterator\+::iterator\+\_\+category}}\hypertarget{class_q_list_1_1const__iterator_a3f60c0d419aa760c74baf9259c5309a7}{}\label{class_q_list_1_1const__iterator_a3f60c0d419aa760c74baf9259c5309a7}
+A synonym for {\itshape \{std\+::random\+\_\+access\+\_\+iterator\+\_\+tag\}} indicating this iterator is a random access iterator. 
+
+Definition at line 262 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{pointer}{pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf const\+\_\+iterator\+::pointer}}\hypertarget{class_q_list_1_1const__iterator_a533c6c850de0bc2484878d5c4bcb0513}{}\label{class_q_list_1_1const__iterator_a533c6c850de0bc2484878d5c4bcb0513}
+
+
+Definition at line 266 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!reference@{reference}}
+\index{reference@{reference}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{reference}{reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf const\+\_\+iterator\+::reference}}\hypertarget{class_q_list_1_1const__iterator_a52b9df9ae3c6d68e3b34cc0430e782e6}{}\label{class_q_list_1_1const__iterator_a52b9df9ae3c6d68e3b34cc0430e782e6}
+
+
+Definition at line 267 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{value\+\_\+type}{value_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::{\bf const\+\_\+iterator\+::value\+\_\+type}}\hypertarget{class_q_list_1_1const__iterator_a47f4f5c7fa5edd61cf19a5dde299c588}{}\label{class_q_list_1_1const__iterator_a47f4f5c7fa5edd61cf19a5dde299c588}
+
+
+Definition at line 265 of file qlist.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator()}{const_iterator()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_afe91d91a7946da54e2e07ffed0e8f5f5}{}\label{class_q_list_1_1const__iterator_afe91d91a7946da54e2e07ffed0e8f5f5}
+Constructs an uninitialized iterator.
+
+Functions like \hyperlink{class_q_list_1_1const__iterator_ae8ba811eff602158dc96bb4091069839}{operator$\ast$()} and \hyperlink{class_q_list_1_1const__iterator_a429a8e3aa3de97b20c59f0a8524c94d9}{operator++()} should not be called on an uninitialized iterator. Use \hyperlink{class_q_list_af210d61c252a7f0124854a9fea8fc23d}{operator=()} to assign a value to it before using it.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_a8f6d53fe01e1c2aaea0a446580f99cdb}{Q\+List\+::const\+Begin()}, \hyperlink{class_q_list_a66e34d5df478dda9190b9b075317690d}{Q\+List\+::const\+End()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 269 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator(\+Node $\ast$n)}{const_iterator(Node *n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+\item[{Node $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_ac38ce73f4abe9cdbf7d7c2a0a6f5af12}{}\label{class_q_list_1_1const__iterator_ac38ce73f4abe9cdbf7d7c2a0a6f5af12}
+
+
+Definition at line 270 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator(const const\+\_\+iterator \&o)}{const_iterator(const const_iterator &o)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a1fac43c70d34ac46e680ec03072c3107}{}\label{class_q_list_1_1const__iterator_a1fac43c70d34ac46e680ec03072c3107}
+Constructs a copy of {\itshape other}. 
+
+Definition at line 271 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator(const iterator \&o)}{const_iterator(const iterator &o)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+\item[{const {\bf iterator} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a7564cc84899e520dcc3be05c7ab6a7be}{}\label{class_q_list_1_1const__iterator_a7564cc84899e520dcc3be05c7ab6a7be}
+Constructs a copy of {\itshape other}. 
+
+Definition at line 275 of file qlist.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator"!=(const const\+\_\+iterator \&o) const }{operator!=(const const_iterator &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a3fed9135a0637f7057d41d7a29be7528}{}\label{class_q_list_1_1const__iterator_a3fed9135a0637f7057d41d7a29be7528}
+Returns {\ttfamily true} if {\itshape other} points to a different item than this iterator; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_afcc84c3f71a5a747a2323b11eee25a33}{operator==()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 281 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_ae8ba811eff602158dc96bb4091069839}{}\label{class_q_list_1_1const__iterator_ae8ba811eff602158dc96bb4091069839}
+Returns the current item.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_ae4d16b861e178013e71ee231a4a5f6e6}{operator-\/$>$()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 277 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator+@{operator+}}
+\index{operator+@{operator+}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator+(difference\+\_\+type j) const }{operator+(difference_type j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{j}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a38269688da0773c04e5207ab9828f965}{}\label{class_q_list_1_1const__iterator_a38269688da0773c04e5207ab9828f965}
+Returns an iterator to the item at {\itshape j} positions forward from this iterator. (If {\itshape j} is negative, the iterator goes backward.)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_a15eef6f9c016b44cebdc748d35a25f05}{operator-\/()}, \hyperlink{class_q_list_1_1const__iterator_afe9c88b39e111149d46cddc4a4caf445}{operator+=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 292 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} \& {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a429a8e3aa3de97b20c59f0a8524c94d9}{}\label{class_q_list_1_1const__iterator_a429a8e3aa3de97b20c59f0a8524c94d9}
+The prefix ++ operator ({\ttfamily }\{++it\}) advances the iterator to the next item in the list and returns an iterator to the new current item.
+
+Calling this function on \hyperlink{class_q_list_a5695ddeb676cedece5b061eba08c1d0c}{Q\+List\+::end()} leads to undefined results.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_ac84c629637f34370020d66afc3a2a2cf}{operator-\/-\/()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 286 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator++(int)}{operator++(int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_ad040d3871a716a76f1b57705fb666bd5}{}\label{class_q_list_1_1const__iterator_ad040d3871a716a76f1b57705fb666bd5}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+The postfix ++ operator ({\ttfamily }\{it++\}) advances the iterator to the next item in the list and returns an iterator to the previously current item. 
+
+Definition at line 287 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator+=(difference\+\_\+type j)}{operator+=(difference_type j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} \& {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_afe9c88b39e111149d46cddc4a4caf445}{}\label{class_q_list_1_1const__iterator_afe9c88b39e111149d46cddc4a4caf445}
+Advances the iterator by {\itshape j} items. (If {\itshape j} is negative, the iterator goes backward.)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_a4a975b8077a87db810d6cb3606e23558}{operator-\/=()}, \hyperlink{class_q_list_1_1const__iterator_a38269688da0773c04e5207ab9828f965}{operator+()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 290 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/(difference\+\_\+type j) const }{operator-(difference_type j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{j}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a15eef6f9c016b44cebdc748d35a25f05}{}\label{class_q_list_1_1const__iterator_a15eef6f9c016b44cebdc748d35a25f05}
+Returns an iterator to the item at {\itshape j} positions backward from this iterator. (If {\itshape j} is negative, the iterator goes forward.)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_a38269688da0773c04e5207ab9828f965}{operator+()}, \hyperlink{class_q_list_1_1const__iterator_a4a975b8077a87db810d6cb3606e23558}{operator-\/=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 293 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/(const\+\_\+iterator j) const }{operator-(const_iterator j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ int {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+iterator}}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_ad67a8f57c648efb3675f8cb9f3dc7d00}{}\label{class_q_list_1_1const__iterator_ad67a8f57c648efb3675f8cb9f3dc7d00}
+Returns the number of items between the item pointed to by {\itshape other} and the item pointed to by this iterator. 
+
+Definition at line 294 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/-\/()}{operator--()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} \& {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_ac84c629637f34370020d66afc3a2a2cf}{}\label{class_q_list_1_1const__iterator_ac84c629637f34370020d66afc3a2a2cf}
+The prefix -- operator ({\ttfamily }\{--it\}) makes the preceding item current and returns an iterator to the new current item.
+
+Calling this function on \hyperlink{class_q_list_a06847e57431af245c937c8cfe1c14761}{Q\+List\+::begin()} leads to undefined results.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_a429a8e3aa3de97b20c59f0a8524c94d9}{operator++()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 288 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/-\/(int)}{operator--(int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a46d687d497d7aa49e5b65d52d3b4eb20}{}\label{class_q_list_1_1const__iterator_a46d687d497d7aa49e5b65d52d3b4eb20}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+The postfix -- operator ({\ttfamily }\{it--\}) makes the preceding item current and returns an iterator to the previously current item. 
+
+Definition at line 289 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/=(difference\+\_\+type j)}{operator-=(difference_type j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Q\+List\+::const\+\_\+iterator} \& {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a4a975b8077a87db810d6cb3606e23558}{}\label{class_q_list_1_1const__iterator_a4a975b8077a87db810d6cb3606e23558}
+Makes the iterator go back by {\itshape j} items. (If {\itshape j} is negative, the iterator goes forward.)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_afe9c88b39e111149d46cddc4a4caf445}{operator+=()}, \hyperlink{class_q_list_1_1const__iterator_a15eef6f9c016b44cebdc748d35a25f05}{operator-\/()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 291 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/$>$() const }{operator->() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T $\ast$ {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_ae4d16b861e178013e71ee231a4a5f6e6}{}\label{class_q_list_1_1const__iterator_ae4d16b861e178013e71ee231a4a5f6e6}
+Returns a pointer to the current item.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_ae8ba811eff602158dc96bb4091069839}{operator$\ast$()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 278 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$<$(const const\+\_\+iterator \&other) const }{operator<(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a9da50890a3ecb341646c7f0b884dd75f}{}\label{class_q_list_1_1const__iterator_a9da50890a3ecb341646c7f0b884dd75f}
+Returns {\ttfamily true} if the item pointed to by this iterator is less than the item pointed to by the {\itshape other} iterator. 
+
+Definition at line 282 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$<$=(const const\+\_\+iterator \&other) const }{operator<=(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_ae7f68657a78b318d3a9b11566f2755aa}{}\label{class_q_list_1_1const__iterator_ae7f68657a78b318d3a9b11566f2755aa}
+Returns {\ttfamily true} if the item pointed to by this iterator is less than or equal to the item pointed to by the {\itshape other} iterator. 
+
+Definition at line 283 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator==(const const\+\_\+iterator \&o) const }{operator==(const const_iterator &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_afcc84c3f71a5a747a2323b11eee25a33}{}\label{class_q_list_1_1const__iterator_afcc84c3f71a5a747a2323b11eee25a33}
+Returns {\ttfamily true} if {\itshape other} points to the same item as this iterator; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_a3fed9135a0637f7057d41d7a29be7528}{operator!=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 280 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$>$(const const\+\_\+iterator \&other) const }{operator>(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_aba039471e2636c49e3ccf31966ee2cf6}{}\label{class_q_list_1_1const__iterator_aba039471e2636c49e3ccf31966ee2cf6}
+Returns {\ttfamily true} if the item pointed to by this iterator is greater than the item pointed to by the {\itshape other} iterator. 
+
+Definition at line 284 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$>$=(const const\+\_\+iterator \&other) const }{operator>=(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_aab6f2d1a5b1d0a313580123be000d0bb}{}\label{class_q_list_1_1const__iterator_aab6f2d1a5b1d0a313580123be000d0bb}
+Returns {\ttfamily true} if the item pointed to by this iterator is greater than or equal to the item pointed to by the {\itshape other} iterator. 
+
+Definition at line 285 of file qlist.\+h.
+
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator[](difference\+\_\+type j) const }{operator[](difference_type j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ const T \& {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{j}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_list_1_1const__iterator_a0bc2c77f62a523b99897b7d9d46ec9ce}{}\label{class_q_list_1_1const__iterator_a0bc2c77f62a523b99897b7d9d46ec9ce}
+Returns the item at position $\ast$this + {\itshape }\{j\}.
+
+This function is provided to make \hyperlink{class_q_list}{Q\+List} iterators behave like C++ pointers.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_list_1_1const__iterator_a38269688da0773c04e5207ab9828f965}{operator+()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 279 of file qlist.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\index{Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}!i@{i}}
+\index{i@{i}!Q\+List\+::const\+\_\+iterator@{Q\+List\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{i}{i}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ Node$\ast$ {\bf Q\+List}$<$ T $>$\+::const\+\_\+iterator\+::i}\hypertarget{class_q_list_1_1const__iterator_aaf98a66ebc335c3f611550ce99c1406c}{}\label{class_q_list_1_1const__iterator_aaf98a66ebc335c3f611550ce99c1406c}
+
+
+Definition at line 261 of file qlist.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qlist_8h}{qlist.\+h}\item 
+docs/extra-\/files/\hyperlink{qlist_8cpp}{qlist.\+cpp}\end{DoxyCompactItemize}

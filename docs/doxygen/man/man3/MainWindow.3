@@ -1,0 +1,70 @@
+.TH "MainWindow" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MainWindow \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mainwindow\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitializeStadiumTable\fP (\fBStadiumTableModel\fP *stadiumModel)"
+.br
+.ti -1c
+.RI "void \fBinitializeSouvenirTable\fP (\fBSouvenirTableModel\fP *souvenirModel)"
+.br
+.ti -1c
+.RI "void \fBadminFeaturesToggled\fP (bool)"
+.br
+.ti -1c
+.RI "void \fBgiveDB\fP (\fBDatabase\fP *db)"
+.br
+.ti -1c
+.RI "void \fBpropagateStadiumList\fP (QSqlQuery)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMainWindow\fP (QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~MainWindow\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 39 of file mainwindow\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MainWindow::MainWindow (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 4 of file mainwindow\&.cpp\&.
+.SS "MainWindow::~MainWindow ()"
+
+.PP
+Definition at line 77 of file mainwindow\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void MainWindow::adminFeaturesToggled (bool)\fC [signal]\fP"
+
+.SS "void MainWindow::giveDB (\fBDatabase\fP * db)\fC [signal]\fP"
+
+.SS "void MainWindow::initializeSouvenirTable (\fBSouvenirTableModel\fP * souvenirModel)\fC [signal]\fP"
+
+.SS "void MainWindow::initializeStadiumTable (\fBStadiumTableModel\fP * stadiumModel)\fC [signal]\fP"
+
+.SS "void MainWindow::propagateStadiumList (QSqlQuery)\fC [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

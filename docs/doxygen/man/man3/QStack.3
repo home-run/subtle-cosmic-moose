@@ -1,0 +1,148 @@
+.TH "QStack< T >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QStack< T > \- The \fBQStack\fP class is a template class that provides a stack\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qstack\&.h>\fP
+.PP
+Inherits \fBQVector< T >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQStack\fP ()"
+.br
+.ti -1c
+.RI "\fB~QStack\fP ()"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBQStack\fP< T > &other)"
+.br
+.ti -1c
+.RI "void \fBpush\fP (const T &t)"
+.br
+.ti -1c
+.RI "T \fBpop\fP ()"
+.br
+.ti -1c
+.RI "T & \fBtop\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBtop\fP () const "
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class T>
+.br
+class QStack< T >"
+The \fBQStack\fP class is a template class that provides a stack\&. 
+
+QtCore
+.PP
+\fBQStack\fP<T> is one of Qt's generic {container classes}\&. It implements a stack data structure for items of a same type\&.
+.PP
+A stack is a last in, first out (LIFO) structure\&. Items are added to the top of the stack using \fBpush()\fP and retrieved from the top using \fBpop()\fP\&. The \fBtop()\fP function provides access to the topmost item without removing it\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ The example will output 3, 2, 1 in that order\&.
+.PP
+\fBQStack\fP inherits from \fBQVector\fP\&. All of \fBQVector\fP's functionality also applies to \fBQStack\fP\&. For example, you can use \fBisEmpty()\fP to test whether the stack is empty, and you can traverse a \fBQStack\fP using \fBQVector\fP's iterator classes (for example, QVectorIterator)\&. But in addition, \fBQStack\fP provides three convenience functions that make it easy to implement LIFO semantics: \fBpush()\fP, \fBpop()\fP, and \fBtop()\fP\&.
+.PP
+\fBQStack\fP's value type must be an {assignable data type}\&. This covers most data types that are commonly used, but the compiler won't let you, for example, store a QWidget as a value; instead, store a QWidget *\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBQVector\fP, QQueue 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file qstack\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<class T> \fBQStack\fP< T >::\fBQStack\fP ()\fC [inline]\fP"
+Constructs an empty stack\&. 
+.PP
+Definition at line 46 of file qstack\&.h\&.
+.SS "template<class T> \fBQStack\fP< T >::~\fBQStack\fP ()\fC [inline]\fP"
+Destroys the stack\&. References to the values in the stack, and all iterators over this stack, become invalid\&. 
+.PP
+Definition at line 47 of file qstack\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class T > T \fBQStack\fP< T >::pop ()\fC [inline]\fP"
+Removes the top item from the stack and returns it\&. This function assumes that the stack isn't empty\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtop()\fP, \fBpush()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file qstack\&.h\&.
+.SS "template<class T> void \fBQStack\fP< T >::push (const T & t)\fC [inline]\fP"
+Adds element \fIt\fP to the top of the stack\&.
+.PP
+This is the same as \fBQVector::append()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBpop()\fP, \fBtop()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 49 of file qstack\&.h\&.
+.SS "template<class T> void \fBQStack\fP< T >::swap (\fBQStack\fP< T > & other)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.8
+.RE
+.PP
+Swaps stack \fIother\fP with this stack\&. This operation is very fast and never fails\&. 
+.PP
+Definition at line 48 of file qstack\&.h\&.
+.SS "template<class T > T & \fBQStack\fP< T >::top ()\fC [inline]\fP"
+Returns a reference to the stack's top item\&. This function assumes that the stack isn't empty\&.
+.PP
+This is the same as \fBQVector::last()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBpop()\fP, \fBpush()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file qstack\&.h\&.
+.SS "template<class T > const T & \fBQStack\fP< T >::top () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBpop()\fP, \fBpush()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file qstack\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

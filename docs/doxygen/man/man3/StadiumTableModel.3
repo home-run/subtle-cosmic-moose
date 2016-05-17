@@ -1,0 +1,92 @@
+.TH "StadiumTableModel" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StadiumTableModel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <stadiumtablemodel\&.h>\fP
+.PP
+Inherits QSqlTableModel\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBFields\fP { \fBID\fP, \fBNAME\fP, \fBTEAM\fP, \fBADDRESS\fP, \fBPHONE\fP, \fBDATE\fP, \fBCAPACITY\fP, \fBTURF\fP, \fBREVENUE\fP, \fBLEAGUE\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStadiumTableModel\fP (QObject *parent, \fBDatabase\fP *db)"
+.br
+.RI "\fI\fBStadiumTableModel::StadiumTableModel\fP A reusable model class for displaying the list of stadiums in a tableView\&. \fP"
+.ti -1c
+.RI "void \fBInitialize\fP ()"
+.br
+.RI "\fI\fBStadiumTableModel::Initialize\fP Initialize all of the settings for the stadium table model\&. This includes selecting which SQL table to display, setting header values, and setting the table as uneditable unless manually submitted\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 7 of file stadiumtablemodel\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBStadiumTableModel::Fields\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIID \fP\fP
+.TP
+\fB\fINAME \fP\fP
+.TP
+\fB\fITEAM \fP\fP
+.TP
+\fB\fIADDRESS \fP\fP
+.TP
+\fB\fIPHONE \fP\fP
+.TP
+\fB\fIDATE \fP\fP
+.TP
+\fB\fICAPACITY \fP\fP
+.TP
+\fB\fITURF \fP\fP
+.TP
+\fB\fIREVENUE \fP\fP
+.TP
+\fB\fILEAGUE \fP\fP
+.PP
+Definition at line 13 of file stadiumtablemodel\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "StadiumTableModel::StadiumTableModel (QObject * parent, \fBDatabase\fP * db)"
+
+.PP
+\fBStadiumTableModel::StadiumTableModel\fP A reusable model class for displaying the list of stadiums in a tableView\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparent\fP The parent object 
+.br
+\fIdb\fP The database to read from 
+.RE
+.PP
+
+.PP
+Definition at line 9 of file stadiumtablemodel\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void StadiumTableModel::Initialize ()"
+
+.PP
+\fBStadiumTableModel::Initialize\fP Initialize all of the settings for the stadium table model\&. This includes selecting which SQL table to display, setting header values, and setting the table as uneditable unless manually submitted\&. 
+.PP
+Definition at line 20 of file stadiumtablemodel\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

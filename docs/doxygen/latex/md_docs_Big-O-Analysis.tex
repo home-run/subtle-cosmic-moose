@@ -1,0 +1,227 @@
+\subsection*{Team\+: $\sim$/run}
+
+\subsubsection*{Group Members}
+
+
+\begin{DoxyItemize}
+\item Jesse Mazzella
+\item Sepher Raissaian
+\item Daniel Phan
+\item Dan Karlsson
+\end{DoxyItemize}
+
+\subsubsection*{Algorithms}
+
+
+\begin{DoxyItemize}
+\item Dijkstra’s Algorithm
+\item Minimum Spanning Tree -\/ Prims
+\end{DoxyItemize}
+
+\subsubsection*{Data Structures}
+
+
+\begin{DoxyItemize}
+\item \hyperlink{class_graph}{Graph} \mbox{[}Adjacency List – Priority Queue\mbox{]}
+\item \hyperlink{class_graph}{Graph} \mbox{[}Adjacency Matrix\mbox{]}
+\item \hyperlink{class_heap}{Heap} \mbox{[}Priority Queue\mbox{]}
+\item \hyperlink{class_vertex_set}{Vertex\+Set} \mbox{[}Set\mbox{]}
+\item \hyperlink{class_q_stack}{Q\+Stack}
+\item \hyperlink{class_q_vector}{Q\+Vector}
+\item \hyperlink{class_q_list}{Q\+List}
+\item \hyperlink{class_q_map}{Q\+Map}
+\end{DoxyItemize}
+
+\subsection*{Algorithms}
+
+\subsubsection*{Dijkstra\textquotesingle{}s Algorithm}
+
+
+
+
+
+Dijkstra\textquotesingle{}s Algorithm is used for finding the shortest paths between vertices stored within a graph. The implementation of Dijsktra\textquotesingle{}s algorithm is a variant of the original and finds the shortest path between a source node and all other nodes within a graph. It uses a minimum-\/heap priority queue to improve the efficiency of the algorithm when determining the path.
+
+{\bfseries Algorithm}\+: void \hyperlink{class_graph_a3eb1eaf4a580710194c014d0e135c7b6}{Graph\+::shortest\+Path(\+Vertex source)}
+
+
+\begin{DoxyCode}
+source = vertexList.at(source.getId());
+\textcolor{comment}{// Initialize all edges, and vertices to infinity}
+initialize\_single\_source(source);
+\end{DoxyCode}
+
+
+Function\+: void Graph\+::initialize\+\_\+single\+\_\+source(\+Vertex source)
+
+This runs in {\bfseries O(n)} because {\ttfamily initialize\+\_\+single\+\_\+source(source)} will iterate through each vertex in the graph and initialize each vertex with a distance of {\itshape I\+N\+F\+I\+N\+I\+TY} and the parent to \+\_\+-\/1\+\_\+. Then it sets the source vertex to have a distance of 0 to represent it as being the starting vertex.
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} vertex = 0; vertex < numVertices;vertex++)  \textcolor{comment}{// O(n) performance}
+    vertexList[vertex].setDistance(\hyperlink{vertex_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF});
+    vertexList[vertex].setParent(-1);
+
+vertexList[s.getId()].setDistance(0);
+\end{DoxyCode}
+ This process is then
+
+\begin{quote}
+{\bfseries Initialize each vertex in the graph =$>$ O(n)} \end{quote}
+
+
+Then it will initial a vertex set class to be empty and insert the starting vertex into the priority queue of vertices to grab from. This operation is done in {\bfseries O(1)} time since the priority queue is empty at this point.
+
+
+\begin{DoxyCode}
+T.clear();
+vertexPQ.insert(vertexList[source.getId()]);    \textcolor{comment}{// O(1) performance}
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries Insert into an empty priority queue =$>$ O(1)} \end{quote}
+
+
+Dijkstra\textquotesingle{}s algorithm will run for as many vertices that there are in the graph what there are {\bfseries n} number of vertices. This gives {\bfseries O(n)} performance because the algorithm has the check {\bfseries n} number of vertices.
+
+The removal of a vertex from the priority queue is {\bfseries O(logn)} because the removal itself takes {\bfseries O(1)} but the {\itshape bubble down} / {\itshape min-\/heapify} process after the remove of a node from priority queue will take {\bfseries O(logn)}.
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{while}(!vertexPQ.isEmpty())\{
+
+    u = vertexPQ.removeMin();   \textcolor{comment}{// O(logn)}
+\end{DoxyCode}
+
+
+$>$\+\_\+\+\_\+\+Removal of a node =$>$ O(1 + logn) ==$>$ O(logn)\+\_\+\+\_\+ but is only done for each vertex in the graph =$>$ O(n)
+
+Next the algorithm will check each vertex to see the adjacent edges have a distance sum of the current vertex plus the weight of the edge is smaller than the distance currently found for the next vertex. Each edge to that vertex is stored within its own priority queue which gives it {\bfseries O(1)} access for retrieving the smallest weighted edge to that vertex, but calling {\ttfamily get\+Nearest\+Edge()} also removes the edge from the priority queue there for producing a {\bfseries O(logn)} performance and allowing the next smallest edge being readily accessible.
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{while}(vertexList.at(u.getId()).hasEdges())\{
+
+    adjEdge = vertexList[u.getId()].getNearestEdge();                               \textcolor{comment}{// <= O(logn)}
+    v = vertexList.at(adjEdge.idTo);                                                \textcolor{comment}{// <= O(1)}
+
+    \textcolor{keywordflow}{if}(adjacencyMatrix[u.getId()][adjEdge.idTo] != 0)\{
+
+        distanceSum = u.getDistance() + adjacencyMatrix[u.getId()][v.getId()];      \textcolor{comment}{// <= O(1)}
+
+        \textcolor{keywordflow}{if}(v.getDistance() > distanceSum )                                          \textcolor{comment}{// <= O(1)}
+            v.setDistance(distanceSum);                                             \textcolor{comment}{// <= O(1)}
+            v.setParent(u.getId());                                                 \textcolor{comment}{// <= O(1)}
+            vertexList[v.getId()] = v;                                              \textcolor{comment}{// <= O(1)}
+
+        \textcolor{comment}{// If the set T of found vertices does not contain the vertex v add the}
+        \textcolor{comment}{//  vertex v to the priority queue to see the shorter path.}
+        \textcolor{keywordflow}{if}(!T.contains(v))          \textcolor{comment}{// <= Expected O(1) worst case O(n)}
+            vertexPQ.insert(v);     \textcolor{comment}{// <= O(logn)}
+            T.insert(v);            \textcolor{comment}{// <= Expected O(1) worst case O(n)}
+\end{DoxyCode}
+ The removal and checking of edges is a O(e) \mbox{[}\hyperlink{struct_edge}{Edge} per node\mbox{]} process since it has to check each adjacent edge for each vertex and each edge has to be checked. Therefore,
+
+\begin{quote}
+Removal and checking of each edge ==$>$ O(e) \end{quote}
+
+
+Since it utilizes a priorty queue to sort the vertices by its current distance it allows the checking off vertices from {\bfseries O(n)} to {\bfseries O(logn)} for each adjacent vertex.
+
+\begin{quote}
+Checking adjacent vertices for each vertex in the priority queue =$>$ O(nlogn) but since it only needs to check the vertices \end{quote}
+
+
+\begin{quote}
+{\bfseries Initialize each vertices =$>$ O(n) + Insert into priority queue =$>$ O(1) + Removal of a node =$>$ O(n) + Removal and checking of each edge ==$>$ O(e) + Checking adjacent vertices for each vertex =$>$ O(nlogn)}
+
+{\bfseries O(n) + O(1) + O(n) + O(e) + O(nlogn)} \end{quote}
+
+
+\paragraph*{The resulting performance is \+:}
+
+\begin{quote}
+{\bfseries O(2n + 1 + e + nlogn) = O(e + nlogn)} \end{quote}
+
+
+\subsubsection*{M\+ST prim’s}
+
+
+
+
+
+The time complexity of Prim\textquotesingle{}s algorithm depends on the data structures used for the graph and for ordering the edges by weight.\+Using an adjacency matrix or an adjacency list graph representation and linearly searching an array of weights to find the minimum weight edge, to add requires O($\vert$\+V$\vert$2) running time. However, this running time can be greatly improved further by using heaps to implement finding minimum weight edges in the algorithm\textquotesingle{}s inner loop. A first improved version uses a heap to store all edges of the input graph, ordered by their weight. This leads to an O($\vert$\+E$\vert$ log $\vert$\+E$\vert$) worst-\/case running time. But storing vertices instead of edges can improve it still further. The heap should order the vertices by the smallest edge-\/weight that connects them to any vertex in the partially constructed minimum spanning tree (M\+ST) (or infinity if no such edge exists). Every time a vertex v is chosen and added to the M\+ST, a decrease-\/key operation is performed on all vertices w outside the partial M\+ST such that v is connected to w, setting the key to the minimum of its previous value and the edge cost of (v,w).
+
+{\bfseries Algorithm}\+: long \hyperlink{class_graph_ab3c693e0fce0a24e32893b750b0ca82f}{Graph\+::minimum\+Spanning\+Tree(int source)}
+
+Initialize each vertex in the list, key, and mst\+Set to I\+N\+F\+I\+N\+I\+TY and not found;
+
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < numVertices; i++)        \textcolor{comment}{// <== O(n)}
+    key[i] = \hyperlink{vertex_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF};
+    mstSet[i] = \textcolor{keyword}{false};
+    vertexList[i].setParent(-1);
+    vertexList[i].setDistance(\hyperlink{vertex_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF});
+key[source] = 0;                            \textcolor{comment}{// <== O(1)}
+parent[source] = -1;                        \textcolor{comment}{// <== O(1)}
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries Initialization takes O(n)} \end{quote}
+
+
+for each vertex in the graph find the minimum weight adjacent edge and set it as discovered 
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} count = 0; count < numVertices; count++) \textcolor{comment}{// <== O(n)}
+    \textcolor{keywordtype}{int} u = minKey(key, mstSet);
+    mstSet[u] = \textcolor{keyword}{true};
+\end{DoxyCode}
+
+
+{\bfseries Algorithm}\+: long \hyperlink{class_graph_a6ce87b850b22cc6deed2b58f3760c4a9}{Graph\+::min\+Key(long key\mbox{[}$\,$\mbox{]}, bool mst\+Set\mbox{[}$\,$\mbox{]})} 
+\begin{DoxyCode}
+\textcolor{keywordtype}{long} min = \hyperlink{vertex_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF};
+\textcolor{keywordtype}{long} min\_index;
+\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} v = 0; v < numVertices; v++)            \textcolor{comment}{// <== O(n)}
+    \textcolor{keywordflow}{if}(mstSet[v] == \textcolor{keyword}{false} && key[v] < min)
+        min = key[v];
+        min\_index = v;
+
+\textcolor{keywordflow}{return} min\_index;
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries Process to find the minimum edge is O(n$\ast$n) =$>$ O(n$^\wedge$2)} \end{quote}
+
+
+Checking every edge that is adjacent to the current edge and to see if it has already been visited is a {\bfseries O(n)} process. 
+\begin{DoxyCode}
+\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} v = 0; v < numVertices; v++)         \textcolor{comment}{// <== O(n)}
+
+    \textcolor{keywordflow}{if} (adjacencyMatrix[u][v] > 0 && mstSet[v] == \textcolor{keyword}{false} && adjacencyMatrix[u][v] < key[v])
+        parent[v] = u;
+        vertexList[v].setParent(u);
+        key[v] = adjacencyMatrix[u][v];
+        vertexList[v].setDistance(key[v]);
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries Process to find the vertex with the smallest possible weight which has not been discovered for each vertex is O(n$\ast$n)} \end{quote}
+
+
+\begin{quote}
+{\bfseries Since the process takes n + n$^\wedge$2 + n$^\wedge$2} \end{quote}
+
+
+\begin{quote}
+{\bfseries O(n + n$^\wedge$2 + n$^\wedge$2) = O(n$^\wedge$2)} \end{quote}
+
+
+\subsubsection*{\hyperlink{class_heap}{Heap}}
+
+\hyperlink{class_heap}{Heap} worst case,best case and average case are {\bfseries O(nlogn)} The build\+Max\+Heap() operation is run once, and is {\bfseries O(n)} in performance. The bubble\+Down() function is {\bfseries O(log(n))}, and is called {\bfseries n} times. Therefore, the performance of this algorithm is {\bfseries O(n + n $\ast$ log(n))} which evaluates to {\bfseries O(n log n)}. Also, the bubble\+Down version of heapify has {\bfseries O(n)} time complexity, while the bubble\+Up version given below has {\bfseries O(n log n)} time complexity due to its equivalence with inserting each element, one at a time, into an empty heap. 

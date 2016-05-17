@@ -1,0 +1,140 @@
+.TH "QMapNodeBase" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QMapNodeBase \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qmap\&.h>\fP
+.PP
+Inherited by \fBQMapNode< Key, T >\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBColor\fP { \fBRed\fP = 0, \fBBlack\fP = 1 }"
+.br
+.ti -1c
+.RI "enum { \fBMask\fP = 3 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "const \fBQMapNodeBase\fP * \fBnextNode\fP () const "
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP * \fBnextNode\fP ()"
+.br
+.ti -1c
+.RI "const \fBQMapNodeBase\fP * \fBpreviousNode\fP () const "
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP * \fBpreviousNode\fP ()"
+.br
+.ti -1c
+.RI "\fBColor\fP \fBcolor\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetColor\fP (\fBColor\fP c)"
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP * \fBparent\fP () const "
+.br
+.ti -1c
+.RI "void \fBsetParent\fP (\fBQMapNodeBase\fP *pp)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "quintptr \fBp\fP"
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP * \fBleft\fP"
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP * \fBright\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 79 of file qmap\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMask \fP\fP
+.PP
+Definition at line 86 of file qmap\&.h\&.
+.SS "enum \fBQMapNodeBase::Color\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIRed \fP\fP
+.TP
+\fB\fIBlack \fP\fP
+.PP
+Definition at line 85 of file qmap\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBColor\fP QMapNodeBase::color () const\fC [inline]\fP"
+
+.PP
+Definition at line 93 of file qmap\&.h\&.
+.SS "const \fBQMapNodeBase\fP * QMapNodeBase::nextNode () const"
+
+.PP
+Definition at line 47 of file qmap\&.cpp\&.
+.SS "\fBQMapNodeBase\fP* QMapNodeBase::nextNode ()\fC [inline]\fP"
+
+.PP
+Definition at line 89 of file qmap\&.h\&.
+.SS "\fBQMapNodeBase\fP* QMapNodeBase::parent () const\fC [inline]\fP"
+
+.PP
+Definition at line 95 of file qmap\&.h\&.
+.SS "const \fBQMapNodeBase\fP * QMapNodeBase::previousNode () const"
+
+.PP
+Definition at line 65 of file qmap\&.cpp\&.
+.SS "\fBQMapNodeBase\fP* QMapNodeBase::previousNode ()\fC [inline]\fP"
+
+.PP
+Definition at line 91 of file qmap\&.h\&.
+.SS "void QMapNodeBase::setColor (\fBColor\fP c)\fC [inline]\fP"
+
+.PP
+Definition at line 94 of file qmap\&.h\&.
+.SS "void QMapNodeBase::setParent (\fBQMapNodeBase\fP * pp)\fC [inline]\fP"
+
+.PP
+Definition at line 96 of file qmap\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBQMapNodeBase\fP* QMapNodeBase::left"
+
+.PP
+Definition at line 82 of file qmap\&.h\&.
+.SS "quintptr QMapNodeBase::p"
+
+.PP
+Definition at line 81 of file qmap\&.h\&.
+.SS "\fBQMapNodeBase\fP* QMapNodeBase::right"
+
+.PP
+Definition at line 83 of file qmap\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

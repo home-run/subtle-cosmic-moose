@@ -1,0 +1,476 @@
+\hypertarget{class_q_map_1_1iterator}{}\section{Q\+Map$<$ Key, T $>$\+:\+:iterator Class Reference}
+\label{class_q_map_1_1iterator}\index{Q\+Map$<$ Key, T $>$\+::iterator@{Q\+Map$<$ Key, T $>$\+::iterator}}
+
+
+The \hyperlink{class_q_map_1_1iterator}{Q\+Map\+::iterator} class provides an S\+T\+L-\/style non-\/const iterator for \hyperlink{class_q_map}{Q\+Map} and \hyperlink{class_q_multi_map}{Q\+Multi\+Map}.  
+
+
+
+
+{\ttfamily \#include $<$qmap.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::bidirectional\+\_\+iterator\+\_\+tag \hyperlink{class_q_map_1_1iterator_aade380a34ce9c85a059175d414dbcc92}{iterator\+\_\+category}
+\item 
+typedef qptrdiff \hyperlink{class_q_map_1_1iterator_afe73281b3461d1635bfdfa5b2e8e7f28}{difference\+\_\+type}
+\item 
+typedef T \hyperlink{class_q_map_1_1iterator_a7f09aa326409d6d6a02a9a4b4afe3106}{value\+\_\+type}
+\item 
+typedef T $\ast$ \hyperlink{class_q_map_1_1iterator_ab385357a5b2a2018f1cfa855da8e9285}{pointer}
+\item 
+typedef T \& \hyperlink{class_q_map_1_1iterator_a51f731d0504f52859c209e708567f0ca}{reference}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_q_map_1_1iterator_ac7abc795f672ac4049726570ba460c87}{iterator} ()
+\item 
+\hyperlink{class_q_map_1_1iterator_a3c0ef7bb43edd14e972bcf9649b5649d}{iterator} (\hyperlink{struct_q_map_node}{Node} $\ast$node)
+\item 
+const Key \& \hyperlink{class_q_map_1_1iterator_af0dfe1fb8fe0c14b209b42f836ef2ee4}{key} () const 
+\item 
+T \& \hyperlink{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}{value} () const 
+\item 
+T \& \hyperlink{class_q_map_1_1iterator_a026751b88c480310a7dfc08c7edc1b16}{operator$\ast$} () const 
+\item 
+T $\ast$ \hyperlink{class_q_map_1_1iterator_a2bd3c3b35f5d78bb1870c846cdc566d1}{operator-\/$>$} () const 
+\item 
+bool \hyperlink{class_q_map_1_1iterator_a934510c8ca578b3659b2e91481dd5915}{operator==} (const \hyperlink{class_q_map_1_1iterator}{iterator} \&o) const 
+\item 
+bool \hyperlink{class_q_map_1_1iterator_a580abd11bf77a6ff8c2cf66c31dac35b}{operator!=} (const \hyperlink{class_q_map_1_1iterator}{iterator} \&o) const 
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \& \hyperlink{class_q_map_1_1iterator_a119ae3335f65b9d40af561352530e5b8}{operator++} ()
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_map_1_1iterator_a9a7434d417ace45b1e55768e2e76f8e3}{operator++} (int)
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \& \hyperlink{class_q_map_1_1iterator_a9f8068b336d1572a914c4c55d57fc174}{operator-\/-\/} ()
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_map_1_1iterator_ac9d9b8e0632050e007466efb2a0764c8}{operator-\/-\/} (int)
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_map_1_1iterator_a771aee188731919b54f1dd8e39c2a9cd}{operator+} (int j) const 
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_map_1_1iterator_a367af4b10d274f42dfe5b185cf775376}{operator-\/} (int j) const 
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \& \hyperlink{class_q_map_1_1iterator_a7e809c091ec3533242bcab277fcd1c23}{operator+=} (int j)
+\item 
+\hyperlink{class_q_map_1_1iterator}{iterator} \& \hyperlink{class_q_map_1_1iterator_abba119aac7555f93740494a1d08de88e}{operator-\/=} (int j)
+\item 
+bool \hyperlink{class_q_map_1_1iterator_a2a58be489f05e2c1f2b7e1c348b1913d}{operator==} (const \hyperlink{class_q_map_1_1const__iterator}{const\+\_\+iterator} \&o) const 
+\item 
+bool \hyperlink{class_q_map_1_1iterator_adb5abeeefa73991af41e5d63de0077f5}{operator!=} (const \hyperlink{class_q_map_1_1const__iterator}{const\+\_\+iterator} \&o) const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_q_map_1_1iterator_ac220ce1c155db1ac44146c12d178056f}{const\+\_\+iterator}
+\item 
+class \hyperlink{class_q_map_1_1iterator_a6f07e70412dd8d995969c9e0cb5bc4a0}{Q\+Map$<$ Key, T $>$}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Key, class T$>$\\*
+class Q\+Map$<$ Key, T $>$\+::iterator}
+
+The \hyperlink{class_q_map_1_1iterator}{Q\+Map\+::iterator} class provides an S\+T\+L-\/style non-\/const iterator for \hyperlink{class_q_map}{Q\+Map} and \hyperlink{class_q_multi_map}{Q\+Multi\+Map}. 
+
+Qt\+Core \hyperlink{class_q_map}{Q\+Map} features both \{S\+T\+L-\/style iterators\} and \{Java-\/style iterators\}. The S\+T\+L-\/style iterators are more low-\/level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know S\+TL, have the advantage of familiarity.
+
+\hyperlink{class_q_map}{Q\+Map}$<$Key, T$>$\+::iterator allows you to iterate over a \hyperlink{class_q_map}{Q\+Map} (or \hyperlink{class_q_multi_map}{Q\+Multi\+Map}) and to modify the value (but not the key) stored under a particular key. If you want to iterate over a const \hyperlink{class_q_map}{Q\+Map}, you should use \hyperlink{class_q_map_1_1const__iterator}{Q\+Map\+::const\+\_\+iterator}. It is generally good practice to use \hyperlink{class_q_map_1_1const__iterator}{Q\+Map\+::const\+\_\+iterator} on a non-\/const \hyperlink{class_q_map}{Q\+Map} as well, unless you need to change the \hyperlink{class_q_map}{Q\+Map} through the iterator. Const iterators are slightly faster, and can improve code readability.
+
+The default \hyperlink{class_q_map_1_1iterator}{Q\+Map\+::iterator} constructor creates an uninitialized iterator. You must initialize it using a \hyperlink{class_q_map}{Q\+Map} function like \hyperlink{class_q_map_a5712fc69379f2b6d707a1c65391ff9ef}{Q\+Map\+::begin()}, \hyperlink{class_q_map_a2935881385191efbb074e96cf8d3c9b6}{Q\+Map\+::end()}, or \hyperlink{class_q_map_a8cf44b635018eb178cc724ed20379d85}{Q\+Map\+::find()} before you can start iterating. Here\textquotesingle{}s a typical loop that prints all the (key, value) pairs stored in a map\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Unlike Q\+Hash, which stores its items in an arbitrary order, \hyperlink{class_q_map}{Q\+Map} stores its items ordered by key. Items that share the same key (because they were inserted using \hyperlink{class_q_map_a075634da2cf912a20dd1c4a5835acfa3}{Q\+Map\+::insert\+Multi()}, or due to a \hyperlink{class_q_map_a4626753159700253f441ad14fdc12245}{unite()}) will appear consecutively, from the most recently to the least recently inserted value.
+
+Let\textquotesingle{}s see a few examples of things we can do with a \hyperlink{class_q_map_1_1iterator}{Q\+Map\+::iterator} that we cannot do with a \hyperlink{class_q_map_1_1const__iterator}{Q\+Map\+::const\+\_\+iterator}. Here\textquotesingle{}s an example that increments every value stored in the \hyperlink{class_q_map}{Q\+Map} by 2\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Here\textquotesingle{}s an example that removes all the items whose key is a string that starts with an underscore character\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ The call to \hyperlink{class_q_map_add6cad4f0b12644cfe593d95f7a75807}{Q\+Map\+::erase()} removes the item pointed to by the iterator from the map, and returns an iterator to the next item. Here\textquotesingle{}s another way of removing an item while iterating\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ It might be tempting to write code like this\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ However, this will potentially crash in {\ttfamily }\{++i\}, because {\ttfamily i} is a dangling iterator after the call to \hyperlink{class_q_map_add6cad4f0b12644cfe593d95f7a75807}{erase()}.
+
+Multiple iterators can be used on the same map. If you add items to the map, existing iterators will remain valid. If you remove items from the map, iterators that point to the removed items will become dangling iterators.
+
+\begin{DoxyWarning}{Warning}
+Iterators on implicitly shared containers do not work exactly like S\+T\+L-\/iterators. You should avoid copying a container while iterators are active on that container. For more information, read \{Implicit sharing iterator problem\}.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1const__iterator}{Q\+Map\+::const\+\_\+iterator}, Q\+Mutable\+Map\+Iterator 
+\end{DoxySeeAlso}
+
+
+Definition at line 407 of file qmap.\+h.
+
+
+
+\subsection{Member Typedef Documentation}
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!difference\+\_\+type@{difference\+\_\+type}}
+\index{difference\+\_\+type@{difference\+\_\+type}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{difference\+\_\+type}{difference_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map}$<$ Key, T $>$\+::{\bf iterator\+::difference\+\_\+type}}\hypertarget{class_q_map_1_1iterator_afe73281b3461d1635bfdfa5b2e8e7f28}{}\label{class_q_map_1_1iterator_afe73281b3461d1635bfdfa5b2e8e7f28}
+
+
+Definition at line 414 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!iterator\+\_\+category@{iterator\+\_\+category}}
+\index{iterator\+\_\+category@{iterator\+\_\+category}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{iterator\+\_\+category}{iterator_category}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map}$<$ Key, T $>$\+::{\bf iterator\+::iterator\+\_\+category}}\hypertarget{class_q_map_1_1iterator_aade380a34ce9c85a059175d414dbcc92}{}\label{class_q_map_1_1iterator_aade380a34ce9c85a059175d414dbcc92}
+A synonym for {\itshape \{std\+::bidirectional\+\_\+iterator\+\_\+tag\}} indicating this iterator is a bidirectional iterator. 
+
+Definition at line 413 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{pointer}{pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map}$<$ Key, T $>$\+::{\bf iterator\+::pointer}}\hypertarget{class_q_map_1_1iterator_ab385357a5b2a2018f1cfa855da8e9285}{}\label{class_q_map_1_1iterator_ab385357a5b2a2018f1cfa855da8e9285}
+
+
+Definition at line 416 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!reference@{reference}}
+\index{reference@{reference}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{reference}{reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map}$<$ Key, T $>$\+::{\bf iterator\+::reference}}\hypertarget{class_q_map_1_1iterator_a51f731d0504f52859c209e708567f0ca}{}\label{class_q_map_1_1iterator_a51f731d0504f52859c209e708567f0ca}
+
+
+Definition at line 417 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{value\+\_\+type}{value_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map}$<$ Key, T $>$\+::{\bf iterator\+::value\+\_\+type}}\hypertarget{class_q_map_1_1iterator_a7f09aa326409d6d6a02a9a4b4afe3106}{}\label{class_q_map_1_1iterator_a7f09aa326409d6d6a02a9a4b4afe3106}
+
+
+Definition at line 415 of file qmap.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{iterator()}{iterator()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_ac7abc795f672ac4049726570ba460c87}{}\label{class_q_map_1_1iterator_ac7abc795f672ac4049726570ba460c87}
+Constructs an uninitialized iterator.
+
+Functions like \hyperlink{class_q_map_1_1iterator_af0dfe1fb8fe0c14b209b42f836ef2ee4}{key()}, \hyperlink{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}{value()}, and \hyperlink{class_q_map_1_1iterator_a119ae3335f65b9d40af561352530e5b8}{operator++()} must not be called on an uninitialized iterator. Use \hyperlink{class_q_map_ad04759cfb5b1ed0f3d35a2a16f45ae54}{operator=()} to assign a value to it before using it.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_a5712fc69379f2b6d707a1c65391ff9ef}{Q\+Map\+::begin()}, \hyperlink{class_q_map_a2935881385191efbb074e96cf8d3c9b6}{Q\+Map\+::end()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 419 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!iterator@{iterator}}
+\index{iterator@{iterator}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{iterator(\+Node $\ast$node)}{iterator(Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a3c0ef7bb43edd14e972bcf9649b5649d}{}\label{class_q_map_1_1iterator_a3c0ef7bb43edd14e972bcf9649b5649d}
+
+
+Definition at line 420 of file qmap.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!key@{key}}
+\index{key@{key}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{key() const }{key() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ const Key \& {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_af0dfe1fb8fe0c14b209b42f836ef2ee4}{}\label{class_q_map_1_1iterator_af0dfe1fb8fe0c14b209b42f836ef2ee4}
+Returns the current item\textquotesingle{}s key as a const reference.
+
+There is no direct way of changing an item\textquotesingle{}s key through an iterator, although it can be done by calling \hyperlink{class_q_map_add6cad4f0b12644cfe593d95f7a75807}{Q\+Map\+::erase()} followed by \hyperlink{class_q_map_a0cc56ab47ea14af1127ac7399814d289}{Q\+Map\+::insert()} or \hyperlink{class_q_map_a075634da2cf912a20dd1c4a5835acfa3}{Q\+Map\+::insert\+Multi()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}{value()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 422 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator"!=(const iterator \&o) const }{operator!=(const iterator &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ bool {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf iterator} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a580abd11bf77a6ff8c2cf66c31dac35b}{}\label{class_q_map_1_1iterator_a580abd11bf77a6ff8c2cf66c31dac35b}
+
+
+Definition at line 427 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator"!=(const const\+\_\+iterator \&o) const }{operator!=(const const_iterator &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ bool {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_adb5abeeefa73991af41e5d63de0077f5}{}\label{class_q_map_1_1iterator_adb5abeeefa73991af41e5d63de0077f5}
+Returns {\ttfamily true} if {\itshape other} points to a different item than this iterator; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_a934510c8ca578b3659b2e91481dd5915}{operator==()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 457 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ T \& {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a026751b88c480310a7dfc08c7edc1b16}{}\label{class_q_map_1_1iterator_a026751b88c480310a7dfc08c7edc1b16}
+Returns a modifiable reference to the current item\textquotesingle{}s value.
+
+Same as \hyperlink{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}{value()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_af0dfe1fb8fe0c14b209b42f836ef2ee4}{key()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 424 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator+@{operator+}}
+\index{operator+@{operator+}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator+(int j) const }{operator+(int j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{int}]{j}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a771aee188731919b54f1dd8e39c2a9cd}{}\label{class_q_map_1_1iterator_a771aee188731919b54f1dd8e39c2a9cd}
+Returns an iterator to the item at {\itshape j} positions forward from this iterator. (If {\itshape j} is negative, the iterator goes backward.)
+
+This operation can be slow for large {\itshape j} values.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_a367af4b10d274f42dfe5b185cf775376}{operator-\/()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 447 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a119ae3335f65b9d40af561352530e5b8}{}\label{class_q_map_1_1iterator_a119ae3335f65b9d40af561352530e5b8}
+The prefix ++ operator ({\ttfamily }\{++i\}) advances the iterator to the next item in the map and returns an iterator to the new current item.
+
+Calling this function on \hyperlink{class_q_map_a2935881385191efbb074e96cf8d3c9b6}{Q\+Map\+::end()} leads to undefined results.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_a9f8068b336d1572a914c4c55d57fc174}{operator-\/-\/()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 429 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator++(int)}{operator++(int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a9a7434d417ace45b1e55768e2e76f8e3}{}\label{class_q_map_1_1iterator_a9a7434d417ace45b1e55768e2e76f8e3}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+The postfix ++ operator ({\ttfamily }\{i++\}) advances the iterator to the next item in the map and returns an iterator to the previously current item. 
+
+Definition at line 433 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator+=(int j)}{operator+=(int j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} \& {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a7e809c091ec3533242bcab277fcd1c23}{}\label{class_q_map_1_1iterator_a7e809c091ec3533242bcab277fcd1c23}
+Advances the iterator by {\itshape j} items. (If {\itshape j} is negative, the iterator goes backward.)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_abba119aac7555f93740494a1d08de88e}{operator-\/=()}, \hyperlink{class_q_map_1_1iterator_a771aee188731919b54f1dd8e39c2a9cd}{operator+()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 450 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator-\/(int j) const }{operator-(int j) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{int}]{j}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a367af4b10d274f42dfe5b185cf775376}{}\label{class_q_map_1_1iterator_a367af4b10d274f42dfe5b185cf775376}
+Returns an iterator to the item at {\itshape j} positions backward from this iterator. (If {\itshape j} is negative, the iterator goes forward.)
+
+This operation can be slow for large {\itshape j} values.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_a771aee188731919b54f1dd8e39c2a9cd}{operator+()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 449 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator-\/-\/()}{operator--()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a9f8068b336d1572a914c4c55d57fc174}{}\label{class_q_map_1_1iterator_a9f8068b336d1572a914c4c55d57fc174}
+The prefix -- operator ({\ttfamily }\{--i\}) makes the preceding item current and returns an iterator pointing to the new current item.
+
+Calling this function on \hyperlink{class_q_map_a5712fc69379f2b6d707a1c65391ff9ef}{Q\+Map\+::begin()} leads to undefined results.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_a119ae3335f65b9d40af561352530e5b8}{operator++()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 438 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator-\/-\/(int)}{operator--(int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_ac9d9b8e0632050e007466efb2a0764c8}{}\label{class_q_map_1_1iterator_ac9d9b8e0632050e007466efb2a0764c8}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+The postfix -- operator ({\ttfamily }\{i--\}) makes the preceding item current and returns an iterator pointing to the previously current item. 
+
+Definition at line 442 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator-\/=(int j)}{operator-=(int j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Map\+::iterator} \& {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_abba119aac7555f93740494a1d08de88e}{}\label{class_q_map_1_1iterator_abba119aac7555f93740494a1d08de88e}
+Makes the iterator go back by {\itshape j} items. (If {\itshape j} is negative, the iterator goes forward.)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_a7e809c091ec3533242bcab277fcd1c23}{operator+=()}, \hyperlink{class_q_map_1_1iterator_a367af4b10d274f42dfe5b185cf775376}{operator-\/()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 451 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator-\/$>$() const }{operator->() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ T $\ast$ {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a2bd3c3b35f5d78bb1870c846cdc566d1}{}\label{class_q_map_1_1iterator_a2bd3c3b35f5d78bb1870c846cdc566d1}
+Returns a pointer to the current item\textquotesingle{}s value.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}{value()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 425 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator==(const iterator \&o) const }{operator==(const iterator &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ bool {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf iterator} \&}]{o}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a934510c8ca578b3659b2e91481dd5915}{}\label{class_q_map_1_1iterator_a934510c8ca578b3659b2e91481dd5915}
+
+
+Definition at line 426 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{operator==(const const\+\_\+iterator \&o) const }{operator==(const const_iterator &o) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ bool {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_a2a58be489f05e2c1f2b7e1c348b1913d}{}\label{class_q_map_1_1iterator_a2a58be489f05e2c1f2b7e1c348b1913d}
+Returns {\ttfamily true} if {\itshape other} points to the same item as this iterator; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_a580abd11bf77a6ff8c2cf66c31dac35b}{operator!=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 455 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!value@{value}}
+\index{value@{value}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{value() const }{value() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ T \& {\bf Q\+Map}$<$ Key, T $>$\+::iterator\+::value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}{}\label{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}
+Returns a modifiable reference to the current item\textquotesingle{}s value.
+
+You can change the value of an item by using \hyperlink{class_q_map_1_1iterator_add56d9970fa4c0bb2ffa84fb95a4aa46}{value()} on the left side of an assignment, for example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_1_1iterator_af0dfe1fb8fe0c14b209b42f836ef2ee4}{key()}, \hyperlink{class_q_map_1_1iterator_a026751b88c480310a7dfc08c7edc1b16}{operator$\ast$()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 423 of file qmap.\+h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator}{const_iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ friend class {\bf const\+\_\+iterator}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_q_map_1_1iterator_ac220ce1c155db1ac44146c12d178056f}{}\label{class_q_map_1_1iterator_ac220ce1c155db1ac44146c12d178056f}
+
+
+Definition at line 409 of file qmap.\+h.
+
+\index{Q\+Map\+::iterator@{Q\+Map\+::iterator}!Q\+Map$<$ Key, T $>$@{Q\+Map$<$ Key, T $>$}}
+\index{Q\+Map$<$ Key, T $>$@{Q\+Map$<$ Key, T $>$}!Q\+Map\+::iterator@{Q\+Map\+::iterator}}
+\subsubsection[{\texorpdfstring{Q\+Map$<$ Key, T $>$}{QMap< Key, T >}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ friend class {\bf Q\+Map}$<$ Key, T $>$\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_q_map_1_1iterator_a6f07e70412dd8d995969c9e0cb5bc4a0}{}\label{class_q_map_1_1iterator_a6f07e70412dd8d995969c9e0cb5bc4a0}
+
+
+Definition at line 460 of file qmap.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qmap_8h}{qmap.\+h}\item 
+docs/extra-\/files/\hyperlink{qmap_8cpp}{qmap.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,574 @@
+\hypertarget{class_vertex}{}\section{Vertex Class Reference}
+\label{class_vertex}\index{Vertex@{Vertex}}
+
+
+{\ttfamily \#include $<$vertex.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vertex_a97488994a2482d70da74e1b91d40e169}{Vertex} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_vertex}{Vertex} Default \hyperlink{class_vertex}{Vertex} constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_vertex_ade66bd39dce6ed6f1bdf4d93af045f56}{Vertex} (int id, Q\+String name, int distance)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_vertex}{Vertex} Non-\/default \hyperlink{class_vertex}{Vertex} Constructor. Takes in the ID and name of the vertex as it is being instatiated. \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}{get\+Id} () const 
+\begin{DoxyCompactList}\small\item\em get\+Id \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_vertex_af870d1f4fd501f7167c71461e3764cf5}{get\+Name} () const 
+\begin{DoxyCompactList}\small\item\em get\+Name \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_a754900c038f5a3b1da20c0448eb97fce}{get\+Distance} () const 
+\begin{DoxyCompactList}\small\item\em get\+Distance This distance is not the distance representing a single vertex but the distance between this vertex and another a \textquotesingle{}source\textquotesingle{} vertex during a single shortest path search \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_a0b766cc3ce251348af422c0773bb4359}{set\+Id} (int id)
+\begin{DoxyCompactList}\small\item\em set\+Id Set the ID of the vertex \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_a19650c9cd9e30c07897b70781bee3e31}{set\+Name} (Q\+String name)
+\begin{DoxyCompactList}\small\item\em set\+Name Set the name of the vertex \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_aeecd5db632f599376c1bfa3737348434}{set\+Parent} (int p)
+\begin{DoxyCompactList}\small\item\em set\+Parent Set the parent of the current vertex to p \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_a020868955e2e501f13bd4f5b6d1d5a23}{set\+Distance} (int d)
+\begin{DoxyCompactList}\small\item\em set\+Distance Set the distance of the vertex traveled between 2 vertices \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_a7f1217525ed5dffeeebc7201d4827e7c}{operator==} (const \hyperlink{class_vertex}{Vertex} \&v) const 
+\begin{DoxyCompactList}\small\item\em operator == Overloaded comparison operator. Compares the distance, ID and the name over the 2 vertices. Returns true if they are equal, false otherwise. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_ae704d41fe2ff1316201b85c5ec2d7d5b}{operator!=} (const \hyperlink{class_vertex}{Vertex} \&v) const 
+\begin{DoxyCompactList}\small\item\em operator != Overloaded comparison operator to see if the two vertices are not the same vertex. Compares the ID and the name of the vertex as its determining factors of equality. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_a82b7bdf14f62f4a0e13dce7f33f9713d}{operator$<$} (const \hyperlink{class_vertex}{Vertex} \&v) const 
+\begin{DoxyCompactList}\small\item\em operator $<$ Overloaded less than operator to compare this vertex distance and the given vertex v \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_a85bf76a3a2212f0d5d81e327f9eecd65}{operator$>$} (const \hyperlink{class_vertex}{Vertex} \&v) const 
+\begin{DoxyCompactList}\small\item\em operator $>$ Overloaded greater than operator to compare this vertex distance and the given vertex v \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_a9a9c7ae24773341a58343809e5fa511f}{operator$>$=} (const \hyperlink{class_vertex}{Vertex} \&v) const 
+\begin{DoxyCompactList}\small\item\em operator $>$= Overloaded greater than or equal operator to compare this vertex distance and the given vertex v \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_a5c45e745c39aeea6dd713d3ce7b5c023}{operator$<$=} (const \hyperlink{class_vertex}{Vertex} \&v) const 
+\begin{DoxyCompactList}\small\item\em operator $<$= Overloaded less than or equal operator to compare this vertex distance and the given vertex v \end{DoxyCompactList}\item 
+\hyperlink{class_vertex}{Vertex} $\ast$ \hyperlink{class_vertex_ae08494c23f6d03a242c2ff0ef0679865}{operator=} (const \hyperlink{class_vertex}{Vertex} \&v)
+\begin{DoxyCompactList}\small\item\em operator = Overloaded assignment operator to assign the values of the given vertex v to this vertex. Assigns the distance, id and name this vertex then returns \textquotesingle{}this\textquotesingle{} to the calling object. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_a700e64ce39492162ebd5ec2cb5cdea45}{add\+Edge} (\hyperlink{struct_edge}{Edge} edge)
+\begin{DoxyCompactList}\small\item\em add\+Edge Takes the given edge and insert it into an internal adjacency list. \end{DoxyCompactList}\item 
+\hyperlink{struct_edge}{Edge} \hyperlink{class_vertex_a32d9da19ba0b88642691f743092a6bea}{get\+Nearest\+Edge} ()
+\begin{DoxyCompactList}\small\item\em get\+Nearest\+Edge Method will grab the edge with the least amount of weight (distance) the current vertex. It removes the edge for the min-\/heap stored in the vertex and appends it to a list of edges that has been removed. \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_a0988796727c76d1161c656f696ee0997}{get\+Num\+Edges} () const 
+\begin{DoxyCompactList}\small\item\em get\+Num\+Edges This method will return the number of adjacent edges that exsists between this vertex and other vertices. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_ab6f75fe6517f8a56d7b033510e71a9ea}{has\+Edges} () const 
+\begin{DoxyCompactList}\small\item\em has\+Edges Returns a boolean value if the current vertex has adjacent edges left in it\textquotesingle{}s priority queue adjacency list. \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_a57eba4a06c19525ba9753058061c370c}{get\+Parent} () const 
+\begin{DoxyCompactList}\small\item\em get\+Parent Method returns the ID integer value of the it\textquotesingle{}s parent vertex. This is only established after a path has been taken using Dijkstra\textquotesingle{}s algorithm or calculating the minimum spanning tree. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_a81f32ef92752b1b4832e026b03e0dd2b}{reinitialize\+Edges} ()
+\begin{DoxyCompactList}\small\item\em reinitialize\+Edges This method iterates the vertex\textquotesingle{}s current edges and places them back into it\textquotesingle{}s own priority queue (adjacency list). \end{DoxyCompactList}\item 
+\hyperlink{struct_edge}{Edge} \hyperlink{class_vertex_a4fd094f20a327502d4c5752354ed0bf1}{get\+Next\+Edge} ()
+\begin{DoxyCompactList}\small\item\em get\+Next\+Edge this will return the next edge available in verticee adjacency list. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_a34cfbcd18c862c2532be2ecfd790c428}{set\+Queue\+Position} (int pos)
+\begin{DoxyCompactList}\small\item\em set\+Queue\+Position Sets the vertex index that is relative to its position in the stored object that it is located in, such as a map, queue or a vector. \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_aae3e291772ef43309d3609800aa4c1c3}{get\+Queue\+Position} () const 
+\begin{DoxyCompactList}\small\item\em get\+Queue\+Position This returns the vertices index of the position / location that it is located in a container object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 28 of file vertex.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{Vertex()}{Vertex()}}]{\setlength{\rightskip}{0pt plus 5cm}Vertex\+::\+Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a97488994a2482d70da74e1b91d40e169}{}\label{class_vertex_a97488994a2482d70da74e1b91d40e169}
+
+
+\hyperlink{class_vertex}{Vertex} Default \hyperlink{class_vertex}{Vertex} constructor. 
+
+
+
+Definition at line 35 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{Vertex(int id, Q\+String name, int distance)}{Vertex(int id, QString name, int distance)}}]{\setlength{\rightskip}{0pt plus 5cm}Vertex\+::\+Vertex (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{Q\+String}]{name, }
+\item[{int}]{distance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_ade66bd39dce6ed6f1bdf4d93af045f56}{}\label{class_vertex_ade66bd39dce6ed6f1bdf4d93af045f56}
+
+
+\hyperlink{class_vertex}{Vertex} Non-\/default \hyperlink{class_vertex}{Vertex} Constructor. Takes in the ID and name of the vertex as it is being instatiated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 50 of file vertex.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Vertex@{Vertex}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{add\+Edge(\+Edge edge)}{addEdge(Edge edge)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::add\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Edge}}]{edge}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a700e64ce39492162ebd5ec2cb5cdea45}{}\label{class_vertex_a700e64ce39492162ebd5ec2cb5cdea45}
+
+
+add\+Edge Takes the given edge and insert it into an internal adjacency list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Distance() const }{getDistance() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Vertex\+::get\+Distance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a754900c038f5a3b1da20c0448eb97fce}{}\label{class_vertex_a754900c038f5a3b1da20c0448eb97fce}
+
+
+get\+Distance This distance is not the distance representing a single vertex but the distance between this vertex and another a \textquotesingle{}source\textquotesingle{} vertex during a single shortest path search 
+
+\begin{DoxyReturn}{Returns}
+the distance stored in the vertex 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Id() const }{getId() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Vertex\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}{}\label{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}
+
+
+get\+Id 
+
+\begin{DoxyReturn}{Returns}
+The id of the vertex 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Name() const }{getName() const }}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Vertex\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_af870d1f4fd501f7167c71461e3764cf5}{}\label{class_vertex_af870d1f4fd501f7167c71461e3764cf5}
+
+
+get\+Name 
+
+\begin{DoxyReturn}{Returns}
+The name of the vertex 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Nearest\+Edge@{get\+Nearest\+Edge}}
+\index{get\+Nearest\+Edge@{get\+Nearest\+Edge}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Nearest\+Edge()}{getNearestEdge()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge} Vertex\+::get\+Nearest\+Edge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a32d9da19ba0b88642691f743092a6bea}{}\label{class_vertex_a32d9da19ba0b88642691f743092a6bea}
+
+
+get\+Nearest\+Edge Method will grab the edge with the least amount of weight (distance) the current vertex. It removes the edge for the min-\/heap stored in the vertex and appends it to a list of edges that has been removed. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 239 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Next\+Edge@{get\+Next\+Edge}}
+\index{get\+Next\+Edge@{get\+Next\+Edge}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Next\+Edge()}{getNextEdge()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge} Vertex\+::get\+Next\+Edge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a4fd094f20a327502d4c5752354ed0bf1}{}\label{class_vertex_a4fd094f20a327502d4c5752354ed0bf1}
+
+
+get\+Next\+Edge this will return the next edge available in verticee adjacency list. 
+
+\begin{DoxyReturn}{Returns}
+edge object of the adj list 
+\end{DoxyReturn}
+
+
+Definition at line 310 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Num\+Edges@{get\+Num\+Edges}}
+\index{get\+Num\+Edges@{get\+Num\+Edges}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Num\+Edges() const }{getNumEdges() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Vertex\+::get\+Num\+Edges (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a0988796727c76d1161c656f696ee0997}{}\label{class_vertex_a0988796727c76d1161c656f696ee0997}
+
+
+get\+Num\+Edges This method will return the number of adjacent edges that exsists between this vertex and other vertices. 
+
+\begin{DoxyReturn}{Returns}
+int val of number of adjacent edges 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Parent@{get\+Parent}}
+\index{get\+Parent@{get\+Parent}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Parent() const }{getParent() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Vertex\+::get\+Parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a57eba4a06c19525ba9753058061c370c}{}\label{class_vertex_a57eba4a06c19525ba9753058061c370c}
+
+
+get\+Parent Method returns the ID integer value of the it\textquotesingle{}s parent vertex. This is only established after a path has been taken using Dijkstra\textquotesingle{}s algorithm or calculating the minimum spanning tree. 
+
+\begin{DoxyReturn}{Returns}
+int ID of the parent vertex 
+\end{DoxyReturn}
+
+
+Definition at line 284 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!get\+Queue\+Position@{get\+Queue\+Position}}
+\index{get\+Queue\+Position@{get\+Queue\+Position}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{get\+Queue\+Position() const }{getQueuePosition() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Vertex\+::get\+Queue\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_aae3e291772ef43309d3609800aa4c1c3}{}\label{class_vertex_aae3e291772ef43309d3609800aa4c1c3}
+
+
+get\+Queue\+Position This returns the vertices index of the position / location that it is located in a container object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 332 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!has\+Edges@{has\+Edges}}
+\index{has\+Edges@{has\+Edges}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{has\+Edges() const }{hasEdges() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+::has\+Edges (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_ab6f75fe6517f8a56d7b033510e71a9ea}{}\label{class_vertex_ab6f75fe6517f8a56d7b033510e71a9ea}
+
+
+has\+Edges Returns a boolean value if the current vertex has adjacent edges left in it\textquotesingle{}s priority queue adjacency list. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 272 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{operator"!=(const Vertex \&v) const }{operator!=(const Vertex &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_ae704d41fe2ff1316201b85c5ec2d7d5b}{}\label{class_vertex_ae704d41fe2ff1316201b85c5ec2d7d5b}
+
+
+operator != Overloaded comparison operator to see if the two vertices are not the same vertex. Compares the ID and the name of the vertex as its determining factors of equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if they don\textquotesingle{}t match; otherwise return false if they do. 
+\end{DoxyReturn}
+
+
+Definition at line 153 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{operator$<$(const Vertex \&v) const }{operator<(const Vertex &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a82b7bdf14f62f4a0e13dce7f33f9713d}{}\label{class_vertex_a82b7bdf14f62f4a0e13dce7f33f9713d}
+
+
+operator $<$ Overloaded less than operator to compare this vertex distance and the given vertex v 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 166 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{operator$<$=(const Vertex \&v) const }{operator<=(const Vertex &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a5c45e745c39aeea6dd713d3ce7b5c023}{}\label{class_vertex_a5c45e745c39aeea6dd713d3ce7b5c023}
+
+
+operator $<$= Overloaded less than or equal operator to compare this vertex distance and the given vertex v 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 200 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!operator=@{operator=}}
+\index{operator=@{operator=}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{operator=(const Vertex \&v)}{operator=(const Vertex &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex}$\ast$ Vertex\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_ae08494c23f6d03a242c2ff0ef0679865}{}\label{class_vertex_ae08494c23f6d03a242c2ff0ef0679865}
+
+
+operator = Overloaded assignment operator to assign the values of the given vertex v to this vertex. Assigns the distance, id and name this vertex then returns \textquotesingle{}this\textquotesingle{} to the calling object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 212 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!operator==@{operator==}}
+\index{operator==@{operator==}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{operator==(const Vertex \&v) const }{operator==(const Vertex &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a7f1217525ed5dffeeebc7201d4827e7c}{}\label{class_vertex_a7f1217525ed5dffeeebc7201d4827e7c}
+
+
+operator == Overloaded comparison operator. Compares the distance, ID and the name over the 2 vertices. Returns true if they are equal, false otherwise. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if they are equal, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{operator$>$(const Vertex \&v) const }{operator>(const Vertex &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a85bf76a3a2212f0d5d81e327f9eecd65}{}\label{class_vertex_a85bf76a3a2212f0d5d81e327f9eecd65}
+
+
+operator $>$ Overloaded greater than operator to compare this vertex distance and the given vertex v 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 178 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{operator$>$=(const Vertex \&v) const }{operator>=(const Vertex &v) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a9a9c7ae24773341a58343809e5fa511f}{}\label{class_vertex_a9a9c7ae24773341a58343809e5fa511f}
+
+
+operator $>$= Overloaded greater than or equal operator to compare this vertex distance and the given vertex v 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 189 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!reinitialize\+Edges@{reinitialize\+Edges}}
+\index{reinitialize\+Edges@{reinitialize\+Edges}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{reinitialize\+Edges()}{reinitializeEdges()}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::reinitialize\+Edges (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a81f32ef92752b1b4832e026b03e0dd2b}{}\label{class_vertex_a81f32ef92752b1b4832e026b03e0dd2b}
+
+
+reinitialize\+Edges This method iterates the vertex\textquotesingle{}s current edges and places them back into it\textquotesingle{}s own priority queue (adjacency list). 
+
+
+
+Definition at line 294 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!set\+Distance@{set\+Distance}}
+\index{set\+Distance@{set\+Distance}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{set\+Distance(int d)}{setDistance(int d)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::set\+Distance (
+\begin{DoxyParamCaption}
+\item[{int}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a020868955e2e501f13bd4f5b6d1d5a23}{}\label{class_vertex_a020868955e2e501f13bd4f5b6d1d5a23}
+
+
+set\+Distance Set the distance of the vertex traveled between 2 vertices 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 128 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!set\+Id@{set\+Id}}
+\index{set\+Id@{set\+Id}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{set\+Id(int id)}{setId(int id)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::set\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a0b766cc3ce251348af422c0773bb4359}{}\label{class_vertex_a0b766cc3ce251348af422c0773bb4359}
+
+
+set\+Id Set the ID of the vertex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{set\+Name(\+Q\+String name)}{setName(QString name)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::set\+Name (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a19650c9cd9e30c07897b70781bee3e31}{}\label{class_vertex_a19650c9cd9e30c07897b70781bee3e31}
+
+
+set\+Name Set the name of the vertex 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 108 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!set\+Parent@{set\+Parent}}
+\index{set\+Parent@{set\+Parent}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{set\+Parent(int p)}{setParent(int p)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::set\+Parent (
+\begin{DoxyParamCaption}
+\item[{int}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_aeecd5db632f599376c1bfa3737348434}{}\label{class_vertex_aeecd5db632f599376c1bfa3737348434}
+
+
+set\+Parent Set the parent of the current vertex to p 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 118 of file vertex.\+h.
+
+\index{Vertex@{Vertex}!set\+Queue\+Position@{set\+Queue\+Position}}
+\index{set\+Queue\+Position@{set\+Queue\+Position}!Vertex@{Vertex}}
+\subsubsection[{\texorpdfstring{set\+Queue\+Position(int pos)}{setQueuePosition(int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+::set\+Queue\+Position (
+\begin{DoxyParamCaption}
+\item[{int}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_a34cfbcd18c862c2532be2ecfd790c428}{}\label{class_vertex_a34cfbcd18c862c2532be2ecfd790c428}
+
+
+set\+Queue\+Position Sets the vertex index that is relative to its position in the stored object that it is located in, such as a map, queue or a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 321 of file vertex.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{vertex_8h}{vertex.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,152 @@
+\href{http://waffle.io/home-run/subtle-cosmic-moose}{\tt }
+
+\subsection*{$\sim$/run (H\+O\+ME R\+UN)}
+
+\subsection*{\#\#\+An application for planning a baseball fan\textquotesingle{}s dream vacation. }
+
+\subsubsection*{Git flow and branching scheme}
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries Always} branch from {\ttfamily develop}.
+\item Branch naming scheme is defined as such\+:
+\begin{DoxyItemize}
+\item {\ttfamily $<$issue number$>$-\/brief-\/description}
+\item For example, \href{https://waffle.io/home-run/subtle-cosmic-moose/cards/56fa022814437c0e00ba6c1e}{\tt issue \#1 is to create a R\+E\+A\+D\+ME file}, so my branch name is {\ttfamily 1-\/readme}.
+\end{DoxyItemize}
+\item Include a \textquotesingle{}\#\textquotesingle{} followed by the issue number in every commit.
+\begin{DoxyItemize}
+\item For example, commits to this branch will look like this\+: {\ttfamily \mbox{[}\#1\mbox{]} Added stuff to readme.}
+\end{DoxyItemize}
+\item Never work on a branch without an associated issue. If you don\textquotesingle{}t see the issue on waffle, create one.
+\item Always push a branch immediately after creating it. This is to correctly update issues on waffle, and also to let other teammates know what you\textquotesingle{}re working on.
+\item Pull-\/requests must be reviewed by all members of the team before they are approved for merge.
+\item Delete the feature branch once a pull-\/request is merged.
+\end{DoxyEnumerate}
+
+\subsubsection*{A mini command-\/line git tutorial (for our purposes for this project)}
+
+0. Clone the repo.
+\begin{DoxyItemize}
+\item {\ttfamily git clone \href{https://github.com/home-run/subtle-cosmic-moose.git}{\tt https\+://github.\+com/home-\/run/subtle-\/cosmic-\/moose.\+git}}
+\item {\ttfamily cd subtle-\/cosmic-\/moose}
+\end{DoxyItemize}
+
+Switch to branch {\ttfamily develop}.
+\begin{DoxyItemize}
+\item {\ttfamily git checkout develop}
+\end{DoxyItemize}
+
+Make sure to do a {\ttfamily git pull} before branching, so you always have up-\/to-\/date code.
+\begin{DoxyEnumerate}
+\item Create/switch to your branch. (This one command does both.)
+\begin{DoxyItemize}
+\item {\ttfamily git checkout -\/b 66-\/a-\/brief-\/description}
+\end{DoxyItemize}
+\item Push the newly created branch.
+\begin{DoxyItemize}
+\item {\ttfamily git push -\/u origin 66-\/a-\/brief-\/description}
+\end{DoxyItemize}
+\item Start coding!
+\item Add your changes to the staging area to prepare for a commit.
+\begin{DoxyItemize}
+\item {\ttfamily git add my\+\_\+new\+\_\+file.\+cpp} for files that don\textquotesingle{}t exist on the repo yet.
+\item {\ttfamily git add -\/u} for files that already exist on the repo that have been updated.
+\item You can use the command {\ttfamily git status} to view the staging area at any time.
+\end{DoxyItemize}
+\item Make a commit. Make sure to include \textquotesingle{}\#\textquotesingle{} followed by your issue number somewhere in the commit message.
+\begin{DoxyItemize}
+\item {\ttfamily git commit -\/m \char`\"{}\mbox{[}\#66\mbox{]} Mashed keys until it compiled. Don\textquotesingle{}t bother testing it. It\textquotesingle{}s fine, I swear.\char`\"{}}
+\end{DoxyItemize}
+\item Push your changes.
+\begin{DoxyItemize}
+\item If you used the command in {\bfseries step 4}, this is simply {\ttfamily git push} (The {\ttfamily -\/u} flag sets the upstream so you don\textquotesingle{}t have to explicitly set it for every push).
+\item Otherwise, the command is {\ttfamily git push origin 66-\/a-\/brief-\/description}
+\end{DoxyItemize}
+\item Drink more coffee. \+:coffee\+:
+\end{DoxyEnumerate}
+
+\subsubsection*{A Brief Doxygen Style Guide}
+
+{\bfseries note\+:} {\itshape A\+LL code must be doxygen commented.} {\bfseries If your code isn\textquotesingle{}t commented, it will not be approved for merge.}
+
+{\bfseries In QT, typing} {\ttfamily /$\ast$$\ast$ + return} {\bfseries above a declaration will produce a doxygen comment block.}
+
+Full commenting manual can be found \href{http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html}{\tt here}.
+
+\paragraph*{Things to note about Doxygen comments}
+
+
+\begin{DoxyItemize}
+\item Comments can come before the code item.
+\item For class members and parameters they may also come after them.
+\item They may be either brief (one line) or detailed or both.
+\item Put the reference documentation type comments (class and method descriptions) {\bfseries in the .h file} and {\itshape not} in (or, at least, in addition to) the .cpp files.
+\end{DoxyItemize}
+
+\paragraph*{Brief comment before}
+
+Add an extra \char`\"{}/\char`\"{}
+
+
+\begin{DoxyCode}
+1 /// This method does something
+2 void DoSomething();
+\end{DoxyCode}
+
+
+\paragraph*{Detailed comment before}
+
+Add an extra \char`\"{}$\ast$\char`\"{}
+
+
+\begin{DoxyCode}
+1 /** This is a method that does so
+2   * much that I must write an epic 
+3   * novel just to describe how much
+4   * it truly does. */
+5 void DoNothing();
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item the intermediate leading \char`\"{}$\ast$\char`\"{}s are optional.
+\end{DoxyItemize}
+
+\paragraph*{Brief comment after}
+
+Add an extra \char`\"{}/$<$\char`\"{}
+
+
+\begin{DoxyCode}
+1 void DoSomething(); ///< This method does something
+\end{DoxyCode}
+
+
+\subsubsection*{Detailed comment after}
+
+Add an extra \char`\"{}$\ast$$<$\char`\"{}
+
+
+\begin{DoxyCode}
+1 void DoNothing(); /**< This is a method that does so
+2   * much that I must write an epic 
+3   * novel just to describe how much
+4   * it truly does. */
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item the intermediate leading \char`\"{}$\ast$\char`\"{}s are optional.
+\end{DoxyItemize}
+
+\paragraph*{Example .h file}
+
+Below is a full example.
+
+``` /$\ast$$\ast$
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}

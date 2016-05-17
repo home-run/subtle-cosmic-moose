@@ -1,0 +1,388 @@
+.TH "QMap< Key, T >::iterator" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QMap< Key, T >::iterator \- The \fBQMap::iterator\fP class provides an STL-style non-const iterator for \fBQMap\fP and \fBQMultiMap\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qmap\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef std::bidirectional_iterator_tag \fBiterator_category\fP"
+.br
+.ti -1c
+.RI "typedef qptrdiff \fBdifference_type\fP"
+.br
+.ti -1c
+.RI "typedef T \fBvalue_type\fP"
+.br
+.ti -1c
+.RI "typedef T * \fBpointer\fP"
+.br
+.ti -1c
+.RI "typedef T & \fBreference\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBiterator\fP ()"
+.br
+.ti -1c
+.RI "\fBiterator\fP (\fBNode\fP *node)"
+.br
+.ti -1c
+.RI "const Key & \fBkey\fP () const "
+.br
+.ti -1c
+.RI "T & \fBvalue\fP () const "
+.br
+.ti -1c
+.RI "T & \fBoperator*\fP () const "
+.br
+.ti -1c
+.RI "T * \fBoperator\->\fP () const "
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBiterator\fP &o) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBiterator\fP &o) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator++\fP ()"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator++\fP (int)"
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator\-\-\fP ()"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator\-\-\fP (int)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator+\fP (int j) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator\-\fP (int j) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator+=\fP (int j)"
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator\-=\fP (int j)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBconst_iterator\fP &o) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBconst_iterator\fP &o) const "
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBconst_iterator\fP"
+.br
+.ti -1c
+.RI "class \fBQMap< Key, T >\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class Key, class T>
+.br
+class QMap< Key, T >::iterator"
+The \fBQMap::iterator\fP class provides an STL-style non-const iterator for \fBQMap\fP and \fBQMultiMap\fP\&. 
+
+QtCore \fBQMap\fP features both {STL-style iterators} and {Java-style iterators}\&. The STL-style iterators are more low-level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know STL, have the advantage of familiarity\&.
+.PP
+\fBQMap\fP<Key, T>::iterator allows you to iterate over a \fBQMap\fP (or \fBQMultiMap\fP) and to modify the value (but not the key) stored under a particular key\&. If you want to iterate over a const \fBQMap\fP, you should use \fBQMap::const_iterator\fP\&. It is generally good practice to use \fBQMap::const_iterator\fP on a non-const \fBQMap\fP as well, unless you need to change the \fBQMap\fP through the iterator\&. Const iterators are slightly faster, and can improve code readability\&.
+.PP
+The default \fBQMap::iterator\fP constructor creates an uninitialized iterator\&. You must initialize it using a \fBQMap\fP function like \fBQMap::begin()\fP, \fBQMap::end()\fP, or \fBQMap::find()\fP before you can start iterating\&. Here's a typical loop that prints all the (key, value) pairs stored in a map:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Unlike QHash, which stores its items in an arbitrary order, \fBQMap\fP stores its items ordered by key\&. Items that share the same key (because they were inserted using \fBQMap::insertMulti()\fP, or due to a \fBunite()\fP) will appear consecutively, from the most recently to the least recently inserted value\&.
+.PP
+Let's see a few examples of things we can do with a \fBQMap::iterator\fP that we cannot do with a \fBQMap::const_iterator\fP\&. Here's an example that increments every value stored in the \fBQMap\fP by 2:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Here's an example that removes all the items whose key is a string that starts with an underscore character:
+.PP
+.PP
+.nf
+.fi
+.PP
+ The call to \fBQMap::erase()\fP removes the item pointed to by the iterator from the map, and returns an iterator to the next item\&. Here's another way of removing an item while iterating:
+.PP
+.PP
+.nf
+.fi
+.PP
+ It might be tempting to write code like this:
+.PP
+.PP
+.nf
+.fi
+.PP
+ However, this will potentially crash in \fC\fP{++i}, because \fCi\fP is a dangling iterator after the call to \fBerase()\fP\&.
+.PP
+Multiple iterators can be used on the same map\&. If you add items to the map, existing iterators will remain valid\&. If you remove items from the map, iterators that point to the removed items will become dangling iterators\&.
+.PP
+\fBWarning:\fP
+.RS 4
+Iterators on implicitly shared containers do not work exactly like STL-iterators\&. You should avoid copying a container while iterators are active on that container\&. For more information, read {Implicit sharing iterator problem}\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBQMap::const_iterator\fP, QMutableMapIterator 
+.RE
+.PP
+
+.PP
+Definition at line 407 of file qmap\&.h\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBiterator::difference_type\fP"
+
+.PP
+Definition at line 414 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBiterator::iterator_category\fP"
+A synonym for \fI{std::bidirectional_iterator_tag}\fP indicating this iterator is a bidirectional iterator\&. 
+.PP
+Definition at line 413 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBiterator::pointer\fP"
+
+.PP
+Definition at line 416 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBiterator::reference\fP"
+
+.PP
+Definition at line 417 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBiterator::value_type\fP"
+
+.PP
+Definition at line 415 of file qmap\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::iterator::iterator ()\fC [inline]\fP"
+Constructs an uninitialized iterator\&.
+.PP
+Functions like \fBkey()\fP, \fBvalue()\fP, and \fBoperator++()\fP must not be called on an uninitialized iterator\&. Use \fBoperator=()\fP to assign a value to it before using it\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBQMap::begin()\fP, \fBQMap::end()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 419 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::iterator::iterator (\fBNode\fP * node)\fC [inline]\fP"
+
+.PP
+Definition at line 420 of file qmap\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class Key, class T> const Key & \fBQMap\fP< Key, T >::iterator::key () const\fC [inline]\fP"
+Returns the current item's key as a const reference\&.
+.PP
+There is no direct way of changing an item's key through an iterator, although it can be done by calling \fBQMap::erase()\fP followed by \fBQMap::insert()\fP or \fBQMap::insertMulti()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBvalue()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 422 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::iterator::operator!= (const \fBiterator\fP & o) const\fC [inline]\fP"
+
+.PP
+Definition at line 427 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::iterator::operator!= (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if \fIother\fP points to a different item than this iterator; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator==()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 457 of file qmap\&.h\&.
+.SS "template<class Key, class T> T & \fBQMap\fP< Key, T >::iterator::operator* () const\fC [inline]\fP"
+Returns a modifiable reference to the current item's value\&.
+.PP
+Same as \fBvalue()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBkey()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 424 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::iterator::operator+ (int j) const\fC [inline]\fP"
+Returns an iterator to the item at \fIj\fP positions forward from this iterator\&. (If \fIj\fP is negative, the iterator goes backward\&.)
+.PP
+This operation can be slow for large \fIj\fP values\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator-()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 447 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::iterator::operator++ ()\fC [inline]\fP"
+The prefix ++ operator (\fC\fP{++i}) advances the iterator to the next item in the map and returns an iterator to the new current item\&.
+.PP
+Calling this function on \fBQMap::end()\fP leads to undefined results\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator--()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 429 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::iterator::operator++ (int)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+The postfix ++ operator (\fC\fP{i++}) advances the iterator to the next item in the map and returns an iterator to the previously current item\&. 
+.PP
+Definition at line 433 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP & \fBQMap\fP< Key, T >::iterator::operator+= (int j)\fC [inline]\fP"
+Advances the iterator by \fIj\fP items\&. (If \fIj\fP is negative, the iterator goes backward\&.)
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator-=()\fP, \fBoperator+()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 450 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::iterator::operator\- (int j) const\fC [inline]\fP"
+Returns an iterator to the item at \fIj\fP positions backward from this iterator\&. (If \fIj\fP is negative, the iterator goes forward\&.)
+.PP
+This operation can be slow for large \fIj\fP values\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 449 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::iterator::operator\-\- ()\fC [inline]\fP"
+The prefix -- operator (\fC\fP{--i}) makes the preceding item current and returns an iterator pointing to the new current item\&.
+.PP
+Calling this function on \fBQMap::begin()\fP leads to undefined results\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator++()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 438 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::iterator::operator\-\- (int)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+The postfix -- operator (\fC\fP{i--}) makes the preceding item current and returns an iterator pointing to the previously current item\&. 
+.PP
+Definition at line 442 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP & \fBQMap\fP< Key, T >::iterator::operator\-= (int j)\fC [inline]\fP"
+Makes the iterator go back by \fIj\fP items\&. (If \fIj\fP is negative, the iterator goes forward\&.)
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+=()\fP, \fBoperator-()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 451 of file qmap\&.h\&.
+.SS "template<class Key, class T> T * \fBQMap\fP< Key, T >::iterator::operator\-> () const\fC [inline]\fP"
+Returns a pointer to the current item's value\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBvalue()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 425 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::iterator::operator== (const \fBiterator\fP & o) const\fC [inline]\fP"
+
+.PP
+Definition at line 426 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::iterator::operator== (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if \fIother\fP points to the same item as this iterator; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator!=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 455 of file qmap\&.h\&.
+.SS "template<class Key, class T> T & \fBQMap\fP< Key, T >::iterator::value () const\fC [inline]\fP"
+Returns a modifiable reference to the current item's value\&.
+.PP
+You can change the value of an item by using \fBvalue()\fP on the left side of an assignment, for example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBkey()\fP, \fBoperator*()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 423 of file qmap\&.h\&.
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<class Key, class T> friend class \fBconst_iterator\fP\fC [friend]\fP"
+
+.PP
+Definition at line 409 of file qmap\&.h\&.
+.SS "template<class Key, class T> friend class \fBQMap\fP< Key, T >\fC [friend]\fP"
+
+.PP
+Definition at line 460 of file qmap\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

@@ -1,0 +1,341 @@
+\hypertarget{struct_q_list_data}{}\section{Q\+List\+Data Struct Reference}
+\label{struct_q_list_data}\index{Q\+List\+Data@{Q\+List\+Data}}
+
+
+{\ttfamily \#include $<$qlist.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_q_list_data_1_1_array_compatible_layout}{Array\+Compatible\+Layout}
+\item 
+struct \hyperlink{struct_q_list_data_1_1_data}{Data}
+\item 
+struct \hyperlink{struct_q_list_data_1_1_indirect_layout}{Indirect\+Layout}
+\item 
+struct \hyperlink{struct_q_list_data_1_1_inline_with_padding_layout}{Inline\+With\+Padding\+Layout}
+\item 
+struct \hyperlink{struct_q_list_data_1_1_not_array_compatible_layout}{Not\+Array\+Compatible\+Layout}
+\item 
+struct \hyperlink{struct_q_list_data_1_1_not_indirect_layout}{Not\+Indirect\+Layout}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{struct_q_list_data_a88af8e9d6ad89d620342699337adecd9ab7e25b7cb0b58eba7ee40732ecf04f87}{Data\+Header\+Size} = sizeof(Data) -\/ sizeof(void $\ast$)
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_q_list_data_1_1_data}{Data} $\ast$ \hyperlink{struct_q_list_data_a4e17bcd552f357900d962fa495fa3448}{detach} (int alloc)
+\item 
+\hyperlink{struct_q_list_data_1_1_data}{Data} $\ast$ \hyperlink{struct_q_list_data_aad47b203505d5b3bfefc320a701b952c}{detach\+\_\+grow} (int $\ast$i, int n)
+\item 
+void \hyperlink{struct_q_list_data_a5eee854eba14729f3ae43d02857ac49f}{realloc} (int alloc)
+\item 
+void \hyperlink{struct_q_list_data_adfe8be2a05f225111f633a34cc2662ef}{dispose} ()
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a9f684947994b45db2f71c7527839a653}{erase} (void $\ast$$\ast$xi)
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a502bb627164367ef1c1e88667a913eab}{append} (int n)
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a895361b38a78e98b1352d48018e67905}{append} ()
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a3105607f5df632d891505f1765541d07}{append} (const \hyperlink{struct_q_list_data}{Q\+List\+Data} \&l)
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a8ca42a19ea2f5609b1c3177c5edfba53}{prepend} ()
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a55d7b71ffde3b5643f252d31d7caaeb1}{insert} (int i)
+\item 
+void \hyperlink{struct_q_list_data_a5a18ef36abcbbfc40f1f12c7aad12cd2}{remove} (int i)
+\item 
+void \hyperlink{struct_q_list_data_a8b18c609489f9ae75aa54b7a66de8cac}{remove} (int i, int n)
+\item 
+void \hyperlink{struct_q_list_data_ad3d0e7fb98af4a75303c8ec6c41b4364}{move} (int from, int to)
+\item 
+int \hyperlink{struct_q_list_data_a31119abbcc3f54435a1a9a6ceaa7e1d7}{size} () const 
+\item 
+bool \hyperlink{struct_q_list_data_abdbf20504bed9b34bb4ec434190e41fc}{is\+Empty} () const 
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a9933b64c4fe4e63754e60a7972828ae4}{at} (int i) const 
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a26cc1ce285b8a288884004bd4c10b9bc}{begin} () const 
+\item 
+void $\ast$$\ast$ \hyperlink{struct_q_list_data_a7dbc6e3ee5053a809ee11d7c45ca0b17}{end} () const 
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{struct_q_list_data_ae07adad807fcb85ed9df591ca0a5f8cf}{dispose} (\hyperlink{struct_q_list_data_1_1_data}{Data} $\ast$\hyperlink{struct_q_list_data_a8f001fb63f7810449d3409f7bed6ec73}{d})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_q_list_data_1_1_data}{Data} $\ast$ \hyperlink{struct_q_list_data_a8f001fb63f7810449d3409f7bed6ec73}{d}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const \hyperlink{struct_q_list_data_1_1_data}{Data} \hyperlink{struct_q_list_data_a4dad6e2c5b5f1d92b5cc0fdd308b553a}{shared\+\_\+null} = \{ Q\+\_\+\+R\+E\+F\+C\+O\+U\+N\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+S\+T\+A\+T\+IC, 0, 0, 0, \{ 0 \} \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 73 of file qlist.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{struct_q_list_data_a88af8e9d6ad89d620342699337adecd9}{}\label{struct_q_list_data_a88af8e9d6ad89d620342699337adecd9}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Data\+Header\+Size@{Data\+Header\+Size}!Q\+List\+Data@{Q\+List\+Data}}\index{Q\+List\+Data@{Q\+List\+Data}!Data\+Header\+Size@{Data\+Header\+Size}}\item[{\em 
+Data\+Header\+Size\hypertarget{struct_q_list_data_a88af8e9d6ad89d620342699337adecd9ab7e25b7cb0b58eba7ee40732ecf04f87}{}\label{struct_q_list_data_a88af8e9d6ad89d620342699337adecd9ab7e25b7cb0b58eba7ee40732ecf04f87}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 87 of file qlist.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+List\+Data@{Q\+List\+Data}!append@{append}}
+\index{append@{append}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{append(int n)}{append(int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Q\+List\+Data\+::append (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a502bb627164367ef1c1e88667a913eab}{}\label{struct_q_list_data_a502bb627164367ef1c1e88667a913eab}
+
+
+Definition at line 158 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!append@{append}}
+\index{append@{append}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{append()}{append()}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Q\+List\+Data\+::append (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a895361b38a78e98b1352d48018e67905}{}\label{struct_q_list_data_a895361b38a78e98b1352d48018e67905}
+
+
+Definition at line 178 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!append@{append}}
+\index{append@{append}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{append(const Q\+List\+Data \&l)}{append(const QListData &l)}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Q\+List\+Data\+::append (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List\+Data} \&}]{l}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a3105607f5df632d891505f1765541d07}{}\label{struct_q_list_data_a3105607f5df632d891505f1765541d07}
+
+
+Definition at line 184 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!at@{at}}
+\index{at@{at}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{at(int i) const }{at(int i) const }}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ Q\+List\+Data\+::at (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_list_data_a9933b64c4fe4e63754e60a7972828ae4}{}\label{struct_q_list_data_a9933b64c4fe4e63754e60a7972828ae4}
+
+
+Definition at line 107 of file qlist.\+h.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!begin@{begin}}
+\index{begin@{begin}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ Q\+List\+Data\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_list_data_a26cc1ce285b8a288884004bd4c10b9bc}{}\label{struct_q_list_data_a26cc1ce285b8a288884004bd4c10b9bc}
+
+
+Definition at line 108 of file qlist.\+h.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!detach@{detach}}
+\index{detach@{detach}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{detach(int alloc)}{detach(int alloc)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+List\+Data\+::\+Data} $\ast$ Q\+List\+Data\+::detach (
+\begin{DoxyParamCaption}
+\item[{int}]{alloc}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a4e17bcd552f357900d962fa495fa3448}{}\label{struct_q_list_data_a4e17bcd552f357900d962fa495fa3448}
+Detaches the \hyperlink{struct_q_list_data}{Q\+List\+Data} by allocating new memory for a list which possibly has a different size than the copied one. Returns the old (shared) data, it is up to the caller to deref() and free() For the new data node\+\_\+copy needs to be called. 
+
+Definition at line 119 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!detach\+\_\+grow@{detach\+\_\+grow}}
+\index{detach\+\_\+grow@{detach\+\_\+grow}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{detach\+\_\+grow(int $\ast$i, int n)}{detach_grow(int *i, int n)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+List\+Data\+::\+Data} $\ast$ Q\+List\+Data\+::detach\+\_\+grow (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{idx, }
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_aad47b203505d5b3bfefc320a701b952c}{}\label{struct_q_list_data_aad47b203505d5b3bfefc320a701b952c}
+Detaches the \hyperlink{struct_q_list_data}{Q\+List\+Data} by allocating new memory for a list which will be bigger than the copied one and is expected to grow further. $\ast$idx is the desired insertion point and is clamped to the actual size of the list. num is the number of new elements to insert at the insertion point. Returns the old (shared) data, it is up to the caller to deref() and free(). For the new data node\+\_\+copy needs to be called. 
+
+Definition at line 75 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!dispose@{dispose}}
+\index{dispose@{dispose}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{dispose()}{dispose()}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+List\+Data\+::dispose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_list_data_adfe8be2a05f225111f633a34cc2662ef}{}\label{struct_q_list_data_adfe8be2a05f225111f633a34cc2662ef}
+
+
+Definition at line 92 of file qlist.\+h.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!dispose@{dispose}}
+\index{dispose@{dispose}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{dispose(\+Data $\ast$d)}{dispose(Data *d)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+List\+Data\+::dispose (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{struct_q_list_data_ae07adad807fcb85ed9df591ca0a5f8cf}{}\label{struct_q_list_data_ae07adad807fcb85ed9df591ca0a5f8cf}
+
+
+Definition at line 151 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!end@{end}}
+\index{end@{end}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ Q\+List\+Data\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_list_data_a7dbc6e3ee5053a809ee11d7c45ca0b17}{}\label{struct_q_list_data_a7dbc6e3ee5053a809ee11d7c45ca0b17}
+
+
+Definition at line 109 of file qlist.\+h.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!erase@{erase}}
+\index{erase@{erase}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{erase(void $\ast$$\ast$xi)}{erase(void **xi)}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Q\+List\+Data\+::erase (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{xi}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a9f684947994b45db2f71c7527839a653}{}\label{struct_q_list_data_a9f684947994b45db2f71c7527839a653}
+
+
+Definition at line 317 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!insert@{insert}}
+\index{insert@{insert}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{insert(int i)}{insert(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Q\+List\+Data\+::insert (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a55d7b71ffde3b5643f252d31d7caaeb1}{}\label{struct_q_list_data_a55d7b71ffde3b5643f252d31d7caaeb1}
+
+
+Definition at line 207 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{is\+Empty() const }{isEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Q\+List\+Data\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_list_data_abdbf20504bed9b34bb4ec434190e41fc}{}\label{struct_q_list_data_abdbf20504bed9b34bb4ec434190e41fc}
+
+
+Definition at line 106 of file qlist.\+h.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!move@{move}}
+\index{move@{move}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{move(int from, int to)}{move(int from, int to)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+List\+Data\+::move (
+\begin{DoxyParamCaption}
+\item[{int}]{from, }
+\item[{int}]{to}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_ad3d0e7fb98af4a75303c8ec6c41b4364}{}\label{struct_q_list_data_ad3d0e7fb98af4a75303c8ec6c41b4364}
+
+
+Definition at line 277 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!prepend@{prepend}}
+\index{prepend@{prepend}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{prepend()}{prepend()}}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ Q\+List\+Data\+::prepend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a8ca42a19ea2f5609b1c3177c5edfba53}{}\label{struct_q_list_data_a8ca42a19ea2f5609b1c3177c5edfba53}
+
+
+Definition at line 189 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!realloc@{realloc}}
+\index{realloc@{realloc}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{realloc(int alloc)}{realloc(int alloc)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+List\+Data\+::realloc (
+\begin{DoxyParamCaption}
+\item[{int}]{alloc}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a5eee854eba14729f3ae43d02857ac49f}{}\label{struct_q_list_data_a5eee854eba14729f3ae43d02857ac49f}
+
+
+Definition at line 139 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!remove@{remove}}
+\index{remove@{remove}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{remove(int i)}{remove(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+List\+Data\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a5a18ef36abcbbfc40f1f12c7aad12cd2}{}\label{struct_q_list_data_a5a18ef36abcbbfc40f1f12c7aad12cd2}
+
+
+Definition at line 246 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!remove@{remove}}
+\index{remove@{remove}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{remove(int i, int n)}{remove(int i, int n)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+List\+Data\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{struct_q_list_data_a8b18c609489f9ae75aa54b7a66de8cac}{}\label{struct_q_list_data_a8b18c609489f9ae75aa54b7a66de8cac}
+
+
+Definition at line 261 of file qlist.\+cpp.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!size@{size}}
+\index{size@{size}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Q\+List\+Data\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_list_data_a31119abbcc3f54435a1a9a6ceaa7e1d7}{}\label{struct_q_list_data_a31119abbcc3f54435a1a9a6ceaa7e1d7}
+
+
+Definition at line 105 of file qlist.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\index{Q\+List\+Data@{Q\+List\+Data}!d@{d}}
+\index{d@{d}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{d}{d}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data}$\ast$ Q\+List\+Data\+::d}\hypertarget{struct_q_list_data_a8f001fb63f7810449d3409f7bed6ec73}{}\label{struct_q_list_data_a8f001fb63f7810449d3409f7bed6ec73}
+
+
+Definition at line 95 of file qlist.\+h.
+
+\index{Q\+List\+Data@{Q\+List\+Data}!shared\+\_\+null@{shared\+\_\+null}}
+\index{shared\+\_\+null@{shared\+\_\+null}!Q\+List\+Data@{Q\+List\+Data}}
+\subsubsection[{\texorpdfstring{shared\+\_\+null}{shared_null}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+T\+\_\+\+B\+E\+G\+I\+N\+\_\+\+N\+A\+M\+E\+S\+P\+A\+CE const {\bf Q\+List\+Data\+::\+Data} Q\+List\+Data\+::shared\+\_\+null = \{ Q\+\_\+\+R\+E\+F\+C\+O\+U\+N\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+E\+\_\+\+S\+T\+A\+T\+IC, 0, 0, 0, \{ 0 \} \}\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{struct_q_list_data_a4dad6e2c5b5f1d92b5cc0fdd308b553a}{}\label{struct_q_list_data_a4dad6e2c5b5f1d92b5cc0fdd308b553a}
+
+
+Definition at line 94 of file qlist.\+h.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qlist_8h}{qlist.\+h}\item 
+docs/extra-\/files/\hyperlink{qlist_8cpp}{qlist.\+cpp}\end{DoxyCompactItemize}

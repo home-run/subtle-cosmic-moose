@@ -1,0 +1,94 @@
+.TH "RuntimeException" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RuntimeException \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Exceptions\&.h>\fP
+.PP
+Inherited by \fBIndexOutOfBounds\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRuntimeException\fP ()"
+.br
+.RI "\fICreate a default \fBRuntimeException\fP\&. \fP"
+.ti -1c
+.RI "\fBRuntimeException\fP (const std::string &err)"
+.br
+.RI "\fICreate a \fBRuntimeException\fP with a custom error message\&. \fP"
+.ti -1c
+.RI "std::string \fBgetMessage\fP () const "
+.br
+.RI "\fIReturn the error message to the client\&. \fP"
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBerrorMsg\fP"
+.br
+.RI "\fIThe error message\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+A generic runtime exception class\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Jesse Mazzella 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file Exceptions\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "RuntimeException::RuntimeException ()\fC [inline]\fP"
+
+.PP
+Create a default \fBRuntimeException\fP\&. 
+.PP
+Definition at line 21 of file Exceptions\&.h\&.
+.SS "RuntimeException::RuntimeException (const std::string & err)\fC [inline]\fP"
+
+.PP
+Create a \fBRuntimeException\fP with a custom error message\&. 
+.PP
+Definition at line 25 of file Exceptions\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "std::string RuntimeException::getMessage () const\fC [inline]\fP"
+
+.PP
+Return the error message to the client\&. 
+.PP
+\fBAuthor:\fP
+.RS 4
+Jesse Mazzella 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The related error message as a string 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file Exceptions\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::string RuntimeException::errorMsg\fC [protected]\fP"
+
+.PP
+The error message\&. 
+.PP
+Definition at line 37 of file Exceptions\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

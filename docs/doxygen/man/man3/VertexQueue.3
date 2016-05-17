@@ -1,0 +1,298 @@
+.TH "VertexQueue< C >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+VertexQueue< C > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <vertexqueue\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVertexQueue\fP ()"
+.br
+.RI "\fICreate a \fBHeap\fP and initialize by pushing a dummy value into the vector to keep the arithmetic nice\&. \fP"
+.ti -1c
+.RI "\fB~VertexQueue\fP ()"
+.br
+.ti -1c
+.RI "const \fBVertex\fP & \fBroot\fP () const "
+.br
+.RI "\fIRetrieve the value at the top of the heap\&. \fP"
+.ti -1c
+.RI "int \fBheight\fP () const "
+.br
+.RI "\fIRetrieve the current height of the heap\&. \fP"
+.ti -1c
+.RI "int \fBsize\fP () const "
+.br
+.RI "\fIRetrieve the number of elements currently in the heap\&. \fP"
+.ti -1c
+.RI "void \fBinsert\fP (\fBVertex\fP &newElement)"
+.br
+.RI "\fIInsert a new element into the heap and call bubble up to fix element hierarchy\&. \fP"
+.ti -1c
+.RI "void \fBremove\fP (int index)"
+.br
+.RI "\fIRemove an element from the heap and bubble down to preserve the proper element hierarchy\&. \fP"
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.RI "\fICheck if the heap is empty\&. \fP"
+.ti -1c
+.RI "\fBVertex\fP \fBremoveMin\fP ()"
+.br
+.RI "\fIremoveMin This method will get the root element and pop it off the front of the heap\&. \fP"
+.ti -1c
+.RI "void \fBdecreaseKey\fP (long key, \fBVertex\fP vertex)"
+.br
+.RI "\fIdecreaseKey This method will take a key and vertex the find it within the vertexqueue then replace its current distance key with the given key\&. \fP"
+.ti -1c
+.RI "int \fBgetVertexIndex\fP (\fBVertex\fP vertex) const "
+.br
+.RI "\fIgetVertexIndex This method will return the index of the vertex that is located within the vertex queue\&. The vertex will be given to a map that uses the vertex's name as the key and the value is the index of the vertex in the queue\&. \fP"
+.ti -1c
+.RI "void \fBprintElementList\fP ()"
+.br
+.RI "\fIprintElementList Method for debugging the priority queue\&. This will print the vertices to the console\&. \fP"
+.ti -1c
+.RI "void \fBprintMap\fP ()"
+.br
+.RI "\fIprintMap This method will iterate through the map output the list of values for the unique keys that are stored within the vertex map\&. \fP"
+.ti -1c
+.RI "void \fBreindex\fP ()"
+.br
+.RI "\fIreindex This method will iterate through the vertexMap and change the current value of the given key in the map\&. \fP"
+.ti -1c
+.RI "bool \fBcontains\fP (\fBVertex\fP vertex)"
+.br
+.RI "\fIcontains This method wraps the vertex map object containing the vertices and will check if the priority queue contain the given vertex\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbubbleUp\fP (int index)"
+.br
+.RI "\fIIterate up the heap, comparing child to parent\&. If hierarchy is violated, swap the elements\&. \fP"
+.ti -1c
+.RI "void \fBbubbleDown\fP (int index)"
+.br
+.RI "\fIIterate down the heap, comparing parent to child\&. If hierarchy is violated, swap the elements\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename C>
+.br
+class VertexQueue< C >"
+
+.PP
+Definition at line 17 of file vertexqueue\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename C> \fBVertexQueue\fP< C >::\fBVertexQueue\fP ()\fC [inline]\fP"
+
+.PP
+Create a \fBHeap\fP and initialize by pushing a dummy value into the vector to keep the arithmetic nice\&. 
+.PP
+Definition at line 25 of file vertexqueue\&.h\&.
+.SS "template<typename C> \fBVertexQueue\fP< C >::~\fBVertexQueue\fP ()\fC [inline]\fP"
+
+.PP
+Definition at line 32 of file vertexqueue\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename C> void \fBVertexQueue\fP< C >::bubbleDown (int index)\fC [inline]\fP, \fC [protected]\fP"
+
+.PP
+Iterate down the heap, comparing parent to child\&. If hierarchy is violated, swap the elements\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index of the heap to start from\&. 
+.RE
+.PP
+
+.PP
+Definition at line 248 of file vertexqueue\&.h\&.
+.SS "template<typename C> void \fBVertexQueue\fP< C >::bubbleUp (int index)\fC [inline]\fP, \fC [protected]\fP"
+
+.PP
+Iterate up the heap, comparing child to parent\&. If hierarchy is violated, swap the elements\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index of the heap to start from\&. 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file vertexqueue\&.h\&.
+.SS "template<typename C> bool \fBVertexQueue\fP< C >::contains (\fBVertex\fP vertex)\fC [inline]\fP"
+
+.PP
+contains This method wraps the vertex map object containing the vertices and will check if the priority queue contain the given vertex\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvertex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if the priority queue contains the vertex; otherwise returns false 
+.RE
+.PP
+
+.PP
+Definition at line 213 of file vertexqueue\&.h\&.
+.SS "template<typename C> void \fBVertexQueue\fP< C >::decreaseKey (long key, \fBVertex\fP vertex)\fC [inline]\fP"
+
+.PP
+decreaseKey This method will take a key and vertex the find it within the vertexqueue then replace its current distance key with the given key\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP 
+.br
+\fIvertex\fP 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file vertexqueue\&.h\&.
+.SS "template<typename C> int \fBVertexQueue\fP< C >::getVertexIndex (\fBVertex\fP vertex) const\fC [inline]\fP"
+
+.PP
+getVertexIndex This method will return the index of the vertex that is located within the vertex queue\&. The vertex will be given to a map that uses the vertex's name as the key and the value is the index of the vertex in the queue\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvertex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+int value of the index in the priority queue 
+.RE
+.PP
+
+.PP
+Definition at line 157 of file vertexqueue\&.h\&.
+.SS "template<typename C> int \fBVertexQueue\fP< C >::height () const\fC [inline]\fP"
+
+.PP
+Retrieve the current height of the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the height of the heap\&. 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file vertexqueue\&.h\&.
+.SS "template<typename C> void \fBVertexQueue\fP< C >::insert (\fBVertex\fP & newElement)\fC [inline]\fP"
+
+.PP
+Insert a new element into the heap and call bubble up to fix element hierarchy\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewElement\fP the element to add 
+.RE
+.PP
+
+.PP
+Definition at line 78 of file vertexqueue\&.h\&.
+.SS "template<typename C> bool \fBVertexQueue\fP< C >::isEmpty () const\fC [inline]\fP"
+
+.PP
+Check if the heap is empty\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true if elements size is 0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 114 of file vertexqueue\&.h\&.
+.SS "template<typename C> void \fBVertexQueue\fP< C >::printElementList ()\fC [inline]\fP"
+
+.PP
+printElementList Method for debugging the priority queue\&. This will print the vertices to the console\&. 
+.PP
+Definition at line 167 of file vertexqueue\&.h\&.
+.SS "template<typename C> void \fBVertexQueue\fP< C >::printMap ()\fC [inline]\fP"
+
+.PP
+printMap This method will iterate through the map output the list of values for the unique keys that are stored within the vertex map\&. 
+.PP
+Definition at line 180 of file vertexqueue\&.h\&.
+.SS "template<typename C> void \fBVertexQueue\fP< C >::reindex ()\fC [inline]\fP"
+
+.PP
+reindex This method will iterate through the vertexMap and change the current value of the given key in the map\&. 
+.PP
+Definition at line 195 of file vertexqueue\&.h\&.
+.SS "template<typename C> void \fBVertexQueue\fP< C >::remove (int index)\fC [inline]\fP"
+
+.PP
+Remove an element from the heap and bubble down to preserve the proper element hierarchy\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP the index of the element to remove 
+.RE
+.PP
+
+.PP
+Definition at line 92 of file vertexqueue\&.h\&.
+.SS "template<typename C> \fBVertex\fP \fBVertexQueue\fP< C >::removeMin ()\fC [inline]\fP"
+
+.PP
+removeMin This method will get the root element and pop it off the front of the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+root node 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file vertexqueue\&.h\&.
+.SS "template<typename C> const \fBVertex\fP& \fBVertexQueue\fP< C >::root () const\fC [inline]\fP"
+
+.PP
+Retrieve the value at the top of the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+a copy of the root value of the heap\&. 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file vertexqueue\&.h\&.
+.SS "template<typename C> int \fBVertexQueue\fP< C >::size () const\fC [inline]\fP"
+
+.PP
+Retrieve the number of elements currently in the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the size of the heap\&. 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file vertexqueue\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

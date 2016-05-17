@@ -1,0 +1,137 @@
+.TH "QMapDataBase" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QMapDataBase \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qmap\&.h>\fP
+.PP
+Inherited by \fBQMapData< Key, T >\fP, and \fBQMapData< QString, int >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrotateLeft\fP (\fBQMapNodeBase\fP *x)"
+.br
+.ti -1c
+.RI "void \fBrotateRight\fP (\fBQMapNodeBase\fP *x)"
+.br
+.ti -1c
+.RI "void \fBrebalance\fP (\fBQMapNodeBase\fP *x)"
+.br
+.ti -1c
+.RI "void \fBfreeNodeAndRebalance\fP (\fBQMapNodeBase\fP *z)"
+.br
+.ti -1c
+.RI "void \fBrecalcMostLeftNode\fP ()"
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP * \fBcreateNode\fP (int \fBsize\fP, int alignment, \fBQMapNodeBase\fP *parent, bool left)"
+.br
+.ti -1c
+.RI "void \fBfreeTree\fP (\fBQMapNodeBase\fP *root, int alignment)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBQMapDataBase\fP * \fBcreateData\fP ()"
+.br
+.ti -1c
+.RI "static void \fBfreeData\fP (\fBQMapDataBase\fP *d)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "QtPrivate::RefCount \fBref\fP"
+.br
+.ti -1c
+.RI "int \fBsize\fP"
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "\fBQMapNodeBase\fP * \fBmostLeftNode\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const \fBQMapDataBase\fP \fBshared_null\fP = { Q_REFCOUNT_INITIALIZE_STATIC, 0, { 0, 0, 0 }, 0 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 159 of file qmap\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBQMapDataBase\fP * QMapDataBase::createData ()\fC [static]\fP"
+
+.PP
+Definition at line 352 of file qmap\&.cpp\&.
+.SS "\fBQMapNodeBase\fP * QMapDataBase::createNode (int size, int alignment, \fBQMapNodeBase\fP * parent, bool left)"
+
+.PP
+Definition at line 321 of file qmap\&.cpp\&.
+.SS "void QMapDataBase::freeData (\fBQMapDataBase\fP * d)\fC [static]\fP"
+
+.PP
+Definition at line 367 of file qmap\&.cpp\&.
+.SS "void QMapDataBase::freeNodeAndRebalance (\fBQMapNodeBase\fP * z)"
+
+.PP
+Definition at line 164 of file qmap\&.cpp\&.
+.SS "void QMapDataBase::freeTree (\fBQMapNodeBase\fP * root, int alignment)"
+
+.PP
+Definition at line 343 of file qmap\&.cpp\&.
+.SS "void QMapDataBase::rebalance (\fBQMapNodeBase\fP * x)"
+
+.PP
+Definition at line 122 of file qmap\&.cpp\&.
+.SS "void QMapDataBase::recalcMostLeftNode ()"
+
+.PP
+Definition at line 291 of file qmap\&.cpp\&.
+.SS "void QMapDataBase::rotateLeft (\fBQMapNodeBase\fP * x)"
+
+.PP
+Definition at line 84 of file qmap\&.cpp\&.
+.SS "void QMapDataBase::rotateRight (\fBQMapNodeBase\fP * x)"
+
+.PP
+Definition at line 103 of file qmap\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBQMapNodeBase\fP QMapDataBase::header"
+
+.PP
+Definition at line 163 of file qmap\&.h\&.
+.SS "\fBQMapNodeBase\fP* QMapDataBase::mostLeftNode"
+
+.PP
+Definition at line 164 of file qmap\&.h\&.
+.SS "QtPrivate::RefCount QMapDataBase::ref"
+
+.PP
+Definition at line 161 of file qmap\&.h\&.
+.SS "QT_BEGIN_NAMESPACE const \fBQMapDataBase\fP QMapDataBase::shared_null = { Q_REFCOUNT_INITIALIZE_STATIC, 0, { 0, 0, 0 }, 0 }\fC [static]\fP"
+
+.PP
+Definition at line 175 of file qmap\&.h\&.
+.SS "int QMapDataBase::size"
+
+.PP
+Definition at line 162 of file qmap\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

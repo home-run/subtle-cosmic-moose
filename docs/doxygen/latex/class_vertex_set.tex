@@ -1,0 +1,238 @@
+\hypertarget{class_vertex_set}{}\section{Vertex\+Set Class Reference}
+\label{class_vertex_set}\index{Vertex\+Set@{Vertex\+Set}}
+
+
+{\ttfamily \#include $<$vertex.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vertex_set_af336e5d1260bc03a121ea4abfc5ac9ce}{Vertex\+Set} ()
+\item 
+\hyperlink{class_vertex_set_a0af0ebaf2ba75c5f3fd5f3c5b3e21d98}{$\sim$\+Vertex\+Set} ()
+\item 
+void \hyperlink{class_vertex_set_ac92d164e7a24400eb8ccbd336221b80c}{insert} (\hyperlink{class_vertex}{Vertex} \&v)
+\begin{DoxyCompactList}\small\item\em insert Method takes a vertex v and will insert it into the set. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_set_a5f7d74712e5be14e15492e639fdd9a4f}{remove} (\hyperlink{class_vertex}{Vertex} v)
+\begin{DoxyCompactList}\small\item\em remove This method will call on the search function that returns the hashed key value of the vertex. If the key is not -\/1 it will clear the vertex at that index. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_set_ae373068b5abdc5ba9ef65c790d81578c}{contains} (\hyperlink{class_vertex}{Vertex} v)
+\begin{DoxyCompactList}\small\item\em contains Searches through the set to see if the element exists in the set. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_set_a0aaaf778c7e404b65c2151ab692a72d2}{is\+Empty} () const 
+\begin{DoxyCompactList}\small\item\em is\+Empty \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_set_a28d7aa485f4fd9a7e081533d3c38a78b}{get\+Size} () const 
+\begin{DoxyCompactList}\small\item\em get\+Size This method returns the size of the set, number of vertices in the set. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_set_a99b08cc5a61bcf73c5f870d24956a1cc}{debug\+Output} () const 
+\begin{DoxyCompactList}\small\item\em debug\+Output This is a debugging method used for outputting the names and the index at which a vertex is located at. Serves no other purpose than to output to the console. \end{DoxyCompactList}\item 
+\hyperlink{class_vertex_set}{Vertex\+Set} $\ast$ \hyperlink{class_vertex_set_af89977bcaadf107f636df2521408d952}{operator=} (const \hyperlink{class_q_list}{Q\+List}$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertex\+List)
+\begin{DoxyCompactList}\small\item\em operator = Overloaded assignment operator for taking a list of vertices and converting into a set of vertices. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_set_a8a5b6eb129c81b4830656588236c4d10}{clear} ()
+\begin{DoxyCompactList}\small\item\em clear This method will clear the current set of vertices and reinitialze them to being \textquotesingle{}empty\textquotesingle{}. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_set_a895011778486f89c67e0bcfdae769079}{output\+Set} () const 
+\begin{DoxyCompactList}\small\item\em output\+Set This is primarly a debugging method for testing the vertex set. It will iterate through the set and output the entire set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 361 of file vertex.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Vertex\+Set@{Vertex\+Set}!Vertex\+Set@{Vertex\+Set}}
+\index{Vertex\+Set@{Vertex\+Set}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{Vertex\+Set()}{VertexSet()}}]{\setlength{\rightskip}{0pt plus 5cm}Vertex\+Set\+::\+Vertex\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_af336e5d1260bc03a121ea4abfc5ac9ce}{}\label{class_vertex_set_af336e5d1260bc03a121ea4abfc5ac9ce}
+
+
+Definition at line 364 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!````~Vertex\+Set@{$\sim$\+Vertex\+Set}}
+\index{````~Vertex\+Set@{$\sim$\+Vertex\+Set}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{$\sim$\+Vertex\+Set()}{~VertexSet()}}]{\setlength{\rightskip}{0pt plus 5cm}Vertex\+Set\+::$\sim$\+Vertex\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_a0af0ebaf2ba75c5f3fd5f3c5b3e21d98}{}\label{class_vertex_set_a0af0ebaf2ba75c5f3fd5f3c5b3e21d98}
+
+
+Definition at line 370 of file vertex.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Vertex\+Set@{Vertex\+Set}!clear@{clear}}
+\index{clear@{clear}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+Set\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_a8a5b6eb129c81b4830656588236c4d10}{}\label{class_vertex_set_a8a5b6eb129c81b4830656588236c4d10}
+
+
+clear This method will clear the current set of vertices and reinitialze them to being \textquotesingle{}empty\textquotesingle{}. 
+
+
+
+Definition at line 519 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!contains@{contains}}
+\index{contains@{contains}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{contains(\+Vertex v)}{contains(Vertex v)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+Set\+::contains (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex}}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_ae373068b5abdc5ba9ef65c790d81578c}{}\label{class_vertex_set_ae373068b5abdc5ba9ef65c790d81578c}
+
+
+contains Searches through the set to see if the element exists in the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if found; otherwise return false if not found 
+\end{DoxyReturn}
+
+
+Definition at line 448 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!debug\+Output@{debug\+Output}}
+\index{debug\+Output@{debug\+Output}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{debug\+Output() const }{debugOutput() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+Set\+::debug\+Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_a99b08cc5a61bcf73c5f870d24956a1cc}{}\label{class_vertex_set_a99b08cc5a61bcf73c5f870d24956a1cc}
+
+
+debug\+Output This is a debugging method used for outputting the names and the index at which a vertex is located at. Serves no other purpose than to output to the console. 
+
+
+
+Definition at line 486 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{get\+Size() const }{getSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Vertex\+Set\+::get\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_a28d7aa485f4fd9a7e081533d3c38a78b}{}\label{class_vertex_set_a28d7aa485f4fd9a7e081533d3c38a78b}
+
+
+get\+Size This method returns the size of the set, number of vertices in the set. 
+
+\begin{DoxyReturn}{Returns}
+int value of number of vertices in set 
+\end{DoxyReturn}
+
+
+Definition at line 476 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!insert@{insert}}
+\index{insert@{insert}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{insert(\+Vertex \&v)}{insert(Vertex &v)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+Set\+::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_ac92d164e7a24400eb8ccbd336221b80c}{}\label{class_vertex_set_ac92d164e7a24400eb8ccbd336221b80c}
+
+
+insert Method takes a vertex v and will insert it into the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 381 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{is\+Empty() const }{isEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex\+Set\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_a0aaaf778c7e404b65c2151ab692a72d2}{}\label{class_vertex_set_a0aaaf778c7e404b65c2151ab692a72d2}
+
+
+is\+Empty 
+
+\begin{DoxyReturn}{Returns}
+true if set is empty; otherwise return false if not empty 
+\end{DoxyReturn}
+
+
+Definition at line 466 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!operator=@{operator=}}
+\index{operator=@{operator=}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{operator=(const Q\+List$<$ Vertex $>$ \&vertex\+List)}{operator=(const QList< Vertex > &vertexList)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex\+Set}$\ast$ Vertex\+Set\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+List}$<$ {\bf Vertex} $>$ \&}]{vertex\+List}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_af89977bcaadf107f636df2521408d952}{}\label{class_vertex_set_af89977bcaadf107f636df2521408d952}
+
+
+operator = Overloaded assignment operator for taking a list of vertices and converting into a set of vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex\+List} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+this as a new set of vertices 
+\end{DoxyReturn}
+
+
+Definition at line 501 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!output\+Set@{output\+Set}}
+\index{output\+Set@{output\+Set}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{output\+Set() const }{outputSet() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+Set\+::output\+Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_a895011778486f89c67e0bcfdae769079}{}\label{class_vertex_set_a895011778486f89c67e0bcfdae769079}
+
+
+output\+Set This is primarly a debugging method for testing the vertex set. It will iterate through the set and output the entire set. 
+
+
+
+Definition at line 539 of file vertex.\+h.
+
+\index{Vertex\+Set@{Vertex\+Set}!remove@{remove}}
+\index{remove@{remove}!Vertex\+Set@{Vertex\+Set}}
+\subsubsection[{\texorpdfstring{remove(\+Vertex v)}{remove(Vertex v)}}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex\+Set\+::remove (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex}}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_set_a5f7d74712e5be14e15492e639fdd9a4f}{}\label{class_vertex_set_a5f7d74712e5be14e15492e639fdd9a4f}
+
+
+remove This method will call on the search function that returns the hashed key value of the vertex. If the key is not -\/1 it will clear the vertex at that index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 430 of file vertex.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{vertex_8h}{vertex.\+h}\end{DoxyCompactItemize}

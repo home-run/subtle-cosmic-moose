@@ -1,0 +1,183 @@
+\hypertarget{class_q_stack}{}\section{Q\+Stack$<$ T $>$ Class Template Reference}
+\label{class_q_stack}\index{Q\+Stack$<$ T $>$@{Q\+Stack$<$ T $>$}}
+
+
+The \hyperlink{class_q_stack}{Q\+Stack} class is a template class that provides a stack.  
+
+
+
+
+{\ttfamily \#include $<$qstack.\+h$>$}
+
+Inheritance diagram for Q\+Stack$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_stack}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_q_stack_ab42514d12612ebaf86f9db5068eaf390}{Q\+Stack} ()
+\item 
+\hyperlink{class_q_stack_ab0a0458193135b516c7a083ac8a3d4a2}{$\sim$\+Q\+Stack} ()
+\item 
+void \hyperlink{class_q_stack_afc2b34603e880f6ccf533835a407d601}{swap} (\hyperlink{class_q_stack}{Q\+Stack}$<$ T $>$ \&other)
+\item 
+void \hyperlink{class_q_stack_afe6cdb317571080fa991ba998db2801e}{push} (const T \&t)
+\item 
+T \hyperlink{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}{pop} ()
+\item 
+T \& \hyperlink{class_q_stack_a3253bfc5509f9c4afffe60b10326961d}{top} ()
+\item 
+const T \& \hyperlink{class_q_stack_ad5942029d173afac32132085f7f140db}{top} () const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\\*
+class Q\+Stack$<$ T $>$}
+
+The \hyperlink{class_q_stack}{Q\+Stack} class is a template class that provides a stack. 
+
+Qt\+Core
+
+\hyperlink{class_q_stack}{Q\+Stack}$<$T$>$ is one of Qt\textquotesingle{}s generic \{container classes\}. It implements a stack data structure for items of a same type.
+
+A stack is a last in, first out (L\+I\+FO) structure. Items are added to the top of the stack using \hyperlink{class_q_stack_afe6cdb317571080fa991ba998db2801e}{push()} and retrieved from the top using \hyperlink{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}{pop()}. The \hyperlink{class_q_stack_a3253bfc5509f9c4afffe60b10326961d}{top()} function provides access to the topmost item without removing it.
+
+Example\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ The example will output 3, 2, 1 in that order.
+
+\hyperlink{class_q_stack}{Q\+Stack} inherits from \hyperlink{class_q_vector}{Q\+Vector}. All of \hyperlink{class_q_vector}{Q\+Vector}\textquotesingle{}s functionality also applies to \hyperlink{class_q_stack}{Q\+Stack}. For example, you can use \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} to test whether the stack is empty, and you can traverse a \hyperlink{class_q_stack}{Q\+Stack} using \hyperlink{class_q_vector}{Q\+Vector}\textquotesingle{}s iterator classes (for example, Q\+Vector\+Iterator). But in addition, \hyperlink{class_q_stack}{Q\+Stack} provides three convenience functions that make it easy to implement L\+I\+FO semantics\+: \hyperlink{class_q_stack_afe6cdb317571080fa991ba998db2801e}{push()}, \hyperlink{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}{pop()}, and \hyperlink{class_q_stack_a3253bfc5509f9c4afffe60b10326961d}{top()}.
+
+\hyperlink{class_q_stack}{Q\+Stack}\textquotesingle{}s value type must be an \{assignable data type\}. This covers most data types that are commonly used, but the compiler won\textquotesingle{}t let you, for example, store a Q\+Widget as a value; instead, store a Q\+Widget $\ast$.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_vector}{Q\+Vector}, Q\+Queue 
+\end{DoxySeeAlso}
+
+
+Definition at line 43 of file qstack.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Q\+Stack@{Q\+Stack}!Q\+Stack@{Q\+Stack}}
+\index{Q\+Stack@{Q\+Stack}!Q\+Stack@{Q\+Stack}}
+\subsubsection[{\texorpdfstring{Q\+Stack()}{QStack()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Q\+Stack}$<$ T $>$\+::{\bf Q\+Stack} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_stack_ab42514d12612ebaf86f9db5068eaf390}{}\label{class_q_stack_ab42514d12612ebaf86f9db5068eaf390}
+Constructs an empty stack. 
+
+Definition at line 46 of file qstack.\+h.
+
+\index{Q\+Stack@{Q\+Stack}!````~Q\+Stack@{$\sim$\+Q\+Stack}}
+\index{````~Q\+Stack@{$\sim$\+Q\+Stack}!Q\+Stack@{Q\+Stack}}
+\subsubsection[{\texorpdfstring{$\sim$\+Q\+Stack()}{~QStack()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Q\+Stack}$<$ T $>$\+::$\sim${\bf Q\+Stack} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_stack_ab0a0458193135b516c7a083ac8a3d4a2}{}\label{class_q_stack_ab0a0458193135b516c7a083ac8a3d4a2}
+Destroys the stack. References to the values in the stack, and all iterators over this stack, become invalid. 
+
+Definition at line 47 of file qstack.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+Stack@{Q\+Stack}!pop@{pop}}
+\index{pop@{pop}!Q\+Stack@{Q\+Stack}}
+\subsubsection[{\texorpdfstring{pop()}{pop()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T {\bf Q\+Stack}$<$ T $>$\+::pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}{}\label{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}
+Removes the top item from the stack and returns it. This function assumes that the stack isn\textquotesingle{}t empty.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_stack_a3253bfc5509f9c4afffe60b10326961d}{top()}, \hyperlink{class_q_stack_afe6cdb317571080fa991ba998db2801e}{push()}, \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 56 of file qstack.\+h.
+
+\index{Q\+Stack@{Q\+Stack}!push@{push}}
+\index{push@{push}!Q\+Stack@{Q\+Stack}}
+\subsubsection[{\texorpdfstring{push(const T \&t)}{push(const T &t)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Q\+Stack}$<$ T $>$\+::push (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_stack_afe6cdb317571080fa991ba998db2801e}{}\label{class_q_stack_afe6cdb317571080fa991ba998db2801e}
+Adds element {\itshape t} to the top of the stack.
+
+This is the same as \hyperlink{class_q_vector_ad3536b6c85748f8b0b376d5d9ba0e721}{Q\+Vector\+::append()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}{pop()}, \hyperlink{class_q_stack_a3253bfc5509f9c4afffe60b10326961d}{top()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 49 of file qstack.\+h.
+
+\index{Q\+Stack@{Q\+Stack}!swap@{swap}}
+\index{swap@{swap}!Q\+Stack@{Q\+Stack}}
+\subsubsection[{\texorpdfstring{swap(\+Q\+Stack$<$ T $>$ \&other)}{swap(QStack< T > &other)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ void {\bf Q\+Stack}$<$ T $>$\+::swap (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+Stack}$<$ T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_stack_afc2b34603e880f6ccf533835a407d601}{}\label{class_q_stack_afc2b34603e880f6ccf533835a407d601}
+\begin{DoxySince}{Since}
+4.\+8
+\end{DoxySince}
+Swaps stack {\itshape other} with this stack. This operation is very fast and never fails. 
+
+Definition at line 48 of file qstack.\+h.
+
+\index{Q\+Stack@{Q\+Stack}!top@{top}}
+\index{top@{top}!Q\+Stack@{Q\+Stack}}
+\subsubsection[{\texorpdfstring{top()}{top()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ T \& {\bf Q\+Stack}$<$ T $>$\+::top (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_stack_a3253bfc5509f9c4afffe60b10326961d}{}\label{class_q_stack_a3253bfc5509f9c4afffe60b10326961d}
+Returns a reference to the stack\textquotesingle{}s top item. This function assumes that the stack isn\textquotesingle{}t empty.
+
+This is the same as \hyperlink{class_q_vector_a93f335707c6d1003dd2b594e4066ed0b}{Q\+Vector\+::last()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}{pop()}, \hyperlink{class_q_stack_afe6cdb317571080fa991ba998db2801e}{push()}, \hyperlink{class_q_vector_a23ddd6fbfe38f8c34f69b5af89e97000}{is\+Empty()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 61 of file qstack.\+h.
+
+\index{Q\+Stack@{Q\+Stack}!top@{top}}
+\index{top@{top}!Q\+Stack@{Q\+Stack}}
+\subsubsection[{\texorpdfstring{top() const }{top() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const T \& {\bf Q\+Stack}$<$ T $>$\+::top (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_stack_ad5942029d173afac32132085f7f140db}{}\label{class_q_stack_ad5942029d173afac32132085f7f140db}
+This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_stack_ad2944420ebf35829a8f7c54d75ea8a35}{pop()}, \hyperlink{class_q_stack_afe6cdb317571080fa991ba998db2801e}{push()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 65 of file qstack.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qstack_8h}{qstack.\+h}\item 
+docs/extra-\/files/\hyperlink{qstack_8cpp}{qstack.\+cpp}\end{DoxyCompactItemize}
