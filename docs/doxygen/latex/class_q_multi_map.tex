@@ -1,0 +1,364 @@
+\hypertarget{class_q_multi_map}{}\section{Q\+Multi\+Map$<$ Key, T $>$ Class Template Reference}
+\label{class_q_multi_map}\index{Q\+Multi\+Map$<$ Key, T $>$@{Q\+Multi\+Map$<$ Key, T $>$}}
+
+
+The \hyperlink{class_q_multi_map}{Q\+Multi\+Map} class is a convenience \hyperlink{class_q_map}{Q\+Map} subclass that provides multi-\/valued maps.  
+
+
+
+
+{\ttfamily \#include $<$qmap.\+h$>$}
+
+Inheritance diagram for Q\+Multi\+Map$<$ Key, T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_q_multi_map}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_q_multi_map_aeb16603087ff81f07f9438de93528b66}{Q\+Multi\+Map} ()
+\item 
+\hyperlink{class_q_multi_map_a2e2af5d76f189e2bcbfe5c67b02df5e7}{Q\+Multi\+Map} (const \hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$ \&other)
+\item 
+void \hyperlink{class_q_multi_map_a1caa02d81e4487d753ec7cf63c509523}{swap} (\hyperlink{class_q_multi_map}{Q\+Multi\+Map}$<$ Key, T $>$ \&other)
+\item 
+\hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$\+::\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_multi_map_a71c0ddeadd47b9410ef2d64c9fa24d72}{replace} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value})
+\item 
+\hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$\+::\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_multi_map_ae067c2f922dd6e13001d93ace23a964a}{insert} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value})
+\item 
+\hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$\+::\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_multi_map_a471e6ea8e6b77ab1a3fbcfd64c53bcf0}{insert} (typename \hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$\+::\hyperlink{class_q_map_1_1const__iterator}{const\+\_\+iterator} pos, const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value})
+\item 
+\hyperlink{class_q_multi_map}{Q\+Multi\+Map} \& \hyperlink{class_q_multi_map_aa9c75ef8f14c919a318b494b54422958}{operator+=} (const \hyperlink{class_q_multi_map}{Q\+Multi\+Map} \&other)
+\item 
+\hyperlink{class_q_multi_map}{Q\+Multi\+Map} \hyperlink{class_q_multi_map_aef448db293ef347dca82cc017c559888}{operator+} (const \hyperlink{class_q_multi_map}{Q\+Multi\+Map} \&other) const 
+\item 
+bool \hyperlink{class_q_multi_map_ab240b90606e155eef7c80c2ea9cabe74}{contains} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value}) const 
+\item 
+int \hyperlink{class_q_multi_map_a324e0c0f288ed749033c9df20efd88fa}{remove} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value})
+\item 
+int \hyperlink{class_q_multi_map_abb89579656320a453ea7c80b2702d8c5}{count} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value}) const 
+\item 
+\hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$\+::\hyperlink{class_q_map_1_1iterator}{iterator} \hyperlink{class_q_multi_map_ade33defb37a1abf5f4fff2686159afd4}{find} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value})
+\item 
+\hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$\+::\hyperlink{class_q_map_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_multi_map_a84abf87a0d54493e9ecaa0e7fa4d5c62}{find} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value}) const 
+\item 
+\hyperlink{class_q_map}{Q\+Map}$<$ Key, T $>$\+::\hyperlink{class_q_map_1_1const__iterator}{const\+\_\+iterator} \hyperlink{class_q_multi_map_ab0c0991e1c637c400b0d874f4a05b5ef}{const\+Find} (const Key \&\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key}, const T \&\hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value}) const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Key, class T$>$\\*
+class Q\+Multi\+Map$<$ Key, T $>$}
+
+The \hyperlink{class_q_multi_map}{Q\+Multi\+Map} class is a convenience \hyperlink{class_q_map}{Q\+Map} subclass that provides multi-\/valued maps. 
+
+Qt\+Core
+
+\hyperlink{class_q_multi_map}{Q\+Multi\+Map}$<$Key, T$>$ is one of Qt\textquotesingle{}s generic \{container classes\}. It inherits \hyperlink{class_q_map}{Q\+Map} and extends it with a few convenience functions that make it more suitable than \hyperlink{class_q_map}{Q\+Map} for storing multi-\/valued maps. A multi-\/valued map is a map that allows multiple values with the same key; \hyperlink{class_q_map}{Q\+Map} normally doesn\textquotesingle{}t allow that, unless you call \hyperlink{class_q_map_a075634da2cf912a20dd1c4a5835acfa3}{Q\+Map\+::insert\+Multi()}.
+
+Because \hyperlink{class_q_multi_map}{Q\+Multi\+Map} inherits \hyperlink{class_q_map}{Q\+Map}, all of \hyperlink{class_q_map}{Q\+Map}\textquotesingle{}s functionality also applies to \hyperlink{class_q_multi_map}{Q\+Multi\+Map}. For example, you can use \hyperlink{class_q_map_a33cfb24195273a5e70dcc48644368a99}{is\+Empty()} to test whether the map is empty, and you can traverse a \hyperlink{class_q_multi_map}{Q\+Multi\+Map} using \hyperlink{class_q_map}{Q\+Map}\textquotesingle{}s iterator classes (for example, Q\+Map\+Iterator). But in addition, it provides an \hyperlink{class_q_multi_map_ae067c2f922dd6e13001d93ace23a964a}{insert()} function that corresponds to \hyperlink{class_q_map_a075634da2cf912a20dd1c4a5835acfa3}{Q\+Map\+::insert\+Multi()}, and a \hyperlink{class_q_multi_map_a71c0ddeadd47b9410ef2d64c9fa24d72}{replace()} function that corresponds to \hyperlink{class_q_map_a0cc56ab47ea14af1127ac7399814d289}{Q\+Map\+::insert()}. It also provides convenient \hyperlink{class_q_multi_map_aef448db293ef347dca82cc017c559888}{operator+()} and \hyperlink{class_q_multi_map_aa9c75ef8f14c919a318b494b54422958}{operator+=()}.
+
+Example\+: 
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ Unlike \hyperlink{class_q_map}{Q\+Map}, \hyperlink{class_q_multi_map}{Q\+Multi\+Map} provides no operator\mbox{[}\mbox{]}. Use \hyperlink{class_q_map_ab9c04f61f4abd94439d4431118a238e5}{value()} or \hyperlink{class_q_multi_map_a71c0ddeadd47b9410ef2d64c9fa24d72}{replace()} if you want to access the most recently inserted item with a certain key.
+
+If you want to retrieve all the values for a single key, you can use values(const Key \&key), which returns a Q\+List$<$\+T$>$\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ The items that share the same key are available from most recently to least recently inserted.
+
+If you prefer the S\+T\+L-\/style iterators, you can call \hyperlink{class_q_multi_map_ade33defb37a1abf5f4fff2686159afd4}{find()} to get the iterator for the first item with a key and iterate from there\+:
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ \hyperlink{class_q_multi_map}{Q\+Multi\+Map}\textquotesingle{}s key and value data types must be \{assignable data types\}. This covers most data types you are likely to encounter, but the compiler won\textquotesingle{}t let you, for example, store a Q\+Widget as a value; instead, store a Q\+Widget $\ast$. In addition, \hyperlink{class_q_multi_map}{Q\+Multi\+Map}\textquotesingle{}s key type must provide operator$<$(). See the \hyperlink{class_q_map}{Q\+Map} documentation for details.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map}{Q\+Map}, Q\+Map\+Iterator, Q\+Mutable\+Map\+Iterator, Q\+Multi\+Hash 
+\end{DoxySeeAlso}
+
+
+Definition at line 1134 of file qmap.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{Q\+Multi\+Map()}{QMultiMap()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::{\bf Q\+Multi\+Map} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_aeb16603087ff81f07f9438de93528b66}{}\label{class_q_multi_map_aeb16603087ff81f07f9438de93528b66}
+Constructs an empty map. 
+
+Definition at line 1137 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{Q\+Multi\+Map(const Q\+Map$<$ Key, T $>$ \&other)}{QMultiMap(const QMap< Key, T > &other)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::{\bf Q\+Multi\+Map} (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Map}$<$ Key, T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_a2e2af5d76f189e2bcbfe5c67b02df5e7}{}\label{class_q_multi_map_a2e2af5d76f189e2bcbfe5c67b02df5e7}
+Constructs a copy of {\itshape other} (which can be a \hyperlink{class_q_map}{Q\+Map} or a \hyperlink{class_q_multi_map}{Q\+Multi\+Map}).
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_ad04759cfb5b1ed0f3d35a2a16f45ae54}{operator=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1145 of file qmap.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!const\+Find@{const\+Find}}
+\index{const\+Find@{const\+Find}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{const\+Find(const Key \&key, const T \&value) const }{constFind(const Key &key, const T &value) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ typename {\bf Q\+Map}$<$ Key, T $>$\+::{\bf const\+\_\+iterator} {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::const\+Find (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_ab0c0991e1c637c400b0d874f4a05b5ef}{}\label{class_q_multi_map_ab0c0991e1c637c400b0d874f4a05b5ef}
+\begin{DoxySince}{Since}
+4.\+3
+\end{DoxySince}
+Returns an iterator pointing to the item with key {\itshape key} and the value {\itshape value} in the map.
+
+If the map contains no such item, the function returns \hyperlink{class_q_map_a6307f2d58e928bb15019024150f0afcb}{const\+End()}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_a4777a4aa1616ea8443c8b66bce74602f}{Q\+Map\+::const\+Find()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1192 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!contains@{contains}}
+\index{contains@{contains}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{contains(const Key \&key, const T \&value) const }{contains(const Key &key, const T &value) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key , class T $>$ Q\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE bool {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::contains (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_multi_map_ab240b90606e155eef7c80c2ea9cabe74}{}\label{class_q_multi_map_ab240b90606e155eef7c80c2ea9cabe74}
+\begin{DoxySince}{Since}
+4.\+3
+\end{DoxySince}
+Returns {\ttfamily true} if the map contains an item with key {\itshape key} and value {\itshape value}; otherwise returns {\ttfamily false}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_ac92f0cafb70425a2d3d5171cf367dd11}{Q\+Map\+::contains()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1200 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!count@{count}}
+\index{count@{count}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{count(const Key \&key, const T \&value) const }{count(const Key &key, const T &value) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key , class T $>$ Q\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE int {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::count (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_q_multi_map_abb89579656320a453ea7c80b2702d8c5}{}\label{class_q_multi_map_abb89579656320a453ea7c80b2702d8c5}
+\begin{DoxySince}{Since}
+4.\+3
+\end{DoxySince}
+Returns the number of items with key {\itshape key} and value {\itshape value}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_a7576304b0025dbb0f127c655c05377ac}{Q\+Map\+::count()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1223 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!find@{find}}
+\index{find@{find}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{find(const Key \&key, const T \&value)}{find(const Key &key, const T &value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ typename {\bf Q\+Map}$<$ Key, T $>$\+::{\bf iterator} {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::find (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_ade33defb37a1abf5f4fff2686159afd4}{}\label{class_q_multi_map_ade33defb37a1abf5f4fff2686159afd4}
+\begin{DoxySince}{Since}
+4.\+3
+\end{DoxySince}
+Returns an iterator pointing to the item with key {\itshape key} and value {\itshape value} in the map.
+
+If the map contains no such item, the function returns \hyperlink{class_q_map_a2935881385191efbb074e96cf8d3c9b6}{end()}.
+
+If the map contains multiple items with key {\itshape key}, this function returns an iterator that points to the most recently inserted value.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_a8cf44b635018eb178cc724ed20379d85}{Q\+Map\+::find()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1172 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!find@{find}}
+\index{find@{find}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{find(const Key \&key, const T \&value) const }{find(const Key &key, const T &value) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ typename {\bf Q\+Map}$<$ Key, T $>$\+::{\bf const\+\_\+iterator} {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::find (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_a84abf87a0d54493e9ecaa0e7fa4d5c62}{}\label{class_q_multi_map_a84abf87a0d54493e9ecaa0e7fa4d5c62}
+\begin{DoxySince}{Since}
+4.\+3 This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts.
+\end{DoxySince}
+Returns a const iterator pointing to the item with the given {\itshape key} and {\itshape value} in the map.
+
+If the map contains no such item, the function returns \hyperlink{class_q_map_a2935881385191efbb074e96cf8d3c9b6}{end()}.
+
+If the map contains multiple items with the specified {\itshape key}, this function returns a const iterator that points to the most recently inserted value.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_a8cf44b635018eb178cc724ed20379d85}{Q\+Map\+::find()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1182 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!insert@{insert}}
+\index{insert@{insert}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{insert(const Key \&key, const T \&value)}{insert(const Key &key, const T &value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Multi\+Map\+::iterator} {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_ae067c2f922dd6e13001d93ace23a964a}{}\label{class_q_multi_map_ae067c2f922dd6e13001d93ace23a964a}
+Inserts a new item with the key {\itshape key} and a value of {\itshape value}.
+
+If there is already an item with the same key in the map, this function will simply create a new one. (This behavior is different from \hyperlink{class_q_multi_map_a71c0ddeadd47b9410ef2d64c9fa24d72}{replace()}, which overwrites the value of an existing item.)
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_multi_map_a71c0ddeadd47b9410ef2d64c9fa24d72}{replace()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1150 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!insert@{insert}}
+\index{insert@{insert}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{insert(typename Q\+Map$<$ Key, T $>$\+::const\+\_\+iterator pos, const Key \&key, const T \&value)}{insert(typename QMap< Key, T >::const_iterator pos, const Key &key, const T &value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Multi\+Map\+::iterator} {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{typename {\bf Q\+Map}$<$ Key, T $>$\+::{\bf const\+\_\+iterator}}]{pos, }
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_a471e6ea8e6b77ab1a3fbcfd64c53bcf0}{}\label{class_q_multi_map_a471e6ea8e6b77ab1a3fbcfd64c53bcf0}
+\begin{DoxySince}{Since}
+5.\+1 Inserts a new item with the key {\itshape key} and value {\itshape value} and with hint {\itshape pos} suggesting where to do the insert.
+\end{DoxySince}
+If \hyperlink{class_q_map_ab55b01ac2790d09ceff0b911474a8b43}{const\+Begin()} is used as hint it indicates that the {\itshape key} is less than any key in the map while \hyperlink{class_q_map_a6307f2d58e928bb15019024150f0afcb}{const\+End()} suggests that the {\itshape key} is larger than any key in the map. Otherwise the hint should meet the condition ({\itshape pos} -\/ 1).\hyperlink{class_q_map_a7ad0c404885c5287fe593849e4bc80d6}{key()} $<$ {\itshape key} $<$= pos.\+key(). If the hint {\itshape pos} is wrong it is ignored and a regular insert is done.
+
+If there is already an item with the same key in the map, this function will simply create a new one.
+
+{\bfseries \{Note\+:\}} Be careful with the hint. Providing an iterator from an older shared instance might crash but there is also a risk that it will silently corrupt both the map and the {\itshape pos} map. 
+
+Definition at line 1152 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!operator+@{operator+}}
+\index{operator+@{operator+}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{operator+(const Q\+Multi\+Map \&other) const }{operator+(const QMultiMap &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Multi\+Map} {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Multi\+Map}$<$ Key, T $>$ \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_aef448db293ef347dca82cc017c559888}{}\label{class_q_multi_map_aef448db293ef347dca82cc017c559888}
+Returns a map that contains all the items in this map in addition to all the items in {\itshape other}. If a key is common to both maps, the resulting map will contain the key multiple times.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_multi_map_aa9c75ef8f14c919a318b494b54422958}{operator+=()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1157 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{operator+=(const Q\+Multi\+Map \&other)}{operator+=(const QMultiMap &other)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Multi\+Map} \& {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Q\+Multi\+Map}$<$ Key, T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_aa9c75ef8f14c919a318b494b54422958}{}\label{class_q_multi_map_aa9c75ef8f14c919a318b494b54422958}
+Inserts all the items in the {\itshape other} map into this map and returns a reference to this map.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_multi_map_ae067c2f922dd6e13001d93ace23a964a}{insert()}, \hyperlink{class_q_multi_map_aef448db293ef347dca82cc017c559888}{operator+()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1155 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!remove@{remove}}
+\index{remove@{remove}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{remove(const Key \&key, const T \&value)}{remove(const Key &key, const T &value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key , class T $>$ Q\+\_\+\+I\+N\+L\+I\+N\+E\+\_\+\+T\+E\+M\+P\+L\+A\+TE int {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_q_multi_map_a324e0c0f288ed749033c9df20efd88fa}{}\label{class_q_multi_map_a324e0c0f288ed749033c9df20efd88fa}
+\begin{DoxySince}{Since}
+4.\+3
+\end{DoxySince}
+Removes all the items that have the key {\itshape key} and the value {\itshape value} from the map. Returns the number of items removed.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_map_af562610e90763fad449dfc130bd18fb8}{Q\+Map\+::remove()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1206 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!replace@{replace}}
+\index{replace@{replace}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{replace(const Key \&key, const T \&value)}{replace(const Key &key, const T &value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ {\bf Q\+Multi\+Map\+::iterator} {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::replace (
+\begin{DoxyParamCaption}
+\item[{const Key \&}]{key, }
+\item[{const T \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_a71c0ddeadd47b9410ef2d64c9fa24d72}{}\label{class_q_multi_map_a71c0ddeadd47b9410ef2d64c9fa24d72}
+Inserts a new item with the key {\itshape key} and a value of {\itshape value}.
+
+If there is already an item with the key {\itshape key}, that item\textquotesingle{}s value is replaced with {\itshape value}.
+
+If there are multiple items with the key {\itshape key}, the most recently inserted item\textquotesingle{}s value is replaced with {\itshape value}.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_q_multi_map_ae067c2f922dd6e13001d93ace23a964a}{insert()} 
+\end{DoxySeeAlso}
+
+
+Definition at line 1148 of file qmap.\+h.
+
+\index{Q\+Multi\+Map@{Q\+Multi\+Map}!swap@{swap}}
+\index{swap@{swap}!Q\+Multi\+Map@{Q\+Multi\+Map}}
+\subsubsection[{\texorpdfstring{swap(\+Q\+Multi\+Map$<$ Key, T $>$ \&other)}{swap(QMultiMap< Key, T > &other)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Key, class T$>$ void {\bf Q\+Multi\+Map}$<$ Key, T $>$\+::swap (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+Multi\+Map}$<$ Key, T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_q_multi_map_a1caa02d81e4487d753ec7cf63c509523}{}\label{class_q_multi_map_a1caa02d81e4487d753ec7cf63c509523}
+\begin{DoxySince}{Since}
+4.\+8
+\end{DoxySince}
+Swaps map {\itshape other} with this map. This operation is very fast and never fails. 
+
+Definition at line 1146 of file qmap.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qmap_8h}{qmap.\+h}\item 
+docs/extra-\/files/\hyperlink{qmap_8cpp}{qmap.\+cpp}\end{DoxyCompactItemize}

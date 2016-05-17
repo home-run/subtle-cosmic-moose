@@ -1,0 +1,145 @@
+\hypertarget{class_trip_summary}{}\section{Trip\+Summary Class Reference}
+\label{class_trip_summary}\index{Trip\+Summary@{Trip\+Summary}}
+
+
+{\ttfamily \#include $<$tripsummary.\+h$>$}
+
+Inheritance diagram for Trip\+Summary\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_trip_summary}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_trip_summary_a42d4d98e730c27b257b61e878169a687}{finish\+Trip} (bool)
+\begin{DoxyCompactList}\small\item\em Send a signal when the user presses the finish button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_trip_summary_aa8bae5ef064b751299de19a622403431}{Trip\+Summary} (Q\+Widget $\ast$parent=0, \hyperlink{class_database}{Database} $\ast$db=0)
+\item 
+\hyperlink{class_trip_summary_a6e3c73fb47c7068fe216dd8d0d913586}{$\sim$\+Trip\+Summary} ()
+\item 
+void \hyperlink{class_trip_summary_ab6f01bddea6c40bd95698fa53e091f18}{populate\+Trip\+Path} (\hyperlink{class_q_list}{Q\+List}$<$ \hyperlink{class_vertex}{Vertex} $>$ path\+Of\+Trip, bool is\+Custom\+Trip=true)
+\begin{DoxyCompactList}\small\item\em populate\+Trip\+Path Takes in a \hyperlink{class_q_list}{Q\+List} of $<$\+Vertex$>$ to be displayed on the list, assumes the list is ordered in the sortest path \end{DoxyCompactList}\item 
+void \hyperlink{class_trip_summary_a09328d4f72b93d3b33a43d3bb16c1c0d}{populate\+Purchase\+Reciept} (\hyperlink{class_q_list}{Q\+List}$<$ \hyperlink{struct_purchase_window_1_1purchase_info}{Purchase\+Window\+::purchase\+Info} $>$ purchases)
+\begin{DoxyCompactList}\small\item\em populate\+Purchase\+Reciept This method will take in the purchase table and display the users total spent When the item is hovered over, it will tell you the total revenue of the stadium that sovenir came from \end{DoxyCompactList}\item 
+void \hyperlink{class_trip_summary_afd9cdb3b7cd6f096b896c1d474d3ed54}{clear\+Data} ()
+\begin{DoxyCompactList}\small\item\em clear\+Data Clears the data on the list so that it can be reused for next time \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file tripsummary.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Trip\+Summary@{Trip\+Summary}!Trip\+Summary@{Trip\+Summary}}
+\index{Trip\+Summary@{Trip\+Summary}!Trip\+Summary@{Trip\+Summary}}
+\subsubsection[{\texorpdfstring{Trip\+Summary(\+Q\+Widget $\ast$parent=0, Database $\ast$db=0)}{TripSummary(QWidget *parent=0, Database *db=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Trip\+Summary\+::\+Trip\+Summary (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}, }
+\item[{{\bf Database} $\ast$}]{db = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{class_trip_summary_aa8bae5ef064b751299de19a622403431}{}\label{class_trip_summary_aa8bae5ef064b751299de19a622403431}
+
+
+Definition at line 4 of file tripsummary.\+cpp.
+
+\index{Trip\+Summary@{Trip\+Summary}!````~Trip\+Summary@{$\sim$\+Trip\+Summary}}
+\index{````~Trip\+Summary@{$\sim$\+Trip\+Summary}!Trip\+Summary@{Trip\+Summary}}
+\subsubsection[{\texorpdfstring{$\sim$\+Trip\+Summary()}{~TripSummary()}}]{\setlength{\rightskip}{0pt plus 5cm}Trip\+Summary\+::$\sim$\+Trip\+Summary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_trip_summary_a6e3c73fb47c7068fe216dd8d0d913586}{}\label{class_trip_summary_a6e3c73fb47c7068fe216dd8d0d913586}
+
+
+Definition at line 15 of file tripsummary.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Trip\+Summary@{Trip\+Summary}!clear\+Data@{clear\+Data}}
+\index{clear\+Data@{clear\+Data}!Trip\+Summary@{Trip\+Summary}}
+\subsubsection[{\texorpdfstring{clear\+Data()}{clearData()}}]{\setlength{\rightskip}{0pt plus 5cm}void Trip\+Summary\+::clear\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_trip_summary_afd9cdb3b7cd6f096b896c1d474d3ed54}{}\label{class_trip_summary_afd9cdb3b7cd6f096b896c1d474d3ed54}
+
+
+clear\+Data Clears the data on the list so that it can be reused for next time 
+
+\hyperlink{class_trip_summary_afd9cdb3b7cd6f096b896c1d474d3ed54}{Trip\+Summary\+::clear\+Data} Clears the two lists. 
+
+Definition at line 193 of file tripsummary.\+cpp.
+
+\index{Trip\+Summary@{Trip\+Summary}!finish\+Trip@{finish\+Trip}}
+\index{finish\+Trip@{finish\+Trip}!Trip\+Summary@{Trip\+Summary}}
+\subsubsection[{\texorpdfstring{finish\+Trip}{finishTrip}}]{\setlength{\rightskip}{0pt plus 5cm}void Trip\+Summary\+::finish\+Trip (
+\begin{DoxyParamCaption}
+\item[{bool}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{class_trip_summary_a42d4d98e730c27b257b61e878169a687}{}\label{class_trip_summary_a42d4d98e730c27b257b61e878169a687}
+
+
+Send a signal when the user presses the finish button. 
+
+\index{Trip\+Summary@{Trip\+Summary}!populate\+Purchase\+Reciept@{populate\+Purchase\+Reciept}}
+\index{populate\+Purchase\+Reciept@{populate\+Purchase\+Reciept}!Trip\+Summary@{Trip\+Summary}}
+\subsubsection[{\texorpdfstring{populate\+Purchase\+Reciept(\+Q\+List$<$ Purchase\+Window\+::purchase\+Info $>$ purchases)}{populatePurchaseReciept(QList< PurchaseWindow::purchaseInfo > purchases)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trip\+Summary\+::populate\+Purchase\+Reciept (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+List}$<$ {\bf Purchase\+Window\+::purchase\+Info} $>$}]{purchases}
+\end{DoxyParamCaption}
+)}\hypertarget{class_trip_summary_a09328d4f72b93d3b33a43d3bb16c1c0d}{}\label{class_trip_summary_a09328d4f72b93d3b33a43d3bb16c1c0d}
+
+
+populate\+Purchase\+Reciept This method will take in the purchase table and display the users total spent When the item is hovered over, it will tell you the total revenue of the stadium that sovenir came from 
+
+\hyperlink{class_trip_summary_a09328d4f72b93d3b33a43d3bb16c1c0d}{Trip\+Summary\+::populate\+Purchase\+Reciept} Populates the List widget with the information of purchases.
+
+
+\begin{DoxyParams}{Parameters}
+{\em purchases} & -\/ \hyperlink{class_q_list}{Q\+List} of Structure purchase\+Info\\
+\hline
+{\em purchases} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file tripsummary.\+cpp.
+
+\index{Trip\+Summary@{Trip\+Summary}!populate\+Trip\+Path@{populate\+Trip\+Path}}
+\index{populate\+Trip\+Path@{populate\+Trip\+Path}!Trip\+Summary@{Trip\+Summary}}
+\subsubsection[{\texorpdfstring{populate\+Trip\+Path(\+Q\+List$<$ Vertex $>$ path\+Of\+Trip, bool is\+Custom\+Trip=true)}{populateTripPath(QList< Vertex > pathOfTrip, bool isCustomTrip=true)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trip\+Summary\+::populate\+Trip\+Path (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+List}$<$ {\bf Vertex} $>$}]{path\+Of\+Trip, }
+\item[{bool}]{is\+Custom\+Trip = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_trip_summary_ab6f01bddea6c40bd95698fa53e091f18}{}\label{class_trip_summary_ab6f01bddea6c40bd95698fa53e091f18}
+
+
+populate\+Trip\+Path Takes in a \hyperlink{class_q_list}{Q\+List} of $<$\+Vertex$>$ to be displayed on the list, assumes the list is ordered in the sortest path 
+
+\hyperlink{class_trip_summary_ab6f01bddea6c40bd95698fa53e091f18}{Trip\+Summary\+::populate\+Trip\+Path} Method will populate the trip path list with given data from the algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\+Of\+Trip} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file tripsummary.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{tripsummary_8h}{tripsummary.\+h}\item 
+src/source/\hyperlink{tripsummary_8cpp}{tripsummary.\+cpp}\end{DoxyCompactItemize}

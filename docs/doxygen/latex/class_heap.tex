@@ -1,0 +1,268 @@
+\hypertarget{class_heap}{}\section{Heap$<$ T, C $>$ Class Template Reference}
+\label{class_heap}\index{Heap$<$ T, C $>$@{Heap$<$ T, C $>$}}
+
+
+{\ttfamily \#include $<$Heap.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_heap_a2e61f237aa354f415fe7223289c9e73d}{Heap} ()
+\begin{DoxyCompactList}\small\item\em Create a \hyperlink{class_heap}{Heap} and initialize by pushing a dummy value into the vector to keep the arithmetic nice. \end{DoxyCompactList}\item 
+\hyperlink{class_heap_ae6331208a85445fc1c777616a3c40926}{$\sim$\+Heap} ()
+\item 
+const T \& \hyperlink{class_heap_a9bb09f07f20f872081127cf737c19002}{root} () const 
+\begin{DoxyCompactList}\small\item\em Retrieve the value at the top of the heap. \end{DoxyCompactList}\item 
+int \hyperlink{class_heap_a93422c2f293ed6397e8965aa5db2f9f7}{height} () const 
+\begin{DoxyCompactList}\small\item\em Retrieve the current height of the heap. \end{DoxyCompactList}\item 
+int \hyperlink{class_heap_a5d83dfc623283eeb94936992a914fbc2}{size} () const 
+\begin{DoxyCompactList}\small\item\em Retrieve the number of elements currently in the heap. \end{DoxyCompactList}\item 
+void \hyperlink{class_heap_abd103466ac991a2b9bb82a6e4bfa6a76}{insert} (T \&new\+Element)
+\begin{DoxyCompactList}\small\item\em Insert a new element into the heap and call bubble up to fix element hierarchy. \end{DoxyCompactList}\item 
+void \hyperlink{class_heap_a2cd9562e704cf0f701737b160cf8c8a5}{remove} (int index)
+\begin{DoxyCompactList}\small\item\em Remove an element from the heap and bubble down to preserve the proper element hierarchy. \end{DoxyCompactList}\item 
+bool \hyperlink{class_heap_a38b1b691f91217b840a9ea210a60f01c}{is\+Empty} () const 
+\begin{DoxyCompactList}\small\item\em Check if the heap is empty. \end{DoxyCompactList}\item 
+void \hyperlink{class_heap_ab8cd2951cb676ed24532b678b1f89423}{print\+Breadth\+First} () const 
+\begin{DoxyCompactList}\small\item\em Prints to console a breadth first search of the heap. \end{DoxyCompactList}\item 
+T \hyperlink{class_heap_a1615dd41e58167ffe1c5f8db25862016}{remove\+Min} ()
+\begin{DoxyCompactList}\small\item\em remove\+Min This method will get the root element and pop it off the front of the heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_heap_a31da6bf844fda0faccefc70e87ce590f}{bubble\+Up} (int index)
+\begin{DoxyCompactList}\small\item\em Iterate up the heap, comparing child to parent. If hierarchy is violated, swap the elements. \end{DoxyCompactList}\item 
+void \hyperlink{class_heap_a85315950c4a25098f7c4d0d6d05b8d64}{bubble\+Down} (int index)
+\begin{DoxyCompactList}\small\item\em Iterate down the heap, comparing parent to child. If hierarchy is violated, swap the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename C$>$\\*
+class Heap$<$ T, C $>$}
+
+
+
+Definition at line 15 of file Heap.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Heap@{Heap}!Heap@{Heap}}
+\index{Heap@{Heap}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{Heap()}{Heap()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ {\bf Heap}$<$ T, C $>$\+::{\bf Heap} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_a2e61f237aa354f415fe7223289c9e73d}{}\label{class_heap_a2e61f237aa354f415fe7223289c9e73d}
+
+
+Create a \hyperlink{class_heap}{Heap} and initialize by pushing a dummy value into the vector to keep the arithmetic nice. 
+
+
+
+Definition at line 23 of file Heap.\+h.
+
+\index{Heap@{Heap}!````~Heap@{$\sim$\+Heap}}
+\index{````~Heap@{$\sim$\+Heap}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{$\sim$\+Heap()}{~Heap()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ {\bf Heap}$<$ T, C $>$\+::$\sim${\bf Heap} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_ae6331208a85445fc1c777616a3c40926}{}\label{class_heap_ae6331208a85445fc1c777616a3c40926}
+
+
+Definition at line 30 of file Heap.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Heap@{Heap}!bubble\+Down@{bubble\+Down}}
+\index{bubble\+Down@{bubble\+Down}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{bubble\+Down(int index)}{bubbleDown(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ void {\bf Heap}$<$ T, C $>$\+::bubble\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{class_heap_a85315950c4a25098f7c4d0d6d05b8d64}{}\label{class_heap_a85315950c4a25098f7c4d0d6d05b8d64}
+
+
+Iterate down the heap, comparing parent to child. If hierarchy is violated, swap the elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index of the heap to start from. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 175 of file Heap.\+h.
+
+\index{Heap@{Heap}!bubble\+Up@{bubble\+Up}}
+\index{bubble\+Up@{bubble\+Up}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{bubble\+Up(int index)}{bubbleUp(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ void {\bf Heap}$<$ T, C $>$\+::bubble\+Up (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{class_heap_a31da6bf844fda0faccefc70e87ce590f}{}\label{class_heap_a31da6bf844fda0faccefc70e87ce590f}
+
+
+Iterate up the heap, comparing child to parent. If hierarchy is violated, swap the elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index of the heap to start from. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file Heap.\+h.
+
+\index{Heap@{Heap}!height@{height}}
+\index{height@{height}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{height() const }{height() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ int {\bf Heap}$<$ T, C $>$\+::height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_a93422c2f293ed6397e8965aa5db2f9f7}{}\label{class_heap_a93422c2f293ed6397e8965aa5db2f9f7}
+
+
+Retrieve the current height of the heap. 
+
+\begin{DoxyReturn}{Returns}
+the height of the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file Heap.\+h.
+
+\index{Heap@{Heap}!insert@{insert}}
+\index{insert@{insert}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{insert(\+T \&new\+Element)}{insert(T &newElement)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ void {\bf Heap}$<$ T, C $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{T \&}]{new\+Element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_abd103466ac991a2b9bb82a6e4bfa6a76}{}\label{class_heap_abd103466ac991a2b9bb82a6e4bfa6a76}
+
+
+Insert a new element into the heap and call bubble up to fix element hierarchy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Element} & the element to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Heap.\+h.
+
+\index{Heap@{Heap}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{is\+Empty() const }{isEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ bool {\bf Heap}$<$ T, C $>$\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_a38b1b691f91217b840a9ea210a60f01c}{}\label{class_heap_a38b1b691f91217b840a9ea210a60f01c}
+
+
+Check if the heap is empty. 
+
+\begin{DoxyReturn}{Returns}
+true if elements size is 0. 
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Heap.\+h.
+
+\index{Heap@{Heap}!print\+Breadth\+First@{print\+Breadth\+First}}
+\index{print\+Breadth\+First@{print\+Breadth\+First}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{print\+Breadth\+First() const }{printBreadthFirst() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ void {\bf Heap}$<$ T, C $>$\+::print\+Breadth\+First (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_ab8cd2951cb676ed24532b678b1f89423}{}\label{class_heap_ab8cd2951cb676ed24532b678b1f89423}
+
+
+Prints to console a breadth first search of the heap. 
+
+
+
+Definition at line 119 of file Heap.\+h.
+
+\index{Heap@{Heap}!remove@{remove}}
+\index{remove@{remove}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{remove(int index)}{remove(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ void {\bf Heap}$<$ T, C $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_a2cd9562e704cf0f701737b160cf8c8a5}{}\label{class_heap_a2cd9562e704cf0f701737b160cf8c8a5}
+
+
+Remove an element from the heap and bubble down to preserve the proper element hierarchy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the element to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file Heap.\+h.
+
+\index{Heap@{Heap}!remove\+Min@{remove\+Min}}
+\index{remove\+Min@{remove\+Min}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{remove\+Min()}{removeMin()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ T {\bf Heap}$<$ T, C $>$\+::remove\+Min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_a1615dd41e58167ffe1c5f8db25862016}{}\label{class_heap_a1615dd41e58167ffe1c5f8db25862016}
+
+
+remove\+Min This method will get the root element and pop it off the front of the heap. 
+
+\begin{DoxyReturn}{Returns}
+root node 
+\end{DoxyReturn}
+
+
+Definition at line 138 of file Heap.\+h.
+
+\index{Heap@{Heap}!root@{root}}
+\index{root@{root}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{root() const }{root() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ const T\& {\bf Heap}$<$ T, C $>$\+::root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_a9bb09f07f20f872081127cf737c19002}{}\label{class_heap_a9bb09f07f20f872081127cf737c19002}
+
+
+Retrieve the value at the top of the heap. 
+
+\begin{DoxyReturn}{Returns}
+a copy of the root value of the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file Heap.\+h.
+
+\index{Heap@{Heap}!size@{size}}
+\index{size@{size}!Heap@{Heap}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, typename C$>$ int {\bf Heap}$<$ T, C $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_heap_a5d83dfc623283eeb94936992a914fbc2}{}\label{class_heap_a5d83dfc623283eeb94936992a914fbc2}
+
+
+Retrieve the number of elements currently in the heap. 
+
+\begin{DoxyReturn}{Returns}
+the size of the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file Heap.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{_heap_8h}{Heap.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,209 @@
+\hypertarget{struct_q_map_node_base}{}\section{Q\+Map\+Node\+Base Struct Reference}
+\label{struct_q_map_node_base}\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+
+
+{\ttfamily \#include $<$qmap.\+h$>$}
+
+Inheritance diagram for Q\+Map\+Node\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_q_map_node_base}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9}{Color} \{ \hyperlink{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9a9bffc80754cb87fa880417571e785e1b}{Red} = 0, 
+\hyperlink{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9a4a3c720b5a1ffee5b349ac2da8c5a2e1}{Black} = 1
+ \}
+\item 
+enum \{ \hyperlink{struct_q_map_node_base_a98cd178a8587938441e879d638d4576cac454825c84685bfcd5173ffa84b23eb1}{Mask} = 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$ \hyperlink{struct_q_map_node_base_a0d003f88dea1eeda422c13636e2b0ff3}{next\+Node} () const 
+\item 
+\hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$ \hyperlink{struct_q_map_node_base_a17a54c9b7145eb57325572c7b46da3f7}{next\+Node} ()
+\item 
+const \hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$ \hyperlink{struct_q_map_node_base_a2036d1497e841434aa2bec59fd354036}{previous\+Node} () const 
+\item 
+\hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$ \hyperlink{struct_q_map_node_base_af195b636253052fdd9aa8136e1d00169}{previous\+Node} ()
+\item 
+\hyperlink{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9}{Color} \hyperlink{struct_q_map_node_base_ab9fd1e541601e17776f0eb3631f4722b}{color} () const 
+\item 
+void \hyperlink{struct_q_map_node_base_afe2e35dbcd8325173886c887447e88fc}{set\+Color} (\hyperlink{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9}{Color} c)
+\item 
+\hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$ \hyperlink{struct_q_map_node_base_ac41f93c0fbcab11e562fc760d78ec485}{parent} () const 
+\item 
+void \hyperlink{struct_q_map_node_base_a7846f9d0541b7e18680baf16bed97d9c}{set\+Parent} (\hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$pp)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+quintptr \hyperlink{struct_q_map_node_base_a41743f32441f17a64e8faaf7f42d0bfb}{p}
+\item 
+\hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$ \hyperlink{struct_q_map_node_base_a5334085d1e9ededc044ea0b5551ed7fd}{left}
+\item 
+\hyperlink{struct_q_map_node_base}{Q\+Map\+Node\+Base} $\ast$ \hyperlink{struct_q_map_node_base_a8eae5d979c668347872c31b956626a68}{right}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 79 of file qmap.\+h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection[{\texorpdfstring{anonymous enum}{anonymous enum}}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\hypertarget{struct_q_map_node_base_a98cd178a8587938441e879d638d4576c}{}\label{struct_q_map_node_base_a98cd178a8587938441e879d638d4576c}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Mask@{Mask}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!Mask@{Mask}}\item[{\em 
+Mask\hypertarget{struct_q_map_node_base_a98cd178a8587938441e879d638d4576cac454825c84685bfcd5173ffa84b23eb1}{}\label{struct_q_map_node_base_a98cd178a8587938441e879d638d4576cac454825c84685bfcd5173ffa84b23eb1}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 86 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!Color@{Color}}
+\index{Color@{Color}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{Color}{Color}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Q\+Map\+Node\+Base\+::\+Color}}\hypertarget{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9}{}\label{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Red@{Red}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!Red@{Red}}\item[{\em 
+Red\hypertarget{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9a9bffc80754cb87fa880417571e785e1b}{}\label{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9a9bffc80754cb87fa880417571e785e1b}
+}]\index{Black@{Black}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!Black@{Black}}\item[{\em 
+Black\hypertarget{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9a4a3c720b5a1ffee5b349ac2da8c5a2e1}{}\label{struct_q_map_node_base_a8d262e109c5db0292c19141d585c96a9a4a3c720b5a1ffee5b349ac2da8c5a2e1}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 85 of file qmap.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!color@{color}}
+\index{color@{color}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{color() const }{color() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Color} Q\+Map\+Node\+Base\+::color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_map_node_base_ab9fd1e541601e17776f0eb3631f4722b}{}\label{struct_q_map_node_base_ab9fd1e541601e17776f0eb3631f4722b}
+
+
+Definition at line 93 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!next\+Node@{next\+Node}}
+\index{next\+Node@{next\+Node}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{next\+Node() const }{nextNode() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Q\+Map\+Node\+Base} $\ast$ Q\+Map\+Node\+Base\+::next\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{struct_q_map_node_base_a0d003f88dea1eeda422c13636e2b0ff3}{}\label{struct_q_map_node_base_a0d003f88dea1eeda422c13636e2b0ff3}
+
+
+Definition at line 47 of file qmap.\+cpp.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!next\+Node@{next\+Node}}
+\index{next\+Node@{next\+Node}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{next\+Node()}{nextNode()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+Map\+Node\+Base}$\ast$ Q\+Map\+Node\+Base\+::next\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_map_node_base_a17a54c9b7145eb57325572c7b46da3f7}{}\label{struct_q_map_node_base_a17a54c9b7145eb57325572c7b46da3f7}
+
+
+Definition at line 89 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!parent@{parent}}
+\index{parent@{parent}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{parent() const }{parent() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+Map\+Node\+Base}$\ast$ Q\+Map\+Node\+Base\+::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_map_node_base_ac41f93c0fbcab11e562fc760d78ec485}{}\label{struct_q_map_node_base_ac41f93c0fbcab11e562fc760d78ec485}
+
+
+Definition at line 95 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!previous\+Node@{previous\+Node}}
+\index{previous\+Node@{previous\+Node}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{previous\+Node() const }{previousNode() const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Q\+Map\+Node\+Base} $\ast$ Q\+Map\+Node\+Base\+::previous\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{struct_q_map_node_base_a2036d1497e841434aa2bec59fd354036}{}\label{struct_q_map_node_base_a2036d1497e841434aa2bec59fd354036}
+
+
+Definition at line 65 of file qmap.\+cpp.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!previous\+Node@{previous\+Node}}
+\index{previous\+Node@{previous\+Node}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{previous\+Node()}{previousNode()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+Map\+Node\+Base}$\ast$ Q\+Map\+Node\+Base\+::previous\+Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_map_node_base_af195b636253052fdd9aa8136e1d00169}{}\label{struct_q_map_node_base_af195b636253052fdd9aa8136e1d00169}
+
+
+Definition at line 91 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{set\+Color(\+Color c)}{setColor(Color c)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+Map\+Node\+Base\+::set\+Color (
+\begin{DoxyParamCaption}
+\item[{{\bf Color}}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_map_node_base_afe2e35dbcd8325173886c887447e88fc}{}\label{struct_q_map_node_base_afe2e35dbcd8325173886c887447e88fc}
+
+
+Definition at line 94 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!set\+Parent@{set\+Parent}}
+\index{set\+Parent@{set\+Parent}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{set\+Parent(\+Q\+Map\+Node\+Base $\ast$pp)}{setParent(QMapNodeBase *pp)}}]{\setlength{\rightskip}{0pt plus 5cm}void Q\+Map\+Node\+Base\+::set\+Parent (
+\begin{DoxyParamCaption}
+\item[{{\bf Q\+Map\+Node\+Base} $\ast$}]{pp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_q_map_node_base_a7846f9d0541b7e18680baf16bed97d9c}{}\label{struct_q_map_node_base_a7846f9d0541b7e18680baf16bed97d9c}
+
+
+Definition at line 96 of file qmap.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!left@{left}}
+\index{left@{left}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{left}{left}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+Map\+Node\+Base}$\ast$ Q\+Map\+Node\+Base\+::left}\hypertarget{struct_q_map_node_base_a5334085d1e9ededc044ea0b5551ed7fd}{}\label{struct_q_map_node_base_a5334085d1e9ededc044ea0b5551ed7fd}
+
+
+Definition at line 82 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!p@{p}}
+\index{p@{p}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{p}{p}}]{\setlength{\rightskip}{0pt plus 5cm}quintptr Q\+Map\+Node\+Base\+::p}\hypertarget{struct_q_map_node_base_a41743f32441f17a64e8faaf7f42d0bfb}{}\label{struct_q_map_node_base_a41743f32441f17a64e8faaf7f42d0bfb}
+
+
+Definition at line 81 of file qmap.\+h.
+
+\index{Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}!right@{right}}
+\index{right@{right}!Q\+Map\+Node\+Base@{Q\+Map\+Node\+Base}}
+\subsubsection[{\texorpdfstring{right}{right}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+Map\+Node\+Base}$\ast$ Q\+Map\+Node\+Base\+::right}\hypertarget{struct_q_map_node_base_a8eae5d979c668347872c31b956626a68}{}\label{struct_q_map_node_base_a8eae5d979c668347872c31b956626a68}
+
+
+Definition at line 83 of file qmap.\+h.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+docs/extra-\/files/\hyperlink{qmap_8h}{qmap.\+h}\item 
+docs/extra-\/files/\hyperlink{qmap_8cpp}{qmap.\+cpp}\end{DoxyCompactItemize}

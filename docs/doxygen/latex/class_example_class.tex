@@ -1,0 +1,120 @@
+\hypertarget{class_example_class}{}\section{Example\+Class Class Reference}
+\label{class_example_class}\index{Example\+Class@{Example\+Class}}
+
+
+Provide an example $\ast$.  
+
+
+
+
+\subsection{Detailed Description}
+Provide an example $\ast$. 
+
+
+\begin{DoxyItemize}
+\item 
+\item $\ast$ This class is meant as an example. It is not useful by itself
+\item rather its usefulness is only a function of how much it helps
+\item the reader. It is in a sense defined by the person who reads it
+\item and otherwise does not exist in any real form.
+\item 
+\item \begin{DoxyNote}{Note}
+Attempts at zen rarely work.
+\end{DoxyNote}
+
+\item 
+\item \begin{DoxyAuthor}{Author}
+(last to touch it) 
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{Author}
+bv 
+\end{DoxyParagraph}
+
+\item 
+\item \begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Revision}
+1.\+5 
+\end{DoxyParagraph}
+
+\item 
+\item \begin{DoxyDate}{Date}
+
+\end{DoxyDate}
+\begin{DoxyParagraph}{Date}
+2005/04/14 14\+:16\+:20 
+\end{DoxyParagraph}
+
+\item 
+\item Contact\+: \href{mailto:bv@bnl.gov}{\tt bv@bnl.\+gov}
+\item 
+\item Created on\+: Wed Apr 13 18\+:39\+:37 2005
+\item 
+\item \begin{DoxyParagraph}{Id}
+doxygen-\/howto.\+html,v 1.\+5 2005/04/14 14\+:16\+:20 bv Exp 
+\end{DoxyParagraph}
+
+\item $\ast$/
+\end{DoxyItemize}
+
+\#ifndef E\+X\+A\+M\+P\+L\+E\+C\+L\+A\+S\+S\+\_\+H \#define E\+X\+A\+M\+P\+L\+E\+C\+L\+A\+S\+S\+\_\+H
+
+class \hyperlink{class_example_class}{Example\+Class} \{
+
+public\+: \begin{DoxyVerb}/// Create an ExampleClass
+ExampleClass();
+
+/// Create an ExampleClass with lot's of intial values
+ExampleClass(int a, float b);
+
+~ExampleClass();
+
+/// This method does something
+void DoSomething();
+
+/** This is a method that does so
+  * much that I must write an epic 
+  * novel just to describe how much
+  * it truly does. */
+void DoNothing();
+
+/**A useful method.
+  * \param level an integer setting how useful to be
+  * \return Output that is extra useful
+  * 
+  * This method does unbelievably useful things.  
+  * And returns exceptionally useful results.
+  * Use it everyday with good health.
+  */
+void* VeryUsefulMethod(bool level);
+\end{DoxyVerb}
+
+
+private\+: \begin{DoxyVerb}const char* fQuestion; ///< the question
+int fAnswer;           ///< the answer 
+\end{DoxyVerb}
+
+
+\}; // end of class \hyperlink{class_example_class}{Example\+Class}
+
+\#endif // E\+X\+A\+M\+P\+L\+E\+C\+L\+A\+S\+S\+\_\+H ```
+
+\paragraph*{Unit Tests}
+
+
+\begin{DoxyItemize}
+\item All team members are responsible for writing unit tests for their own code.
+\item Simply add the unit test to its appropriate section in \hyperlink{test__main_8cpp}{test\+\_\+main.\+cpp}. Note\+: This currently isn\textquotesingle{}t working properly. Still you should try to add unit tests as you code.
+\end{DoxyItemize}
+
+\paragraph*{General Style Guide}
+
+
+\begin{DoxyItemize}
+\item For this project we will be following, loosely, \href{https://google.github.io/styleguide/cppguide.html}{\tt Google\textquotesingle{}s C++ Style Guide}. Have a quick read through of some of the sections. This is where we will refer to if there are disagreements about style. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_r_e_a_d_m_e_8md}{R\+E\+A\+D\+M\+E.\+md}\end{DoxyCompactItemize}

@@ -1,0 +1,377 @@
+\hypertarget{class_vertex_queue}{}\section{Vertex\+Queue$<$ C $>$ Class Template Reference}
+\label{class_vertex_queue}\index{Vertex\+Queue$<$ C $>$@{Vertex\+Queue$<$ C $>$}}
+
+
+{\ttfamily \#include $<$vertexqueue.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_vertex_queue_ab03e81928b00e89e7cf9ba52f8e8aeb8}{Vertex\+Queue} ()
+\begin{DoxyCompactList}\small\item\em Create a \hyperlink{class_heap}{Heap} and initialize by pushing a dummy value into the vector to keep the arithmetic nice. \end{DoxyCompactList}\item 
+\hyperlink{class_vertex_queue_ab3f3fdeb3ec1e7d886ccf79241847e00}{$\sim$\+Vertex\+Queue} ()
+\item 
+const \hyperlink{class_vertex}{Vertex} \& \hyperlink{class_vertex_queue_ac8399e232e95e15fcbdb655cdb133596}{root} () const 
+\begin{DoxyCompactList}\small\item\em Retrieve the value at the top of the heap. \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_queue_a45a39b64c9a83f682d4d4b7b7ba8fde4}{height} () const 
+\begin{DoxyCompactList}\small\item\em Retrieve the current height of the heap. \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_queue_ad1129053462fffbc663036ab9c7d5449}{size} () const 
+\begin{DoxyCompactList}\small\item\em Retrieve the number of elements currently in the heap. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_queue_a64453633711d2704e4c56e19a21bf0f4}{insert} (\hyperlink{class_vertex}{Vertex} \&new\+Element)
+\begin{DoxyCompactList}\small\item\em Insert a new element into the heap and call bubble up to fix element hierarchy. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_queue_ab0e46b0a5a297f0084aff1e82b1e1da8}{remove} (int index)
+\begin{DoxyCompactList}\small\item\em Remove an element from the heap and bubble down to preserve the proper element hierarchy. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_queue_a0584988fcee5129c26abd38e97159d5e}{is\+Empty} () const 
+\begin{DoxyCompactList}\small\item\em Check if the heap is empty. \end{DoxyCompactList}\item 
+\hyperlink{class_vertex}{Vertex} \hyperlink{class_vertex_queue_ad51cb8fed32f22769b9e9883e8d5912e}{remove\+Min} ()
+\begin{DoxyCompactList}\small\item\em remove\+Min This method will get the root element and pop it off the front of the heap. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_queue_afa16795c50529de64fd81e78a8345036}{decrease\+Key} (long key, \hyperlink{class_vertex}{Vertex} vertex)
+\begin{DoxyCompactList}\small\item\em decrease\+Key This method will take a key and vertex the find it within the vertexqueue then replace its current distance key with the given key. \end{DoxyCompactList}\item 
+int \hyperlink{class_vertex_queue_ae0ac2380259dfcf4629de103e484c031}{get\+Vertex\+Index} (\hyperlink{class_vertex}{Vertex} vertex) const 
+\begin{DoxyCompactList}\small\item\em get\+Vertex\+Index This method will return the index of the vertex that is located within the vertex queue. The vertex will be given to a map that uses the vertex\textquotesingle{}s name as the key and the value is the index of the vertex in the queue. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_queue_acfc52ecebb057681c26dc39c55edc783}{print\+Element\+List} ()
+\begin{DoxyCompactList}\small\item\em print\+Element\+List Method for debugging the priority queue. This will print the vertices to the console. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_queue_afcfed2c512980010b15d455b900197c2}{print\+Map} ()
+\begin{DoxyCompactList}\small\item\em print\+Map This method will iterate through the map output the list of values for the unique keys that are stored within the vertex map. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_queue_a96a6521c4c6cf2b3ae782f438096e71a}{reindex} ()
+\begin{DoxyCompactList}\small\item\em reindex This method will iterate through the vertex\+Map and change the current value of the given key in the map. \end{DoxyCompactList}\item 
+bool \hyperlink{class_vertex_queue_ac0f9e700787d1a135dc9f4bb4c1f797d}{contains} (\hyperlink{class_vertex}{Vertex} vertex)
+\begin{DoxyCompactList}\small\item\em contains This method wraps the vertex map object containing the vertices and will check if the priority queue contain the given vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_vertex_queue_a715062c609e8d2e15e827fb9f23da470}{bubble\+Up} (int index)
+\begin{DoxyCompactList}\small\item\em Iterate up the heap, comparing child to parent. If hierarchy is violated, swap the elements. \end{DoxyCompactList}\item 
+void \hyperlink{class_vertex_queue_a274d6b4ed9a62da34cbd1a084e9b30ac}{bubble\+Down} (int index)
+\begin{DoxyCompactList}\small\item\em Iterate down the heap, comparing parent to child. If hierarchy is violated, swap the elements. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename C$>$\\*
+class Vertex\+Queue$<$ C $>$}
+
+
+
+Definition at line 17 of file vertexqueue.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Vertex\+Queue@{Vertex\+Queue}!Vertex\+Queue@{Vertex\+Queue}}
+\index{Vertex\+Queue@{Vertex\+Queue}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{Vertex\+Queue()}{VertexQueue()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ {\bf Vertex\+Queue}$<$ C $>$\+::{\bf Vertex\+Queue} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ab03e81928b00e89e7cf9ba52f8e8aeb8}{}\label{class_vertex_queue_ab03e81928b00e89e7cf9ba52f8e8aeb8}
+
+
+Create a \hyperlink{class_heap}{Heap} and initialize by pushing a dummy value into the vector to keep the arithmetic nice. 
+
+
+
+Definition at line 25 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!````~Vertex\+Queue@{$\sim$\+Vertex\+Queue}}
+\index{````~Vertex\+Queue@{$\sim$\+Vertex\+Queue}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{$\sim$\+Vertex\+Queue()}{~VertexQueue()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ {\bf Vertex\+Queue}$<$ C $>$\+::$\sim${\bf Vertex\+Queue} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ab3f3fdeb3ec1e7d886ccf79241847e00}{}\label{class_vertex_queue_ab3f3fdeb3ec1e7d886ccf79241847e00}
+
+
+Definition at line 32 of file vertexqueue.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\index{Vertex\+Queue@{Vertex\+Queue}!bubble\+Down@{bubble\+Down}}
+\index{bubble\+Down@{bubble\+Down}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{bubble\+Down(int index)}{bubbleDown(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::bubble\+Down (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{class_vertex_queue_a274d6b4ed9a62da34cbd1a084e9b30ac}{}\label{class_vertex_queue_a274d6b4ed9a62da34cbd1a084e9b30ac}
+
+
+Iterate down the heap, comparing parent to child. If hierarchy is violated, swap the elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index of the heap to start from. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 248 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!bubble\+Up@{bubble\+Up}}
+\index{bubble\+Up@{bubble\+Up}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{bubble\+Up(int index)}{bubbleUp(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::bubble\+Up (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{class_vertex_queue_a715062c609e8d2e15e827fb9f23da470}{}\label{class_vertex_queue_a715062c609e8d2e15e827fb9f23da470}
+
+
+Iterate up the heap, comparing child to parent. If hierarchy is violated, swap the elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & index of the heap to start from. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!contains@{contains}}
+\index{contains@{contains}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{contains(\+Vertex vertex)}{contains(Vertex vertex)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ bool {\bf Vertex\+Queue}$<$ C $>$\+::contains (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex}}]{vertex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ac0f9e700787d1a135dc9f4bb4c1f797d}{}\label{class_vertex_queue_ac0f9e700787d1a135dc9f4bb4c1f797d}
+
+
+contains This method wraps the vertex map object containing the vertices and will check if the priority queue contain the given vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the priority queue contains the vertex; otherwise returns false 
+\end{DoxyReturn}
+
+
+Definition at line 213 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!decrease\+Key@{decrease\+Key}}
+\index{decrease\+Key@{decrease\+Key}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{decrease\+Key(long key, Vertex vertex)}{decreaseKey(long key, Vertex vertex)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::decrease\+Key (
+\begin{DoxyParamCaption}
+\item[{long}]{key, }
+\item[{{\bf Vertex}}]{vertex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_afa16795c50529de64fd81e78a8345036}{}\label{class_vertex_queue_afa16795c50529de64fd81e78a8345036}
+
+
+decrease\+Key This method will take a key and vertex the find it within the vertexqueue then replace its current distance key with the given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & \\
+\hline
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 140 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!get\+Vertex\+Index@{get\+Vertex\+Index}}
+\index{get\+Vertex\+Index@{get\+Vertex\+Index}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{get\+Vertex\+Index(\+Vertex vertex) const }{getVertexIndex(Vertex vertex) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ int {\bf Vertex\+Queue}$<$ C $>$\+::get\+Vertex\+Index (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex}}]{vertex}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ae0ac2380259dfcf4629de103e484c031}{}\label{class_vertex_queue_ae0ac2380259dfcf4629de103e484c031}
+
+
+get\+Vertex\+Index This method will return the index of the vertex that is located within the vertex queue. The vertex will be given to a map that uses the vertex\textquotesingle{}s name as the key and the value is the index of the vertex in the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value of the index in the priority queue 
+\end{DoxyReturn}
+
+
+Definition at line 157 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!height@{height}}
+\index{height@{height}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{height() const }{height() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ int {\bf Vertex\+Queue}$<$ C $>$\+::height (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_a45a39b64c9a83f682d4d4b7b7ba8fde4}{}\label{class_vertex_queue_a45a39b64c9a83f682d4d4b7b7ba8fde4}
+
+
+Retrieve the current height of the heap. 
+
+\begin{DoxyReturn}{Returns}
+the height of the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!insert@{insert}}
+\index{insert@{insert}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{insert(\+Vertex \&new\+Element)}{insert(Vertex &newElement)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::insert (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} \&}]{new\+Element}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_a64453633711d2704e4c56e19a21bf0f4}{}\label{class_vertex_queue_a64453633711d2704e4c56e19a21bf0f4}
+
+
+Insert a new element into the heap and call bubble up to fix element hierarchy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Element} & the element to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 78 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{is\+Empty() const }{isEmpty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ bool {\bf Vertex\+Queue}$<$ C $>$\+::is\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_a0584988fcee5129c26abd38e97159d5e}{}\label{class_vertex_queue_a0584988fcee5129c26abd38e97159d5e}
+
+
+Check if the heap is empty. 
+
+\begin{DoxyReturn}{Returns}
+true if elements size is 0. 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!print\+Element\+List@{print\+Element\+List}}
+\index{print\+Element\+List@{print\+Element\+List}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{print\+Element\+List()}{printElementList()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::print\+Element\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_acfc52ecebb057681c26dc39c55edc783}{}\label{class_vertex_queue_acfc52ecebb057681c26dc39c55edc783}
+
+
+print\+Element\+List Method for debugging the priority queue. This will print the vertices to the console. 
+
+
+
+Definition at line 167 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!print\+Map@{print\+Map}}
+\index{print\+Map@{print\+Map}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{print\+Map()}{printMap()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::print\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_afcfed2c512980010b15d455b900197c2}{}\label{class_vertex_queue_afcfed2c512980010b15d455b900197c2}
+
+
+print\+Map This method will iterate through the map output the list of values for the unique keys that are stored within the vertex map. 
+
+
+
+Definition at line 180 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!reindex@{reindex}}
+\index{reindex@{reindex}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{reindex()}{reindex()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::reindex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_a96a6521c4c6cf2b3ae782f438096e71a}{}\label{class_vertex_queue_a96a6521c4c6cf2b3ae782f438096e71a}
+
+
+reindex This method will iterate through the vertex\+Map and change the current value of the given key in the map. 
+
+
+
+Definition at line 195 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!remove@{remove}}
+\index{remove@{remove}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{remove(int index)}{remove(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ void {\bf Vertex\+Queue}$<$ C $>$\+::remove (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ab0e46b0a5a297f0084aff1e82b1e1da8}{}\label{class_vertex_queue_ab0e46b0a5a297f0084aff1e82b1e1da8}
+
+
+Remove an element from the heap and bubble down to preserve the proper element hierarchy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & the index of the element to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 92 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!remove\+Min@{remove\+Min}}
+\index{remove\+Min@{remove\+Min}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{remove\+Min()}{removeMin()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ {\bf Vertex} {\bf Vertex\+Queue}$<$ C $>$\+::remove\+Min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ad51cb8fed32f22769b9e9883e8d5912e}{}\label{class_vertex_queue_ad51cb8fed32f22769b9e9883e8d5912e}
+
+
+remove\+Min This method will get the root element and pop it off the front of the heap. 
+
+\begin{DoxyReturn}{Returns}
+root node 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!root@{root}}
+\index{root@{root}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{root() const }{root() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ const {\bf Vertex}\& {\bf Vertex\+Queue}$<$ C $>$\+::root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ac8399e232e95e15fcbdb655cdb133596}{}\label{class_vertex_queue_ac8399e232e95e15fcbdb655cdb133596}
+
+
+Retrieve the value at the top of the heap. 
+
+\begin{DoxyReturn}{Returns}
+a copy of the root value of the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file vertexqueue.\+h.
+
+\index{Vertex\+Queue@{Vertex\+Queue}!size@{size}}
+\index{size@{size}!Vertex\+Queue@{Vertex\+Queue}}
+\subsubsection[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename C$>$ int {\bf Vertex\+Queue}$<$ C $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_vertex_queue_ad1129053462fffbc663036ab9c7d5449}{}\label{class_vertex_queue_ad1129053462fffbc663036ab9c7d5449}
+
+
+Retrieve the number of elements currently in the heap. 
+
+\begin{DoxyReturn}{Returns}
+the size of the heap. 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file vertexqueue.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{vertexqueue_8h}{vertexqueue.\+h}\end{DoxyCompactItemize}

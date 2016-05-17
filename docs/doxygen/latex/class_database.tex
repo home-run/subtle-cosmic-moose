@@ -1,0 +1,420 @@
+\hypertarget{class_database}{}\section{Database Class Reference}
+\label{class_database}\index{Database@{Database}}
+
+
+The \hyperlink{class_database}{Database} class is a wrapper for Q\+Sql\+Database.  
+
+
+
+
+{\ttfamily \#include $<$database.\+h$>$}
+
+Inheritance diagram for Database\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_database}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_database_a39f80fe1b43e44d840487fbe80034ff5}{Database} (Q\+String path, Q\+String driver)
+\begin{DoxyCompactList}\small\item\em Create database from specified db file and driver. \end{DoxyCompactList}\item 
+bool \hyperlink{class_database_a427744572ef7ae7489cb98d0638d3147}{Add\+Souvenir} (Q\+String stadium\+Name, Q\+String item\+Name, double item\+Price)
+\begin{DoxyCompactList}\small\item\em Add a souvenir to a stadium\textquotesingle{}s souvenir list. \end{DoxyCompactList}\item 
+bool \hyperlink{class_database_a6ce5328c14654001dc00760e8aa051dd}{Add\+Stadium} (Q\+String stadium\+Name, Q\+String team\+Name, Q\+String address, Q\+String phone\+Number, Q\+String date\+Opened, Q\+String capacity, Q\+String turf\+Type, long revenue, Q\+String leauge, Q\+String typology)
+\begin{DoxyCompactList}\small\item\em Add a Stadium to Stadium\textquotesingle{}s data base. \end{DoxyCompactList}\item 
+bool \hyperlink{class_database_a9b9d910bc03a31b4ba8a0247f4d87e35}{Add\+Distance} (int a, int b, long distance)
+\begin{DoxyCompactList}\small\item\em Add edges between vertecies to distances database. \end{DoxyCompactList}\item 
+bool \hyperlink{class_database_a7af2402bcaac82c92eb9954dc7435d32}{Add\+Revenue} (int id, double revenue)
+\begin{DoxyCompactList}\small\item\em Alter a current stadium\textquotesingle{}s total revenue. \end{DoxyCompactList}\item 
+Q\+String\+List \hyperlink{class_database_ae4ea1141f1aa1651da8854c4f16a5f00}{Get\+Stadium\+Names} ()
+\begin{DoxyCompactList}\small\item\em Retrieve a list of stadium names. \end{DoxyCompactList}\item 
+int \hyperlink{class_database_af3530b05506d54e45bd8fbdbcb72495d}{Get\+Stadium\+ID} (Q\+String name)
+\begin{DoxyCompactList}\small\item\em Retrieve a stadium ID given the name. \end{DoxyCompactList}\item 
+double \hyperlink{class_database_ac4b525f1a61d1b4fd11c81bd3b2c92b0}{Get\+Total\+Revenues} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the total amount of revenue from all stadiums. \end{DoxyCompactList}\item 
+\hyperlink{class_database_a84d399a2ad58d69daab9b05330e1316d}{$\sim$\+Database} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+Q\+Sql\+Query \hyperlink{class_database_a7a273ea995fbd9063ce67e46dbbadd27}{get\+Edges} ()
+\begin{DoxyCompactList}\small\item\em Retrieve I\+Ds and Distances. \end{DoxyCompactList}\item 
+int \hyperlink{class_database_a6d214ff690fe02bfade1943240c2bd27}{get\+Number\+Of\+Stadiums} () const 
+\begin{DoxyCompactList}\small\item\em Return the number of stadiums in the database. \end{DoxyCompactList}\item 
+Q\+Sql\+Query \hyperlink{class_database_a26fee1a206ddc5b9ed89242cfba29f92}{get\+Stadiums\+Name\+Id} ()
+\begin{DoxyCompactList}\small\item\em Get the query containing the ids and stadium names available in the database. \end{DoxyCompactList}\item 
+double \hyperlink{class_database_ac303418b93547f5106af47c542c7623b}{Get\+Revenue} (int id)
+\begin{DoxyCompactList}\small\item\em Gets the revenue of the particular stadium given its ID. \end{DoxyCompactList}\item 
+double \hyperlink{class_database_abff0f7f77d9a3a3b2ea62930c5935cf9}{Get\+Revenue} (Q\+String stadium\+Name)
+\begin{DoxyCompactList}\small\item\em Gets the revenue of the particular stadium given its name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_database}{Database} class is a wrapper for Q\+Sql\+Database. 
+
+Definition at line 13 of file database.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Database@{Database}!Database@{Database}}
+\index{Database@{Database}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Database(\+Q\+String path, Q\+String driver)}{Database(QString path, QString driver)}}]{\setlength{\rightskip}{0pt plus 5cm}Database\+::\+Database (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{path, }
+\item[{Q\+String}]{driver}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a39f80fe1b43e44d840487fbe80034ff5}{}\label{class_database_a39f80fe1b43e44d840487fbe80034ff5}
+
+
+Create database from specified db file and driver. 
+
+\hyperlink{class_database_a39f80fe1b43e44d840487fbe80034ff5}{Database\+::\+Database}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to S\+QL \hyperlink{class_database}{Database} file \\
+\hline
+{\em driver} & Q\+String identifier for the specific flavor of S\+QL we are using. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file database.\+cpp.
+
+\index{Database@{Database}!````~Database@{$\sim$\+Database}}
+\index{````~Database@{$\sim$\+Database}!Database@{Database}}
+\subsubsection[{\texorpdfstring{$\sim$\+Database()}{~Database()}}]{\setlength{\rightskip}{0pt plus 5cm}Database\+::$\sim$\+Database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a84d399a2ad58d69daab9b05330e1316d}{}\label{class_database_a84d399a2ad58d69daab9b05330e1316d}
+
+
+Destructor. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Database@{Database}!Add\+Distance@{Add\+Distance}}
+\index{Add\+Distance@{Add\+Distance}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Add\+Distance(int a, int b, long distance)}{AddDistance(int a, int b, long distance)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Database\+::\+Add\+Distance (
+\begin{DoxyParamCaption}
+\item[{int}]{a, }
+\item[{int}]{b, }
+\item[{long}]{distance}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a9b9d910bc03a31b4ba8a0247f4d87e35}{}\label{class_database_a9b9d910bc03a31b4ba8a0247f4d87e35}
+
+
+Add edges between vertecies to distances database. 
+
+\hyperlink{class_database_a9b9d910bc03a31b4ba8a0247f4d87e35}{Database\+::\+Add\+Distance} Adds new distacne between two vertecies.
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & starting vertex \\
+\hline
+{\em b} & ending vertex \\
+\hline
+{\em distance} & weight of the edge \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it worked else false 
+\end{DoxyReturn}
+
+
+Definition at line 173 of file database.\+cpp.
+
+\index{Database@{Database}!Add\+Revenue@{Add\+Revenue}}
+\index{Add\+Revenue@{Add\+Revenue}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Add\+Revenue(int id, double revenue)}{AddRevenue(int id, double revenue)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Database\+::\+Add\+Revenue (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{double}]{revenue}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a7af2402bcaac82c92eb9954dc7435d32}{}\label{class_database_a7af2402bcaac82c92eb9954dc7435d32}
+
+
+Alter a current stadium\textquotesingle{}s total revenue. 
+
+\hyperlink{class_database_a7af2402bcaac82c92eb9954dc7435d32}{Database\+::\+Add\+Revenue} Add amount to revenue attribute in stadiums table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & stadiums id \\
+\hline
+{\em revenue} & of the stadium \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 195 of file database.\+cpp.
+
+\index{Database@{Database}!Add\+Souvenir@{Add\+Souvenir}}
+\index{Add\+Souvenir@{Add\+Souvenir}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Add\+Souvenir(\+Q\+String stadium\+Name, Q\+String item\+Name, double item\+Price)}{AddSouvenir(QString stadiumName, QString itemName, double itemPrice)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Database\+::\+Add\+Souvenir (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{stadium\+Name, }
+\item[{Q\+String}]{item\+Name, }
+\item[{double}]{item\+Price}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a427744572ef7ae7489cb98d0638d3147}{}\label{class_database_a427744572ef7ae7489cb98d0638d3147}
+
+
+Add a souvenir to a stadium\textquotesingle{}s souvenir list. 
+
+\hyperlink{class_database_a427744572ef7ae7489cb98d0638d3147}{Database\+::\+Add\+Souvenir} Add a souvenir to a certain stadium\textquotesingle{}s souvenir list given the stadium\textquotesingle{}s name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stadium\+Name} & The stadium name \\
+\hline
+{\em item\+Name} & The item name \\
+\hline
+{\em item\+Price} & The item price \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it worked 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file database.\+cpp.
+
+\index{Database@{Database}!Add\+Stadium@{Add\+Stadium}}
+\index{Add\+Stadium@{Add\+Stadium}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Add\+Stadium(\+Q\+String stadium\+Name, Q\+String team\+Name, Q\+String address, Q\+String phone\+Number, Q\+String date\+Opened, Q\+String capacity, Q\+String turf\+Type, long revenue, Q\+String leauge, Q\+String typology)}{AddStadium(QString stadiumName, QString teamName, QString address, QString phoneNumber, QString dateOpened, QString capacity, QString turfType, long revenue, QString leauge, QString typology)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Database\+::\+Add\+Stadium (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{stadium\+Name, }
+\item[{Q\+String}]{team\+Name, }
+\item[{Q\+String}]{address, }
+\item[{Q\+String}]{phone\+Number, }
+\item[{Q\+String}]{date\+Opened, }
+\item[{Q\+String}]{capacity, }
+\item[{Q\+String}]{turf\+Type, }
+\item[{long}]{revenue, }
+\item[{Q\+String}]{leauge, }
+\item[{Q\+String}]{typology}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a6ce5328c14654001dc00760e8aa051dd}{}\label{class_database_a6ce5328c14654001dc00760e8aa051dd}
+
+
+Add a Stadium to Stadium\textquotesingle{}s data base. 
+
+\hyperlink{class_database_a6ce5328c14654001dc00760e8aa051dd}{Database\+::\+Add\+Stadium} Adds new Stadium to the data base with the following attributes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stadium\+Name} & \\
+\hline
+{\em team\+Name} & \\
+\hline
+{\em address} & \\
+\hline
+{\em phone\+Number} & \\
+\hline
+{\em date\+Opened} & \\
+\hline
+{\em capacity} & \\
+\hline
+{\em turf\+Type} & \\
+\hline
+{\em revenue} & \\
+\hline
+{\em leauge} & \\
+\hline
+{\em typology} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it worked else false 
+\end{DoxyReturn}
+
+
+Definition at line 140 of file database.\+cpp.
+
+\index{Database@{Database}!get\+Edges@{get\+Edges}}
+\index{get\+Edges@{get\+Edges}!Database@{Database}}
+\subsubsection[{\texorpdfstring{get\+Edges()}{getEdges()}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Sql\+Query Database\+::get\+Edges (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a7a273ea995fbd9063ce67e46dbbadd27}{}\label{class_database_a7a273ea995fbd9063ce67e46dbbadd27}
+
+
+Retrieve I\+Ds and Distances. 
+
+\hyperlink{class_database_a7a273ea995fbd9063ce67e46dbbadd27}{Database\+::get\+Edges} Method that executes a S\+QL query to grab all ids to, ids from and distances from the distances table.
+
+\begin{DoxyReturn}{Returns}
+S\+Q\+Lquery containing the results of the 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file database.\+cpp.
+
+\index{Database@{Database}!get\+Number\+Of\+Stadiums@{get\+Number\+Of\+Stadiums}}
+\index{get\+Number\+Of\+Stadiums@{get\+Number\+Of\+Stadiums}!Database@{Database}}
+\subsubsection[{\texorpdfstring{get\+Number\+Of\+Stadiums() const }{getNumberOfStadiums() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Database\+::get\+Number\+Of\+Stadiums (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_database_a6d214ff690fe02bfade1943240c2bd27}{}\label{class_database_a6d214ff690fe02bfade1943240c2bd27}
+
+
+Return the number of stadiums in the database. 
+
+\hyperlink{class_database_a6d214ff690fe02bfade1943240c2bd27}{Database\+::get\+Number\+Of\+Stadiums} Method executes a sql query to get the total number of stadiums in the database.
+
+\begin{DoxyReturn}{Returns}
+int value \# of stadiums 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file database.\+cpp.
+
+\index{Database@{Database}!Get\+Revenue@{Get\+Revenue}}
+\index{Get\+Revenue@{Get\+Revenue}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Get\+Revenue(int id)}{GetRevenue(int id)}}]{\setlength{\rightskip}{0pt plus 5cm}double Database\+::\+Get\+Revenue (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_ac303418b93547f5106af47c542c7623b}{}\label{class_database_ac303418b93547f5106af47c542c7623b}
+
+
+Gets the revenue of the particular stadium given its ID. 
+
+Get\+Revenue Retrieve the current revenue value of a stadium given its ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & stadium ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the current revenue of the stadium 
+\end{DoxyReturn}
+
+
+Definition at line 305 of file database.\+cpp.
+
+\index{Database@{Database}!Get\+Revenue@{Get\+Revenue}}
+\index{Get\+Revenue@{Get\+Revenue}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Get\+Revenue(\+Q\+String stadium\+Name)}{GetRevenue(QString stadiumName)}}]{\setlength{\rightskip}{0pt plus 5cm}double Database\+::\+Get\+Revenue (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{stadium\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_abff0f7f77d9a3a3b2ea62930c5935cf9}{}\label{class_database_abff0f7f77d9a3a3b2ea62930c5935cf9}
+
+
+Gets the revenue of the particular stadium given its name. 
+
+Get\+Revenue Retrieve the current revenue value of a stadium given its name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & stadium ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the current revenue of the stadium 
+\end{DoxyReturn}
+
+
+Definition at line 333 of file database.\+cpp.
+
+\index{Database@{Database}!Get\+Stadium\+ID@{Get\+Stadium\+ID}}
+\index{Get\+Stadium\+ID@{Get\+Stadium\+ID}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Get\+Stadium\+I\+D(\+Q\+String name)}{GetStadiumID(QString name)}}]{\setlength{\rightskip}{0pt plus 5cm}int Database\+::\+Get\+Stadium\+ID (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_af3530b05506d54e45bd8fbdbcb72495d}{}\label{class_database_af3530b05506d54e45bd8fbdbcb72495d}
+
+
+Retrieve a stadium ID given the name. 
+
+\hyperlink{class_database_af3530b05506d54e45bd8fbdbcb72495d}{Database\+::\+Get\+Stadium\+ID} Retrieve a stadium\textquotesingle{}s unique ID given its name.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the stadium name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the stadium ID 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file database.\+cpp.
+
+\index{Database@{Database}!Get\+Stadium\+Names@{Get\+Stadium\+Names}}
+\index{Get\+Stadium\+Names@{Get\+Stadium\+Names}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Get\+Stadium\+Names()}{GetStadiumNames()}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List Database\+::\+Get\+Stadium\+Names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_ae4ea1141f1aa1651da8854c4f16a5f00}{}\label{class_database_ae4ea1141f1aa1651da8854c4f16a5f00}
+
+
+Retrieve a list of stadium names. 
+
+\hyperlink{class_database_ae4ea1141f1aa1651da8854c4f16a5f00}{Database\+::\+Get\+Stadium\+Names} Retrieve a list of stadium names.
+
+\begin{DoxyReturn}{Returns}
+names a list of stadium names 
+\end{DoxyReturn}
+
+
+Definition at line 228 of file database.\+cpp.
+
+\index{Database@{Database}!get\+Stadiums\+Name\+Id@{get\+Stadiums\+Name\+Id}}
+\index{get\+Stadiums\+Name\+Id@{get\+Stadiums\+Name\+Id}!Database@{Database}}
+\subsubsection[{\texorpdfstring{get\+Stadiums\+Name\+Id()}{getStadiumsNameId()}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Sql\+Query Database\+::get\+Stadiums\+Name\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_a26fee1a206ddc5b9ed89242cfba29f92}{}\label{class_database_a26fee1a206ddc5b9ed89242cfba29f92}
+
+
+Get the query containing the ids and stadium names available in the database. 
+
+\hyperlink{class_database_a26fee1a206ddc5b9ed89242cfba29f92}{Database\+::get\+Stadiums\+Name\+Id} Get the name, and ID of each of the stadiums from the database and order the results by id, descending order.
+
+\begin{DoxyReturn}{Returns}
+S\+Q\+L\+Query containing the results from the exeuction 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file database.\+cpp.
+
+\index{Database@{Database}!Get\+Total\+Revenues@{Get\+Total\+Revenues}}
+\index{Get\+Total\+Revenues@{Get\+Total\+Revenues}!Database@{Database}}
+\subsubsection[{\texorpdfstring{Get\+Total\+Revenues()}{GetTotalRevenues()}}]{\setlength{\rightskip}{0pt plus 5cm}double Database\+::\+Get\+Total\+Revenues (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_database_ac4b525f1a61d1b4fd11c81bd3b2c92b0}{}\label{class_database_ac4b525f1a61d1b4fd11c81bd3b2c92b0}
+
+
+Retrieve the total amount of revenue from all stadiums. 
+
+\hyperlink{class_database_ac4b525f1a61d1b4fd11c81bd3b2c92b0}{Database\+::\+Get\+Total\+Revenues}.
+
+\begin{DoxyReturn}{Returns}
+The sum of all stadium revenues 
+\end{DoxyReturn}
+
+
+Definition at line 273 of file database.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{database_8h}{database.\+h}\item 
+src/source/\hyperlink{database_8cpp}{database.\+cpp}\end{DoxyCompactItemize}

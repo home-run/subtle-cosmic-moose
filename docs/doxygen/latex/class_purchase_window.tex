@@ -1,0 +1,119 @@
+\hypertarget{class_purchase_window}{}\section{Purchase\+Window Class Reference}
+\label{class_purchase_window}\index{Purchase\+Window@{Purchase\+Window}}
+
+
+{\ttfamily \#include $<$purchasewindow.\+h$>$}
+
+Inheritance diagram for Purchase\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_purchase_window}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_purchase_window_1_1purchase_info}{purchase\+Info}
+\end{DoxyCompactItemize}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_purchase_window_a6f1bfcc93c4cb61b56b1707671e13ba8}{propagate\+Stadium\+List} (Q\+String\+List stadiums)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_purchase_window_a6f1bfcc93c4cb61b56b1707671e13ba8}{Purchase\+Window\+::propagate\+Stadium\+List} Propagate the combo\+Box with the list of selected stadiums to visit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_purchase_window_a6aa4014cd9a1eb8e4b9372d7161ce990}{Purchase\+Window} (Q\+Widget $\ast$parent=0, \hyperlink{class_database}{Database} $\ast$db=0)
+\item 
+\hyperlink{class_purchase_window_afb8082268943606816568f5bf40a1f6f}{$\sim$\+Purchase\+Window} ()
+\item 
+\hyperlink{class_q_list}{Q\+List}$<$ \hyperlink{struct_purchase_window_1_1purchase_info}{purchase\+Info} $>$ \hyperlink{class_purchase_window_a088a4f0910f7ef9503b0452523b492ab}{get\+Purchases} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_purchase_window_a088a4f0910f7ef9503b0452523b492ab}{Purchase\+Window\+::get\+Purchases} Retrieve a list of \hyperlink{struct_purchase_window_1_1purchase_info}{purchase\+Info} structs containing all of the data in the souvenir purchase list (cart). contains\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file purchasewindow.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Purchase\+Window@{Purchase\+Window}!Purchase\+Window@{Purchase\+Window}}
+\index{Purchase\+Window@{Purchase\+Window}!Purchase\+Window@{Purchase\+Window}}
+\subsubsection[{\texorpdfstring{Purchase\+Window(\+Q\+Widget $\ast$parent=0, Database $\ast$db=0)}{PurchaseWindow(QWidget *parent=0, Database *db=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Purchase\+Window\+::\+Purchase\+Window (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}, }
+\item[{{\bf Database} $\ast$}]{db = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{class_purchase_window_a6aa4014cd9a1eb8e4b9372d7161ce990}{}\label{class_purchase_window_a6aa4014cd9a1eb8e4b9372d7161ce990}
+
+
+Definition at line 5 of file purchasewindow.\+cpp.
+
+\index{Purchase\+Window@{Purchase\+Window}!````~Purchase\+Window@{$\sim$\+Purchase\+Window}}
+\index{````~Purchase\+Window@{$\sim$\+Purchase\+Window}!Purchase\+Window@{Purchase\+Window}}
+\subsubsection[{\texorpdfstring{$\sim$\+Purchase\+Window()}{~PurchaseWindow()}}]{\setlength{\rightskip}{0pt plus 5cm}Purchase\+Window\+::$\sim$\+Purchase\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_purchase_window_afb8082268943606816568f5bf40a1f6f}{}\label{class_purchase_window_afb8082268943606816568f5bf40a1f6f}
+
+
+Definition at line 57 of file purchasewindow.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Purchase\+Window@{Purchase\+Window}!get\+Purchases@{get\+Purchases}}
+\index{get\+Purchases@{get\+Purchases}!Purchase\+Window@{Purchase\+Window}}
+\subsubsection[{\texorpdfstring{get\+Purchases()}{getPurchases()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Q\+List}$<$ {\bf Purchase\+Window\+::purchase\+Info} $>$ Purchase\+Window\+::get\+Purchases (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_purchase_window_a088a4f0910f7ef9503b0452523b492ab}{}\label{class_purchase_window_a088a4f0910f7ef9503b0452523b492ab}
+
+
+\hyperlink{class_purchase_window_a088a4f0910f7ef9503b0452523b492ab}{Purchase\+Window\+::get\+Purchases} Retrieve a list of \hyperlink{struct_purchase_window_1_1purchase_info}{purchase\+Info} structs containing all of the data in the souvenir purchase list (cart). contains\+: 
+
+
+\begin{DoxyItemize}
+\item stadium name
+\item item name
+\item item price
+\item item quantity
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+purchases a list of \hyperlink{struct_purchase_window_1_1purchase_info}{purchase\+Info} structs 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file purchasewindow.\+cpp.
+
+\index{Purchase\+Window@{Purchase\+Window}!propagate\+Stadium\+List@{propagate\+Stadium\+List}}
+\index{propagate\+Stadium\+List@{propagate\+Stadium\+List}!Purchase\+Window@{Purchase\+Window}}
+\subsubsection[{\texorpdfstring{propagate\+Stadium\+List}{propagateStadiumList}}]{\setlength{\rightskip}{0pt plus 5cm}void Purchase\+Window\+::propagate\+Stadium\+List (
+\begin{DoxyParamCaption}
+\item[{Q\+String\+List}]{stadiums}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{class_purchase_window_a6f1bfcc93c4cb61b56b1707671e13ba8}{}\label{class_purchase_window_a6f1bfcc93c4cb61b56b1707671e13ba8}
+
+
+\hyperlink{class_purchase_window_a6f1bfcc93c4cb61b56b1707671e13ba8}{Purchase\+Window\+::propagate\+Stadium\+List} Propagate the combo\+Box with the list of selected stadiums to visit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stadiums} & Q\+String\+List of stadium names \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file purchasewindow.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/header/\hyperlink{purchasewindow_8h}{purchasewindow.\+h}\item 
+src/source/\hyperlink{purchasewindow_8cpp}{purchasewindow.\+cpp}\end{DoxyCompactItemize}
