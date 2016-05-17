@@ -1,0 +1,1138 @@
+.TH "QMap< Key, T >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QMap< Key, T > \- The \fBQMap\fP class is a template class that provides a red-black-tree-based dictionary\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qmap\&.h>\fP
+.PP
+Inherited by \fBQMultiMap< Key, T >\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBconst_iterator\fP"
+.br
+.RI "\fIThe \fBQMap::const_iterator\fP class provides an STL-style const iterator for \fBQMap\fP and \fBQMultiMap\fP\&. \fP"
+.ti -1c
+.RI "class \fBiterator\fP"
+.br
+.RI "\fIThe \fBQMap::iterator\fP class provides an STL-style non-const iterator for \fBQMap\fP and \fBQMultiMap\fP\&. \fP"
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBiterator\fP \fBIterator\fP"
+.br
+.ti -1c
+.RI "typedef \fBconst_iterator\fP \fBConstIterator\fP"
+.br
+.ti -1c
+.RI "typedef Key \fBkey_type\fP"
+.br
+.ti -1c
+.RI "typedef T \fBmapped_type\fP"
+.br
+.ti -1c
+.RI "typedef qptrdiff \fBdifference_type\fP"
+.br
+.ti -1c
+.RI "typedef int \fBsize_type\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQMap\fP ()"
+.br
+.ti -1c
+.RI "\fBQMap\fP (const \fBQMap\fP< Key, T > &other)"
+.br
+.ti -1c
+.RI "\fB~QMap\fP ()"
+.br
+.ti -1c
+.RI "\fBQMap\fP< Key, T > & \fBoperator=\fP (const \fBQMap\fP< Key, T > &other)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBQMap\fP< Key, T > &other)"
+.br
+.ti -1c
+.RI "\fBQMap\fP (const typename std::map< Key, T > &other)"
+.br
+.ti -1c
+.RI "std::map< Key, T > \fBtoStdMap\fP () const "
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBQMap\fP< Key, T > &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBQMap\fP< Key, T > &other) const "
+.br
+.ti -1c
+.RI "int \fBsize\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.ti -1c
+.RI "void \fBdetach\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisDetached\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisSharedWith\fP (const \fBQMap\fP< Key, T > &other) const "
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "int \fBremove\fP (const Key &\fBkey\fP)"
+.br
+.ti -1c
+.RI "T \fBtake\fP (const Key &\fBkey\fP)"
+.br
+.ti -1c
+.RI "bool \fBcontains\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "const Key \fBkey\fP (const T &\fBvalue\fP, const Key &defaultKey=Key()) const "
+.br
+.ti -1c
+.RI "const T \fBvalue\fP (const Key &\fBkey\fP, const T &defaultValue=T()) const "
+.br
+.ti -1c
+.RI "T & \fBoperator[]\fP (const Key &\fBkey\fP)"
+.br
+.ti -1c
+.RI "const T \fBoperator[]\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "\fBQList\fP< Key > \fBuniqueKeys\fP () const "
+.br
+.ti -1c
+.RI "\fBQList\fP< Key > \fBkeys\fP () const "
+.br
+.ti -1c
+.RI "\fBQList\fP< Key > \fBkeys\fP (const T &\fBvalue\fP) const "
+.br
+.ti -1c
+.RI "\fBQList\fP< T > \fBvalues\fP () const "
+.br
+.ti -1c
+.RI "\fBQList\fP< T > \fBvalues\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "int \fBcount\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "const Key & \fBfirstKey\fP () const "
+.br
+.ti -1c
+.RI "const Key & \fBlastKey\fP () const "
+.br
+.ti -1c
+.RI "T & \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBfirst\fP () const "
+.br
+.ti -1c
+.RI "T & \fBlast\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBlast\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBbegin\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBbegin\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBconstBegin\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcbegin\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBend\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBend\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBconstEnd\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcend\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBerase\fP (\fBiterator\fP it)"
+.br
+.ti -1c
+.RI "int \fBcount\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBfind\fP (const Key &\fBkey\fP)"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBfind\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBconstFind\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBlowerBound\fP (const Key &\fBkey\fP)"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBlowerBound\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBupperBound\fP (const Key &\fBkey\fP)"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBupperBound\fP (const Key &\fBkey\fP) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (const Key &\fBkey\fP, const T &\fBvalue\fP)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBconst_iterator\fP pos, const Key &\fBkey\fP, const T &\fBvalue\fP)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsertMulti\fP (const Key &\fBkey\fP, const T &\fBvalue\fP)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsertMulti\fP (\fBconst_iterator\fP pos, const Key &akey, const T &avalue)"
+.br
+.ti -1c
+.RI "\fBQMap\fP< Key, T > & \fBunite\fP (const \fBQMap\fP< Key, T > &other)"
+.br
+.ti -1c
+.RI "bool \fBempty\fP () const "
+.br
+.ti -1c
+.RI "QPair< \fBiterator\fP, \fBiterator\fP > \fBequal_range\fP (const Key &akey)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBiterator\fP"
+.br
+.ti -1c
+.RI "class \fBconst_iterator\fP"
+.br
+.in -1c
+.SS "Related Functions"
+(Note that these are not member functions\&.) 
+.in +1c
+.ti -1c
+.RI "QDataStream & \fBoperator<<\fP (QDataStream &out, const \fBQMap\fP< Key, T > &map)"
+.br
+.ti -1c
+.RI "QDataStream & \fBoperator>>\fP (QDataStream &in, \fBQMap\fP< Key, T > &map)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class Key, class T>
+.br
+class QMap< Key, T >"
+The \fBQMap\fP class is a template class that provides a red-black-tree-based dictionary\&. 
+
+QtCore
+.PP
+\fBQMap\fP<Key, T> is one of Qt's generic {container classes}\&. It stores (key, value) pairs and provides fast lookup of the value associated with a key\&.
+.PP
+\fBQMap\fP and QHash provide very similar functionality\&. The differences are:
+.PP
+.PD 0
+.IP "\(bu" 2
+QHash provides average faster lookups than \fBQMap\fP\&. (See {Algorithmic Complexity} for details\&.) 
+.IP "\(bu" 2
+When iterating over a QHash, the items are arbitrarily ordered\&. With \fBQMap\fP, the items are always sorted by key\&. 
+.IP "\(bu" 2
+The key type of a QHash must provide \fBoperator==()\fP and a global qHash(Key) function\&. The key type of a \fBQMap\fP must provide operator<() specifying a total order\&. 
+.PP
+Here's an example \fBQMap\fP with QString keys and \fCint\fP values: 
+.PP
+.nf
+
+.fi
+.PP
+ To insert a (key, value) pair into the map, you can use \fBoperator[]()\fP:
+.PP
+.PP
+.nf
+.fi
+.PP
+ This inserts the following three (key, value) pairs into the \fBQMap\fP: ('one', 1), ('three', 3), and ('seven', 7)\&. Another way to insert items into the map is to use \fBinsert()\fP:
+.PP
+.PP
+.nf
+.fi
+.PP
+ To look up a value, use \fBoperator[]()\fP or \fBvalue()\fP:
+.PP
+.PP
+.nf
+.fi
+.PP
+ If there is no item with the specified key in the map, these functions return a {default-constructed value}\&.
+.PP
+If you want to check whether the map contains a certain key, use \fBcontains()\fP:
+.PP
+.PP
+.nf
+.fi
+.PP
+ There is also a \fBvalue()\fP overload that uses its second argument as a default value if there is no item with the specified key:
+.PP
+.PP
+.nf
+.fi
+.PP
+ In general, we recommend that you use \fBcontains()\fP and \fBvalue()\fP rather than \fBoperator[]()\fP for looking up a key in a map\&. The reason is that \fBoperator[]()\fP silently inserts an item into the map if no item exists with the same key (unless the map is const)\&. For example, the following code snippet will create 1000 items in memory:
+.PP
+.PP
+.nf
+.fi
+.PP
+ To avoid this problem, replace \fCmap\fP[i] with \fCmap\&.value(i)\fP in the code above\&.
+.PP
+If you want to navigate through all the (key, value) pairs stored in a \fBQMap\fP, you can use an iterator\&. \fBQMap\fP provides both {Java-style iterators} (QMapIterator and QMutableMapIterator) and {STL-style iterators} (\fBQMap::const_iterator\fP and \fBQMap::iterator\fP)\&. Here's how to iterate over a \fBQMap<QString, int>\fP using a Java-style iterator:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Here's the same code, but using an STL-style iterator this time:
+.PP
+.PP
+.nf
+.fi
+.PP
+ The items are traversed in ascending key order\&.
+.PP
+Normally, a \fBQMap\fP allows only one value per key\&. If you call \fBinsert()\fP with a key that already exists in the \fBQMap\fP, the previous value will be erased\&. For example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ However, you can store multiple values per key by using \fBinsertMulti()\fP instead of \fBinsert()\fP (or using the convenience subclass \fBQMultiMap\fP)\&. If you want to retrieve all the values for a single key, you can use values(const Key &key), which returns a QList<T>:
+.PP
+.PP
+.nf
+.fi
+.PP
+ The items that share the same key are available from most recently to least recently inserted\&. Another approach is to call \fBfind()\fP to get the STL-style iterator for the first item with a key and iterate from there:
+.PP
+.PP
+.nf
+.fi
+.PP
+ If you only need to extract the values from a map (not the keys), you can also use {foreach}:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Items can be removed from the map in several ways\&. One way is to call \fBremove()\fP; this will remove any item with the given key\&. Another way is to use QMutableMapIterator::remove()\&. In addition, you can clear the entire map using \fBclear()\fP\&.
+.PP
+\fBQMap\fP's key and value data types must be {assignable data types}\&. This covers most data types you are likely to encounter, but the compiler won't let you, for example, store a QWidget as a value; instead, store a QWidget *\&. In addition, \fBQMap\fP's key type must provide operator<()\&. \fBQMap\fP uses it to keep its items sorted, and assumes that two keys \fCx\fP and \fCy\fP are equal if neither \fC\fP{x < y} nor \fC\fP{y < x} is true\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ In the example, we start by comparing the employees' names\&. If they're equal, we compare their dates of birth to break the tie\&.
+.PP
+\fBSee also:\fP
+.RS 4
+QMapIterator, QMutableMapIterator, QHash, \fBQSet\fP 
+.RE
+.PP
+
+.PP
+Definition at line 321 of file qmap\&.h\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBConstIterator\fP"
+Qt-style synonym for \fBQMap::const_iterator\fP\&. 
+.PP
+Definition at line 538 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBdifference_type\fP"
+Typedef for ptrdiff_t\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 556 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBIterator\fP"
+Qt-style synonym for \fBQMap::iterator\fP\&. 
+.PP
+Definition at line 537 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBkey_type\fP"
+Typedef for Key\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 554 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBmapped_type\fP"
+Typedef for T\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 555 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBsize_type\fP"
+Typedef for int\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 557 of file qmap\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBQMap\fP ()\fC [inline]\fP"
+Constructs an empty map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBclear()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 328 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBQMap\fP (const \fBQMap\fP< Key, T > & other)\fC [inline]\fP"
+Constructs a copy of \fIother\fP\&.
+.PP
+This operation occurs in {constant time}, because \fBQMap\fP is {implicitly shared}\&. This makes returning a \fBQMap\fP from a function very fast\&. If a shared instance is modified, it will be copied (copy-on-write), and this takes {linear time}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 582 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::~\fBQMap\fP ()\fC [inline]\fP"
+Destroys the map\&. References to the values in the map, and all iterators over this map, become invalid\&. 
+.PP
+Definition at line 339 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBQMap\fP (const typename std::map< Key, T > & other)\fC [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::begin ()\fC [inline]\fP"
+Returns an {STL-style iterators}{STL-style iterator} pointing to the first item in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstBegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 526 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::const_iterator\fP \fBQMap\fP< Key, T >::begin () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 527 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::const_iterator\fP \fBQMap\fP< Key, T >::cbegin () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.0
+.RE
+.PP
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the first item in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBcend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 529 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::const_iterator\fP \fBQMap\fP< Key, T >::cend () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.0
+.RE
+.PP
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcbegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 533 of file qmap\&.h\&.
+.SS "template<class Key , class T > Q_INLINE_TEMPLATE void \fBQMap\fP< Key, T >::clear ()"
+Removes all items from the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 607 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::const_iterator\fP \fBQMap\fP< Key, T >::constBegin () const\fC [inline]\fP"
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the first item in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBconstEnd()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 528 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::const_iterator\fP \fBQMap\fP< Key, T >::constEnd () const\fC [inline]\fP"
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstBegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 532 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBconst_iterator\fP \fBQMap\fP< Key, T >::constFind (const Key & key) const"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.1
+.RE
+.PP
+Returns an const iterator pointing to the item with key \fIkey\fP in the map\&.
+.PP
+If the map contains no item with key \fIkey\fP, the function returns \fBconstEnd()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfind()\fP, \fBQMultiMap::constFind()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 825 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE bool \fBQMap\fP< Key, T >::contains (const Key & key) const"
+Returns \fCtrue\fP if the map contains an item with key \fIkey\fP; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcount()\fP, \fBQMultiMap::contains()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 654 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE int \fBQMap\fP< Key, T >::count (const Key & key) const"
+Returns the number of items associated with key \fIkey\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcontains()\fP, \fBinsertMulti()\fP, \fBQMultiMap::count()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 637 of file qmap\&.h\&.
+.SS "template<class Key, class T> int \fBQMap\fP< Key, T >::count () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Same as \fBsize()\fP\&. 
+.PP
+Definition at line 539 of file qmap\&.h\&.
+.SS "template<class Key, class T> void \fBQMap\fP< Key, T >::detach ()\fC [inline]\fP"
+
+.PP
+Definition at line 364 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::empty () const\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBisEmpty()\fP, returning true if the map is empty; otherwise returning false\&. 
+.PP
+Definition at line 558 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::iterator\fP \fBQMap\fP< Key, T >::end ()\fC [inline]\fP"
+Returns an {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBconstEnd()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 530 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap::const_iterator\fP \fBQMap\fP< Key, T >::end () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 531 of file qmap\&.h\&.
+.SS "template<class Key, class T > QPair< typename \fBQMap\fP< Key, T >::\fBiterator\fP, typename \fBQMap\fP< Key, T >::\fBiterator\fP > \fBQMap\fP< Key, T >::equal_range (const Key & key)"
+Returns a pair of iterators delimiting the range of values that are stored under \fIkey\fP\&. 
+.PP
+Definition at line 859 of file qmap\&.h\&.
+.SS "template<class Key , class T > Q_OUTOFLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::erase (\fBiterator\fP pos)"
+Removes the (key, value) pair pointed to by the iterator \fIpos\fP from the map, and returns an iterator to the next item in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 916 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::find (const Key & key)"
+Returns an iterator pointing to the item with key \fIkey\fP in the map\&.
+.PP
+If the map contains no item with key \fIkey\fP, the function returns \fBend()\fP\&.
+.PP
+If the map contains multiple items with key \fIkey\fP, this function returns an iterator that points to the most recently inserted value\&. The other values are accessible by incrementing the iterator\&. For example, here's some code that iterates over all the items with the same key:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstFind()\fP, \fBvalue()\fP, \fBvalues()\fP, \fBlowerBound()\fP, \fBupperBound()\fP, \fBQMultiMap::find()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 838 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBconst_iterator\fP \fBQMap\fP< Key, T >::find (const Key & key) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 832 of file qmap\&.h\&.
+.SS "template<class Key, class T> T & \fBQMap\fP< Key, T >::first ()\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+Returns a reference to the first value in the map, that is the value mapped to the smallest key\&. This function assumes that the map is not empty\&.
+.PP
+When unshared (or const version is called), this executes in {constant time}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlast()\fP, \fBfirstKey()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 400 of file qmap\&.h\&.
+.SS "template<class Key, class T> const T & \fBQMap\fP< Key, T >::first () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 401 of file qmap\&.h\&.
+.SS "template<class Key, class T> const Key & \fBQMap\fP< Key, T >::firstKey () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+Returns a reference to the smallest key in the map\&. This function assumes that the map is not empty\&.
+.PP
+This executes in {constant time}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlastKey()\fP, \fBfirst()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 397 of file qmap\&.h\&.
+.SS "template<class Key, class T> Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::insert (const Key & key, const T & value)"
+Inserts a new item with the key \fIkey\fP and a value of \fIvalue\fP\&.
+.PP
+If there is already an item with the key \fIkey\fP, that item's value is replaced with \fIvalue\fP\&.
+.PP
+If there are multiple items with the key \fIkey\fP, the most recently inserted item's value is replaced with \fIvalue\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsertMulti()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 660 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::insert (\fBconst_iterator\fP pos, const Key & key, const T & value)"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+\fBSince:\fP
+.RS 4
+5\&.1 Inserts a new item with the key \fIkey\fP and value \fIvalue\fP and with hint \fIpos\fP suggesting where to do the insert\&.
+.RE
+.PP
+If \fBconstBegin()\fP is used as hint it indicates that the \fIkey\fP is less than any key in the map while \fBconstEnd()\fP suggests that the \fIkey\fP is (strictly) larger than any key in the map\&. Otherwise the hint should meet the condition (\fIpos\fP - 1)\&.\fBkey()\fP < \fIkey\fP <= pos\&.key()\&. If the hint \fIpos\fP is wrong it is ignored and a regular insert is done\&.
+.PP
+If there is already an item with the key \fIkey\fP, that item's value is replaced with \fIvalue\fP\&.
+.PP
+If there are multiple items with the key \fIkey\fP, then exactly one of them is replaced with \fIvalue\fP\&.
+.PP
+If the hint is correct and the map is unshared, the insert executes in amortized {constant time}\&.
+.PP
+When creating a map from sorted data inserting the largest key first with \fBconstBegin()\fP is faster than inserting in sorted order with \fBconstEnd()\fP, since \fBconstEnd()\fP - 1 (which is needed to check if the hint is valid) needs {logarithmic time}\&.
+.PP
+\fB{Note:}\fP Be careful with the hint\&. Providing an iterator from an older shared instance might crash but there is also a risk that it will silently corrupt both the map and the \fIpos\fP map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsertMulti()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 687 of file qmap\&.h\&.
+.SS "template<class Key, class T> Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::insertMulti (const Key & key, const T & value)"
+Inserts a new item with the key \fIkey\fP and a value of \fIvalue\fP\&.
+.PP
+If there is already an item with the same key in the map, this function will simply create a new one\&. (This behavior is different from \fBinsert()\fP, which overwrites the value of an existing item\&.)
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsert()\fP, \fBvalues()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 755 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::insertMulti (\fBconst_iterator\fP pos, const Key & key, const T & value)"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+\fBSince:\fP
+.RS 4
+5\&.1 Inserts a new item with the key \fIkey\fP and value \fIvalue\fP and with hint \fIpos\fP suggesting where to do the insert\&.
+.RE
+.PP
+If \fBconstBegin()\fP is used as hint it indicates that the \fIkey\fP is less than any key in the map while \fBconstEnd()\fP suggests that the \fIkey\fP is larger than any key in the map\&. Otherwise the hint should meet the condition (\fIpos\fP - 1)\&.\fBkey()\fP < \fIkey\fP <= pos\&.key()\&. If the hint \fIpos\fP is wrong it is ignored and a regular insertMulti is done\&.
+.PP
+If there is already an item with the same key in the map, this function will simply create a new one\&.
+.PP
+\fB{Note:}\fP Be careful with the hint\&. Providing an iterator from an older shared instance might crash but there is also a risk that it will silently corrupt both the map and the \fIpos\fP map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsert()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 772 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::isDetached () const\fC [inline]\fP"
+
+.PP
+Definition at line 365 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::isEmpty () const\fC [inline]\fP"
+Returns \fCtrue\fP if the map contains no items; otherwise returns false\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 362 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::isSharedWith (const \fBQMap\fP< Key, T > & other) const\fC [inline]\fP"
+
+.PP
+Definition at line 377 of file qmap\&.h\&.
+.SS "template<class Key, class T> Q_OUTOFLINE_TEMPLATE const Key \fBQMap\fP< Key, T >::key (const T & value, const Key & defaultKey = \fCKey()\fP) const"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.3 This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.RE
+.PP
+Returns the first key with value \fIvalue\fP, or \fIdefaultKey\fP if the map contains no item with value \fIvalue\fP\&. If no \fIdefaultKey\fP is provided the function returns a {default-constructed value}{default-constructed key}\&.
+.PP
+This function can be slow ({linear time}), because \fBQMap\fP's internal data structure is optimized for fast lookup by key, not by value\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBvalue()\fP, \fBkeys()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1011 of file qmap\&.h\&.
+.SS "template<class Key , class T > Q_OUTOFLINE_TEMPLATE \fBQList\fP< Key > \fBQMap\fP< Key, T >::keys () const"
+Returns a list containing all the keys in the map in ascending order\&. Keys that occur multiple times in the map (because items were inserted with \fBinsertMulti()\fP, or \fBunite()\fP was used) also occur multiple times in the list\&.
+.PP
+To obtain a list of unique keys, where each key from the map only occurs once, use \fBuniqueKeys()\fP\&.
+.PP
+The order is guaranteed to be the same as that used by \fBvalues()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBuniqueKeys()\fP, \fBvalues()\fP, \fBkey()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 985 of file qmap\&.h\&.
+.SS "template<class Key , class T> Q_OUTOFLINE_TEMPLATE \fBQList\fP< Key > \fBQMap\fP< Key, T >::keys (const T & value) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Returns a list containing all the keys associated with value \fIvalue\fP in ascending order\&.
+.PP
+This function can be slow ({linear time}), because \fBQMap\fP's internal data structure is optimized for fast lookup by key, not by value\&. 
+.PP
+Definition at line 998 of file qmap\&.h\&.
+.SS "template<class Key, class T> T & \fBQMap\fP< Key, T >::last ()\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+Returns a reference to the last value in the map, that is the value mapped to the largest key\&. This function assumes that the map is not empty\&.
+.PP
+When unshared (or const version is called), this executes in {logarithmic time}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfirst()\fP, \fBlastKey()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 402 of file qmap\&.h\&.
+.SS "template<class Key, class T> const T & \fBQMap\fP< Key, T >::last () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 403 of file qmap\&.h\&.
+.SS "template<class Key, class T> const Key & \fBQMap\fP< Key, T >::lastKey () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+Returns a reference to the largest key in the map\&. This function assumes that the map is not empty\&.
+.PP
+This executes in {logarithmic time}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfirstKey()\fP, \fBlast()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 398 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::lowerBound (const Key & key)"
+Returns an iterator pointing to the first item with key \fIkey\fP in the map\&. If the map contains no item with key \fIkey\fP, the function returns an iterator to the nearest item with a greater key\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ If the map contains multiple items with key \fIkey\fP, this function returns an iterator that points to the most recently inserted value\&. The other values are accessible by incrementing the iterator\&. For example, here's some code that iterates over all the items with the same key:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBupperBound()\fP, \fBfind()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1061 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBconst_iterator\fP \fBQMap\fP< Key, T >::lowerBound (const Key & key) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 1052 of file qmap\&.h\&.
+.SS "template<class Key, class T> bool \fBQMap\fP< Key, T >::operator!= (const \fBQMap\fP< Key, T > & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if \fIother\fP is not equal to this map; otherwise returns \fCfalse\fP\&.
+.PP
+Two maps are considered equal if they contain the same (key, value) pairs\&.
+.PP
+This function requires the value type to implement \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator==()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 358 of file qmap\&.h\&.
+.SS "template<class Key, class T> Q_INLINE_TEMPLATE \fBQMap\fP< Key, T > & \fBQMap\fP< Key, T >::operator= (const \fBQMap\fP< Key, T > & other)"
+Assigns \fIother\fP to this map and returns a reference to this map\&.
+.PP
+Move-assigns \fIother\fP to this \fBQMap\fP instance\&.
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2 
+.RE
+.PP
+
+.PP
+Definition at line 597 of file qmap\&.h\&.
+.SS "template<class Key, class T> Q_OUTOFLINE_TEMPLATE bool \fBQMap\fP< Key, T >::operator== (const \fBQMap\fP< Key, T > & other) const"
+Returns \fCtrue\fP if \fIother\fP is equal to this map; otherwise returns false\&.
+.PP
+Two maps are considered equal if they contain the same (key, value) pairs\&.
+.PP
+This function requires the value type to implement \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator!=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1091 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE T & \fBQMap\fP< Key, T >::operator[] (const Key & key)"
+Returns the value associated with the key \fIkey\fP as a modifiable reference\&.
+.PP
+If the map contains no item with key \fIkey\fP, the function inserts a {default-constructed value} into the map with key \fIkey\fP, and returns a reference to it\&. If the map contains multiple items with key \fIkey\fP, this function returns a reference to the most recently inserted value\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsert()\fP, \fBvalue()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 627 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE const T \fBQMap\fP< Key, T >::operator[] (const Key & key) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Same as \fBvalue()\fP\&. 
+.PP
+Definition at line 621 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_OUTOFLINE_TEMPLATE int \fBQMap\fP< Key, T >::remove (const Key & key)"
+Removes all the items that have the key \fIkey\fP from the map\&. Returns the number of items removed which is usually 1 but will be 0 if the key isn't in the map, or > 1 if \fBinsertMulti()\fP has been used with the \fIkey\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBclear()\fP, \fBtake()\fP, \fBQMultiMap::remove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 890 of file qmap\&.h\&.
+.SS "template<class Key, class T> int \fBQMap\fP< Key, T >::size () const\fC [inline]\fP"
+Returns the number of (key, value) pairs in the map\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisEmpty()\fP, \fBcount()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 360 of file qmap\&.h\&.
+.SS "template<class Key, class T> void \fBQMap\fP< Key, T >::swap (\fBQMap\fP< Key, T > & other)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.8
+.RE
+.PP
+Swaps map \fIother\fP with this map\&. This operation is very fast and never fails\&. 
+.PP
+Definition at line 353 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_OUTOFLINE_TEMPLATE T \fBQMap\fP< Key, T >::take (const Key & key)"
+Removes the item with the key \fIkey\fP from the map and returns the value associated with it\&.
+.PP
+If the item does not exist in the map, the function simply returns a {default-constructed value}\&. If there are multiple items for \fIkey\fP in the map, only the most recently inserted one is removed and returned\&.
+.PP
+If you don't use the return value, \fBremove()\fP is more efficient\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 902 of file qmap\&.h\&.
+.SS "template<class Key , class T > Q_OUTOFLINE_TEMPLATE std::map< Key, T > \fBQMap\fP< Key, T >::toStdMap () const"
+Returns an STL map equivalent to this \fBQMap\fP\&.
+.PP
+This function is only available if Qt is configured with STL compatibility enabled\&. 
+.PP
+Definition at line 1122 of file qmap\&.h\&.
+.SS "template<class Key , class T > Q_OUTOFLINE_TEMPLATE \fBQList\fP< Key > \fBQMap\fP< Key, T >::uniqueKeys () const"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.2
+.RE
+.PP
+Returns a list containing all the keys in the map in ascending order\&. Keys that occur multiple times in the map (because items were inserted with \fBinsertMulti()\fP, or \fBunite()\fP was used) occur only once in the returned list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBkeys()\fP, \fBvalues()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 965 of file qmap\&.h\&.
+.SS "template<class Key, class T> Q_INLINE_TEMPLATE \fBQMap\fP< Key, T > & \fBQMap\fP< Key, T >::unite (const \fBQMap\fP< Key, T > & other)"
+Inserts all the items in the \fIother\fP map into this map\&. If a key is common to both maps, the resulting map will contain the key multiple times\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsertMulti()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 846 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBiterator\fP \fBQMap\fP< Key, T >::upperBound (const Key & key)"
+Returns an iterator pointing to the item that immediately follows the last item with key \fIkey\fP in the map\&. If the map contains no item with key \fIkey\fP, the function returns an iterator to the nearest item with a greater key\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlowerBound()\fP, \fBfind()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1081 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_INLINE_TEMPLATE \fBQMap\fP< Key, T >::\fBconst_iterator\fP \fBQMap\fP< Key, T >::upperBound (const Key & key) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 1072 of file qmap\&.h\&.
+.SS "template<class Key, class T> Q_INLINE_TEMPLATE const T \fBQMap\fP< Key, T >::value (const Key & key, const T & defaultValue = \fCT()\fP) const"
+Returns the value associated with the key \fIkey\fP\&.
+.PP
+If the map contains no item with key \fIkey\fP, the function returns \fIdefaultValue\fP\&. If no \fIdefaultValue\fP is specified, the function returns a {default-constructed value}\&. If there are multiple items for \fIkey\fP in the map, the value of the most recently inserted one is returned\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBkey()\fP, \fBvalues()\fP, \fBcontains()\fP, \fBoperator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 614 of file qmap\&.h\&.
+.SS "template<class Key , class T > Q_OUTOFLINE_TEMPLATE \fBQList\fP< T > \fBQMap\fP< Key, T >::values () const"
+Returns a list containing all the values in the map, in ascending order of their keys\&. If a key is associated with multiple values, all of its values will be in the list, and not just the most recently inserted one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBkeys()\fP, \fBvalue()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1024 of file qmap\&.h\&.
+.SS "template<class Key, class T > Q_OUTOFLINE_TEMPLATE \fBQList\fP< T > \fBQMap\fP< Key, T >::values (const Key & key) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Returns a list containing all the values associated with key \fIkey\fP, from the most recently inserted to the least recently inserted one\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcount()\fP, \fBinsertMulti()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1037 of file qmap\&.h\&.
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<class Key, class T> friend class \fBconst_iterator\fP\fC [friend]\fP"
+
+.PP
+Definition at line 523 of file qmap\&.h\&.
+.SS "template<class Key, class T> friend class \fBiterator\fP\fC [friend]\fP"
+
+.PP
+Definition at line 462 of file qmap\&.h\&.
+.SS "template<class Key, class T> QDataStream & operator<< (QDataStream & out, const \fBQMap\fP< Key, T > & map)\fC [related]\fP"
+Writes the map \fImap\fP to stream \fIout\fP\&.
+.PP
+This function requires the key and value types to implement \fC\fBoperator<<()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+{Serializing Qt Data Types}{Format of the QDataStream operators} 
+.RE
+.PP
+
+.SS "template<class Key, class T> QDataStream & operator>> (QDataStream & in, \fBQMap\fP< Key, T > & map)\fC [related]\fP"
+Reads a map from stream \fIin\fP into \fImap\fP\&.
+.PP
+This function requires the key and value types to implement \fC\fBoperator>>()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+{Serializing Qt Data Types}{Format of the QDataStream operators} 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

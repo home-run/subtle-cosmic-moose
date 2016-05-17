@@ -1,0 +1,162 @@
+.TH "ExampleClass" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ExampleClass \- Provide an example *\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SH "Detailed Description"
+.PP 
+Provide an example *\&. 
+
+
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+* This class is meant as an example\&. It is not useful by itself
+.IP "\(bu" 2
+rather its usefulness is only a function of how much it helps
+.IP "\(bu" 2
+the reader\&. It is in a sense defined by the person who reads it
+.IP "\(bu" 2
+and otherwise does not exist in any real form\&.
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBNote:\fP
+.RS 4
+Attempts at zen rarely work\&.
+.RE
+.PP
+
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBAuthor:\fP
+.RS 4
+(last to touch it) 
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+bv 
+.RE
+.PP
+
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBVersion:\fP
+.RS 4
+.RE
+.PP
+\fBRevision\fP
+.RS 4
+1\&.5 
+.RE
+.PP
+
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBDate:\fP
+.RS 4
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2005/04/14 14:16:20 
+.RE
+.PP
+
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+Contact: bv@bnl.gov
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+Created on: Wed Apr 13 18:39:37 2005
+.IP "\(bu" 2
+
+.IP "\(bu" 2
+\fBId\fP
+.RS 4
+doxygen-howto\&.html,v 1\&.5 2005/04/14 14:16:20 bv Exp 
+.RE
+.PP
+
+.IP "\(bu" 2
+*/
+.PP
+.PP
+#ifndef EXAMPLECLASS_H #define EXAMPLECLASS_H
+.PP
+class \fBExampleClass\fP {
+.PP
+public: 
+.PP
+.nf
+/// Create an ExampleClass
+ExampleClass();
+
+/// Create an ExampleClass with lot's of intial values
+ExampleClass(int a, float b);
+
+~ExampleClass();
+
+/// This method does something
+void DoSomething();
+
+/** This is a method that does so
+  * much that I must write an epic 
+  * novel just to describe how much
+  * it truly does. */
+void DoNothing();
+
+/**A useful method.
+  * \param level an integer setting how useful to be
+  * \return Output that is extra useful
+  * 
+  * This method does unbelievably useful things.  
+  * And returns exceptionally useful results.
+  * Use it everyday with good health.
+  */
+void* VeryUsefulMethod(bool level);
+
+.fi
+.PP
+.PP
+private: 
+.PP
+.nf
+const char* fQuestion; ///< the question
+int fAnswer;           ///< the answer 
+
+.fi
+.PP
+.PP
+}; // end of class \fBExampleClass\fP
+.PP
+#endif // EXAMPLECLASS_H ```
+.PP
+.SS "Unit Tests"
+.PP
+.IP "\(bu" 2
+All team members are responsible for writing unit tests for their own code\&.
+.IP "\(bu" 2
+Simply add the unit test to its appropriate section in \fBtest_main\&.cpp\fP\&. Note: This currently isn't working properly\&. Still you should try to add unit tests as you code\&.
+.PP
+.PP
+.SS "General Style Guide"
+.PP
+.IP "\(bu" 2
+For this project we will be following, loosely, \fCGoogle's C++ Style Guide\fP\&. Have a quick read through of some of the sections\&. This is where we will refer to if there are disagreements about style\&. 
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

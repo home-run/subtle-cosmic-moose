@@ -1,0 +1,215 @@
+.TH "Heap< T, C >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Heap< T, C > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Heap\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHeap\fP ()"
+.br
+.RI "\fICreate a \fBHeap\fP and initialize by pushing a dummy value into the vector to keep the arithmetic nice\&. \fP"
+.ti -1c
+.RI "\fB~Heap\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBroot\fP () const "
+.br
+.RI "\fIRetrieve the value at the top of the heap\&. \fP"
+.ti -1c
+.RI "int \fBheight\fP () const "
+.br
+.RI "\fIRetrieve the current height of the heap\&. \fP"
+.ti -1c
+.RI "int \fBsize\fP () const "
+.br
+.RI "\fIRetrieve the number of elements currently in the heap\&. \fP"
+.ti -1c
+.RI "void \fBinsert\fP (T &newElement)"
+.br
+.RI "\fIInsert a new element into the heap and call bubble up to fix element hierarchy\&. \fP"
+.ti -1c
+.RI "void \fBremove\fP (int index)"
+.br
+.RI "\fIRemove an element from the heap and bubble down to preserve the proper element hierarchy\&. \fP"
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.RI "\fICheck if the heap is empty\&. \fP"
+.ti -1c
+.RI "void \fBprintBreadthFirst\fP () const "
+.br
+.RI "\fIPrints to console a breadth first search of the heap\&. \fP"
+.ti -1c
+.RI "T \fBremoveMin\fP ()"
+.br
+.RI "\fIremoveMin This method will get the root element and pop it off the front of the heap\&. \fP"
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbubbleUp\fP (int index)"
+.br
+.RI "\fIIterate up the heap, comparing child to parent\&. If hierarchy is violated, swap the elements\&. \fP"
+.ti -1c
+.RI "void \fBbubbleDown\fP (int index)"
+.br
+.RI "\fIIterate down the heap, comparing parent to child\&. If hierarchy is violated, swap the elements\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename T, typename C>
+.br
+class Heap< T, C >"
+
+.PP
+Definition at line 15 of file Heap\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T, typename C> \fBHeap\fP< T, C >::\fBHeap\fP ()\fC [inline]\fP"
+
+.PP
+Create a \fBHeap\fP and initialize by pushing a dummy value into the vector to keep the arithmetic nice\&. 
+.PP
+Definition at line 23 of file Heap\&.h\&.
+.SS "template<typename T, typename C> \fBHeap\fP< T, C >::~\fBHeap\fP ()\fC [inline]\fP"
+
+.PP
+Definition at line 30 of file Heap\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T, typename C> void \fBHeap\fP< T, C >::bubbleDown (int index)\fC [inline]\fP, \fC [protected]\fP"
+
+.PP
+Iterate down the heap, comparing parent to child\&. If hierarchy is violated, swap the elements\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index of the heap to start from\&. 
+.RE
+.PP
+
+.PP
+Definition at line 175 of file Heap\&.h\&.
+.SS "template<typename T, typename C> void \fBHeap\fP< T, C >::bubbleUp (int index)\fC [inline]\fP, \fC [protected]\fP"
+
+.PP
+Iterate up the heap, comparing child to parent\&. If hierarchy is violated, swap the elements\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP index of the heap to start from\&. 
+.RE
+.PP
+
+.PP
+Definition at line 154 of file Heap\&.h\&.
+.SS "template<typename T, typename C> int \fBHeap\fP< T, C >::height () const\fC [inline]\fP"
+
+.PP
+Retrieve the current height of the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the height of the heap\&. 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file Heap\&.h\&.
+.SS "template<typename T, typename C> void \fBHeap\fP< T, C >::insert (T & newElement)\fC [inline]\fP"
+
+.PP
+Insert a new element into the heap and call bubble up to fix element hierarchy\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInewElement\fP the element to add 
+.RE
+.PP
+
+.PP
+Definition at line 76 of file Heap\&.h\&.
+.SS "template<typename T, typename C> bool \fBHeap\fP< T, C >::isEmpty () const\fC [inline]\fP"
+
+.PP
+Check if the heap is empty\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true if elements size is 0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 110 of file Heap\&.h\&.
+.SS "template<typename T, typename C> void \fBHeap\fP< T, C >::printBreadthFirst () const\fC [inline]\fP"
+
+.PP
+Prints to console a breadth first search of the heap\&. 
+.PP
+Definition at line 119 of file Heap\&.h\&.
+.SS "template<typename T, typename C> void \fBHeap\fP< T, C >::remove (int index)\fC [inline]\fP"
+
+.PP
+Remove an element from the heap and bubble down to preserve the proper element hierarchy\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIindex\fP the index of the element to remove 
+.RE
+.PP
+
+.PP
+Definition at line 89 of file Heap\&.h\&.
+.SS "template<typename T, typename C> T \fBHeap\fP< T, C >::removeMin ()\fC [inline]\fP"
+
+.PP
+removeMin This method will get the root element and pop it off the front of the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+root node 
+.RE
+.PP
+
+.PP
+Definition at line 138 of file Heap\&.h\&.
+.SS "template<typename T, typename C> const T& \fBHeap\fP< T, C >::root () const\fC [inline]\fP"
+
+.PP
+Retrieve the value at the top of the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+a copy of the root value of the heap\&. 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file Heap\&.h\&.
+.SS "template<typename T, typename C> int \fBHeap\fP< T, C >::size () const\fC [inline]\fP"
+
+.PP
+Retrieve the number of elements currently in the heap\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the size of the heap\&. 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file Heap\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

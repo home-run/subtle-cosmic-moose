@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Fantasy Baseball Vacation Documentation", "index.html", [
+  [ "Baseball Fantasy Vacation Documentation", "index.html", [
     [ "Big-O Analysis", "md_docs_Big-O-Analysis.html", null ],
     [ "Application Design Specs", "md_docs_design.html", null ],
     [ "Take Me Out the Ballgame", "md_docs_Project-Instructions.html", null ],

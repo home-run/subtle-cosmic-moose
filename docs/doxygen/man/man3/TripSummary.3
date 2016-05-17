@@ -1,0 +1,99 @@
+.TH "TripSummary" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TripSummary \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <tripsummary\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBfinishTrip\fP (bool)"
+.br
+.RI "\fISend a signal when the user presses the finish button\&. \fP"
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTripSummary\fP (QWidget *parent=0, \fBDatabase\fP *db=0)"
+.br
+.ti -1c
+.RI "\fB~TripSummary\fP ()"
+.br
+.ti -1c
+.RI "void \fBpopulateTripPath\fP (\fBQList\fP< \fBVertex\fP > pathOfTrip, bool isCustomTrip=true)"
+.br
+.RI "\fIpopulateTripPath Takes in a \fBQList\fP of <Vertex> to be displayed on the list, assumes the list is ordered in the sortest path \fP"
+.ti -1c
+.RI "void \fBpopulatePurchaseReciept\fP (\fBQList\fP< \fBPurchaseWindow::purchaseInfo\fP > purchases)"
+.br
+.RI "\fIpopulatePurchaseReciept This method will take in the purchase table and display the users total spent When the item is hovered over, it will tell you the total revenue of the stadium that sovenir came from \fP"
+.ti -1c
+.RI "void \fBclearData\fP ()"
+.br
+.RI "\fIclearData Clears the data on the list so that it can be reused for next time \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 12 of file tripsummary\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TripSummary::TripSummary (QWidget * parent = \fC0\fP, \fBDatabase\fP * db = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 4 of file tripsummary\&.cpp\&.
+.SS "TripSummary::~TripSummary ()"
+
+.PP
+Definition at line 15 of file tripsummary\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void TripSummary::clearData ()"
+
+.PP
+clearData Clears the data on the list so that it can be reused for next time \fBTripSummary::clearData\fP Clears the two lists\&. 
+.PP
+Definition at line 193 of file tripsummary\&.cpp\&.
+.SS "void TripSummary::finishTrip (bool)\fC [signal]\fP"
+
+.PP
+Send a signal when the user presses the finish button\&. 
+.SS "void TripSummary::populatePurchaseReciept (\fBQList\fP< \fBPurchaseWindow::purchaseInfo\fP > purchases)"
+
+.PP
+populatePurchaseReciept This method will take in the purchase table and display the users total spent When the item is hovered over, it will tell you the total revenue of the stadium that sovenir came from \fBTripSummary::populatePurchaseReciept\fP Populates the List widget with the information of purchases\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpurchases\fP - \fBQList\fP of Structure purchaseInfo
+.br
+\fIpurchases\fP 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file tripsummary\&.cpp\&.
+.SS "void TripSummary::populateTripPath (\fBQList\fP< \fBVertex\fP > pathOfTrip, bool isCustomTrip = \fCtrue\fP)"
+
+.PP
+populateTripPath Takes in a \fBQList\fP of <Vertex> to be displayed on the list, assumes the list is ordered in the sortest path \fBTripSummary::populateTripPath\fP Method will populate the trip path list with given data from the algorithm\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpathOfTrip\fP 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file tripsummary\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

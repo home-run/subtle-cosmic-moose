@@ -1,0 +1,380 @@
+.TH "Graph" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Graph \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <graph\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGraph\fP ()"
+.br
+.ti -1c
+.RI "\fB~Graph\fP ()"
+.br
+.RI "\fIDeconstructor, deallocates the memory set by the Adjacency Matrix\&. \fP"
+.ti -1c
+.RI "int \fBedgeWeight\fP (int v1, int v2)"
+.br
+.RI "\fIedgeWeight Method provides a safe way to access the adjacency matrix\&. \fP"
+.ti -1c
+.RI "\fBQList\fP< \fBVertex\fP > \fBgetVertices\fP () const "
+.br
+.RI "\fIgetVertexList This will return a \fBQList\fP of vertices in the graph\&. \fP"
+.ti -1c
+.RI "void \fBcreateGraph\fP (\fBDatabase\fP *db)"
+.br
+.RI "\fIcreateGraph This method will call in the database and generate the graph that includes edges, and vertices\&. These represent the stadiums and the paths a baseball fan is able to \fP"
+.ti -1c
+.RI "void \fBshortestPath\fP (\fBVertex\fP source)"
+.br
+.RI "\fIshortestPath Returns the shortest path given the starting ID of a vertex\&. \fP"
+.ti -1c
+.RI "void \fBshortestPath\fP (int source)"
+.br
+.RI "\fIshortestPath Returns the shortest path given the starting ID of a vertex\&. \fP"
+.ti -1c
+.RI "void \fBclearGraph\fP ()"
+.br
+.RI "\fIclearGraph This method clears the current graph TODO: Needs to be updated for the current implementation of the graph search\&. \fP"
+.ti -1c
+.RI "int \fBgetNumberVertices\fP () const "
+.br
+.RI "\fIgetNumberVertices This method returns the number of vertices that are inserted in the graph \fP"
+.ti -1c
+.RI "long \fBgetTotalDistance\fP () const "
+.br
+.RI "\fIgetTotalDistance Calculates the total distance going to all vertices starting at dodger stadium each time\&. \fP"
+.ti -1c
+.RI "\fBQList\fP< \fBVertex\fP > \fBgetVertexPath\fP (\fBVertex\fP target)"
+.br
+.RI "\fI\fBGraph::getVertexPath\fP Function will take a given vertex and traverse up the path of the given parent ids to construct the path that was taken to arrive at the target vertex\&. This method will return a \fBQList\fP of vertices, where index 0 is the starting vertice and the last vertex in the list is the given target vertex\&. \fP"
+.ti -1c
+.RI "\fBQList\fP< \fBVertex\fP > \fBgetVertexPath\fP (int target)"
+.br
+.RI "\fI\fBGraph::getVertexPath\fP Function will take a given vertex and traverse up the path of the given parent ids to construct the path that was taken to arrive at the target vertex\&. This method will return a \fBQList\fP of vertices, where index 0 is the starting vertice and the last vertex in the list is the given target vertex\&. \fP"
+.ti -1c
+.RI "\fBQList\fP< \fBVertex\fP > \fBfindShortestPathTo\fP (\fBDatabase\fP *db, int source, int target)"
+.br
+.RI "\fI\fBGraph::findShortestPathTo\fP This is an overloaded method for find the shortest path between 2 vertices\&. It calls on other methods such as creating the graph, finding the shortest path to all vertices then getting the target vertex from the vertex list\&. After the algorithm has found the shortest path, it will return a \fBQList\fP of vertices in which it is required to traverse to get to the target vertex\&. The list will contain the starting vertex and ending vertex\&. Each vertex will have a distance value it takes to get to that vertex given the starting the vertex\&. \fP"
+.ti -1c
+.RI "\fBQList\fP< \fBVertex\fP > \fBfindShortestPathTo\fP (\fBDatabase\fP *db, int source, \fBQList\fP< int > stops)"
+.br
+.RI "\fI\fBGraph::findShortestPathTo\fP This is an overloaded method for find the shortest path between a starting vertex, and a list of vertices\&. It calls on other methods such as creating the graph, finding the shortest path to all vertices then getting the target vertex from the vertex list\&. After the algorithm has found the shortest path, it will return a \fBQList\fP of vertices in which it is required to traverse to get to the target vertex\&. The list will contain the starting vertex and ending vertex\&. Each vertex will have a distance value it takes to get to that vertex given the starting the vertex\&. \fP"
+.ti -1c
+.RI "long \fBminimumSpanningTree\fP (int source)"
+.br
+.RI "\fIminimumSpanningTree This method will generate the minimum spanning tree given a starting vertex\&. It is recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum spanning tree possible in the given graph\&. Each vertex will store the parent of the vertex that it had to traverse to get to\&. \fP"
+.ti -1c
+.RI "\fBQList\fP< \fBVertex\fP > \fBgetDodgerStadiumPath\fP ()"
+.br
+.RI "\fIgetDodgerStadiumPath This is a specialized function for finding the shortest path using dijkstra's algorithm starting at Dodger stadium\&. \fP"
+.ti -1c
+.RI "void \fBdebug_printAdjMatrix\fP () const "
+.br
+.RI "\fIdebug_printAdjMatrix Method for debugging the adjacency matrix, will only output to the console, nothing else\&. \fP"
+.ti -1c
+.RI "void \fBdebug_outputDistances\fP () const "
+.br
+.RI "\fIdebug_outputDistances Method for outputting all the distances found after performing dijkstra's algorithm for finding the shortest path to all vertices\&. \fP"
+.ti -1c
+.RI "void \fBdebug_printPath\fP (\fBVertex\fP vertex) const "
+.br
+.RI "\fI\fBGraph::debug_printPath\fP Debugging method for printing the path found to the given vertex\&. This will only work after a search for the shortest path has been found\&. \fP"
+.ti -1c
+.RI "long \fBminKey\fP (long key[], bool mstSet[])"
+.br
+.RI "\fI\fBGraph::minKey\fP Utility function to find the vertex with minimum key value, from the set of vertices not yet included in the minimum spanning tree\&. \fP"
+.ti -1c
+.RI "\fBQList\fP< \fBVertex\fP > \fBmst\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 14 of file graph\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Graph::Graph ()"
+
+.PP
+Definition at line 7 of file graph\&.cpp\&.
+.SS "Graph::~Graph ()"
+
+.PP
+Deconstructor, deallocates the memory set by the Adjacency Matrix\&. \fBGraph::~Graph\fP Deconstructor of the graph, clears the currently allocated edges and vertexList\&. 
+.PP
+Definition at line 27 of file graph\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Graph::clearGraph ()"
+
+.PP
+clearGraph This method clears the current graph TODO: Needs to be updated for the current implementation of the graph search\&. \fBGraph::clearGraph\fP This method will go through and clear the adjacency matrix and the vertex list\&. 
+.PP
+Definition at line 182 of file graph\&.cpp\&.
+.SS "void Graph::createGraph (\fBDatabase\fP * db)"
+
+.PP
+createGraph This method will call in the database and generate the graph that includes edges, and vertices\&. These represent the stadiums and the paths a baseball fan is able to \fBGraph::createGraph\fP This method will generate the graph based on the given information and data stored in the sqlite database\&. A list of vertices and an adjacency matrix will be created from the method\&. This data will be stored within the graph object itself\&. The data is provided by the \fBDatabase\fP object given upon calling the createGraph method\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdb\fP 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file graph\&.cpp\&.
+.SS "void Graph::debug_outputDistances () const"
+
+.PP
+debug_outputDistances Method for outputting all the distances found after performing dijkstra's algorithm for finding the shortest path to all vertices\&. \fBGraph::debug_outputDistances\fP Debugging function for output the name and the distance calculated after performing a search\&. 
+.PP
+Definition at line 343 of file graph\&.cpp\&.
+.SS "void Graph::debug_printAdjMatrix () const"
+
+.PP
+debug_printAdjMatrix Method for debugging the adjacency matrix, will only output to the console, nothing else\&. \fBGraph::debug_printAdjMatrix\fP This method is used for debugging purposes and printing the adjacency matrix when needed\&. Will output the index pair and the represented edge weight between the vertices\&. 
+.PP
+Definition at line 203 of file graph\&.cpp\&.
+.SS "void Graph::debug_printPath (\fBVertex\fP vertex) const"
+
+.PP
+\fBGraph::debug_printPath\fP Debugging method for printing the path found to the given vertex\&. This will only work after a search for the shortest path has been found\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvertex\fP 
+.RE
+.PP
+
+.PP
+Definition at line 357 of file graph\&.cpp\&.
+.SS "int Graph::edgeWeight (int v1, int v2)"
+
+.PP
+edgeWeight Method provides a safe way to access the adjacency matrix\&. \fBGraph::edgeWeight\fP This method will return the weight between the given indices\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv1\fP vertex index 1 
+.br
+\fIv2\fP vertex index 2 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+weight / distance between the 2 given vertices\&. Will return a value less than 0 if no edge exists\&. 
+.RE
+.PP
+
+.PP
+Definition at line 145 of file graph\&.cpp\&.
+.SS "\fBQList\fP< \fBVertex\fP > Graph::findShortestPathTo (\fBDatabase\fP * db, int source, int target)"
+
+.PP
+\fBGraph::findShortestPathTo\fP This is an overloaded method for find the shortest path between 2 vertices\&. It calls on other methods such as creating the graph, finding the shortest path to all vertices then getting the target vertex from the vertex list\&. After the algorithm has found the shortest path, it will return a \fBQList\fP of vertices in which it is required to traverse to get to the target vertex\&. The list will contain the starting vertex and ending vertex\&. Each vertex will have a distance value it takes to get to that vertex given the starting the vertex\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdb\fP 
+.br
+\fIsource\fP 
+.br
+\fItarget\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 387 of file graph\&.cpp\&.
+.SS "\fBQList\fP< \fBVertex\fP > Graph::findShortestPathTo (\fBDatabase\fP * db, int source, \fBQList\fP< int > stops)"
+
+.PP
+\fBGraph::findShortestPathTo\fP This is an overloaded method for find the shortest path between a starting vertex, and a list of vertices\&. It calls on other methods such as creating the graph, finding the shortest path to all vertices then getting the target vertex from the vertex list\&. After the algorithm has found the shortest path, it will return a \fBQList\fP of vertices in which it is required to traverse to get to the target vertex\&. The list will contain the starting vertex and ending vertex\&. Each vertex will have a distance value it takes to get to that vertex given the starting the vertex\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdb\fP 
+.br
+\fIsource\fP 
+.br
+\fIstops\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 412 of file graph\&.cpp\&.
+.SS "\fBQList\fP< \fBVertex\fP > Graph::getDodgerStadiumPath ()"
+
+.PP
+getDodgerStadiumPath This is a specialized function for finding the shortest path using dijkstra's algorithm starting at Dodger stadium\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 580 of file graph\&.cpp\&.
+.SS "int Graph::getNumberVertices () const"
+
+.PP
+getNumberVertices This method returns the number of vertices that are inserted in the graph \fBGraph::getNumberVertices\fP Methd returns the number of vertices that are stored in the graph\&.
+.PP
+\fBReturns:\fP
+.RS 4
+int number of vertices
+.PP
+Integer # of vertices in the graph 
+.RE
+.PP
+
+.PP
+Definition at line 333 of file graph\&.cpp\&.
+.SS "long Graph::getTotalDistance () const"
+
+.PP
+getTotalDistance Calculates the total distance going to all vertices starting at dodger stadium each time\&. \fBGraph::getTotalDistance\fP This method will the take the distances stored in each of the vertices after a search for the shortest path has been performed\&.
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 318 of file graph\&.cpp\&.
+.SS "\fBQList\fP< \fBVertex\fP > Graph::getVertexPath (\fBVertex\fP target)"
+
+.PP
+\fBGraph::getVertexPath\fP Function will take a given vertex and traverse up the path of the given parent ids to construct the path that was taken to arrive at the target vertex\&. This method will return a \fBQList\fP of vertices, where index 0 is the starting vertice and the last vertex in the list is the given target vertex\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItarget\fP \fBVertex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQList\fP of Vertices 
+.RE
+.PP
+
+.PP
+Definition at line 449 of file graph\&.cpp\&.
+.SS "\fBQList\fP< \fBVertex\fP > Graph::getVertexPath (int target)"
+
+.PP
+\fBGraph::getVertexPath\fP Function will take a given vertex and traverse up the path of the given parent ids to construct the path that was taken to arrive at the target vertex\&. This method will return a \fBQList\fP of vertices, where index 0 is the starting vertice and the last vertex in the list is the given target vertex\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItarget\fP \fBVertex\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBQList\fP of Vertices 
+.RE
+.PP
+
+.PP
+Definition at line 467 of file graph\&.cpp\&.
+.SS "\fBQList\fP< \fBVertex\fP > Graph::getVertices () const"
+
+.PP
+getVertexList This will return a \fBQList\fP of vertices in the graph\&. \fBGraph::getVertices\fP This method will return a copy of the list of vertices in the graph\&.
+.PP
+\fBReturns:\fP
+.RS 4
+List of Vertices 
+.RE
+.PP
+
+.PP
+Definition at line 133 of file graph\&.cpp\&.
+.SS "long Graph::minimumSpanningTree (int source)"
+
+.PP
+minimumSpanningTree This method will generate the minimum spanning tree given a starting vertex\&. It is recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum spanning tree possible in the given graph\&. Each vertex will store the parent of the vertex that it had to traverse to get to\&. Graph::malik_minimumSpanningTree This method will generate the minimum spanning tree given a starting vertex\&. It is recommended not to start at index 0, 1, 22, or 29 to guarantee the most minimum spanning tree possible in the given graph\&. Each vertex will store the parent of the vertex that it had to traverse to get to\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsource\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+long minimum distance between all vertices 
+.RE
+.PP
+
+.PP
+Definition at line 484 of file graph\&.cpp\&.
+.SS "long Graph::minKey (long key[], bool mstSet[])"
+
+.PP
+\fBGraph::minKey\fP Utility function to find the vertex with minimum key value, from the set of vertices not yet included in the minimum spanning tree\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP 
+.br
+\fImstSet\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+long - the minimum key value 
+.RE
+.PP
+
+.PP
+Definition at line 564 of file graph\&.cpp\&.
+.SS "\fBQList\fP< \fBVertex\fP > Graph::mst ()"
+
+.PP
+Definition at line 604 of file graph\&.cpp\&.
+.SS "void Graph::shortestPath (\fBVertex\fP source)"
+
+.PP
+shortestPath Returns the shortest path given the starting ID of a vertex\&. \fBGraph::shortestPath\fP Given a source vertex find the shortest path to all other vertices available on the graph\&. The function performs Dijkstra's algorithm to compute each of the distances\&. Utilizes a \fBVertex\fP Set, and a Priority Queue as data structures to improve the performance of the search\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsource\fP 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file graph\&.cpp\&.
+.SS "void Graph::shortestPath (int source)"
+
+.PP
+shortestPath Returns the shortest path given the starting ID of a vertex\&. \fBGraph::shortestPath\fP Overloaded method for determining the shortest path to all vertices given one starting vertex\&. Allows to pass in an integer as the source\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsource\fP 
+.RE
+.PP
+
+.PP
+Definition at line 305 of file graph\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

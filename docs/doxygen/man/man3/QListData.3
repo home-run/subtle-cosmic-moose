@@ -1,0 +1,224 @@
+.TH "QListData" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QListData \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qlist\&.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBArrayCompatibleLayout\fP"
+.br
+.ti -1c
+.RI "struct \fBData\fP"
+.br
+.ti -1c
+.RI "struct \fBIndirectLayout\fP"
+.br
+.ti -1c
+.RI "struct \fBInlineWithPaddingLayout\fP"
+.br
+.ti -1c
+.RI "struct \fBNotArrayCompatibleLayout\fP"
+.br
+.ti -1c
+.RI "struct \fBNotIndirectLayout\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBDataHeaderSize\fP = sizeof(Data) - sizeof(void *) }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBData\fP * \fBdetach\fP (int alloc)"
+.br
+.ti -1c
+.RI "\fBData\fP * \fBdetach_grow\fP (int *i, int n)"
+.br
+.ti -1c
+.RI "void \fBrealloc\fP (int alloc)"
+.br
+.ti -1c
+.RI "void \fBdispose\fP ()"
+.br
+.ti -1c
+.RI "void ** \fBerase\fP (void **xi)"
+.br
+.ti -1c
+.RI "void ** \fBappend\fP (int n)"
+.br
+.ti -1c
+.RI "void ** \fBappend\fP ()"
+.br
+.ti -1c
+.RI "void ** \fBappend\fP (const \fBQListData\fP &l)"
+.br
+.ti -1c
+.RI "void ** \fBprepend\fP ()"
+.br
+.ti -1c
+.RI "void ** \fBinsert\fP (int i)"
+.br
+.ti -1c
+.RI "void \fBremove\fP (int i)"
+.br
+.ti -1c
+.RI "void \fBremove\fP (int i, int n)"
+.br
+.ti -1c
+.RI "void \fBmove\fP (int from, int to)"
+.br
+.ti -1c
+.RI "int \fBsize\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.ti -1c
+.RI "void ** \fBat\fP (int i) const "
+.br
+.ti -1c
+.RI "void ** \fBbegin\fP () const "
+.br
+.ti -1c
+.RI "void ** \fBend\fP () const "
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBdispose\fP (\fBData\fP *\fBd\fP)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBData\fP * \fBd\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const \fBData\fP \fBshared_null\fP = { Q_REFCOUNT_INITIALIZE_STATIC, 0, 0, 0, { 0 } }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 73 of file qlist\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "anonymous enum"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIDataHeaderSize \fP\fP
+.PP
+Definition at line 87 of file qlist\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void ** QListData::append (int n)"
+
+.PP
+Definition at line 158 of file qlist\&.cpp\&.
+.SS "void ** QListData::append ()"
+
+.PP
+Definition at line 178 of file qlist\&.cpp\&.
+.SS "void ** QListData::append (const \fBQListData\fP & l)"
+
+.PP
+Definition at line 184 of file qlist\&.cpp\&.
+.SS "void** QListData::at (int i) const\fC [inline]\fP"
+
+.PP
+Definition at line 107 of file qlist\&.h\&.
+.SS "void** QListData::begin () const\fC [inline]\fP"
+
+.PP
+Definition at line 108 of file qlist\&.h\&.
+.SS "\fBQListData::Data\fP * QListData::detach (int alloc)"
+Detaches the \fBQListData\fP by allocating new memory for a list which possibly has a different size than the copied one\&. Returns the old (shared) data, it is up to the caller to deref() and free() For the new data node_copy needs to be called\&. 
+.PP
+Definition at line 119 of file qlist\&.cpp\&.
+.SS "\fBQListData::Data\fP * QListData::detach_grow (int * idx, int num)"
+Detaches the \fBQListData\fP by allocating new memory for a list which will be bigger than the copied one and is expected to grow further\&. *idx is the desired insertion point and is clamped to the actual size of the list\&. num is the number of new elements to insert at the insertion point\&. Returns the old (shared) data, it is up to the caller to deref() and free()\&. For the new data node_copy needs to be called\&. 
+.PP
+Definition at line 75 of file qlist\&.cpp\&.
+.SS "void QListData::dispose ()\fC [inline]\fP"
+
+.PP
+Definition at line 92 of file qlist\&.h\&.
+.SS "void QListData::dispose (\fBData\fP * d)\fC [static]\fP"
+
+.PP
+Definition at line 151 of file qlist\&.cpp\&.
+.SS "void** QListData::end () const\fC [inline]\fP"
+
+.PP
+Definition at line 109 of file qlist\&.h\&.
+.SS "void ** QListData::erase (void ** xi)"
+
+.PP
+Definition at line 317 of file qlist\&.cpp\&.
+.SS "void ** QListData::insert (int i)"
+
+.PP
+Definition at line 207 of file qlist\&.cpp\&.
+.SS "bool QListData::isEmpty () const\fC [inline]\fP"
+
+.PP
+Definition at line 106 of file qlist\&.h\&.
+.SS "void QListData::move (int from, int to)"
+
+.PP
+Definition at line 277 of file qlist\&.cpp\&.
+.SS "void ** QListData::prepend ()"
+
+.PP
+Definition at line 189 of file qlist\&.cpp\&.
+.SS "void QListData::realloc (int alloc)"
+
+.PP
+Definition at line 139 of file qlist\&.cpp\&.
+.SS "void QListData::remove (int i)"
+
+.PP
+Definition at line 246 of file qlist\&.cpp\&.
+.SS "void QListData::remove (int i, int n)"
+
+.PP
+Definition at line 261 of file qlist\&.cpp\&.
+.SS "int QListData::size () const\fC [inline]\fP"
+
+.PP
+Definition at line 105 of file qlist\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBData\fP* QListData::d"
+
+.PP
+Definition at line 95 of file qlist\&.h\&.
+.SS "QT_BEGIN_NAMESPACE const \fBQListData::Data\fP QListData::shared_null = { Q_REFCOUNT_INITIALIZE_STATIC, 0, 0, 0, { 0 } }\fC [static]\fP"
+
+.PP
+Definition at line 94 of file qlist\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

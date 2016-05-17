@@ -1,0 +1,114 @@
+.TH "PlanTrip" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PlanTrip \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <plantrip\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBpropagateStadiumList\fP (QSqlQuery query)"
+.br
+.RI "\fIPropagate the stadiums list\&. \fP"
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBhideNextButton\fP (bool)"
+.br
+.RI "\fISend a signal to hide or show the mainwindow next button\&. \fP"
+.ti -1c
+.RI "void \fBclickNext\fP ()"
+.br
+.RI "\fISend a signal to click the mainwindow next button\&. \fP"
+.ti -1c
+.RI "void \fBgiveStadiumList\fP (QStringList)"
+.br
+.RI "\fISend a signal with a stringList containing the selected stadiums, in order\&. \fP"
+.ti -1c
+.RI "void \fBcallVisitAll\fP ()"
+.br
+.RI "\fISends a signal saying we clicked the visit all button\&. \fP"
+.ti -1c
+.RI "void \fBgiveStadiumListVisitAll\fP (QStringList)"
+.br
+.RI "\fISends a signal for Visitall Stadiums for purchase cart\&. \fP"
+.ti -1c
+.RI "void \fBdisplayMST\fP ()"
+.br
+.RI "\fISend a signal to display the minimum spanning tree\&. \fP"
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlanTrip\fP (QWidget *parent=0, \fBDatabase\fP *db=0)"
+.br
+.ti -1c
+.RI "\fB~PlanTrip\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file plantrip\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PlanTrip::PlanTrip (QWidget * parent = \fC0\fP, \fBDatabase\fP * db = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 5 of file plantrip\&.cpp\&.
+.SS "PlanTrip::~PlanTrip ()"
+
+.PP
+Definition at line 14 of file plantrip\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void PlanTrip::callVisitAll ()\fC [signal]\fP"
+
+.PP
+Sends a signal saying we clicked the visit all button\&. 
+.SS "void PlanTrip::clickNext ()\fC [signal]\fP"
+
+.PP
+Send a signal to click the mainwindow next button\&. 
+.SS "void PlanTrip::displayMST ()\fC [signal]\fP"
+
+.PP
+Send a signal to display the minimum spanning tree\&. 
+.SS "void PlanTrip::giveStadiumList (QStringList)\fC [signal]\fP"
+
+.PP
+Send a signal with a stringList containing the selected stadiums, in order\&. 
+.SS "void PlanTrip::giveStadiumListVisitAll (QStringList)\fC [signal]\fP"
+
+.PP
+Sends a signal for Visitall Stadiums for purchase cart\&. 
+.SS "void PlanTrip::hideNextButton (bool)\fC [signal]\fP"
+
+.PP
+Send a signal to hide or show the mainwindow next button\&. 
+.SS "void PlanTrip::propagateStadiumList (QSqlQuery query)\fC [slot]\fP"
+
+.PP
+Propagate the stadiums list\&. \fBPlanTrip::propagateStadiumList\fP Use a SQL query object to propagate the stadium list with stadium names\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIquery\fP 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file plantrip\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

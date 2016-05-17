@@ -1,0 +1,79 @@
+.TH "docs/extra-files/qmap.h" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+docs/extra-files/qmap.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <QtCore/qiterator\&.h>\fP
+.br
+\fC#include <QtCore/qlist\&.h>\fP
+.br
+\fC#include <QtCore/qrefcount\&.h>\fP
+.br
+\fC#include <QtCore/qpair\&.h>\fP
+.br
+\fC#include <map>\fP
+.br
+\fC#include <new>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBQMapData< Key, T >\fP"
+.br
+.ti -1c
+.RI "struct \fBQMapNodeBase\fP"
+.br
+.ti -1c
+.RI "struct \fBQMapNode< Key, T >\fP"
+.br
+.ti -1c
+.RI "struct \fBQMapDataBase\fP"
+.br
+.ti -1c
+.RI "struct \fBQMapData< Key, T >\fP"
+.br
+.ti -1c
+.RI "class \fBQMap< Key, T >\fP"
+.br
+.RI "\fIThe \fBQMap\fP class is a template class that provides a red-black-tree-based dictionary\&. \fP"
+.ti -1c
+.RI "class \fBQMap< Key, T >::iterator\fP"
+.br
+.RI "\fIThe \fBQMap::iterator\fP class provides an STL-style non-const iterator for \fBQMap\fP and \fBQMultiMap\fP\&. \fP"
+.ti -1c
+.RI "class \fBQMap< Key, T >::const_iterator\fP"
+.br
+.RI "\fIThe \fBQMap::const_iterator\fP class provides an STL-style const iterator for \fBQMap\fP and \fBQMultiMap\fP\&. \fP"
+.ti -1c
+.RI "class \fBQMultiMap< Key, T >\fP"
+.br
+.RI "\fIThe \fBQMultiMap\fP class is a convenience \fBQMap\fP subclass that provides multi-valued maps\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<class Key > QT_BEGIN_NAMESPACE bool \fBqMapLessThanKey\fP (const Key &key1, const Key &key2)"
+.br
+.ti -1c
+.RI "template<class Ptr > bool \fBqMapLessThanKey\fP (const Ptr *key1, const Ptr *key2)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "template<class Key > QT_BEGIN_NAMESPACE bool qMapLessThanKey (const Key & key1, const Key & key2)\fC [inline]\fP"
+
+.PP
+Definition at line 65 of file qmap\&.h\&.
+.SS "template<class Ptr > bool qMapLessThanKey (const Ptr * key1, const Ptr * key2)\fC [inline]\fP"
+
+.PP
+Definition at line 70 of file qmap\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

@@ -1,0 +1,417 @@
+.TH "QList< T >::iterator" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QList< T >::iterator \- The \fBQList::iterator\fP class provides an STL-style non-const iterator for \fBQList\fP and QQueue\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qlist\&.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef std::random_access_iterator_tag \fBiterator_category\fP"
+.br
+.ti -1c
+.RI "typedef qptrdiff \fBdifference_type\fP"
+.br
+.ti -1c
+.RI "typedef T \fBvalue_type\fP"
+.br
+.ti -1c
+.RI "typedef T * \fBpointer\fP"
+.br
+.ti -1c
+.RI "typedef T & \fBreference\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBiterator\fP ()"
+.br
+.ti -1c
+.RI "\fBiterator\fP (Node *n)"
+.br
+.ti -1c
+.RI "\fBiterator\fP (const \fBiterator\fP &o)"
+.br
+.ti -1c
+.RI "T & \fBoperator*\fP () const "
+.br
+.ti -1c
+.RI "T * \fBoperator\->\fP () const "
+.br
+.ti -1c
+.RI "T & \fBoperator[]\fP (\fBdifference_type\fP j) const "
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBiterator\fP &o) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBiterator\fP &o) const "
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBiterator\fP &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBiterator\fP &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBiterator\fP &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBiterator\fP &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBconst_iterator\fP &o) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBconst_iterator\fP &o) const "
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBconst_iterator\fP &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBconst_iterator\fP &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBconst_iterator\fP &other) const "
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBconst_iterator\fP &other) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator++\fP ()"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator++\fP (int)"
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator\-\-\fP ()"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator\-\-\fP (int)"
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator+=\fP (\fBdifference_type\fP j)"
+.br
+.ti -1c
+.RI "\fBiterator\fP & \fBoperator\-=\fP (\fBdifference_type\fP j)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator+\fP (\fBdifference_type\fP j) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBoperator\-\fP (\fBdifference_type\fP j) const "
+.br
+.ti -1c
+.RI "int \fBoperator\-\fP (\fBiterator\fP j) const "
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "Node * \fBi\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename T>
+.br
+class QList< T >::iterator"
+The \fBQList::iterator\fP class provides an STL-style non-const iterator for \fBQList\fP and QQueue\&. 
+
+QtCore \fBQList\fP features both {STL-style iterators} and {Java-style iterators}\&. The STL-style iterators are more low-level and more cumbersome to use; on the other hand, they are slightly faster and, for developers who already know STL, have the advantage of familiarity\&.
+.PP
+\fBQList\fP<T>::iterator allows you to iterate over a \fBQList\fP<T> (or QQueue<T>) and to modify the list item associated with the iterator\&. If you want to iterate over a const \fBQList\fP, use \fBQList::const_iterator\fP instead\&. It is generally good practice to use \fBQList::const_iterator\fP on a non-const \fBQList\fP as well, unless you need to change the \fBQList\fP through the iterator\&. Const iterators are slightly faster, and can improve code readability\&.
+.PP
+The default \fBQList::iterator\fP constructor creates an uninitialized iterator\&. You must initialize it using a \fBQList\fP function like \fBQList::begin()\fP, \fBQList::end()\fP, or \fBQList::insert()\fP before you can start iterating\&. Here's a typical loop that prints all the items stored in a list:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Let's see a few examples of things we can do with a \fBQList::iterator\fP that we cannot do with a \fBQList::const_iterator\fP\&. Here's an example that increments every value stored in a \fBQList\fP<int> by 2:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Most \fBQList\fP functions accept an integer index rather than an iterator\&. For that reason, iterators are rarely useful in connection with \fBQList\fP\&. One place where STL-style iterators do make sense is as arguments to {generic algorithms}\&.
+.PP
+For example, here's how to delete all the widgets stored in a \fBQList\fP<QWidget *>:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Multiple iterators can be used on the same list\&. However, be aware that any non-const function call performed on the \fBQList\fP will render all existing iterators undefined\&. If you need to keep iterators over a long period of time, we recommend that you use QLinkedList rather than \fBQList\fP\&.
+.PP
+\fBWarning:\fP
+.RS 4
+Iterators on implicitly shared containers do not work exactly like STL-iterators\&. You should avoid copying a container while iterators are active on that container\&. For more information, read {Implicit sharing iterator problem}\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBQList::const_iterator\fP, QMutableListIterator 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file qlist\&.h\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T> \fBQList\fP< T >::\fBiterator::difference_type\fP"
+
+.PP
+Definition at line 216 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBiterator::iterator_category\fP"
+A synonym for \fI{std::random_access_iterator_tag}\fP indicating this iterator is a random access iterator\&. 
+.PP
+Definition at line 214 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBiterator::pointer\fP"
+
+.PP
+Definition at line 218 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBiterator::reference\fP"
+
+.PP
+Definition at line 219 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBiterator::value_type\fP"
+
+.PP
+Definition at line 217 of file qlist\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBQList\fP< T >::iterator::iterator ()\fC [inline]\fP"
+Constructs an uninitialized iterator\&.
+.PP
+Functions like \fBoperator*()\fP and \fBoperator++()\fP should not be called on an uninitialized iterator\&. Use \fBoperator=()\fP to assign a value to it before using it\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBQList::begin()\fP, \fBQList::end()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::iterator::iterator (Node * n)\fC [inline]\fP"
+
+.PP
+Definition at line 222 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::iterator::iterator (const \fBiterator\fP & other)\fC [inline]\fP"
+Constructs a copy of \fIother\fP\&. 
+.PP
+Definition at line 223 of file qlist\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator!= (const \fBiterator\fP & o) const\fC [inline]\fP"
+
+.PP
+Definition at line 228 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator!= (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if \fIother\fP points to a different item than this iterator; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator==()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 236 of file qlist\&.h\&.
+.SS "template<typename T> T & \fBQList\fP< T >::iterator::operator* () const\fC [inline]\fP"
+Returns a modifiable reference to the current item\&.
+.PP
+You can change the value of an item by using \fBoperator*()\fP on the left side of an assignment, for example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator->()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 224 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP \fBQList\fP< T >::iterator::operator+ (\fBdifference_type\fP j) const\fC [inline]\fP"
+Returns an iterator to the item at \fIj\fP positions forward from this iterator\&. (If \fIj\fP is negative, the iterator goes backward\&.)
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator-()\fP, \fBoperator+=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 253 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP & \fBQList\fP< T >::iterator::operator++ ()\fC [inline]\fP"
+The prefix ++ operator (\fC\fP{++it}) advances the iterator to the next item in the list and returns an iterator to the new current item\&.
+.PP
+Calling this function on \fBQList::end()\fP leads to undefined results\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator--()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 247 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP \fBQList\fP< T >::iterator::operator++ (int)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+The postfix ++ operator (\fC\fP{it++}) advances the iterator to the next item in the list and returns an iterator to the previously current item\&. 
+.PP
+Definition at line 248 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP & \fBQList\fP< T >::iterator::operator+= (\fBdifference_type\fP j)\fC [inline]\fP"
+Advances the iterator by \fIj\fP items\&. (If \fIj\fP is negative, the iterator goes backward\&.)
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator-=()\fP, \fBoperator+()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 251 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP \fBQList\fP< T >::iterator::operator\- (\fBdifference_type\fP j) const\fC [inline]\fP"
+Returns an iterator to the item at \fIj\fP positions backward from this iterator\&. (If \fIj\fP is negative, the iterator goes forward\&.)
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+()\fP, \fBoperator-=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 254 of file qlist\&.h\&.
+.SS "template<typename T> int \fBQList\fP< T >::iterator::operator\- (\fBiterator\fP other) const\fC [inline]\fP"
+Returns the number of items between the item pointed to by \fIother\fP and the item pointed to by this iterator\&. 
+.PP
+Definition at line 255 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP & \fBQList\fP< T >::iterator::operator\-\- ()\fC [inline]\fP"
+The prefix -- operator (\fC\fP{--it}) makes the preceding item current and returns an iterator to the new current item\&.
+.PP
+Calling this function on \fBQList::begin()\fP leads to undefined results\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator++()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 249 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP \fBQList\fP< T >::iterator::operator\-\- (int)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+The postfix -- operator (\fC\fP{it--}) makes the preceding item current and returns an iterator to the previously current item\&. 
+.PP
+Definition at line 250 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP & \fBQList\fP< T >::iterator::operator\-= (\fBdifference_type\fP j)\fC [inline]\fP"
+Makes the iterator go back by \fIj\fP items\&. (If \fIj\fP is negative, the iterator goes forward\&.)
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+=()\fP, \fBoperator-()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 252 of file qlist\&.h\&.
+.SS "template<typename T> T * \fBQList\fP< T >::iterator::operator\-> () const\fC [inline]\fP"
+Returns a pointer to the current item\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator*()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 225 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator< (const \fBiterator\fP & other) const\fC [inline]\fP"
+
+.PP
+Definition at line 229 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator< (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if the item pointed to by this iterator is less than the item pointed to by the \fIother\fP iterator\&. 
+.PP
+Definition at line 238 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator<= (const \fBiterator\fP & other) const\fC [inline]\fP"
+
+.PP
+Definition at line 230 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator<= (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if the item pointed to by this iterator is less than or equal to the item pointed to by the \fIother\fP iterator\&. 
+.PP
+Definition at line 240 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator== (const \fBiterator\fP & o) const\fC [inline]\fP"
+
+.PP
+Definition at line 227 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator== (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if \fIother\fP points to the same item as this iterator; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator!=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 234 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator> (const \fBiterator\fP & other) const\fC [inline]\fP"
+
+.PP
+Definition at line 231 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator> (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if the item pointed to by this iterator is greater than the item pointed to by the \fIother\fP iterator\&. 
+.PP
+Definition at line 242 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator>= (const \fBiterator\fP & other) const\fC [inline]\fP"
+
+.PP
+Definition at line 232 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::iterator::operator>= (const \fBconst_iterator\fP & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if the item pointed to by this iterator is greater than or equal to the item pointed to by the \fIother\fP iterator\&. 
+.PP
+Definition at line 244 of file qlist\&.h\&.
+.SS "template<typename T> T & \fBQList\fP< T >::iterator::operator[] (\fBdifference_type\fP j) const\fC [inline]\fP"
+Returns a modifiable reference to the item at position *this + \fI\fP{j}\&.
+.PP
+This function is provided to make \fBQList\fP iterators behave like C++ pointers\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file qlist\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T> Node* \fBQList\fP< T >::iterator::i"
+
+.PP
+Definition at line 213 of file qlist\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

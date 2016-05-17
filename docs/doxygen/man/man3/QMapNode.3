@@ -1,0 +1,122 @@
+.TH "QMapNode< Key, T >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QMapNode< Key, T > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qmap\&.h>\fP
+.PP
+Inherits \fBQMapNodeBase\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQMapNode\fP * \fBleftNode\fP () const "
+.br
+.ti -1c
+.RI "\fBQMapNode\fP * \fBrightNode\fP () const "
+.br
+.ti -1c
+.RI "const \fBQMapNode\fP * \fBnextNode\fP () const "
+.br
+.ti -1c
+.RI "const \fBQMapNode\fP * \fBpreviousNode\fP () const "
+.br
+.ti -1c
+.RI "\fBQMapNode\fP * \fBnextNode\fP ()"
+.br
+.ti -1c
+.RI "\fBQMapNode\fP * \fBpreviousNode\fP ()"
+.br
+.ti -1c
+.RI "\fBQMapNode\fP< Key, T > * \fBcopy\fP (\fBQMapData\fP< Key, T > *d) const "
+.br
+.ti -1c
+.RI "void \fBdestroySubTree\fP ()"
+.br
+.ti -1c
+.RI "\fBQMapNode\fP< Key, T > * \fBlowerBound\fP (const Key &\fBkey\fP)"
+.br
+.ti -1c
+.RI "\fBQMapNode\fP< Key, T > * \fBupperBound\fP (const Key &\fBkey\fP)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "Key \fBkey\fP"
+.br
+.ti -1c
+.RI "T \fBvalue\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class Key, class T>
+.br
+struct QMapNode< Key, T >"
+
+.PP
+Definition at line 100 of file qmap\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class Key , class T > \fBQMapNode\fP< Key, T > * \fBQMapNode\fP< Key, T >::copy (\fBQMapData\fP< Key, T > * d) const"
+
+.PP
+Definition at line 230 of file qmap\&.h\&.
+.SS "template<class Key , class T > void \fBQMapNode\fP< Key, T >::destroySubTree ()"
+
+.PP
+Definition at line 255 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMapNode\fP* \fBQMapNode\fP< Key, T >::leftNode () const\fC [inline]\fP"
+
+.PP
+Definition at line 105 of file qmap\&.h\&.
+.SS "template<class Key , class T > \fBQMapNode\fP< Key, T > * \fBQMapNode\fP< Key, T >::lowerBound (const Key & key)\fC [inline]\fP"
+
+.PP
+Definition at line 126 of file qmap\&.h\&.
+.SS "template<class Key, class T> const \fBQMapNode\fP* \fBQMapNode\fP< Key, T >::nextNode () const\fC [inline]\fP"
+
+.PP
+Definition at line 108 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMapNode\fP* \fBQMapNode\fP< Key, T >::nextNode ()\fC [inline]\fP"
+
+.PP
+Definition at line 110 of file qmap\&.h\&.
+.SS "template<class Key, class T> const \fBQMapNode\fP* \fBQMapNode\fP< Key, T >::previousNode () const\fC [inline]\fP"
+
+.PP
+Definition at line 109 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMapNode\fP* \fBQMapNode\fP< Key, T >::previousNode ()\fC [inline]\fP"
+
+.PP
+Definition at line 111 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBQMapNode\fP* \fBQMapNode\fP< Key, T >::rightNode () const\fC [inline]\fP"
+
+.PP
+Definition at line 106 of file qmap\&.h\&.
+.SS "template<class Key , class T > \fBQMapNode\fP< Key, T > * \fBQMapNode\fP< Key, T >::upperBound (const Key & key)\fC [inline]\fP"
+
+.PP
+Definition at line 142 of file qmap\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "template<class Key, class T> Key \fBQMapNode\fP< Key, T >::key"
+
+.PP
+Definition at line 102 of file qmap\&.h\&.
+.SS "template<class Key, class T> T \fBQMapNode\fP< Key, T >::value"
+
+.PP
+Definition at line 103 of file qmap\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

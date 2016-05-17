@@ -1,0 +1,1575 @@
+.TH "QVector< T >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QVector< T > \- The \fBQVector\fP class is a template class that provides a dynamic array\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qlist\&.h>\fP
+.PP
+Inherited by \fBQStack< T >\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef Data::iterator \fBiterator\fP"
+.br
+.ti -1c
+.RI "typedef Data::const_iterator \fBconst_iterator\fP"
+.br
+.ti -1c
+.RI "typedef T \fBvalue_type\fP"
+.br
+.ti -1c
+.RI "typedef \fBvalue_type\fP * \fBpointer\fP"
+.br
+.ti -1c
+.RI "typedef const \fBvalue_type\fP * \fBconst_pointer\fP"
+.br
+.ti -1c
+.RI "typedef \fBvalue_type\fP & \fBreference\fP"
+.br
+.ti -1c
+.RI "typedef const \fBvalue_type\fP & \fBconst_reference\fP"
+.br
+.ti -1c
+.RI "typedef qptrdiff \fBdifference_type\fP"
+.br
+.ti -1c
+.RI "typedef \fBiterator\fP \fBIterator\fP"
+.br
+.ti -1c
+.RI "typedef \fBconst_iterator\fP \fBConstIterator\fP"
+.br
+.ti -1c
+.RI "typedef int \fBsize_type\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQVector\fP () Q_DECL_NOTHROW"
+.br
+.ti -1c
+.RI "\fBQVector\fP (int \fBsize\fP)"
+.br
+.ti -1c
+.RI "\fBQVector\fP (int \fBsize\fP, const T &t)"
+.br
+.ti -1c
+.RI "\fBQVector\fP (const \fBQVector\fP< T > &v)"
+.br
+.ti -1c
+.RI "\fB~QVector\fP ()"
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > & \fBoperator=\fP (const \fBQVector\fP< T > &v)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBQVector\fP< T > &other)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBQVector\fP< T > &v) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBQVector\fP< T > &v) const "
+.br
+.ti -1c
+.RI "int \fBsize\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.ti -1c
+.RI "void \fBresize\fP (int \fBsize\fP)"
+.br
+.ti -1c
+.RI "int \fBcapacity\fP () const "
+.br
+.ti -1c
+.RI "void \fBreserve\fP (int \fBsize\fP)"
+.br
+.ti -1c
+.RI "void \fBsqueeze\fP ()"
+.br
+.ti -1c
+.RI "void \fBdetach\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisDetached\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisSharedWith\fP (const \fBQVector\fP< T > &other) const "
+.br
+.ti -1c
+.RI "T * \fBdata\fP ()"
+.br
+.ti -1c
+.RI "const T * \fBdata\fP () const "
+.br
+.ti -1c
+.RI "const T * \fBconstData\fP () const "
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBat\fP (int i) const "
+.br
+.ti -1c
+.RI "T & \fBoperator[]\fP (int i)"
+.br
+.ti -1c
+.RI "const T & \fBoperator[]\fP (int i) const "
+.br
+.ti -1c
+.RI "void \fBappend\fP (const T &t)"
+.br
+.ti -1c
+.RI "void \fBappend\fP (const \fBQVector\fP< T > &l)"
+.br
+.ti -1c
+.RI "void \fBprepend\fP (const T &t)"
+.br
+.ti -1c
+.RI "void \fBinsert\fP (int i, const T &t)"
+.br
+.ti -1c
+.RI "void \fBinsert\fP (int i, int n, const T &t)"
+.br
+.ti -1c
+.RI "void \fBreplace\fP (int i, const T &t)"
+.br
+.ti -1c
+.RI "void \fBremove\fP (int i)"
+.br
+.ti -1c
+.RI "void \fBremove\fP (int i, int n)"
+.br
+.ti -1c
+.RI "void \fBremoveFirst\fP ()"
+.br
+.ti -1c
+.RI "void \fBremoveLast\fP ()"
+.br
+.ti -1c
+.RI "T \fBtakeFirst\fP ()"
+.br
+.ti -1c
+.RI "T \fBtakeLast\fP ()"
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > & \fBfill\fP (const T &t, int \fBsize\fP=\-1)"
+.br
+.ti -1c
+.RI "int \fBindexOf\fP (const T &t, int from=0) const "
+.br
+.ti -1c
+.RI "int \fBlastIndexOf\fP (const T &t, int from=\-1) const "
+.br
+.ti -1c
+.RI "bool \fBcontains\fP (const T &t) const "
+.br
+.ti -1c
+.RI "int \fBcount\fP (const T &t) const "
+.br
+.ti -1c
+.RI "void \fBremoveAt\fP (int i)"
+.br
+.ti -1c
+.RI "int \fBremoveAll\fP (const T &t)"
+.br
+.ti -1c
+.RI "bool \fBremoveOne\fP (const T &t)"
+.br
+.ti -1c
+.RI "int \fBlength\fP () const "
+.br
+.ti -1c
+.RI "T \fBtakeAt\fP (int i)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBbegin\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBbegin\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcbegin\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBconstBegin\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBend\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBend\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcend\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBconstEnd\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBiterator\fP before, int n, const T &x)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBiterator\fP before, const T &x)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBerase\fP (\fBiterator\fP \fBbegin\fP, \fBiterator\fP \fBend\fP)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBerase\fP (\fBiterator\fP pos)"
+.br
+.ti -1c
+.RI "int \fBcount\fP () const "
+.br
+.ti -1c
+.RI "T & \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBfirst\fP () const "
+.br
+.ti -1c
+.RI "T & \fBlast\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBlast\fP () const "
+.br
+.ti -1c
+.RI "bool \fBstartsWith\fP (const T &t) const "
+.br
+.ti -1c
+.RI "bool \fBendsWith\fP (const T &t) const "
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > \fBmid\fP (int pos, int len=\-1) const "
+.br
+.ti -1c
+.RI "T \fBvalue\fP (int i) const "
+.br
+.ti -1c
+.RI "T \fBvalue\fP (int i, const T &defaultValue) const "
+.br
+.ti -1c
+.RI "void \fBpush_back\fP (const T &t)"
+.br
+.ti -1c
+.RI "void \fBpush_front\fP (const T &t)"
+.br
+.ti -1c
+.RI "void \fBpop_back\fP ()"
+.br
+.ti -1c
+.RI "void \fBpop_front\fP ()"
+.br
+.ti -1c
+.RI "bool \fBempty\fP () const "
+.br
+.ti -1c
+.RI "T & \fBfront\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_reference\fP \fBfront\fP () const "
+.br
+.ti -1c
+.RI "\fBreference\fP \fBback\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_reference\fP \fBback\fP () const "
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > & \fBoperator+=\fP (const \fBQVector\fP< T > &l)"
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > \fBoperator+\fP (const \fBQVector\fP< T > &l) const "
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > & \fBoperator+=\fP (const T &t)"
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > & \fBoperator<<\fP (const T &t)"
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > & \fBoperator<<\fP (const \fBQVector\fP< T > &l)"
+.br
+.ti -1c
+.RI "\fBQList\fP< T > \fBtoList\fP () const "
+.br
+.ti -1c
+.RI "std::vector< T > \fBtoStdVector\fP () const "
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBQVector\fP< T > \fBfromList\fP (const \fBQList\fP< T > &list)"
+.br
+.ti -1c
+.RI "static \fBQVector\fP< T > \fBfromStdVector\fP (const std::vector< T > &vector)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBQRegion\fP"
+.br
+.in -1c
+.SS "Related Functions"
+(Note that these are not member functions\&.) 
+.in +1c
+.ti -1c
+.RI "QDataStream & \fBoperator<<\fP (QDataStream &out, const \fBQVector\fP< T > &vector)"
+.br
+.ti -1c
+.RI "QDataStream & \fBoperator>>\fP (QDataStream &in, \fBQVector\fP< T > &vector)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename T>
+.br
+class QVector< T >"
+The \fBQVector\fP class is a template class that provides a dynamic array\&. 
+
+QtCore
+.PP
+\fBQVector\fP<T> is one of Qt's generic {container classes}\&. It stores its items in adjacent memory locations and provides fast index-based access\&.
+.PP
+\fBQList\fP<T>, QLinkedList<T>, and QVarLengthArray<T> provide similar functionality\&. Here's an overview:
+.PP
+.PD 0
+.IP "\(bu" 2
+For most purposes, \fBQList\fP is the right class to use\&. Operations like \fBprepend()\fP and \fBinsert()\fP are usually faster than with \fBQVector\fP because of the way \fBQList\fP stores its items in memory (see {Algorithmic Complexity} for details), and its index-based API is more convenient than QLinkedList's iterator-based API\&. It also expands to less code in your executable\&. 
+.IP "\(bu" 2
+If you need a real linked list, with guarantees of {constant time} insertions in the middle of the list and iterators to items rather than indexes, use QLinkedList\&. 
+.IP "\(bu" 2
+If you want the items to occupy adjacent memory positions, or if your items are larger than a pointer and you want to avoid the overhead of allocating them on the heap individually at insertion time, then use \fBQVector\fP\&. 
+.IP "\(bu" 2
+If you want a low-level variable-size array, QVarLengthArray may be sufficient\&. 
+.PP
+Here's an example of a \fBQVector\fP that stores integers and a \fBQVector\fP that stores QString values:
+.PP
+.PP
+.nf
+.fi
+.PP
+ \fBQVector\fP stores a vector (or array) of items\&. Typically, vectors are created with an initial size\&. For example, the following code constructs a \fBQVector\fP with 200 elements:
+.PP
+.PP
+.nf
+.fi
+.PP
+ The elements are automatically initialized with a {default-constructed value}\&. If you want to initialize the vector with a different value, pass that value as the second argument to the constructor:
+.PP
+.PP
+.nf
+.fi
+.PP
+ You can also call \fBfill()\fP at any time to fill the vector with a value\&.
+.PP
+\fBQVector\fP uses 0-based indexes, just like C++ arrays\&. To access the item at a particular index position, you can use \fBoperator[]()\fP\&. On non-const vectors, \fBoperator[]()\fP returns a reference to the item that can be used on the left side of an assignment:
+.PP
+.PP
+.nf
+.fi
+.PP
+ For read-only access, an alternative syntax is to use \fBat()\fP:
+.PP
+.PP
+.nf
+.fi
+.PP
+ \fBat()\fP can be faster than \fBoperator[]()\fP, because it never causes a {deep copy} to occur\&.
+.PP
+Another way to access the data stored in a \fBQVector\fP is to call \fBdata()\fP\&. The function returns a pointer to the first item in the vector\&. You can use the pointer to directly access and modify the elements stored in the vector\&. The pointer is also useful if you need to pass a \fBQVector\fP to a function that accepts a plain C++ array\&.
+.PP
+If you want to find all occurrences of a particular value in a vector, use \fBindexOf()\fP or \fBlastIndexOf()\fP\&. The former searches forward starting from a given index position, the latter searches backward\&. Both return the index of the matching item if they found one; otherwise, they return -1\&. For example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ If you simply want to check whether a vector contains a particular value, use \fBcontains()\fP\&. If you want to find out how many times a particular value occurs in the vector, use \fBcount()\fP\&.
+.PP
+\fBQVector\fP provides these basic functions to add, move, and remove items: \fBinsert()\fP, \fBreplace()\fP, \fBremove()\fP, \fBprepend()\fP, \fBappend()\fP\&. With the exception of \fBappend()\fP and \fBreplace()\fP, these functions can be slow ({linear time}) for large vectors, because they require moving many items in the vector by one position in memory\&. If you want a container class that provides fast insertion/removal in the middle, use \fBQList\fP or QLinkedList instead\&.
+.PP
+Unlike plain C++ arrays, QVectors can be resized at any time by calling \fBresize()\fP\&. If the new size is larger than the old size, \fBQVector\fP might need to reallocate the whole vector\&. \fBQVector\fP tries to reduce the number of reallocations by preallocating up to twice as much memory as the actual data needs\&.
+.PP
+If you know in advance approximately how many items the \fBQVector\fP will contain, you can call \fBreserve()\fP, asking \fBQVector\fP to preallocate a certain amount of memory\&. You can also call \fBcapacity()\fP to find out how much memory \fBQVector\fP actually allocated\&.
+.PP
+Note that using non-const operators and functions can cause \fBQVector\fP to do a deep copy of the data\&. This is due to {implicit sharing}\&.
+.PP
+\fBQVector\fP's value type must be an {assignable data type}\&. This covers most data types that are commonly used, but the compiler won't let you, for example, store a QWidget as a value; instead, store a QWidget *\&. A few functions have additional requirements; for example, \fBindexOf()\fP and \fBlastIndexOf()\fP expect the value type to support \fC\fBoperator==()\fP\fP\&. These requirements are documented on a per-function basis\&.
+.PP
+Like the other container classes, \fBQVector\fP provides {Java-style iterators} (QVectorIterator and QMutableVectorIterator) and {STL-style iterators} (\fBQVector::const_iterator\fP and \fBQVector::iterator\fP)\&. In practice, these are rarely used, because you can use indexes into the \fBQVector\fP\&.
+.PP
+In addition to \fBQVector\fP, Qt also provides QVarLengthArray, a very low-level class with little functionality that is optimized for speed\&.
+.PP
+\fBQVector\fP does \fInot\fP support inserting, prepending, appending or replacing with references to its own values\&. Doing so will cause your application to abort with an error message\&.
+.PP
+\fBSee also:\fP
+.RS 4
+QVectorIterator, QMutableVectorIterator, \fBQList\fP, QLinkedList 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file qlist\&.h\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T> \fBQVector\fP< T >::\fBconst_iterator\fP"
+The \fBQVector::const_iterator\fP typedef provides an STL-style const iterator for \fBQVector\fP and \fBQStack\fP\&.
+.PP
+\fBQVector\fP provides both {STL-style iterators} and {Java-style iterators}\&. The STL-style const iterator is simply a typedef for 'const T *' (pointer to const T)\&.
+.PP
+\fBWarning:\fP
+.RS 4
+Iterators on implicitly shared containers do not work exactly like STL-iterators\&. You should avoid copying a container while iterators are active on that container\&. For more information, read {Implicit sharing iterator problem}\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBQVector::constBegin()\fP, \fBQVector::constEnd()\fP, \fBQVector::iterator\fP, QVectorIterator 
+.RE
+.PP
+
+.PP
+Definition at line 177 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBconst_pointer\fP"
+Typedef for const T *\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 218 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBconst_reference\fP"
+Typedef for T &\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 220 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBConstIterator\fP"
+Qt-style synonym for \fBQVector::const_iterator\fP\&. 
+.PP
+Definition at line 223 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBdifference_type\fP"
+Typedef for ptrdiff_t\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 221 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBiterator\fP"
+The \fBQVector::iterator\fP typedef provides an STL-style non-const iterator for \fBQVector\fP and \fBQStack\fP\&.
+.PP
+\fBQVector\fP provides both {STL-style iterators} and {Java-style iterators}\&. The STL-style non-const iterator is simply a typedef for 'T *' (pointer to T)\&.
+.PP
+\fBWarning:\fP
+.RS 4
+Iterators on implicitly shared containers do not work exactly like STL-iterators\&. You should avoid copying a container while iterators are active on that container\&. For more information, read {Implicit sharing iterator problem}\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBQVector::begin()\fP, \fBQVector::end()\fP, \fBQVector::const_iterator\fP, QMutableVectorIterator 
+.RE
+.PP
+
+.PP
+Definition at line 176 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBIterator\fP"
+Qt-style synonym for \fBQVector::iterator\fP\&. 
+.PP
+Definition at line 222 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBpointer\fP"
+Typedef for T *\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 217 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBreference\fP"
+Typedef for T &\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 219 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBsize_type\fP"
+Typedef for int\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 224 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBvalue_type\fP"
+Typedef for T\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 216 of file qvector\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBQVector\fP< T >::\fBQVector\fP ()\fC [inline]\fP"
+Constructs an empty vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBresize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file qvector\&.h\&.
+.SS "template<typename T > \fBQVector\fP< T >::\fBQVector\fP (int size)\fC [explicit]\fP"
+Constructs a vector with an initial size of \fIsize\fP elements\&.
+.PP
+The elements are initialized with a {default-constructed value}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBresize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 442 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBQVector\fP (int size, const T & value)"
+Constructs a vector with an initial size of \fIsize\fP elements\&. Each element is initialized with \fIvalue\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBresize()\fP, \fBfill()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 456 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBQVector\fP (const \fBQVector\fP< T > & other)\fC [inline]\fP"
+Constructs a copy of \fIother\fP\&.
+.PP
+This operation takes {constant time}, because \fBQVector\fP is {implicitly shared}\&. This makes returning a \fBQVector\fP from a function very fast\&. If a shared instance is modified, it will be copied (copy-on-write), and that takes {linear time}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 326 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::~\fBQVector\fP ()\fC [inline]\fP"
+Destroys the vector\&. 
+.PP
+Definition at line 68 of file qvector\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> void \fBQVector\fP< T >::append (const T & value)"
+Inserts \fIvalue\fP at the end of the vector\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This is the same as calling resize(\fBsize()\fP + 1) and assigning \fIvalue\fP to the new last element in the vector\&.
+.PP
+This operation is relatively fast, because \fBQVector\fP typically allocates more memory than necessary, so it can grow without reallocating the entire vector each time\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator<<()\fP, \fBprepend()\fP, \fBinsert()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 601 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::append (const \fBQVector\fP< T > & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+\fBSince:\fP
+.RS 4
+5\&.5
+.RE
+.PP
+Appends the items of the \fIvalue\fP vector to this vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator<<()\fP, \fBoperator+=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 131 of file qvector\&.h\&.
+.SS "template<typename T > const T & \fBQVector\fP< T >::at (int i) const\fC [inline]\fP"
+Returns the item at index position \fIi\fP in the vector\&.
+.PP
+\fIi\fP must be a valid index position in the vector (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBvalue()\fP, \fBoperator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 392 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::reference\fP \fBQVector\fP< T >::back ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBlast()\fP\&. 
+.PP
+Definition at line 233 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_reference\fP \fBQVector\fP< T >::back () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 234 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::iterator\fP \fBQVector\fP< T >::begin ()\fC [inline]\fP"
+Returns an {STL-style iterators}{STL-style iterator} pointing to the first item in the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstBegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 179 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_iterator\fP \fBQVector\fP< T >::begin () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 180 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::capacity () const\fC [inline]\fP"
+Returns the maximum number of items that can be stored in the vector without forcing a reallocation\&.
+.PP
+The sole purpose of this function is to provide a means of fine tuning \fBQVector\fP's memory usage\&. In general, you will rarely ever need to call this function\&. If you want to know how many items are in the vector, call \fBsize()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBreserve()\fP, \fBsqueeze()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 88 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_iterator\fP \fBQVector\fP< T >::cbegin () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.0
+.RE
+.PP
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the first item in the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBcend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 181 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_iterator\fP \fBQVector\fP< T >::cend () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.0
+.RE
+.PP
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcbegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 185 of file qvector\&.h\&.
+.SS "template<typename T > void \fBQVector\fP< T >::clear ()\fC [inline]\fP"
+Removes all the elements from the vector and releases the memory used by the vector\&. 
+.PP
+Definition at line 389 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_iterator\fP \fBQVector\fP< T >::constBegin () const\fC [inline]\fP"
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the first item in the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBconstEnd()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file qvector\&.h\&.
+.SS "template<typename T> const T * \fBQVector\fP< T >::constData () const\fC [inline]\fP"
+Returns a const pointer to the data stored in the vector\&. The pointer can be used to access the items in the vector\&. The pointer remains valid as long as the vector isn't reallocated\&.
+.PP
+This function is mostly useful to pass a vector to a function that accepts a plain C++ array\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBdata()\fP, \fBoperator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_iterator\fP \fBQVector\fP< T >::constEnd () const\fC [inline]\fP"
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstBegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 186 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::contains (const T & value) const"
+Returns \fCtrue\fP if the vector contains an occurrence of \fIvalue\fP; otherwise returns \fCfalse\fP\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBindexOf()\fP, \fBcount()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 804 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::count (const T & value) const"
+Returns the number of occurrences of \fIvalue\fP in the vector\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcontains()\fP, \fBindexOf()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 812 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::count () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Same as \fBsize()\fP\&. 
+.PP
+Definition at line 203 of file qvector\&.h\&.
+.SS "template<typename T> T * \fBQVector\fP< T >::data ()\fC [inline]\fP"
+Returns a pointer to the data stored in the vector\&. The pointer can be used to access and modify the items in the vector\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ The pointer remains valid as long as the vector isn't reallocated\&.
+.PP
+This function is mostly useful to pass a vector to a function that accepts a plain C++ array\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstData()\fP, \fBoperator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 122 of file qvector\&.h\&.
+.SS "template<typename T> const T * \fBQVector\fP< T >::data () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 123 of file qvector\&.h\&.
+.SS "template<typename T > void \fBQVector\fP< T >::detach ()\fC [inline]\fP"
+
+.PP
+Definition at line 347 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::empty () const\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBisEmpty()\fP, returning \fCtrue\fP if the vector is empty; otherwise returns \fCfalse\fP\&. 
+.PP
+Definition at line 229 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::iterator\fP \fBQVector\fP< T >::end ()\fC [inline]\fP"
+Returns an {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBconstEnd()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 183 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_iterator\fP \fBQVector\fP< T >::end () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 184 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::endsWith (const T & value) const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.5
+.RE
+.PP
+Returns \fCtrue\fP if this vector is not empty and its last item is equal to \fIvalue\fP; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisEmpty()\fP, \fBlast()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 209 of file qvector\&.h\&.
+.SS "template<typename T > \fBQVector\fP< T >::\fBiterator\fP \fBQVector\fP< T >::erase (\fBiterator\fP begin, \fBiterator\fP end)"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Removes all the items from \fIbegin\fP up to (but not including) \fIend\fP\&. Returns an iterator to the same item that \fIend\fP referred to before the call\&. 
+.PP
+Definition at line 674 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::iterator\fP \fBQVector\fP< T >::erase (\fBiterator\fP pos)\fC [inline]\fP"
+Removes the item pointed to by the iterator \fIpos\fP from the vector, and returns an iterator to the next item in the vector (which may be \fBend()\fP)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsert()\fP, \fBremove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 200 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > & \fBQVector\fP< T >::fill (const T & value, int size = \fC\-1\fP)"
+Assigns \fIvalue\fP to all items in the vector\&. If \fIsize\fP is different from -1 (the default), the vector is resized to size \fIsize\fP beforehand\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBresize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 732 of file qvector\&.h\&.
+.SS "template<typename T> T & \fBQVector\fP< T >::first ()\fC [inline]\fP"
+Returns a reference to the first item in the vector\&. This function assumes that the vector isn't empty\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlast()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 204 of file qvector\&.h\&.
+.SS "template<typename T> const T & \fBQVector\fP< T >::first () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 205 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > \fBQVector\fP< T >::fromList (const \fBQList\fP< T > & list)\fC [static]\fP"
+Returns a \fBQVector\fP object with the data contained in \fIlist\fP\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtoList()\fP, \fBQList::toVector()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 862 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > \fBQVector\fP< T >::fromStdVector (const std::vector< T > & vector)\fC [inline]\fP, \fC [static]\fP"
+Returns a \fBQVector\fP object with the data contained in \fIvector\fP\&. The order of the elements in the \fBQVector\fP is the same as in \fIvector\fP\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtoStdVector()\fP, \fBQList::fromStdList()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 251 of file qvector\&.h\&.
+.SS "template<typename T> T & \fBQVector\fP< T >::front ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBfirst()\fP\&. 
+.PP
+Definition at line 231 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::const_reference\fP \fBQVector\fP< T >::front () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 232 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::indexOf (const T & value, int from = \fC0\fP) const"
+Returns the index position of the first occurrence of \fIvalue\fP in the vector, searching forward from index position \fIfrom\fP\&. Returns -1 if no item matched\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlastIndexOf()\fP, \fBcontains()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 771 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::insert (int i, const T & value)\fC [inline]\fP"
+Inserts \fIvalue\fP at index position \fIi\fP in the vector\&. If \fIi\fP is 0, the value is prepended to the vector\&. If \fIi\fP is \fBsize()\fP, the value is appended to the vector\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ For large vectors, this operation can be slow ({linear time}), because it requires moving all the items at indexes \fIi\fP and above by one position further in memory\&. If you want a container class that provides a fast \fBinsert()\fP function, use QLinkedList instead\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBappend()\fP, \fBprepend()\fP, \fBremove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 404 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::insert (int i, int count, const T & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Inserts \fIcount\fP copies of \fIvalue\fP at index position \fIi\fP in the vector\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+
+.PP
+Definition at line 408 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T >::\fBiterator\fP \fBQVector\fP< T >::insert (\fBiterator\fP before, int count, const T & value)"
+Inserts \fIcount\fP copies of \fIvalue\fP in front of the item pointed to by the iterator \fIbefore\fP\&. Returns an iterator pointing at the first of the inserted items\&. 
+.PP
+Definition at line 639 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector::iterator\fP \fBQVector\fP< T >::insert (\fBiterator\fP before, const T & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Inserts \fIvalue\fP in front of the item pointed to by the iterator \fIbefore\fP\&. Returns an iterator pointing at the inserted item\&. 
+.PP
+Definition at line 198 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::isDetached () const\fC [inline]\fP"
+
+.PP
+Definition at line 101 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::isEmpty () const\fC [inline]\fP"
+Returns \fCtrue\fP if the vector has size 0; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsize()\fP, \fBresize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 84 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::isSharedWith (const \fBQVector\fP< T > & other) const\fC [inline]\fP"
+
+.PP
+Definition at line 120 of file qvector\&.h\&.
+.SS "template<typename T> T & \fBQVector\fP< T >::last ()\fC [inline]\fP"
+Returns a reference to the last item in the vector\&. This function assumes that the vector isn't empty\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfirst()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 206 of file qvector\&.h\&.
+.SS "template<typename T> const T & \fBQVector\fP< T >::last () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 207 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::lastIndexOf (const T & value, int from = \fC\-1\fP) const"
+Returns the index position of the last occurrence of the value \fIvalue\fP in the vector, searching backward from index position \fIfrom\fP\&. If \fIfrom\fP is -1 (the default), the search starts at the last item\&. Returns -1 if no item matched\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBindexOf()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 786 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::length () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+Same as \fBsize()\fP and \fBcount()\fP\&.
+.PP
+Provided for compatibility with \fBQList\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsize()\fP, \fBcount()\fP, \fBQList::length()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file qvector\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE \fBQVector\fP< T > \fBQVector\fP< T >::mid (int pos, int length = \fC\-1\fP) const"
+Returns a sub-vector which contains elements from this vector, starting at position \fIpos\fP\&. If \fIlength\fP is -1 (the default), all elements after \fIpos\fP are included; otherwise \fIlength\fP elements (or all remaining elements if there are less than \fIlength\fP elements) are included\&. 
+.PP
+Definition at line 820 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::operator!= (const \fBQVector\fP< T > & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if \fIother\fP is not equal to this vector; otherwise returns \fCfalse\fP\&.
+.PP
+Two vectors are considered equal if they contain the same values in the same order\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator==()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 80 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > \fBQVector\fP< T >::operator+ (const \fBQVector\fP< T > & other) const\fC [inline]\fP"
+Returns a vector that contains all the items in this vector followed by all the items in the \fIother\fP vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 238 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > & \fBQVector\fP< T >::operator+= (const \fBQVector\fP< T > & other)"
+Appends the items of the \fIother\fP vector to this vector and returns a reference to this vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+()\fP, \fBappend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 746 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::operator+= (const T & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Appends \fIvalue\fP to the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBappend()\fP, \fBoperator<<()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 240 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > & \fBQVector\fP< T >::operator<< (const \fBQVector\fP< T > & other)\fC [inline]\fP"
+Appends \fIother\fP to the vector and returns a reference to the vector\&. 
+.PP
+Definition at line 244 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > & \fBQVector\fP< T >::operator<< (const T & value)\fC [inline]\fP"
+Appends \fIvalue\fP to the vector and returns a reference to this vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBappend()\fP, \fBoperator+=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 242 of file qvector\&.h\&.
+.SS "template<typename T> \fBQVector\fP< T > & \fBQVector\fP< T >::operator= (const \fBQVector\fP< T > & other)"
+Assigns \fIother\fP to this vector and returns a reference to this vector\&.
+.PP
+Move-assigns \fIother\fP to this \fBQVector\fP instance\&.
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2 
+.RE
+.PP
+
+.PP
+Definition at line 432 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::operator== (const \fBQVector\fP< T > & other) const"
+Returns \fCtrue\fP if \fIother\fP is equal to this vector; otherwise returns \fCfalse\fP\&.
+.PP
+Two vectors are considered equal if they contain the same values in the same order\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator!=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 719 of file qvector\&.h\&.
+.SS "template<typename T > T & \fBQVector\fP< T >::operator[] (int i)\fC [inline]\fP"
+Returns the item at index position \fIi\fP as a modifiable reference\&.
+.PP
+\fIi\fP must be a valid index position in the vector (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+Note that using non-const operators can cause \fBQVector\fP to do a deep copy\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBat()\fP, \fBvalue()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 400 of file qvector\&.h\&.
+.SS "template<typename T > const T & \fBQVector\fP< T >::operator[] (int i) const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Same as at(\fIi\fP)\&. 
+.PP
+Definition at line 396 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::pop_back ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBremoveLast()\fP\&. 
+.PP
+Definition at line 227 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::pop_front ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBremoveFirst()\fP\&. 
+.PP
+Definition at line 228 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::prepend (const T & value)\fC [inline]\fP"
+Inserts \fIvalue\fP at the beginning of the vector\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This is the same as vector\&.insert(0, \fIvalue\fP)\&.
+.PP
+For large vectors, this operation can be slow ({linear time}), because it requires moving all the items in the vector by one position further in memory\&. If you want a container class that provides a fast \fBprepend()\fP function, use \fBQList\fP or QLinkedList instead\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBappend()\fP, \fBinsert()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 420 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::push_back (const T & value)\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to append(\fIvalue\fP)\&. 
+.PP
+Definition at line 225 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::push_front (const T & value)\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to prepend(\fIvalue\fP)\&. 
+.PP
+Definition at line 226 of file qvector\&.h\&.
+.SS "template<typename T > void \fBQVector\fP< T >::remove (int i)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Removes the element at index position \fIi\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsert()\fP, \fBreplace()\fP, \fBfill()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 416 of file qvector\&.h\&.
+.SS "template<typename T > void \fBQVector\fP< T >::remove (int i, int count)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Removes \fIcount\fP elements from the middle of the vector, starting at index position \fIi\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsert()\fP, \fBreplace()\fP, \fBfill()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 412 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::removeAll (const T & t)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.4
+.RE
+.PP
+Removes all elements that compare equal to \fIt\fP from the vector\&. Returns the number of elements removed, if any\&.
+.PP
+Provided for compatibility with \fBQList\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveOne()\fP, \fBQList::removeAll()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 152 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::removeAt (int i)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+Removes the element at index position \fIi\fP\&. Equivalent to 
+.PP
+.nf
+remove(i);
+
+.fi
+.PP
+.PP
+Provided for compatibility with \fBQList\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremove()\fP, \fBQList::removeAt()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 151 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::removeFirst ()\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.1 Removes the first item in the vector\&. Calling this function is equivalent to calling remove(0)\&. The vector must not be empty\&. If the vector can be empty, call \fBisEmpty()\fP before calling this function\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremove()\fP, \fBtakeFirst()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 138 of file qvector\&.h\&.
+.SS "template<typename T > void \fBQVector\fP< T >::removeLast ()\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.1 Removes the last item in the vector\&. Calling this function is equivalent to calling remove(\fBsize()\fP - 1)\&. The vector must not be empty\&. If the vector can be empty, call \fBisEmpty()\fP before calling this function\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremove()\fP, \fBtakeLast()\fP, \fBremoveFirst()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 624 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::removeOne (const T & t)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.4
+.RE
+.PP
+Removes the first element that compares equal to \fIt\fP from the vector\&. Returns whether an element was, in fact, removed\&.
+.PP
+Provided for compatibility with \fBQList\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveAll()\fP, \fBQList::removeOne()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::replace (int i, const T & value)\fC [inline]\fP"
+Replaces the item at index position \fIi\fP with \fIvalue\fP\&.
+.PP
+\fIi\fP must be a valid index position in the vector (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator[]()\fP, \fBremove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 424 of file qvector\&.h\&.
+.SS "template<typename T > void \fBQVector\fP< T >::reserve (int size)"
+Attempts to allocate memory for at least \fIsize\fP elements\&. If you know in advance how large the vector will be, you can call this function, and if you call \fBresize()\fP often you are likely to get better performance\&. If \fIsize\fP is an underestimate, the worst that will happen is that the \fBQVector\fP will be a bit slower\&.
+.PP
+The sole purpose of this function is to provide a means of fine tuning \fBQVector\fP's memory usage\&. In general, you will rarely ever need to call this function\&. If you want to change the size of the vector, call \fBresize()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsqueeze()\fP, \fBcapacity()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 361 of file qvector\&.h\&.
+.SS "template<typename T > void \fBQVector\fP< T >::resize (int size)"
+Sets the size of the vector to \fIsize\fP\&. If \fIsize\fP is greater than the current size, elements are added to the end; the new elements are initialized with a {default-constructed value}\&. If \fIsize\fP is less than the current size, elements are removed from the end\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 371 of file qvector\&.h\&.
+.SS "template<typename T> int \fBQVector\fP< T >::size () const\fC [inline]\fP"
+Returns the number of items in the vector\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisEmpty()\fP, \fBresize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::squeeze ()\fC [inline]\fP"
+Releases any memory not required to store the items\&.
+.PP
+The sole purpose of this function is to provide a means of fine tuning \fBQVector\fP's memory usage\&. In general, you will rarely ever need to call this function\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBreserve()\fP, \fBcapacity()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 90 of file qvector\&.h\&.
+.SS "template<typename T> bool \fBQVector\fP< T >::startsWith (const T & value) const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.5
+.RE
+.PP
+Returns \fCtrue\fP if this vector is not empty and its first item is equal to \fIvalue\fP; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisEmpty()\fP, \fBfirst()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 208 of file qvector\&.h\&.
+.SS "template<typename T> void \fBQVector\fP< T >::swap (\fBQVector\fP< T > & other)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.8
+.RE
+.PP
+Swaps vector \fIother\fP with this vector\&. This operation is very fast and never fails\&. 
+.PP
+Definition at line 75 of file qvector\&.h\&.
+.SS "template<typename T> T \fBQVector\fP< T >::takeAt (int i)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2
+.RE
+.PP
+Removes the element at index position \fIi\fP and returns it\&.
+.PP
+Equivalent to 
+.PP
+.nf
+T t = at(i);
+remove(i);
+return t;
+
+.fi
+.PP
+.PP
+Provided for compatibility with \fBQList\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtakeFirst()\fP, \fBtakeLast()\fP, \fBQList::takeAt()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file qvector\&.h\&.
+.SS "template<typename T> T \fBQVector\fP< T >::takeFirst ()\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.1
+.RE
+.PP
+Removes the first item in the vector and returns it\&. This function assumes the vector is not empty\&. To avoid failure, call \fBisEmpty()\fP before calling this function\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtakeLast()\fP, \fBremoveFirst()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file qvector\&.h\&.
+.SS "template<typename T> T \fBQVector\fP< T >::takeLast ()\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.1
+.RE
+.PP
+Removes the last item in the list and returns it\&. This function assumes the vector is not empty\&. To avoid failure, call \fBisEmpty()\fP before calling this function\&.
+.PP
+If you don't use the return value, \fBremoveLast()\fP is more efficient\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtakeFirst()\fP, \fBremoveLast()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 141 of file qvector\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE \fBQList\fP< T > \fBQVector\fP< T >::toList () const"
+Returns a \fBQList\fP object with the data contained in this \fBQVector\fP\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfromList()\fP, \fBQList::fromVector()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 843 of file qvector\&.h\&.
+.SS "template<typename T> std::vector< T > \fBQVector\fP< T >::toStdVector () const\fC [inline]\fP"
+Returns a std::vector object with the data contained in this \fBQVector\fP\&. Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfromStdVector()\fP, \fBQList::toStdList()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 253 of file qvector\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE T \fBQVector\fP< T >::value (int i) const"
+Returns the value at index position \fIi\fP in the vector\&.
+.PP
+If the index \fIi\fP is out of bounds, the function returns a {default-constructed value}\&. If you are certain that \fIi\fP is within bounds, you can use \fBat()\fP instead, which is slightly faster\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBat()\fP, \fBoperator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 587 of file qvector\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE T \fBQVector\fP< T >::value (int i, const T & defaultValue) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+If the index \fIi\fP is out of bounds, the function returns \fIdefaultValue\fP\&. 
+.PP
+Definition at line 595 of file qvector\&.h\&.
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<typename T> QDataStream & operator<< (QDataStream & out, const \fBQVector\fP< T > & vector)\fC [related]\fP"
+Writes the vector \fIvector\fP to stream \fIout\fP\&.
+.PP
+This function requires the value type to implement \fC\fBoperator<<()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+{Serializing Qt Data Types}{Format of the QDataStream operators} 
+.RE
+.PP
+
+.SS "template<typename T> QDataStream & operator>> (QDataStream & in, \fBQVector\fP< T > & vector)\fC [related]\fP"
+Reads a vector from stream \fIin\fP into \fIvector\fP\&.
+.PP
+This function requires the value type to implement \fC\fBoperator>>()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+{Serializing Qt Data Types}{Format of the QDataStream operators} 
+.RE
+.PP
+
+.SS "template<typename T> friend class QRegion\fC [friend]\fP"
+
+.PP
+Definition at line 256 of file qvector\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

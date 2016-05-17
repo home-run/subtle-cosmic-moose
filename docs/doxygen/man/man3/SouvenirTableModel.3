@@ -1,0 +1,70 @@
+.TH "SouvenirTableModel" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SouvenirTableModel \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <souvenirtablemodel\&.h>\fP
+.PP
+Inherits QSqlTableModel\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBFields\fP { \fBSTADIUM_ID\fP, \fBNAME\fP, \fBPRICE\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSouvenirTableModel\fP (QObject *parent, \fBDatabase\fP *db)"
+.br
+.ti -1c
+.RI "\fBSouvenirTableModel\fP (QObject *parent, \fBDatabase\fP *db, int stadiumId)"
+.br
+.ti -1c
+.RI "void \fBInitialize\fP (int stadiumId=\-1)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 8 of file souvenirtablemodel\&.h\&.
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBSouvenirTableModel::Fields\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTADIUM_ID \fP\fP
+.TP
+\fB\fINAME \fP\fP
+.TP
+\fB\fIPRICE \fP\fP
+.PP
+Definition at line 13 of file souvenirtablemodel\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SouvenirTableModel::SouvenirTableModel (QObject * parent, \fBDatabase\fP * db)"
+
+.PP
+Definition at line 3 of file souvenirtablemodel\&.cpp\&.
+.SS "SouvenirTableModel::SouvenirTableModel (QObject * parent, \fBDatabase\fP * db, int stadiumId)"
+
+.PP
+Definition at line 8 of file souvenirtablemodel\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void SouvenirTableModel::Initialize (int stadiumId = \fC\-1\fP)"
+
+.PP
+Definition at line 13 of file souvenirtablemodel\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

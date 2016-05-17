@@ -1,0 +1,126 @@
+.TH "QMapData< Key, T >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QMapData< Key, T > \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qmap\&.h>\fP
+.PP
+Inherits \fBQMapDataBase\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBQMapNode\fP< Key, T > \fBNode\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNode\fP * \fBroot\fP () const "
+.br
+.ti -1c
+.RI "const \fBNode\fP * \fBend\fP () const "
+.br
+.ti -1c
+.RI "\fBNode\fP * \fBend\fP ()"
+.br
+.ti -1c
+.RI "const \fBNode\fP * \fBbegin\fP () const "
+.br
+.ti -1c
+.RI "\fBNode\fP * \fBbegin\fP ()"
+.br
+.ti -1c
+.RI "void \fBdeleteNode\fP (\fBNode\fP *z)"
+.br
+.ti -1c
+.RI "\fBNode\fP * \fBfindNode\fP (const Key &akey) const "
+.br
+.ti -1c
+.RI "void \fBnodeRange\fP (const Key &akey, \fBNode\fP **firstNode, \fBNode\fP **lastNode)"
+.br
+.ti -1c
+.RI "\fBNode\fP * \fBcreateNode\fP (const Key &k, const T &v, \fBNode\fP *parent=0, bool left=false)"
+.br
+.ti -1c
+.RI "void \fBdestroy\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBQMapData\fP * \fBcreate\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.SS "template<class Key, class T>
+.br
+struct QMapData< Key, T >"
+
+.PP
+Definition at line 77 of file qmap\&.h\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<class Key, class T> typedef \fBQMapNode\fP<Key, T> \fBQMapData\fP< Key, T >::\fBNode\fP"
+
+.PP
+Definition at line 184 of file qmap\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class Key, class T> const \fBNode\fP* \fBQMapData\fP< Key, T >::begin () const\fC [inline]\fP"
+
+.PP
+Definition at line 190 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBNode\fP* \fBQMapData\fP< Key, T >::begin ()\fC [inline]\fP"
+
+.PP
+Definition at line 191 of file qmap\&.h\&.
+.SS "template<class Key, class T> static \fBQMapData\fP* \fBQMapData\fP< Key, T >::create ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Definition at line 216 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBNode\fP* \fBQMapData\fP< Key, T >::createNode (const Key & k, const T & v, \fBNode\fP * parent = \fC0\fP, bool left = \fCfalse\fP)\fC [inline]\fP"
+
+.PP
+Definition at line 197 of file qmap\&.h\&.
+.SS "template<class Key , class T > void \fBQMapData\fP< Key, T >::deleteNode (\fBNode\fP * z)"
+
+.PP
+Definition at line 274 of file qmap\&.h\&.
+.SS "template<class Key, class T> void \fBQMapData\fP< Key, T >::destroy ()\fC [inline]\fP"
+
+.PP
+Definition at line 220 of file qmap\&.h\&.
+.SS "template<class Key, class T> const \fBNode\fP* \fBQMapData\fP< Key, T >::end () const\fC [inline]\fP"
+
+.PP
+Definition at line 188 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBNode\fP* \fBQMapData\fP< Key, T >::end ()\fC [inline]\fP"
+
+.PP
+Definition at line 189 of file qmap\&.h\&.
+.SS "template<class Key, class T > \fBQMapNode\fP< Key, T > * \fBQMapData\fP< Key, T >::findNode (const Key & akey) const"
+
+.PP
+Definition at line 284 of file qmap\&.h\&.
+.SS "template<class Key, class T > void \fBQMapData\fP< Key, T >::nodeRange (const Key & akey, \fBNode\fP ** firstNode, \fBNode\fP ** lastNode)"
+
+.PP
+Definition at line 296 of file qmap\&.h\&.
+.SS "template<class Key, class T> \fBNode\fP* \fBQMapData\fP< Key, T >::root () const\fC [inline]\fP"
+
+.PP
+Definition at line 186 of file qmap\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

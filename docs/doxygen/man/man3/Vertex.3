@@ -1,0 +1,468 @@
+.TH "Vertex" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Vertex \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <vertex\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVertex\fP ()"
+.br
+.RI "\fI\fBVertex\fP Default \fBVertex\fP constructor\&. \fP"
+.ti -1c
+.RI "\fBVertex\fP (int id, QString name, int distance)"
+.br
+.RI "\fI\fBVertex\fP Non-default \fBVertex\fP Constructor\&. Takes in the ID and name of the vertex as it is being instatiated\&. \fP"
+.ti -1c
+.RI "int \fBgetId\fP () const "
+.br
+.RI "\fIgetId \fP"
+.ti -1c
+.RI "QString \fBgetName\fP () const "
+.br
+.RI "\fIgetName \fP"
+.ti -1c
+.RI "int \fBgetDistance\fP () const "
+.br
+.RI "\fIgetDistance This distance is not the distance representing a single vertex but the distance between this vertex and another a 'source' vertex during a single shortest path search \fP"
+.ti -1c
+.RI "void \fBsetId\fP (int id)"
+.br
+.RI "\fIsetId Set the ID of the vertex \fP"
+.ti -1c
+.RI "void \fBsetName\fP (QString name)"
+.br
+.RI "\fIsetName Set the name of the vertex \fP"
+.ti -1c
+.RI "void \fBsetParent\fP (int p)"
+.br
+.RI "\fIsetParent Set the parent of the current vertex to p \fP"
+.ti -1c
+.RI "void \fBsetDistance\fP (int d)"
+.br
+.RI "\fIsetDistance Set the distance of the vertex traveled between 2 vertices \fP"
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBVertex\fP &v) const "
+.br
+.RI "\fIoperator == Overloaded comparison operator\&. Compares the distance, ID and the name over the 2 vertices\&. Returns true if they are equal, false otherwise\&. \fP"
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBVertex\fP &v) const "
+.br
+.RI "\fIoperator != Overloaded comparison operator to see if the two vertices are not the same vertex\&. Compares the ID and the name of the vertex as its determining factors of equality\&. \fP"
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBVertex\fP &v) const "
+.br
+.RI "\fIoperator < Overloaded less than operator to compare this vertex distance and the given vertex v \fP"
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBVertex\fP &v) const "
+.br
+.RI "\fIoperator > Overloaded greater than operator to compare this vertex distance and the given vertex v \fP"
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBVertex\fP &v) const "
+.br
+.RI "\fIoperator >= Overloaded greater than or equal operator to compare this vertex distance and the given vertex v \fP"
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBVertex\fP &v) const "
+.br
+.RI "\fIoperator <= Overloaded less than or equal operator to compare this vertex distance and the given vertex v \fP"
+.ti -1c
+.RI "\fBVertex\fP * \fBoperator=\fP (const \fBVertex\fP &v)"
+.br
+.RI "\fIoperator = Overloaded assignment operator to assign the values of the given vertex v to this vertex\&. Assigns the distance, id and name this vertex then returns 'this' to the calling object\&. \fP"
+.ti -1c
+.RI "void \fBaddEdge\fP (\fBEdge\fP edge)"
+.br
+.RI "\fIaddEdge Takes the given edge and insert it into an internal adjacency list\&. \fP"
+.ti -1c
+.RI "\fBEdge\fP \fBgetNearestEdge\fP ()"
+.br
+.RI "\fIgetNearestEdge Method will grab the edge with the least amount of weight (distance) the current vertex\&. It removes the edge for the min-heap stored in the vertex and appends it to a list of edges that has been removed\&. \fP"
+.ti -1c
+.RI "int \fBgetNumEdges\fP () const "
+.br
+.RI "\fIgetNumEdges This method will return the number of adjacent edges that exsists between this vertex and other vertices\&. \fP"
+.ti -1c
+.RI "bool \fBhasEdges\fP () const "
+.br
+.RI "\fIhasEdges Returns a boolean value if the current vertex has adjacent edges left in it's priority queue adjacency list\&. \fP"
+.ti -1c
+.RI "int \fBgetParent\fP () const "
+.br
+.RI "\fIgetParent Method returns the ID integer value of the it's parent vertex\&. This is only established after a path has been taken using Dijkstra's algorithm or calculating the minimum spanning tree\&. \fP"
+.ti -1c
+.RI "void \fBreinitializeEdges\fP ()"
+.br
+.RI "\fIreinitializeEdges This method iterates the vertex's current edges and places them back into it's own priority queue (adjacency list)\&. \fP"
+.ti -1c
+.RI "\fBEdge\fP \fBgetNextEdge\fP ()"
+.br
+.RI "\fIgetNextEdge this will return the next edge available in verticee adjacency list\&. \fP"
+.ti -1c
+.RI "void \fBsetQueuePosition\fP (int pos)"
+.br
+.RI "\fIsetQueuePosition Sets the vertex index that is relative to its position in the stored object that it is located in, such as a map, queue or a vector\&. \fP"
+.ti -1c
+.RI "int \fBgetQueuePosition\fP () const "
+.br
+.RI "\fIgetQueuePosition This returns the vertices index of the position / location that it is located in a container object\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 28 of file vertex\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Vertex::Vertex ()\fC [inline]\fP"
+
+.PP
+\fBVertex\fP Default \fBVertex\fP constructor\&. 
+.PP
+Definition at line 35 of file vertex\&.h\&.
+.SS "Vertex::Vertex (int id, QString name, int distance)\fC [inline]\fP"
+
+.PP
+\fBVertex\fP Non-default \fBVertex\fP Constructor\&. Takes in the ID and name of the vertex as it is being instatiated\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.br
+\fIname\fP 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file vertex\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Vertex::addEdge (\fBEdge\fP edge)\fC [inline]\fP"
+
+.PP
+addEdge Takes the given edge and insert it into an internal adjacency list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIedge\fP 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file vertex\&.h\&.
+.SS "int Vertex::getDistance () const\fC [inline]\fP"
+
+.PP
+getDistance This distance is not the distance representing a single vertex but the distance between this vertex and another a 'source' vertex during a single shortest path search 
+.PP
+\fBReturns:\fP
+.RS 4
+the distance stored in the vertex 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file vertex\&.h\&.
+.SS "int Vertex::getId () const\fC [inline]\fP"
+
+.PP
+getId 
+.PP
+\fBReturns:\fP
+.RS 4
+The id of the vertex 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file vertex\&.h\&.
+.SS "QString Vertex::getName () const\fC [inline]\fP"
+
+.PP
+getName 
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the vertex 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file vertex\&.h\&.
+.SS "\fBEdge\fP Vertex::getNearestEdge ()\fC [inline]\fP"
+
+.PP
+getNearestEdge Method will grab the edge with the least amount of weight (distance) the current vertex\&. It removes the edge for the min-heap stored in the vertex and appends it to a list of edges that has been removed\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 239 of file vertex\&.h\&.
+.SS "\fBEdge\fP Vertex::getNextEdge ()\fC [inline]\fP"
+
+.PP
+getNextEdge this will return the next edge available in verticee adjacency list\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+edge object of the adj list 
+.RE
+.PP
+
+.PP
+Definition at line 310 of file vertex\&.h\&.
+.SS "int Vertex::getNumEdges () const\fC [inline]\fP"
+
+.PP
+getNumEdges This method will return the number of adjacent edges that exsists between this vertex and other vertices\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+int val of number of adjacent edges 
+.RE
+.PP
+
+.PP
+Definition at line 261 of file vertex\&.h\&.
+.SS "int Vertex::getParent () const\fC [inline]\fP"
+
+.PP
+getParent Method returns the ID integer value of the it's parent vertex\&. This is only established after a path has been taken using Dijkstra's algorithm or calculating the minimum spanning tree\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+int ID of the parent vertex 
+.RE
+.PP
+
+.PP
+Definition at line 284 of file vertex\&.h\&.
+.SS "int Vertex::getQueuePosition () const\fC [inline]\fP"
+
+.PP
+getQueuePosition This returns the vertices index of the position / location that it is located in a container object\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+int 
+.RE
+.PP
+
+.PP
+Definition at line 332 of file vertex\&.h\&.
+.SS "bool Vertex::hasEdges () const\fC [inline]\fP"
+
+.PP
+hasEdges Returns a boolean value if the current vertex has adjacent edges left in it's priority queue adjacency list\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.PP
+Definition at line 272 of file vertex\&.h\&.
+.SS "bool Vertex::operator!= (const \fBVertex\fP & v) const\fC [inline]\fP"
+
+.PP
+operator != Overloaded comparison operator to see if the two vertices are not the same vertex\&. Compares the ID and the name of the vertex as its determining factors of equality\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if they don't match; otherwise return false if they do\&. 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file vertex\&.h\&.
+.SS "bool Vertex::operator< (const \fBVertex\fP & v) const\fC [inline]\fP"
+
+.PP
+operator < Overloaded less than operator to compare this vertex distance and the given vertex v 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 166 of file vertex\&.h\&.
+.SS "bool Vertex::operator<= (const \fBVertex\fP & v) const\fC [inline]\fP"
+
+.PP
+operator <= Overloaded less than or equal operator to compare this vertex distance and the given vertex v 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 200 of file vertex\&.h\&.
+.SS "\fBVertex\fP* Vertex::operator= (const \fBVertex\fP & v)\fC [inline]\fP"
+
+.PP
+operator = Overloaded assignment operator to assign the values of the given vertex v to this vertex\&. Assigns the distance, id and name this vertex then returns 'this' to the calling object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 212 of file vertex\&.h\&.
+.SS "bool Vertex::operator== (const \fBVertex\fP & v) const\fC [inline]\fP"
+
+.PP
+operator == Overloaded comparison operator\&. Compares the distance, ID and the name over the 2 vertices\&. Returns true if they are equal, false otherwise\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if they are equal, false otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 140 of file vertex\&.h\&.
+.SS "bool Vertex::operator> (const \fBVertex\fP & v) const\fC [inline]\fP"
+
+.PP
+operator > Overloaded greater than operator to compare this vertex distance and the given vertex v 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 178 of file vertex\&.h\&.
+.SS "bool Vertex::operator>= (const \fBVertex\fP & v) const\fC [inline]\fP"
+
+.PP
+operator >= Overloaded greater than or equal operator to compare this vertex distance and the given vertex v 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIv\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 189 of file vertex\&.h\&.
+.SS "void Vertex::reinitializeEdges ()\fC [inline]\fP"
+
+.PP
+reinitializeEdges This method iterates the vertex's current edges and places them back into it's own priority queue (adjacency list)\&. 
+.PP
+Definition at line 294 of file vertex\&.h\&.
+.SS "void Vertex::setDistance (int d)\fC [inline]\fP"
+
+.PP
+setDistance Set the distance of the vertex traveled between 2 vertices 
+.PP
+\fBParameters:\fP
+.RS 4
+\fId\fP 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file vertex\&.h\&.
+.SS "void Vertex::setId (int id)\fC [inline]\fP"
+
+.PP
+setId Set the ID of the vertex 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file vertex\&.h\&.
+.SS "void Vertex::setName (QString name)\fC [inline]\fP"
+
+.PP
+setName Set the name of the vertex 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP 
+.RE
+.PP
+
+.PP
+Definition at line 108 of file vertex\&.h\&.
+.SS "void Vertex::setParent (int p)\fC [inline]\fP"
+
+.PP
+setParent Set the parent of the current vertex to p 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIp\fP 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file vertex\&.h\&.
+.SS "void Vertex::setQueuePosition (int pos)\fC [inline]\fP"
+
+.PP
+setQueuePosition Sets the vertex index that is relative to its position in the stored object that it is located in, such as a map, queue or a vector\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpos\fP 
+.RE
+.PP
+
+.PP
+Definition at line 321 of file vertex\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

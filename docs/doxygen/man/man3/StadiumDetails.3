@@ -1,0 +1,130 @@
+.TH "StadiumDetails" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StadiumDetails \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <stadiumdetails\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBrefreshModels\fP ()"
+.br
+.ti -1c
+.RI "void \fBtoggleAdminFunctions\fP (bool isAdmin)"
+.br
+.RI "\fI\fBStadiumDetails::toggleAdminFunctions\fP Hide/unhide and enable/disable all buttons and features for admin use only\&. \fP"
+.ti -1c
+.RI "void \fBinitializeStadiumTable\fP (\fBStadiumTableModel\fP *stadiumModel)"
+.br
+.RI "\fI\fBStadiumDetails::initializeStadiumTable\fP\&. \fP"
+.ti -1c
+.RI "void \fBinitializeSouvenirTable\fP (\fBSouvenirTableModel\fP *souvenirModel)"
+.br
+.RI "\fI\fBStadiumDetails::initializeSouvenirTable\fP Initializes the souvenirTable using the model emitted from mainWindow\&. \fP"
+.ti -1c
+.RI "void \fBupdateTotalRevenue\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStadiumDetails\fP (QWidget *parent=0, \fBDatabase\fP *db=0)"
+.br
+.ti -1c
+.RI "void \fBinitializeStadiumView\fP ()"
+.br
+.RI "\fI\fBStadiumDetails::initializeStadiumView\fP Initialize settings for stadium table view\&. \fP"
+.ti -1c
+.RI "void \fBinitializeSouvenirView\fP ()"
+.br
+.RI "\fI\fBStadiumDetails::initializeSouvenirView\fP Initialize settings for souvenir table view\&. \fP"
+.ti -1c
+.RI "\fB~StadiumDetails\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 15 of file stadiumdetails\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "StadiumDetails::StadiumDetails (QWidget * parent = \fC0\fP, \fBDatabase\fP * db = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 4 of file stadiumdetails\&.cpp\&.
+.SS "StadiumDetails::~StadiumDetails ()"
+
+.PP
+Definition at line 88 of file stadiumdetails\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void StadiumDetails::initializeSouvenirTable (\fBSouvenirTableModel\fP * souvenirModel)\fC [slot]\fP"
+
+.PP
+\fBStadiumDetails::initializeSouvenirTable\fP Initializes the souvenirTable using the model emitted from mainWindow\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsouvenirModel\fP The model emitted from mainWindow 
+.RE
+.PP
+
+.PP
+Definition at line 157 of file stadiumdetails\&.cpp\&.
+.SS "void StadiumDetails::initializeSouvenirView ()"
+
+.PP
+\fBStadiumDetails::initializeSouvenirView\fP Initialize settings for souvenir table view\&. 
+.PP
+Definition at line 55 of file stadiumdetails\&.cpp\&.
+.SS "void StadiumDetails::initializeStadiumTable (\fBStadiumTableModel\fP * stadiumModel)\fC [slot]\fP"
+
+.PP
+\fBStadiumDetails::initializeStadiumTable\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstadiumModel\fP The model to initialize the table to\&. 
+.RE
+.PP
+
+.PP
+Definition at line 139 of file stadiumdetails\&.cpp\&.
+.SS "void StadiumDetails::initializeStadiumView ()"
+
+.PP
+\fBStadiumDetails::initializeStadiumView\fP Initialize settings for stadium table view\&. 
+.PP
+Definition at line 18 of file stadiumdetails\&.cpp\&.
+.SS "void StadiumDetails::refreshModels ()\fC [slot]\fP"
+
+.PP
+Definition at line 93 of file stadiumdetails\&.cpp\&.
+.SS "void StadiumDetails::toggleAdminFunctions (bool isAdmin)\fC [slot]\fP"
+
+.PP
+\fBStadiumDetails::toggleAdminFunctions\fP Hide/unhide and enable/disable all buttons and features for admin use only\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIisAdmin\fP true if user is admin 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file stadiumdetails\&.cpp\&.
+.SS "void StadiumDetails::updateTotalRevenue ()\fC [slot]\fP"
+
+.PP
+Definition at line 170 of file stadiumdetails\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.

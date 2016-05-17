@@ -1,0 +1,1400 @@
+.TH "QList< T >" 3 "Mon May 16 2016" "Version 1.0" "Baseball Fantasy Vacation Documentation" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QList< T > \- The \fBQList\fP class is a template class that provides lists\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qlist\&.h>\fP
+.PP
+Inherits \fBQListSpecialMethods< T >\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBconst_iterator\fP"
+.br
+.RI "\fIThe \fBQList::const_iterator\fP class provides an STL-style const iterator for \fBQList\fP and QQueue\&. \fP"
+.ti -1c
+.RI "class \fBiterator\fP"
+.br
+.RI "\fIThe \fBQList::iterator\fP class provides an STL-style non-const iterator for \fBQList\fP and QQueue\&. \fP"
+.ti -1c
+.RI "struct \fBMemoryLayout\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBiterator\fP \fBIterator\fP"
+.br
+.ti -1c
+.RI "typedef \fBconst_iterator\fP \fBConstIterator\fP"
+.br
+.ti -1c
+.RI "typedef int \fBsize_type\fP"
+.br
+.ti -1c
+.RI "typedef T \fBvalue_type\fP"
+.br
+.ti -1c
+.RI "typedef \fBvalue_type\fP * \fBpointer\fP"
+.br
+.ti -1c
+.RI "typedef const \fBvalue_type\fP * \fBconst_pointer\fP"
+.br
+.ti -1c
+.RI "typedef \fBvalue_type\fP & \fBreference\fP"
+.br
+.ti -1c
+.RI "typedef const \fBvalue_type\fP & \fBconst_reference\fP"
+.br
+.ti -1c
+.RI "typedef qptrdiff \fBdifference_type\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQList\fP () Q_DECL_NOTHROW"
+.br
+.ti -1c
+.RI "\fBQList\fP (const \fBQList\fP< T > &l)"
+.br
+.ti -1c
+.RI "\fB~QList\fP ()"
+.br
+.ti -1c
+.RI "\fBQList\fP< T > & \fBoperator=\fP (const \fBQList\fP< T > &l)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBQList\fP< T > &other)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBQList\fP< T > &l) const "
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBQList\fP< T > &l) const "
+.br
+.ti -1c
+.RI "int \fBsize\fP () const "
+.br
+.ti -1c
+.RI "void \fBdetach\fP ()"
+.br
+.ti -1c
+.RI "void \fBdetachShared\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisDetached\fP () const "
+.br
+.ti -1c
+.RI "bool \fBisSharedWith\fP (const \fBQList\fP< T > &other) const "
+.br
+.ti -1c
+.RI "bool \fBisEmpty\fP () const "
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBat\fP (int i) const "
+.br
+.ti -1c
+.RI "const T & \fBoperator[]\fP (int i) const "
+.br
+.ti -1c
+.RI "T & \fBoperator[]\fP (int i)"
+.br
+.ti -1c
+.RI "void \fBreserve\fP (int \fBsize\fP)"
+.br
+.ti -1c
+.RI "void \fBappend\fP (const T &t)"
+.br
+.ti -1c
+.RI "void \fBappend\fP (const \fBQList\fP< T > &t)"
+.br
+.ti -1c
+.RI "void \fBprepend\fP (const T &t)"
+.br
+.ti -1c
+.RI "void \fBinsert\fP (int i, const T &t)"
+.br
+.ti -1c
+.RI "void \fBreplace\fP (int i, const T &t)"
+.br
+.ti -1c
+.RI "void \fBremoveAt\fP (int i)"
+.br
+.ti -1c
+.RI "int \fBremoveAll\fP (const T &t)"
+.br
+.ti -1c
+.RI "bool \fBremoveOne\fP (const T &t)"
+.br
+.ti -1c
+.RI "T \fBtakeAt\fP (int i)"
+.br
+.ti -1c
+.RI "T \fBtakeFirst\fP ()"
+.br
+.ti -1c
+.RI "T \fBtakeLast\fP ()"
+.br
+.ti -1c
+.RI "void \fBmove\fP (int from, int to)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (int i, int j)"
+.br
+.ti -1c
+.RI "int \fBindexOf\fP (const T &t, int from=0) const "
+.br
+.ti -1c
+.RI "int \fBlastIndexOf\fP (const T &t, int from=\-1) const "
+.br
+.ti -1c
+.RI "bool \fBcontains\fP (const T &t) const "
+.br
+.ti -1c
+.RI "int \fBcount\fP (const T &t) const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBbegin\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBbegin\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcbegin\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBconstBegin\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBend\fP ()"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBend\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcend\fP () const "
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBconstEnd\fP () const "
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBiterator\fP before, const T &t)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBerase\fP (\fBiterator\fP pos)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBerase\fP (\fBiterator\fP \fBfirst\fP, \fBiterator\fP \fBlast\fP)"
+.br
+.ti -1c
+.RI "int \fBcount\fP () const "
+.br
+.ti -1c
+.RI "int \fBlength\fP () const "
+.br
+.ti -1c
+.RI "T & \fBfirst\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBfirst\fP () const "
+.br
+.ti -1c
+.RI "T & \fBlast\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBlast\fP () const "
+.br
+.ti -1c
+.RI "void \fBremoveFirst\fP ()"
+.br
+.ti -1c
+.RI "void \fBremoveLast\fP ()"
+.br
+.ti -1c
+.RI "bool \fBstartsWith\fP (const T &t) const "
+.br
+.ti -1c
+.RI "bool \fBendsWith\fP (const T &t) const "
+.br
+.ti -1c
+.RI "\fBQList\fP< T > \fBmid\fP (int pos, int \fBlength\fP=\-1) const "
+.br
+.ti -1c
+.RI "T \fBvalue\fP (int i) const "
+.br
+.ti -1c
+.RI "T \fBvalue\fP (int i, const T &defaultValue) const "
+.br
+.ti -1c
+.RI "void \fBpush_back\fP (const T &t)"
+.br
+.ti -1c
+.RI "void \fBpush_front\fP (const T &t)"
+.br
+.ti -1c
+.RI "T & \fBfront\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBfront\fP () const "
+.br
+.ti -1c
+.RI "T & \fBback\fP ()"
+.br
+.ti -1c
+.RI "const T & \fBback\fP () const "
+.br
+.ti -1c
+.RI "void \fBpop_front\fP ()"
+.br
+.ti -1c
+.RI "void \fBpop_back\fP ()"
+.br
+.ti -1c
+.RI "bool \fBempty\fP () const "
+.br
+.ti -1c
+.RI "\fBQList\fP< T > & \fBoperator+=\fP (const \fBQList\fP< T > &l)"
+.br
+.ti -1c
+.RI "\fBQList\fP< T > \fBoperator+\fP (const \fBQList\fP< T > &l) const "
+.br
+.ti -1c
+.RI "\fBQList\fP< T > & \fBoperator+=\fP (const T &t)"
+.br
+.ti -1c
+.RI "\fBQList\fP< T > & \fBoperator<<\fP (const T &t)"
+.br
+.ti -1c
+.RI "\fBQList\fP< T > & \fBoperator<<\fP (const \fBQList\fP< T > &l)"
+.br
+.ti -1c
+.RI "\fBQVector\fP< T > \fBtoVector\fP () const "
+.br
+.ti -1c
+.RI "\fBQSet\fP< T > \fBtoSet\fP () const "
+.br
+.ti -1c
+.RI "std::list< T > \fBtoStdList\fP () const "
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBQList\fP< T > \fBfromVector\fP (const \fBQVector\fP< T > &vector)"
+.br
+.ti -1c
+.RI "static \fBQList\fP< T > \fBfromSet\fP (const \fBQSet\fP< T > &set)"
+.br
+.ti -1c
+.RI "static \fBQList\fP< T > \fBfromStdList\fP (const std::list< T > &list)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBiterator\fP"
+.br
+.ti -1c
+.RI "class \fBconst_iterator\fP"
+.br
+.in -1c
+.SS "Related Functions"
+(Note that these are not member functions\&.) 
+.in +1c
+.ti -1c
+.RI "QDataStream & \fBoperator<<\fP (QDataStream &out, const \fBQList\fP< T > &list)"
+.br
+.ti -1c
+.RI "QDataStream & \fBoperator>>\fP (QDataStream &in, \fBQList\fP< T > &list)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename T>
+.br
+class QList< T >"
+The \fBQList\fP class is a template class that provides lists\&. 
+
+QtCore
+.PP
+\fBQList\fP<T> is one of Qt's generic {container classes}\&. It stores a list of values and provides fast index-based access as well as fast insertions and removals\&.
+.PP
+\fBQList\fP<T>, QLinkedList<T>, and \fBQVector\fP<T> provide similar functionality\&. Here's an overview:
+.PP
+.PD 0
+.IP "\(bu" 2
+For most purposes, \fBQList\fP is the right class to use\&. Its index-based API is more convenient than QLinkedList's iterator-based API, and it is usually faster than \fBQVector\fP because of the way it stores its items in memory\&. It also expands to less code in your executable\&. 
+.IP "\(bu" 2
+If you need a real linked list, with guarantees of {constant time} insertions in the middle of the list and iterators to items rather than indexes, use QLinkedList\&. 
+.IP "\(bu" 2
+If you want the items to occupy adjacent memory positions, use \fBQVector\fP\&. 
+.PP
+Internally, \fBQList\fP<T> is represented as an array of pointers to items of type T\&. If T is itself a pointer type or a basic type that is no larger than a pointer, or if T is one of Qt's {shared classes}, then \fBQList\fP<T> stores the items directly in the pointer array\&. For lists under a thousand items, this array representation allows for very fast insertions in the middle, and it allows index-based access\&. Furthermore, operations like \fBprepend()\fP and \fBappend()\fP are very fast, because \fBQList\fP preallocates memory at both ends of its internal array\&. (See {Algorithmic Complexity} for details\&.) Note, however, that for unshared list items that are larger than a pointer, each append or insert of a new item requires allocating the new item on the heap, and this per item allocation might make \fBQVector\fP a better choice in cases that do lots of appending or inserting, since \fBQVector\fP allocates memory for its items in a single heap allocation\&.
+.PP
+Note that the internal array only ever gets bigger over the life of the list\&. It never shrinks\&. The internal array is deallocated by the destructor and by the assignment operator, when one list is assigned to another\&.
+.PP
+Here's an example of a \fBQList\fP that stores integers and a \fBQList\fP that stores QDate values:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Qt includes a QStringList class that inherits \fBQList\fP<QString> and adds a few convenience functions, such as QStringList::join() and QStringList::filter()\&. QString::split() creates QStringLists from strings\&.
+.PP
+\fBQList\fP stores a list of items\&. The default constructor creates an empty list\&. To insert items into the list, you can use \fBoperator<<()\fP:
+.PP
+.PP
+.nf
+.fi
+.PP
+ \fBQList\fP provides these basic functions to add, move, and remove items: \fBinsert()\fP, \fBreplace()\fP, \fBremoveAt()\fP, \fBmove()\fP, and \fBswap()\fP\&. In addition, it provides the following convenience functions: \fBappend()\fP, \fBprepend()\fP, \fBremoveFirst()\fP, and \fBremoveLast()\fP\&.
+.PP
+\fBQList\fP uses 0-based indexes, just like C++ arrays\&. To access the item at a particular index position, you can use \fBoperator[]()\fP\&. On non-const lists, \fBoperator[]()\fP returns a reference to the item and can be used on the left side of an assignment:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Because \fBQList\fP is implemented as an array of pointers, this operation is very fast ({constant time})\&. For read-only access, an alternative syntax is to use \fBat()\fP:
+.PP
+.PP
+.nf
+.fi
+.PP
+ \fBat()\fP can be faster than \fBoperator[]()\fP, because it never causes a {deep copy} to occur\&.
+.PP
+A common requirement is to remove an item from a list and do something with it\&. For this, \fBQList\fP provides \fBtakeAt()\fP, \fBtakeFirst()\fP, and \fBtakeLast()\fP\&. Here's a loop that removes the items from a list one at a time and calls \fCdelete\fP on them:
+.PP
+.PP
+.nf
+.fi
+.PP
+ Inserting and removing items at either ends of the list is very fast ({constant time} in most cases), because \fBQList\fP preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list\&.
+.PP
+If you want to find all occurrences of a particular value in a list, use \fBindexOf()\fP or \fBlastIndexOf()\fP\&. The former searches forward starting from a given index position, the latter searches backward\&. Both return the index of a matching item if they find it; otherwise, they return -1\&. For example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ If you simply want to check whether a list contains a particular value, use \fBcontains()\fP\&. If you want to find out how many times a particular value occurs in the list, use \fBcount()\fP\&. If you want to replace all occurrences of a particular value with another, use \fBreplace()\fP\&.
+.PP
+\fBQList\fP's value type must be an {assignable data type}\&. This covers most data types that are commonly used, but the compiler won't let you, for example, store a QWidget as a value; instead, store a QWidget *\&. A few functions have additional requirements; for example, \fBindexOf()\fP and \fBlastIndexOf()\fP expect the value type to support \fC\fBoperator==()\fP\fP\&. These requirements are documented on a per-function basis\&.
+.PP
+Like the other container classes, \fBQList\fP provides {Java-style iterators} (QListIterator and QMutableListIterator) and {STL-style iterators} (\fBQList::const_iterator\fP and \fBQList::iterator\fP)\&. In practice, these are rarely used, because you can use indexes into the \fBQList\fP\&. \fBQList\fP is implemented in such a way that direct index-based access is just as fast as using iterators\&.
+.PP
+\fBQList\fP does \fInot\fP support inserting, prepending, appending or replacing with references to its own values\&. Doing so will cause your application to abort with an error message\&.
+.PP
+To make \fBQList\fP as efficient as possible, its member functions don't validate their input before using it\&. Except for \fBisEmpty()\fP, member functions always assume the list is \fInot\fP empty\&. Member functions that take index values as parameters always assume their index value parameters are in the valid range\&. This means \fBQList\fP member functions can fail\&. If you define QT_NO_DEBUG when you compile, failures will not be detected\&. If you \fIdon't\fP define QT_NO_DEBUG, failures will be detected using Q_ASSERT() or Q_ASSERT_X() with an appropriate message\&.
+.PP
+To avoid failures when your list can be empty, call \fBisEmpty()\fP before calling other member functions\&. If you must pass an index value that might not be in the valid range, check that it is less than the value returned by \fBsize()\fP but \fInot\fP less than 0\&.
+.PP
+Definition at line 113 of file qlist\&.h\&.
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T> \fBQList\fP< T >::\fBconst_pointer\fP"
+Typedef for const T *\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 342 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBconst_reference\fP"
+Typedef for const T &\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 344 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBConstIterator\fP"
+Qt-style synonym for \fBQList::const_iterator\fP\&. 
+.PP
+Definition at line 313 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBdifference_type\fP"
+Typedef for ptrdiff_t\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 346 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBIterator\fP"
+Qt-style synonym for \fBQList::iterator\fP\&. 
+.PP
+Definition at line 312 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBpointer\fP"
+Typedef for T *\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 341 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBreference\fP"
+Typedef for T &\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 343 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBsize_type\fP"
+Typedef for int\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 339 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBvalue_type\fP"
+Typedef for T\&. Provided for STL compatibility\&. 
+.PP
+Definition at line 340 of file qlist\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T> \fBQList\fP< T >::\fBQList\fP ()\fC [inline]\fP"
+Constructs an empty list\&. 
+.PP
+Definition at line 139 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE \fBQList\fP< T >::\fBQList\fP (const \fBQList\fP< T > & other)"
+Constructs a copy of \fIother\fP\&.
+.PP
+This operation takes {constant time}, because \fBQList\fP is {implicitly shared}\&. This makes returning a \fBQList\fP from a function very fast\&. If a shared instance is modified, it will be copied (copy-on-write), and that takes {linear time}\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 775 of file qlist\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE \fBQList\fP< T >::~\fBQList\fP ()"
+Destroys the list\&. References to the values in the list and all iterators of this list become invalid\&. 
+.PP
+Definition at line 793 of file qlist\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE void \fBQList\fP< T >::append (const T & value)"
+Inserts \fIvalue\fP at the end of the list\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This is the same as list\&.insert(\fBsize()\fP, \fIvalue\fP)\&.
+.PP
+If this list is not shared, this operation is typically very fast (amortized {constant time}), because \fBQList\fP preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator<<()\fP, \fBprepend()\fP, \fBinsert()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 548 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::append (const \fBQList\fP< T > & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+\fBSince:\fP
+.RS 4
+4\&.5
+.RE
+.PP
+Appends the items of the \fIvalue\fP list to this list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator<<()\fP, \fBoperator+=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 931 of file qlist\&.h\&.
+.SS "template<typename T > const T & \fBQList\fP< T >::at (int i) const\fC [inline]\fP"
+Returns the item at index position \fIi\fP in the list\&. \fIi\fP must be a valid index position in the list (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+This function is very fast ({constant time})\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBvalue()\fP, \fBoperator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 509 of file qlist\&.h\&.
+.SS "template<typename T> T & \fBQList\fP< T >::back ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBlast()\fP\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&. 
+.PP
+Definition at line 334 of file qlist\&.h\&.
+.SS "template<typename T> const T & \fBQList\fP< T >::back () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 335 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP \fBQList\fP< T >::begin ()\fC [inline]\fP"
+Returns an {STL-style iterators}{STL-style iterator} pointing to the first item in the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstBegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 299 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::const_iterator\fP \fBQList\fP< T >::begin () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 300 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::const_iterator\fP \fBQList\fP< T >::cbegin () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.0
+.RE
+.PP
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the first item in the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBcend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 301 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::const_iterator\fP \fBQList\fP< T >::cend () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+5\&.0
+.RE
+.PP
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcbegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 305 of file qlist\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE void \fBQList\fP< T >::clear ()"
+Removes all items from the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveAll()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 841 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::const_iterator\fP \fBQList\fP< T >::constBegin () const\fC [inline]\fP"
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the first item in the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBconstEnd()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 302 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::const_iterator\fP \fBQList\fP< T >::constEnd () const\fC [inline]\fP"
+Returns a const {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBconstBegin()\fP, \fBend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 306 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE bool \fBQList\fP< T >::contains (const T & value) const"
+Returns \fCtrue\fP if the list contains an occurrence of \fIvalue\fP; otherwise returns \fCfalse\fP\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBindexOf()\fP, \fBcount()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 970 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE int \fBQList\fP< T >::count (const T & value) const"
+Returns the number of occurrences of \fIvalue\fP in the list\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcontains()\fP, \fBindexOf()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 995 of file qlist\&.h\&.
+.SS "template<typename T> int \fBQList\fP< T >::count () const\fC [inline]\fP"
+Returns the number of items in the list\&. This is effectively the same as \fBsize()\fP\&. 
+.PP
+Definition at line 314 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::detach ()\fC [inline]\fP"
+
+.PP
+Definition at line 159 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::detachShared ()\fC [inline]\fP"
+
+.PP
+Definition at line 161 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::empty () const\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBisEmpty()\fP and returns \fCtrue\fP if the list is empty\&. 
+.PP
+Definition at line 338 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP \fBQList\fP< T >::end ()\fC [inline]\fP"
+Returns an {STL-style iterators}{STL-style iterator} pointing to the imaginary item after the last item in the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBbegin()\fP, \fBconstEnd()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 303 of file qlist\&.h\&.
+.SS "template<typename T> \fBconst_iterator\fP \fBQList\fP< T >::end () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 304 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::endsWith (const T & value) const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.5
+.RE
+.PP
+Returns \fCtrue\fP if this list is not empty and its last item is equal to \fIvalue\fP; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisEmpty()\fP, \fBcontains()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 323 of file qlist\&.h\&.
+.SS "template<typename T > \fBQList\fP< T >::\fBiterator\fP \fBQList\fP< T >::erase (\fBiterator\fP pos)\fC [inline]\fP"
+Removes the item associated with the iterator \fIpos\fP from the list, and returns an iterator to the next item in the list (which may be \fBend()\fP)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBinsert()\fP, \fBremoveAt()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 497 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList::iterator\fP \fBQList\fP< T >::erase (\fBiterator\fP begin, \fBiterator\fP end)"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Removes all the items from \fIbegin\fP up to (but not including) \fIend\fP\&. Returns an iterator to the same item that \fIend\fP referred to before the call\&. 
+.SS "template<typename T> T & \fBQList\fP< T >::first ()\fC [inline]\fP"
+Returns a reference to the first item in the list\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlast()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 316 of file qlist\&.h\&.
+.SS "template<typename T> const T & \fBQList\fP< T >::first () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 317 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T > \fBQList\fP< T >::fromSet (const \fBQSet\fP< T > & set)\fC [static]\fP"
+Returns a \fBQList\fP object with the data contained in \fIset\fP\&. The order of the elements in the \fBQList\fP is undefined\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfromVector()\fP, \fBtoSet()\fP, QSet::toList() 
+.RE
+.PP
+
+.SS "template<typename T> \fBQList\fP< T > \fBQList\fP< T >::fromStdList (const std::list< T > & list)\fC [inline]\fP, \fC [static]\fP"
+Returns a \fBQList\fP object with the data contained in \fIlist\fP\&. The order of the elements in the \fBQList\fP is the same as in \fIlist\fP\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtoStdList()\fP, \fBQVector::fromStdVector()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 365 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T > \fBQList\fP< T >::fromVector (const \fBQVector\fP< T > & vector)\fC [static]\fP"
+Returns a \fBQList\fP object with the data contained in \fIvector\fP\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfromSet()\fP, \fBtoVector()\fP, \fBQVector::toList()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 868 of file qvector\&.h\&.
+.SS "template<typename T> T & \fBQList\fP< T >::front ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBfirst()\fP\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&. 
+.PP
+Definition at line 332 of file qlist\&.h\&.
+.SS "template<typename T> const T & \fBQList\fP< T >::front () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 333 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE int \fBQList\fP< T >::indexOf (const T & value, int from = \fC0\fP) const"
+Returns the index position of the first occurrence of \fIvalue\fP in the list, searching forward from index position \fIfrom\fP\&. Returns -1 if no item matched\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+Note that \fBQList\fP uses 0-based indexes, just like C++ arrays\&. Negative indexes are not supported with the exception of the value mentioned above\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlastIndexOf()\fP, \fBcontains()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 937 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::insert (int i, const T & value)\fC [inline]\fP"
+Inserts \fIvalue\fP at index position \fIi\fP in the list\&. If \fIi\fP is 0, the value is prepended to the list\&. If \fIi\fP is \fBsize()\fP, the value is appended to the list\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBappend()\fP, \fBprepend()\fP, \fBreplace()\fP, \fBremoveAt()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 616 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T >::\fBiterator\fP \fBQList\fP< T >::insert (\fBiterator\fP before, const T & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Inserts \fIvalue\fP in front of the item pointed to by the iterator \fIbefore\fP\&. Returns an iterator pointing at the inserted item\&. Note that the iterator passed to the function will be invalid after the call; the returned iterator should be used instead\&. 
+.PP
+Definition at line 478 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::isDetached () const\fC [inline]\fP"
+
+.PP
+Definition at line 168 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::isEmpty () const\fC [inline]\fP"
+Returns \fCtrue\fP if the list contains no items; otherwise returns false\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBsize()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 182 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::isSharedWith (const \fBQList\fP< T > & other) const\fC [inline]\fP"
+
+.PP
+Definition at line 180 of file qlist\&.h\&.
+.SS "template<typename T> T & \fBQList\fP< T >::last ()\fC [inline]\fP"
+Returns a reference to the last item in the list\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfirst()\fP, \fBisEmpty()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 318 of file qlist\&.h\&.
+.SS "template<typename T> const T & \fBQList\fP< T >::last () const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&. 
+.PP
+Definition at line 319 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE int \fBQList\fP< T >::lastIndexOf (const T & value, int from = \fC\-1\fP) const"
+Returns the index position of the last occurrence of \fIvalue\fP in the list, searching backward from index position \fIfrom\fP\&. If \fIfrom\fP is -1 (the default), the search starts at the last item\&. Returns -1 if no item matched\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+Note that \fBQList\fP uses 0-based indexes, just like C++ arrays\&. Negative indexes are not supported with the exception of the value mentioned above\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBindexOf()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 952 of file qlist\&.h\&.
+.SS "template<typename T> int \fBQList\fP< T >::length () const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.5
+.RE
+.PP
+This function is identical to \fBcount()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBcount()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file qlist\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE \fBQList\fP< T > \fBQList\fP< T >::mid (int pos, int length = \fC\-1\fP) const"
+Returns a sub-list which includes elements from this list, starting at position \fIpos\fP\&. If \fIlength\fP is -1 (the default), all elements from \fIpos\fP are included; otherwise \fIlength\fP elements (or all remaining elements if there are less than \fIlength\fP elements) are included\&. 
+.PP
+Definition at line 676 of file qlist\&.h\&.
+.SS "template<typename T > void \fBQList\fP< T >::move (int from, int to)\fC [inline]\fP"
+Moves the item at index position \fIfrom\fP to index position \fIto\fP\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This is the same as insert(\fI\fP{to}, takeAt(\fI\fP{from}))\&.This function assumes that both \fIfrom\fP and \fIto\fP are at least 0 but less than \fBsize()\fP\&. To avoid failure, test that both \fIfrom\fP and \fIto\fP are at least 0 and less than \fBsize()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBswap()\fP, \fBinsert()\fP, \fBtakeAt()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 667 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::operator!= (const \fBQList\fP< T > & other) const\fC [inline]\fP"
+Returns \fCtrue\fP if \fIother\fP is not equal to this list; otherwise returns \fCfalse\fP\&.
+.PP
+Two lists are considered equal if they contain the same values in the same order\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator==()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 155 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T > \fBQList\fP< T >::operator+ (const \fBQList\fP< T > & other) const\fC [inline]\fP"
+Returns a list that contains all the items in this list followed by all the items in the \fIother\fP list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 350 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE \fBQList\fP< T > & \fBQList\fP< T >::operator+= (const \fBQList\fP< T > & other)"
+Appends the items of the \fIother\fP list to this list and returns a reference to this list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+()\fP, \fBappend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 908 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::operator+= (const T & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Appends \fIvalue\fP to the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBappend()\fP, \fBoperator<<()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 352 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::operator<< (const T & value)\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Appends \fIvalue\fP to the list\&. 
+.PP
+Definition at line 354 of file qlist\&.h\&.
+.SS "template<typename T> \fBQList\fP< T > & \fBQList\fP< T >::operator<< (const \fBQList\fP< T > & other)\fC [inline]\fP"
+Appends the items of the \fIother\fP list to this list and returns a reference to this list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator+=()\fP, \fBappend()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 356 of file qlist\&.h\&.
+.SS "template<typename T> Q_INLINE_TEMPLATE \fBQList\fP< T > & \fBQList\fP< T >::operator= (const \fBQList\fP< T > & other)"
+Assigns \fIother\fP to this list and returns a reference to this list\&.
+.PP
+Move-assigns \fIother\fP to this \fBQList\fP instance\&.
+.PP
+\fBSince:\fP
+.RS 4
+5\&.2 
+.RE
+.PP
+
+.PP
+Definition at line 469 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE bool \fBQList\fP< T >::operator== (const \fBQList\fP< T > & other) const"
+Returns \fCtrue\fP if \fIother\fP is equal to this list; otherwise returns false\&.
+.PP
+Two lists are considered equal if they contain the same values in the same order\&.
+.PP
+This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator!=()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 800 of file qlist\&.h\&.
+.SS "template<typename T > const T & \fBQList\fP< T >::operator[] (int i) const\fC [inline]\fP"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+Same as \fBat()\fP\&. This function runs in {constant time}\&. 
+.PP
+Definition at line 513 of file qlist\&.h\&.
+.SS "template<typename T > T & \fBQList\fP< T >::operator[] (int i)\fC [inline]\fP"
+Returns the item at index position \fIi\fP as a modifiable reference\&. \fIi\fP must be a valid index position in the list (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+If this function is called on a list that is currently being shared, it will trigger a copy of all elements\&. Otherwise, this function runs in {constant time}\&. If you do not want to modify the list you should use \fBQList::at()\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBat()\fP, \fBvalue()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 517 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::pop_back ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBremoveLast()\fP\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&. 
+.PP
+Definition at line 337 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::pop_front ()\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to \fBremoveFirst()\fP\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&. 
+.PP
+Definition at line 336 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::prepend (const T & value)\fC [inline]\fP"
+Inserts \fIvalue\fP at the beginning of the list\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This is the same as list\&.insert(0, \fIvalue\fP)\&.
+.PP
+If this list is not shared, this operation is typically very fast (amortized {constant time}), because \fBQList\fP preallocates extra space on both sides of its internal buffer to allow for fast growth at both ends of the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBappend()\fP, \fBinsert()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 582 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::push_back (const T & value)\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to {\fBQList::append()\fP}{append(\fIvalue\fP)}\&. 
+.PP
+Definition at line 330 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::push_front (const T & value)\fC [inline]\fP"
+This function is provided for STL compatibility\&. It is equivalent to {\fBQList::prepend()\fP}{prepend(\fIvalue\fP)}\&. 
+.PP
+Definition at line 331 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE int \fBQList\fP< T >::removeAll (const T & value)"
+Removes all occurrences of \fIvalue\fP in the list and returns the number of entries removed\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveOne()\fP, \fBremoveAt()\fP, \fBtakeAt()\fP, \fBreplace()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 847 of file qlist\&.h\&.
+.SS "template<typename T > void \fBQList\fP< T >::removeAt (int i)\fC [inline]\fP"
+Removes the item at index position \fIi\fP\&. \fIi\fP must be a valid index position in the list (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtakeAt()\fP, \fBremoveFirst()\fP, \fBremoveLast()\fP, \fBremoveOne()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 521 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::removeFirst ()\fC [inline]\fP"
+Removes the first item in the list\&. Calling this function is equivalent to calling removeAt(0)\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveAt()\fP, \fBtakeFirst()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::removeLast ()\fC [inline]\fP"
+Removes the last item in the list\&. Calling this function is equivalent to calling removeAt(\fBsize()\fP - 1)\&. The list must not be empty\&. If the list can be empty, call \fBisEmpty()\fP before calling this function\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveAt()\fP, \fBtakeLast()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 321 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE bool \fBQList\fP< T >::removeOne (const T & value)"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.4
+.RE
+.PP
+Removes the first occurrence of \fIvalue\fP in the list and returns true on success; otherwise returns \fCfalse\fP\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ This function requires the value type to have an implementation of \fC\fBoperator==()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveAll()\fP, \fBremoveAt()\fP, \fBtakeAt()\fP, \fBreplace()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 873 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::replace (int i, const T & value)\fC [inline]\fP"
+Replaces the item at index position \fIi\fP with \fIvalue\fP\&. \fIi\fP must be a valid index position in the list (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBoperator[]()\fP, \fBremoveAt()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 650 of file qlist\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE void \fBQList\fP< T >::reserve (int alloc)"
+Reserve space for \fIalloc\fP elements\&.
+.PP
+If \fIalloc\fP is smaller than the current size of the list, nothing will happen\&.
+.PP
+Use this function to avoid repetetive reallocation of \fBQList\fP's internal data if you can predict how many elements will be appended\&. Note that the reservation applies only to the internal pointer array\&.
+.PP
+\fBSince:\fP
+.RS 4
+4\&.7 
+.RE
+.PP
+
+.PP
+Definition at line 537 of file qlist\&.h\&.
+.SS "template<typename T> int \fBQList\fP< T >::size () const\fC [inline]\fP"
+Returns the number of items in the list\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisEmpty()\fP, \fBcount()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 157 of file qlist\&.h\&.
+.SS "template<typename T> bool \fBQList\fP< T >::startsWith (const T & value) const\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.5
+.RE
+.PP
+Returns \fCtrue\fP if this list is not empty and its first item is equal to \fIvalue\fP; otherwise returns \fCfalse\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBisEmpty()\fP, \fBcontains()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 322 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::swap (\fBQList\fP< T > & other)\fC [inline]\fP"
+
+.PP
+\fBSince:\fP
+.RS 4
+4\&.8
+.RE
+.PP
+Swaps list \fIother\fP with this list\&. This operation is very fast and never fails\&. 
+.PP
+Definition at line 148 of file qlist\&.h\&.
+.SS "template<typename T> void \fBQList\fP< T >::swap (int i, int j)\fC [inline]\fP"
+Exchange the item at index position \fIi\fP with the item at index position \fIj\fP\&. This function assumes that both \fIi\fP and \fIj\fP are at least 0 but less than \fBsize()\fP\&. To avoid failure, test that both \fIi\fP and \fIj\fP are at least 0 and less than \fBsize()\fP\&.
+.PP
+Example: 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBmove()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 658 of file qlist\&.h\&.
+.SS "template<typename T > T \fBQList\fP< T >::takeAt (int i)\fC [inline]\fP"
+Removes the item at index position \fIi\fP and returns it\&. \fIi\fP must be a valid index position in the list (i\&.e\&., 0 <= \fIi\fP < \fBsize()\fP)\&.
+.PP
+If you don't use the return value, \fBremoveAt()\fP is more efficient\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBremoveAt()\fP, \fBtakeFirst()\fP, \fBtakeLast()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 525 of file qlist\&.h\&.
+.SS "template<typename T > T \fBQList\fP< T >::takeFirst ()\fC [inline]\fP"
+Removes the first item in the list and returns it\&. This is the same as takeAt(0)\&. This function assumes the list is not empty\&. To avoid failure, call \fBisEmpty()\fP before calling this function\&.
+.PP
+If this list is not shared, this operation takes {constant time}\&.
+.PP
+If you don't use the return value, \fBremoveFirst()\fP is more efficient\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtakeLast()\fP, \fBtakeAt()\fP, \fBremoveFirst()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 530 of file qlist\&.h\&.
+.SS "template<typename T > T \fBQList\fP< T >::takeLast ()\fC [inline]\fP"
+Removes the last item in the list and returns it\&. This is the same as takeAt(\fBsize()\fP - 1)\&. This function assumes the list is not empty\&. To avoid failure, call \fBisEmpty()\fP before calling this function\&.
+.PP
+If this list is not shared, this operation takes {constant time}\&.
+.PP
+If you don't use the return value, \fBremoveLast()\fP is more efficient\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtakeFirst()\fP, \fBtakeAt()\fP, \fBremoveLast()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 533 of file qlist\&.h\&.
+.SS "template<typename T> \fBQSet\fP< T > \fBQList\fP< T >::toSet () const"
+Returns a \fBQSet\fP object with the data contained in this \fBQList\fP\&. Since \fBQSet\fP doesn't allow duplicates, the resulting \fBQSet\fP might be smaller than the original list was\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtoVector()\fP, \fBfromSet()\fP, QSet::fromList() 
+.RE
+.PP
+
+.SS "template<typename T> std::list< T > \fBQList\fP< T >::toStdList () const\fC [inline]\fP"
+Returns a std::list object with the data contained in this \fBQList\fP\&. Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBfromStdList()\fP, \fBQVector::toStdVector()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 367 of file qlist\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE \fBQVector\fP< T > \fBQList\fP< T >::toVector () const"
+Returns a \fBQVector\fP object with the data contained in this \fBQList\fP\&.
+.PP
+Example:
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBtoSet()\fP, \fBfromVector()\fP, \fBQVector::fromList()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 853 of file qvector\&.h\&.
+.SS "template<typename T > Q_OUTOFLINE_TEMPLATE T \fBQList\fP< T >::value (int i) const"
+Returns the value at index position \fIi\fP in the list\&.
+.PP
+If the index \fIi\fP is out of bounds, the function returns a {default-constructed value}\&. If you are certain that the index is going to be within bounds, you can use \fBat()\fP instead, which is slightly faster\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBat()\fP, \fBoperator[]()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 707 of file qlist\&.h\&.
+.SS "template<typename T> Q_OUTOFLINE_TEMPLATE T \fBQList\fP< T >::value (int i, const T & defaultValue) const"
+This is an overloaded member function, provided for convenience\&. It differs from the above function only in what argument(s) it accepts\&.
+.PP
+If the index \fIi\fP is out of bounds, the function returns \fIdefaultValue\fP\&. 
+.PP
+Definition at line 716 of file qlist\&.h\&.
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<typename T> friend class \fBconst_iterator\fP\fC [friend]\fP"
+
+.PP
+Definition at line 296 of file qlist\&.h\&.
+.SS "template<typename T> friend class \fBiterator\fP\fC [friend]\fP"
+
+.PP
+Definition at line 257 of file qlist\&.h\&.
+.SS "template<typename T> QDataStream & operator<< (QDataStream & out, const \fBQList\fP< T > & list)\fC [related]\fP"
+Writes the list \fIlist\fP to stream \fIout\fP\&.
+.PP
+This function requires the value type to implement \fC\fBoperator<<()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+{Serializing Qt Data Types}{Format of the QDataStream operators} 
+.RE
+.PP
+
+.SS "template<typename T> QDataStream & operator>> (QDataStream & in, \fBQList\fP< T > & list)\fC [related]\fP"
+Reads a list from stream \fIin\fP into \fIlist\fP\&.
+.PP
+This function requires the value type to implement \fC\fBoperator>>()\fP\fP\&.
+.PP
+\fBSee also:\fP
+.RS 4
+{Serializing Qt Data Types}{Format of the QDataStream operators} 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T> \fBQListData::Data\fP* \fBQList\fP< T >::d"
+
+.PP
+Definition at line 136 of file qlist\&.h\&.
+.SS "template<typename T> \fBQListData\fP \fBQList\fP< T >::p"
+
+.PP
+Definition at line 136 of file qlist\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Baseball Fantasy Vacation Documentation from the source code\&.
