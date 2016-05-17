@@ -3,6 +3,7 @@
 #include "QMovie"
 #include "QDebug"
 #include "QString"
+#include "QMediaPlayer"
 
 HomePage::HomePage(QWidget *parent) :
     QWidget(parent),
@@ -14,6 +15,13 @@ HomePage::HomePage(QWidget *parent) :
     QMovie *splashImg = new QMovie(":/icons/resources_icons/ProjectLogo_LoopOnce.gif");
     ui->label->setMovie(splashImg);
     ui->label->setFixedSize(900,450);
+
+    QMediaPlayer *player = new QMediaPlayer;
+    player->setMedia(QUrl("qrc:/audio/resources_icons/ProjectLogoSound.mp3"));
+    player->setVolume(100);
+    player->setPlaybackRate(0.85);
+    player->play();
+
 
     //Connect the signal on every frame change to check for last frame since it loops infinitely
     connect(splashImg, SIGNAL(finished()), this, SLOT(EmitFinished()));

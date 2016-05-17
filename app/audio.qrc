@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/audio">
+        <file>resources_icons/ProjectLogoSound.mp3</file>
+    </qresource>
+</RCC>

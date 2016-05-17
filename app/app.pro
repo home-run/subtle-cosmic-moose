@@ -1,6 +1,6 @@
 include(../defaults.pri)
 
-QT       += core gui sql
+QT       += core gui sql multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,4 +14,5 @@ LIBS += -L../src -lsubtle-cosmic-moose
 
 RESOURCES += \
     stylesheets.qrc \
-    icon_resources.qrc
+    icon_resources.qrc \
+    audio.qrc
