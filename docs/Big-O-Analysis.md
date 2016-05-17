@@ -191,7 +191,7 @@ Checking every edge that is adjacent to the current edge and to see if it has al
 
 ### Heap
 
-Heap worst case,best case and average case are O(nlogn)
-The buildMaxHeap() operation is run once, and is O(n) in performance. The bubbleDown() function is O(log(n)), and is called n times. Therefore, the performance of this algorithm is O(n + n * log(n)) which evaluates to O(n log n).
-Also, the bubbleDown version of heapify has O(n) time complexity, while the bubbleUp version given below has O(n log n) time complexity due to its equivalence with inserting each element, one at a time, into an empty heap.
+Heap worst case,best case and average case are __O(nlogn)__
+The buildMaxHeap() operation is run once, and is __O(n)__ in performance. The bubbleDown() function is __O(log(n))__, and is called __n__ times. Therefore, the performance of this algorithm is __O(n + n * log(n))__ which evaluates to __O(n log n)__.
+Also, the bubbleDown version of heapify has __O(n)__ time complexity, while the bubbleUp version given below has __O(n log n)__ time complexity due to its equivalence with inserting each element, one at a time, into an empty heap.
 
